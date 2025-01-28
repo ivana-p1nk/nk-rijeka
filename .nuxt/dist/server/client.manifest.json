@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "D:/Radovi/rijeka-newshop/nk-rijeka-shop/node_modules/nuxt/dist/app/entry.js": {
+  "C:/Users/Ivana Cetina/nk-rijeka/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "D:/Radovi/rijeka-newshop/nk-rijeka-shop/node_modules/nuxt/dist/app/entry.js"
+    "file": "C:/Users/Ivana Cetina/nk-rijeka/node_modules/nuxt/dist/app/entry.js"
   }
 }
