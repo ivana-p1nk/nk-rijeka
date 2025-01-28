@@ -7,7 +7,7 @@
     
   <p class="text-3xl">test</p>
   </div>
-  <div class="bg-custom-pink text-white p-4">
+  <div class="p-4 text-white bg-custom-pink">
     Ovo je sadržaj s pozadinskom bojom rgb(242, 95, 165).
   </div>
 
