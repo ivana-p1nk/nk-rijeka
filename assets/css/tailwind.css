@@ -2,68 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/*Headings font: Saira Condensed*/
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Thin.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
 }
   
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-ExtraLight.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Light.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
   
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Regular.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Medium.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
   
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-SemiBold.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Bold.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
   
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-ExtraBold.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Saira Condensed';
-    src: url('/assets/fonts/SairaCondensed-Black.ttf') format('truetype');
+    src: url('/assets/fonts/SairaCondensed/SairaCondensed-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
 }
+
+
+
+/*Headings font: Body font: Roboto Condensedd*/
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+
 
 
