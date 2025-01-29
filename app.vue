@@ -1,6 +1,8 @@
 
 <template>
-
+<h1 class="font-saira font-bold text-h1-display">
+  TEST NETLIFY
+</h1>
 <h1 class="font-saira font-black text-xl underline">Headings font: Saira Condensed</h1>
 <br>
 <h1 class="font-saira font-bold text-h1-display">
