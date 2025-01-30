@@ -1,18 +1,19 @@
 <template>
     <div>
-        <header>
-            <nav>
-                <ul class="list-disc pl-5">
-                    <li><NuxtLink to="/" class="text-blue-700 underline" >HOME</NuxtLink></li>
-                    <li><NuxtLink to="/about" class="text-blue-700 underline" >ABOUT</NuxtLink></li>
-                    <li><NuxtLink to="/theme-config" class="text-blue-700 underline">THEME CONFIG</NuxtLink></li>
-                    <li><NuxtLink to="/products" class="text-blue-700 underline">PRODUCTS</NuxtLink></li>
+        <header class="shadow-sm bg-white">
+            <nav class="container mx-auto p-4 flex justify-between">
+                <NuxtLink to="/" class="font-saira font-bold">Logo</NuxtLink>
+                <ul class="flex gap-4">
+                    <li><NuxtLink to="/">HOME</NuxtLink></li>
+                    <li><NuxtLink to="/about" >ABOUT</NuxtLink></li>
+                    <li><NuxtLink to="/theme-config">THEME CONFIG</NuxtLink></li>
+                    <li><NuxtLink to="/products" class="btn">PRODUCTS</NuxtLink></li>
                 </ul>
             </nav>
         </header>
 
         <!-- output page content -->
-         <div>
+         <div class="container mx-auto p-4">
             <slot />
          </div>
     </div>

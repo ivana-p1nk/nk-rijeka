@@ -1,6 +1,6 @@
 
 <template>
-    <div class="p-10">
+    <div>
     <h1 class="font-saira font-black text-xl underline">Headings font: Saira Condensed</h1>
     <br>
     <h1 class="font-saira font-bold text-h1-display">
