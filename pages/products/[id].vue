@@ -1,5 +1,13 @@
 <template>
     <div>
+        <!--adding custom page meta (second way)-->
+        <Head>
+            <Title>
+                NK Rijeka | {{ product.title }}
+            </Title>
+            <Meta name="description" :content="product.description" />
+        </Head>
+
         <ProductDetails :product="product"/>
     </div>
 </template>

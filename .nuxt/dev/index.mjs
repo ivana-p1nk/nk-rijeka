@@ -180,7 +180,7 @@ const _lvLos3lLOa = (function(nitro) {
 
 const rootDir = "C:/Users/Ivana Cetina/nk-rijeka";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Test"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/icon?family=Material+Icons"}],"style":[],"script":[],"noscript":[],"title":"NK Rijeka"};
 
 const appRootTag = "div";
 

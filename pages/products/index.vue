@@ -18,6 +18,15 @@
     // fetch products
     const { data: products } = await useFetch('https://fakestoreapi.com/products')
 
+    useHead({  //adding custom page meta (first way)
+      title: 'NK Rijeka | Products',
+      meta:[
+        {name:'description', content: 'All products'}
+      ],
+    })
+
+
+
 
   </script>
   
