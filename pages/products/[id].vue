@@ -11,6 +11,11 @@
     //fetch the product
     const { data: product } = await useFetch(uri, { key: id }) //Since useFetch now uses uri as the key, the extra key: id is no longer needed.
 
+
+    if(!product.value){
+        throw createError({ statusCode: 404, statusMessage: 'Product not found', fatal: true })
+    }
+
     definePageMeta({
         layout: 'products'
     })

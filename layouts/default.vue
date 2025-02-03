@@ -8,6 +8,7 @@
                     <li><NuxtLink to="/about" >ABOUT</NuxtLink></li>
                     <li><NuxtLink to="/theme-config">THEME CONFIG</NuxtLink></li>
                     <li><NuxtLink to="/products" class="btn">PRODUCTS</NuxtLink></li>
+                    
                 </ul>
             </nav>
         </header>
