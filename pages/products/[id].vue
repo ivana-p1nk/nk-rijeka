@@ -1,14 +1,17 @@
 <template>
     <div>
-        <p> Product details for {{id}}</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Dicta quis tempore voluptatem maiores, in possimus odit mollitia quas doloremque,
-        est voluptatum eveniet unde. Repellat et placeat unde quisquam architecto distinctio!</p>
+        <p>{{ product.title }} </p>
+        <p>{{  product.price }}</p>
+        <p>{{ product.id }}</p>
     </div>
 </template>
 
 <script setup>
     const { id } = useRoute().params
+    const uri = 'https://fakestoreapi.com/products/' + id
+
+    //fetch the product
+    const { data: product } = await useFetch(uri, { key: id }) //Since useFetch now uses uri as the key, the extra key: id is no longer needed.
 
     definePageMeta({
         layout: 'products'
