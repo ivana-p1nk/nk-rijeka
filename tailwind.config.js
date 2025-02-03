@@ -7,7 +7,7 @@ module.exports = {
     extend: {
         fontFamily:   {
             saira: ['"Saira Condensed"', 'sans-serif'],
-            roboto: ['"Roboto Condensed"', 'sans-serif'],
+            roboto: ['Roboto Condensed', 'sans-serif'],
           },
           fontSize: {
             'h1-display': ['clamp(48px, 5vw, 96px)', { lineHeight: 'clamp(48px, 5vw, 96px)' }],  // font size, line height
@@ -23,8 +23,7 @@ module.exports = {
             'body3': ['14px', '19.6px'],
             'body4': ['12px', '16.8px'],
             'label1': ['14px', '14px'],
-            'label2': ['14px', '14px'],
-            'label2': ['12px', '14px'], 
+            'label2': ['12px', '14px'],
             'button1': ['15px', '1.2'], //120% = 1.2
             'button2': ['14px', '1.2'],
             'button3': ['13px', '1.2'],
