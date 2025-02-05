@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         {name: 'description', content: 'Test'} //meta name and meta content
       ],
       link: [
-        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'} //link tag for icons
+        {rel: 'stylesheet', href: 'assets/icomoon/style.css'} //link tag for icons
       ]
     }
   }

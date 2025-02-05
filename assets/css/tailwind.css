@@ -144,8 +144,93 @@ body {
     .btn {
         @apply bg-blue-200 text-white px-3 py-2 rounded-md text-sm font-roboto text-white;
     }
-
     .card { @apply p-3 rounded-md bg-white shadow-md h-full;}
+
+
+    @font-face {
+        font-family: 'icomoon';
+        src: url('assets/icomoon/fonts/icomoon.woff2') format('woff2'),
+             url('assets/icomoon/fonts/icomoon.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+
+/* BUTTONS*/
+
+    .xl {@apply px-6 py-4 text-button1;}
+    .large {@apply px-5 py-3 text-button1;}
+    .medium {@apply px-5 py-[10px] text-button2;}
+    .small {@apply px-3 py-2 text-button2;}
+    .xs {@apply px-3 py-2 text-button3;}
+
+    /**/
+    .btn-primary {
+        @apply font-roboto bg-blue-600 font-bold text-white rounded-[6px];
+        transition: background-color 0.5s  ease-in-out; 
+    }
+
+    .btn-primary:hover {
+        @apply bg-blue-700; 
+    }
+
+    .btn-primary:focus {
+        @apply bg-blue-800; 
+    }
+
+    .btn-primary:disabled {
+        @apply bg-blue-100 cursor-not-allowed pointer-events-none;
+    }
+
+    /**/
+    .btn-secondary {
+        @apply font-roboto bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
+        transition: background-color 0.5s ease-in-out, color 0.5s  ease-in-out, border-color 0.8s  ease-in-out;
+    }
+      
+    .btn-secondary:hover {
+        @apply bg-blue-50; 
+    }
+
+    .btn-secondary:focus {
+        @apply bg-blue-800 border-blue-800 text-white; 
+    }
+
+    .btn-secondary:disabled {
+        @apply cursor-not-allowed pointer-events-none text-white bg-blue-100 border-blue-100;
+    }
+
+    .btn-secondary-focus {
+        @apply font-roboto font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
+    }
+
+    /**/
+    .btn-text {
+        @apply font-roboto font-bold text-blue-300 py-[4px] px-[8px] border-[2px] rounded-[8px] border-solid border-transparent;
+        transition: color 0.5s  ease-in-out, border-color 0.5s  ease-in-out;
+    }
+    
+      
+    .btn-text:hover {
+        @apply text-blue-700; 
+    }
+
+    .btn-text:focus {
+        @apply text-blue-300 border-blue-500 rounded-[8px]; 
+
+    }
+
+    .btn-text:disabled {
+        @apply cursor-not-allowed pointer-events-none text-blue-100 ;
+    }
+
+    .btn-text-focus {
+        @apply  text-blue-300 border-[2px] border-solid border-blue-500 rounded-[8px] font-roboto font-bold py-[4px] px-[8px]; 
+    }
+    
 }
+
+
 
 

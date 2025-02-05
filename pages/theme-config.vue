@@ -226,12 +226,126 @@
     <p class="font-roboto font-extrabold w-48 flex items-center">DARK BLUE GRADIENT</p>
     <div class="w-80 h-10 bg-dark-blue-gradient"></div> 
     </div>
-    
-    
+
     <br><br>
+
+    <!-- Div za buttone -->
+    <h1 class="font-saira font-black text-xl underline">Buttons</h1>
+    <br>
+
+
+
+        <p class="font-roboto font-extrabold">DEFAULT</p>
+        <button class="btn-primary xl mr-2">BTN TEXT 1</button>
+        <button class="btn-primary large mr-2">BTN TEXT 1</button>
+        <button class="btn-primary medium mr-2">BTN TEXT 1</button>
+        <button class="btn-primary small mr-2">BTN TEXT 1</button>
+        <button class="btn-primary xs mr-2">BTN TEXT 1</button>
+        <br><br>
+
+
+        <p class="font-roboto font-extrabold">HOVER</p>
+        <button class="btn-primary xl bg-blue-700 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary large bg-blue-700 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary medium bg-blue-700 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary small bg-blue-700 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary xs bg-blue-700">BTN TEXT 1</button>
+        <br><br>
+
+
+        <p class="font-roboto font-extrabold">FOCUS</p>
+        <button class="btn-primary xl bg-blue-800 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary large bg-blue-800 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary medium bg-blue-800 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary small bg-blue-800 mr-2">BTN TEXT 1</button>
+        <button class="btn-primary xs bg-blue-800">BTN TEXT 1</button>
+        <br><br>
+
+        <p class="font-roboto font-extrabold">DISABLED</p>
+        <button class="btn-primary xl mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-primary large mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-primary medium mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-primary small mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-primary xs mr-2" disabled>BTN TEXT 1</button>
+        <br><br>
+
+        <div class="border-t border-gray-300 my-4"></div>
+
+        <p class="font-roboto font-extrabold">DEFAULT</p>
+        <button class="btn-secondary xl mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary large mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary medium mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary small mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary xs mr-2">BTN TEXT 1</button>
+        <br><br>
+
+
+        <p class="font-roboto font-extrabold">HOVER</p>
+        <button class="btn-secondary xl bg-blue-50 mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary large bg-blue-50 mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary medium bg-blue-50 mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary small bg-blue-50 mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary xs bg-blue-50">BTN TEXT 1</button>
+        <br><br>
+
+        <p class="font-roboto font-extrabold">FOCUS</p>
+        <button class="btn-secondary-focus xl mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary-focus large mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary-focus medium mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary-focus small mr-2">BTN TEXT 1</button>
+        <button class="btn-secondary-focus xs">BTN TEXT 1</button>
+        <br><br>
+
+        <p class="font-roboto font-extrabold">DISABLED</p>
+        <button class="btn-secondary xl mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-secondary large mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-secondary medium mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-secondary small mr-2" disabled>BTN TEXT 1</button>
+        <button class="btn-secondary xs" disabled>BTN TEXT 1</button>
+        <br><br>
+
+        <div class="border-t border-gray-300 my-4"></div>
+
+        <p class="font-roboto font-extrabold">DEFAULT</p>
+        <button class="btn-text text-button1 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button1 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button2 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button2 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button3 mr-4">BTN TEXT 1</button>
+        <br><br>
+
+
+        <p class="font-roboto font-extrabold">HOVER</p>
+        <button class="btn-text text-button1 text-blue-700 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button1 text-blue-700 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button2 text-blue-700 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button2 text-blue-700 mr-4">BTN TEXT 1</button>
+        <button class="btn-text text-button3 text-blue-700">BTN TEXT 1</button>
+        <br><br>
+
+        <p class="font-roboto font-extrabold">FOCUS</p>
+        <button class="btn-text-focus text-button1 mr-4">BTN TEXT 1</button>
+        <button class="btn-text-focus text-button1 mr-4">BTN TEXT 1</button>
+        <button class="btn-text-focus text-button2 mr-4">BTN TEXT 1</button>
+        <button class="btn-text-focus text-button2 mr-4">BTN TEXT 1</button>
+        <button class="btn-text-focus text-button3">BTN TEXT 1</button>
+        <br><br>
+
+        <p class="font-roboto font-extrabold">DISABLED</p>
+        <button class="btn-text text-button1 mr-4" disabled>BTN TEXT 1</button>
+        <button class="btn-text text-button1 mr-4" disabled>BTN TEXT 1</button>
+        <button class="btn-text text-button2 mr-4" disabled>BTN TEXT 1</button>
+        <button class="btn-text text-button2 mr-4" disabled>BTN TEXT 1</button>
+        <button class="btn-text text-button3" disabled>BTN TEXT 1</button>
+        <br><br>
+  
+    <br> <h1 style="font-size:4rem"><span class="icon-activity"></span></h1>
+   <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+  
+
+
     
     
-    
-    
+   
    </div> 
     </template>
