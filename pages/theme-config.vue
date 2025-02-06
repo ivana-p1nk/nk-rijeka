@@ -1,4 +1,3 @@
-
 <template>
     <div>
     <h1 class="font-saira font-black text-xl underline">Headings font: Saira Condensed</h1>
@@ -338,14 +337,58 @@
         <button class="btn-text text-button2 mr-4" disabled>BTN TEXT 1</button>
         <button class="btn-text text-button3" disabled>BTN TEXT 1</button>
         <br><br>
-  
-    <br> <h1 style="font-size:4rem"><span class="icon-activity"></span></h1>
+
+
+        <div class="border-t border-gray-300 my-4"></div>
+
+        <button class="btn-icon-primary circle-xl">
+          <Icon name="streamline:pencil" class="icon-xl text-white" />
+        </button> 
+        <br>
+        <button class="btn-icon-primary circle-large">
+          <Icon name="streamline:pencil" class="icon-large text-white" />
+        </button> 
+        <br>
+        <button class="btn-icon-primary circle-medium">
+          <Icon name="streamline:pencil" class="icon-medium text-white" />
+        </button> 
+        <br>
+        <button class="btn-icon-primary circle-small">
+          <Icon name="streamline:pencil" class="icon-small text-white" />
+        </button> 
+        <br>
+        <button class="btn-icon-primary circle-xs">
+          <Icon name="streamline:pencil" class="icon-xs text-white" />
+        </button> 
+        <br>
+
+        <br><br>
+        <button class="btn-icon-secondary circle-xl">
+          <Icon name="streamline:pencil" class="icon-xl text-gray-900" />
+        </button> 
+        <br>
+        <button class="btn-icon-secondary circle-large">
+          <Icon name="streamline:pencil" class="icon-large text-gray-900" />
+        </button> 
+        <br>
+        <button class="btn-icon-secondary circle-medium">
+          <Icon name="streamline:pencil" class="icon-medium text-gray-900" />
+        </button> 
+        <br>
+        <button class="btn-icon-secondary circle-small">
+          <Icon name="streamline:pencil" class="icon-small text-gray-900" />
+        </button> 
+        <br>
+        <button class="btn-icon-secondary circle-xs">
+          <Icon name="streamline:pencil" class="icon-xs text-gray-900" />
+        </button> 
+        <br>
+
+
+
+
+
+
    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
-  
-
-
-    
-    
-   
    </div> 
     </template>
