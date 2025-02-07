@@ -317,12 +317,22 @@ body {
 
 
   
+.custom-blue {color:#3F819E;}
+
+.circle-footer{
+    @apply bg-blue-50 w-9 h-9 rounded-full flex items-center justify-center;
+}
+
+.footer-title{
+    @apply font-saira font-bold text-blue-200 uppercase text-h6-normal mb-5;
+}
+
+.footer-text{
+    @apply font-roboto font-normal text-white text-body2;
+}
 
 
 
-
-
-    
 }
 
 
