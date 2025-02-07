@@ -339,56 +339,312 @@
         <br><br>
 
 
-        <div class="border-t border-gray-300 my-4"></div>
+        <div class="border-t border-gray-300 my-11"></div>
 
-        <button class="btn-icon-primary circle-xl">
-          <Icon name="streamline:pencil" class="icon-xl text-white" />
-        </button> 
-        <br>
-        <button class="btn-icon-primary circle-large">
-          <Icon name="streamline:pencil" class="icon-large text-white" />
-        </button> 
-        <br>
-        <button class="btn-icon-primary circle-medium">
-          <Icon name="streamline:pencil" class="icon-medium text-white" />
-        </button> 
-        <br>
-        <button class="btn-icon-primary circle-small">
-          <Icon name="streamline:pencil" class="icon-small text-white" />
-        </button> 
-        <br>
-        <button class="btn-icon-primary circle-xs">
-          <Icon name="streamline:pencil" class="icon-xs text-white" />
-        </button> 
-        <br>
+        <div class="grid grid-cols-10 gap-0">
 
-        <br><br>
-        <button class="btn-icon-secondary circle-xl">
-          <Icon name="streamline:pencil" class="icon-xl text-gray-900" />
-        </button> 
-        <br>
-        <button class="btn-icon-secondary circle-large">
-          <Icon name="streamline:pencil" class="icon-large text-gray-900" />
-        </button> 
-        <br>
-        <button class="btn-icon-secondary circle-medium">
-          <Icon name="streamline:pencil" class="icon-medium text-gray-900" />
-        </button> 
-        <br>
-        <button class="btn-icon-secondary circle-small">
-          <Icon name="streamline:pencil" class="icon-small text-gray-900" />
-        </button> 
-        <br>
-        <button class="btn-icon-secondary circle-xs">
-          <Icon name="streamline:pencil" class="icon-xs text-gray-900" />
-        </button> 
-        <br>
+          <div class="flex flex-col gap-4">
+            <button class="btn-icon-primary circle-xl">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary circle-large">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary circle-medium">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary circle-small">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary circle-xs">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <button class="btn-icon-primary circle-xl bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary circle-large bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary circle-medium bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary circle-small bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary circle-xs bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <button class="btn-icon-primary-focus circle-xl">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary-focus circle-large">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary-focus circle-medium">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary-focus circle-small">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary-focus circle-xs">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
 
 
+          <div class="flex flex-col gap-4">
+            <button class="btn-icon-primary circle-xl" disabled>
+              <Icon name="streamline:pencil" class="icon-xl text-white"/>
+            </button>
+            <button class="btn-icon-primary circle-large" disabled>
+              <Icon name="streamline:pencil" class="icon-large text-white"/>
+            </button>
+            <button class="btn-icon-primary circle-medium" disabled>
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary circle-small" disabled>
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary circle-xs" disabled>
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
 
 
+          <div class="flex flex-col gap-5">
+            <button class="btn-icon-primary square-xl">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary square-large">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary square-medium">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary square-small">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary square-xs">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <button class="btn-icon-primary square-xl bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary square-large bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary square-medium bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary square-small bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary square-xs bg-blue-700">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <button class="btn-icon-primary-focus square-xl">
+              <Icon name="streamline:pencil" class="icon-xl text-white" />
+            </button>
+            <button class="btn-icon-primary-focus square-large">
+              <Icon name="streamline:pencil" class="icon-large text-white" />
+            </button>
+            <button class="btn-icon-primary-focus square-medium">
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary-focus square-small">
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary-focus square-xs">
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+
+
+          <div class="flex flex-col gap-5">
+        <button class="btn-icon-primary square-xl" disabled>
+              <Icon name="streamline:pencil" class="icon-xl text-white"/>
+            </button>
+            <button class="btn-icon-primary square-large" disabled>
+              <Icon name="streamline:pencil" class="icon-large text-white"/>
+            </button>
+            <button class="btn-icon-primary square-medium" disabled>
+              <Icon name="streamline:pencil" class="icon-medium text-white" />
+            </button>
+            <button class="btn-icon-primary square-small" disabled>
+              <Icon name="streamline:pencil" class="icon-small text-white" />
+            </button>
+            <button class="btn-icon-primary square-xs" disabled>
+              <Icon name="streamline:pencil" class="icon-xs text-white" />
+            </button>
+          </div>
+      </div>
+
+      <div class="border-t border-gray-300 my-11"></div>
+
+      <div class="grid grid-cols-10 gap-0">
+
+        <div class="flex flex-col gap-4">
+          <button class="btn-icon-secondary circle-xl">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-large">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-medium">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-small">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-xs">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <button class="btn-icon-secondary circle-xl bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-large bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-medium bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-small bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary circle-xs bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <button class="btn-icon-secondary-focus circle-xl">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus circle-large">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus circle-medium">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus circle-small">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus circle-xs">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+
+        <div class="flex flex-col gap-4">
+          <button class="btn-icon-secondary circle-xl" disabled>
+            <Icon name="streamline:pencil" class="icon-xl text-white"/>
+          </button>
+          <button class="btn-icon-secondary circle-large" disabled>
+            <Icon name="streamline:pencil" class="icon-large text-white"/>
+          </button>
+          <button class="btn-icon-secondary circle-medium" disabled>
+            <Icon name="streamline:pencil" class="icon-medium text-white" />
+          </button>
+          <button class="btn-icon-secondary circle-small" disabled>
+            <Icon name="streamline:pencil" class="icon-small text-white" />
+          </button>
+          <button class="btn-icon-secondary circle-xs" disabled>
+            <Icon name="streamline:pencil" class="icon-xs text-white" />
+          </button>
+        </div>
+
+
+        <div class="flex flex-col gap-5">
+          <button class="btn-icon-secondary square-xl">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary square-large">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary square-medium">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary square-small">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary square-xs">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <button class="btn-icon-secondary square-xl bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary square-large bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary square-medium bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary square-small bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary square-xs bg-blue-50">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <button class="btn-icon-secondary-focus square-xl">
+            <Icon name="streamline:pencil" class="icon-xl text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus square-large">
+            <Icon name="streamline:pencil" class="icon-large text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus square-medium">
+            <Icon name="streamline:pencil" class="icon-medium text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus square-small">
+            <Icon name="streamline:pencil" class="icon-small text-black" />
+          </button>
+          <button class="btn-icon-secondary-focus square-xs">
+            <Icon name="streamline:pencil" class="icon-xs text-black" />
+          </button>
+        </div>
+
+
+        <div class="flex flex-col gap-5">
+      <button class="btn-icon-secondary square-xl" disabled>
+            <Icon name="streamline:pencil" class="icon-xl text-white"/>
+          </button>
+          <button class="btn-icon-secondary square-large" disabled>
+            <Icon name="streamline:pencil" class="icon-large text-white"/>
+          </button>
+          <button class="btn-icon-secondary square-medium" disabled>
+            <Icon name="streamline:pencil" class="icon-medium text-white" />
+          </button>
+          <button class="btn-icon-secondary square-small" disabled>
+            <Icon name="streamline:pencil" class="icon-small text-white" />
+          </button>
+          <button class="btn-icon-secondary square-xs" disabled>
+            <Icon name="streamline:pencil" class="icon-xs text-white" />
+          </button>
+        </div>
+      </div>
 
 
    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
    </div> 
     </template>
+

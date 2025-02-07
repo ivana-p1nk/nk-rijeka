@@ -237,9 +237,33 @@ body {
         @apply bg-blue-100 disabled:cursor-not-allowed;
     }
 
+    .btn-icon-primary-focus {
+        @apply flex items-center justify-center bg-blue-600 cursor-pointer bg-blue-300 outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-all duration-300 ease-in-out;;
+        transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
+
+
+
 
     .btn-icon-secondary {
-        @apply flex items-center justify-center bg-white cursor-pointer border-blue-500 border-[1.5px];
+        @apply flex items-center justify-center bg-white cursor-pointer border-blue-500 border-[1px] ;
+        transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
+
+    .btn-icon-secondary:hover {
+        @apply bg-blue-50;
+    }
+      
+    .btn-icon-secondary:focus {
+        @apply bg-white outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-all duration-300 ease-in-out;
+    }
+      
+    .btn-icon-secondary:disabled {
+        @apply bg-blue-100 disabled:cursor-not-allowed border-0;
+    }
+
+    .btn-icon-secondary-focus {
+        @apply flex items-center justify-center bg-white cursor-pointer border-blue-500 border-[1px] outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-all duration-300 ease-in-out;
         transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     }
 
