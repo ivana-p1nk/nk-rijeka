@@ -341,9 +341,20 @@ body {
         left: -220px;
     }
 
+    .frame-p {  @apply pr-5 pl-5;}
 
+
+    .bullet-lista {@apply list-inside list-disc;}
+    .bullet { @apply hover:marker:text-blue-500 transition-colors duration-300;}
+
+    .link { @apply hover:text-blue-500 transition-colors duration-300;}
+    
 }
 
 
+li::marker {
+    color: #000000; 
+    transition: color 0.6s ease;
+  }
 
 

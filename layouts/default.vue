@@ -20,12 +20,8 @@
 
          
 
-         <footer class="mx-auto border-t-2 bg-cover bg-top bg-[linear-gradient(0deg,rgba(0,25,38,1)_30%,rgba(0,25,38,1)_30%,rgba(0,25,38,0)_30%),url(/assets/images/Footer-bg-2.jpg)]">
-
-
-
-
-            
+         <footer class="mx-auto frame-p border-t-2 bg-cover bg-top bg-[linear-gradient(180deg,rgba(0,25,38,0)_30%,rgba(0,25,38,0.4)_60%,rgba(0,25,38,1)_95%),url(/assets/images/Footer-bg-2.jpg)]">
+           
             <div class="pt-32">
 
                 <!--postani član -->

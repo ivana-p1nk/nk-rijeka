@@ -129,6 +129,22 @@
     <h1 class="font-roboto font-extrabold">Extra-Bold naslov (800)</h1>
     <h1 class="font-roboto font-black">Black naslov (900)</h1>
     <br><br>
+
+    <div class="border-t border-gray-300 my-11"></div>
+
+    <ul class="bullet-lista font-roboto font-normal">
+      <li class="bullet">Text 1</li>
+      <li class="bullet">Text 2</li>
+      <li class="bullet">Text 3</li>
+    </ul>
+    
+    <br><br>
+
+    <NuxtLink to="/" class="link font-roboto font-normal">Internal Link</NuxtLink>
+    <br>
+    <a href="/" class="link font-roboto font-normal">External Link</a>
+
+    <div class="border-t border-gray-300 my-11"></div>
     
     <h1 class="font-saira font-black text-xl underline">Colors Shades</h1>
     <br>
@@ -337,7 +353,6 @@
         <button class="btn-text text-button2 mr-4" disabled>BTN TEXT 1</button>
         <button class="btn-text text-button3" disabled>BTN TEXT 1</button>
         <br><br>
-
 
         <div class="border-t border-gray-300 my-11"></div>
 
