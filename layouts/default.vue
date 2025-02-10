@@ -87,22 +87,22 @@
 
                     <div class="w-1/6">
                         <h6 class="footer-title">O nama</h6>
-                        <p class="footer-text mb-4"><NuxtLink to="/kontakt">Kontakt</NuxtLink></p>
-                        <p class="footer-text"><NuxtLink to="/fan-shop">Fan Shop HNK Rijeka</NuxtLink></p>
+                        <p class="footer-text mb-4 link"><NuxtLink to="/kontakt">Kontakt</NuxtLink></p>
+                        <p class="footer-text link"><NuxtLink to="/fan-shop">Fan Shop HNK Rijeka</NuxtLink></p>
                     </div>
 
                     <div class="w-1/6">
                         <h6 class="footer-title">Korisničke usluge</h6>
-                        <p class="footer-text mb-4"><NuxtLink to="/dostava">Dostava unutar RH</NuxtLink></p>
-                        <p class="footer-text"><NuxtLink to="/medunarodna-dostava">Međunarodna dostava</NuxtLink></p>
+                        <p class="footer-text link mb-4"><NuxtLink to="/dostava">Dostava unutar RH</NuxtLink></p>
+                        <p class="footer-text link"><NuxtLink to="/medunarodna-dostava">Međunarodna dostava</NuxtLink></p>
                     </div>
 
                     <div class="w-1/6">
                         <h6 class="footer-title">Uvijeti korištenja</h6>
-                        <p class="footer-text mb-4"><NuxtLink to="/nacin-placanja">Način plaćanja</NuxtLink></p>
-                        <p class="footer-text mb-4"><NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink></p>
-                        <p class="footer-text mb-4"><NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink></p>
-                        <p class="footer-text"><NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink></p>
+                        <p class="footer-text link mb-4"><NuxtLink to="/nacin-placanja">Način plaćanja</NuxtLink></p>
+                        <p class="footer-text link mb-4"><NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink></p>
+                        <p class="footer-text link mb-4"><NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink></p>
+                        <p class="footer-text link"><NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink></p>
                     </div>
 
                     <div class="w-1/6">

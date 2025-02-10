@@ -347,7 +347,7 @@ body {
     .bullet-lista {@apply list-inside list-disc;}
     .bullet { @apply hover:marker:text-blue-500 transition-colors duration-300;}
 
-    .link { @apply hover:text-blue-500 transition-colors duration-300;}
+    .link { @apply hover:text-blue-500 transition-colors duration-700;}
     
 }
 
