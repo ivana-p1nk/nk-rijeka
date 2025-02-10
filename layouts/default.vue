@@ -8,7 +8,6 @@
                     <li><NuxtLink to="/about" >ABOUT</NuxtLink></li>
                     <li><NuxtLink to="/theme-config">THEME CONFIG</NuxtLink></li>
                     <li><NuxtLink to="/products" class="btn">PRODUCTS</NuxtLink></li>
-                    
                 </ul>
             </nav>
         </header>
@@ -20,17 +19,31 @@
 
          
 
-         <footer class="mx-auto border-t-2 bg-blue-300">
+         <footer class="mx-auto border-t-2 bg-cover bg-bottom bg-[url(/assets/images/Footer-bg.jpg)]">
+            
+            <div class="pt-32">
 
-            <div class="">
-
-                <div>
-                <!-- POSTANI ČLAN-->
+                <!--postani član -->
+                <div class="iskaznice relative mx-auto max-w-[830px] p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl">
+                    <div class="grid justify-end grid-cols-[190px_358px_150px] gap-4">
+                        <div class="col-span-1">
+                            <h4 class="font-saira font-semibold text-blue-600 text-h4-normal uppercase mb-2 text-right">Postani član</h4>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <p class="font-roboto font-normal text-body2 text-blue-900">Učlani se u klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode i usluge naših partnera.</p>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <NuxtLink to="/" target="_blank" rel="noopener noreferrer" class="inline-block  btn-secondary large uppercase">Registriraj se</NuxtLink>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                  <img src="/assets/images/Slogan.png">
-                  <a href="https://nk-rijeka.hr/" target="blank" class="font-saira font-semibold text-h4-normal text-blue-100">nk-rijeka.hr</a>
+                <!--slogan -->
+                <div class="flex flex-col content-center justify-center items-center pb-20 pt-28">
+                  <img src="/assets/images/Slogan.png" class="pb-8">
+                  <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer" class="font-saira font-semibold text-h4-normal text-blue-100">nk-rijeka.hr</a>
                 </div>
 
                 <!--footer menu-->
@@ -101,7 +114,7 @@
                 </div>
 
                 <!--cards-->
-                <div class="mx-auto max-w-[825px] grid grid-cols-10 items-center justify-items-center py-14">         
+                <div class="mx-auto max-w-[825px] grid gap-2 grid-cols-10 items-center justify-items-center py-14">         
                     <img src="~/assets/images/logos/mastercard-id.png" alt="Mastercard ID Check Logo"  />
                     <img src="~/assets/images/logos/visa-secure.png" alt="Visa Secure Logo"  />
                     <img src="~/assets/images/logos/american.png" alt=" American express Logo"  />
@@ -116,10 +129,10 @@
 
             </div>
 
-            <div class="mx-auto p-6 flex items-center justify-between border-t-1 border-b-blue-800 bg-blue-800">
+            <div class="mx-auto p-6 flex items-center justify-between border-t border-blue-800">
                 <div class="text-blue-400 text-roboto text-body4 font-normal">Copyright © {{ new Date().getFullYear() }} HNK Rijeka</div>
                 <div class="text-blue-400 text-roboto text-body4 font-normal">Design and development by:  
-                    <a href="https://prospekt.hr" target="_blank" class="text-white font-bold hover:underline">Prospekt</a>
+                    <a href="https://prospekt.hr" target="_blank" rel="noopener noreferrer" class="text-white font-bold hover:underline">Prospekt</a>
                 </div>
             </div>
 
