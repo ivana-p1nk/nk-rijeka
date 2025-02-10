@@ -44,75 +44,50 @@
                 <!--slogan -->
                 <div class="flex flex-col content-center justify-center items-center pb-20 pt-28">
                   <img src="/assets/images/Slogan.png" class="pb-8">
-                  <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer" class="font-saira font-semibold text-h4-normal text-blue-100">nk-rijeka.hr</a>
+                  <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer" class="font-saira font-semibold text-h4-normal text-blue-50">nk-rijeka.hr</a>
                 </div>
 
                 <!--footer menu-->
-                <div class="mx-auto max-w-[1480px] flex gap-3.5">
-                    <div class="w-1/6">
-                        <img src="~/assets/images/hnk-rijeka-grb.svg" alt="HNK Rijeka Grb"  />
-                    </div>
+                <div class="mx-auto max-w-[1480px] grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
 
-                    <div class="w-1/6">
-                        <h6 class="footer-title">Društvene mreže</h6>
-                        <p class="footer-text mb-4">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
-                        <ul class="inline-flex gap-2">
-                            <li>
-                                <a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank">
-                                    <Icon name="brandico:facebook" class="custom-blue" />
-                                </a>
-                            </li>
-                            <li>
-                                <a class="circle-footer" href="https://www.youtube.com/user/hnkrijekasluzbeni" target="_blank">
-                                    <Icon name="mdi:youtube" class="custom-blue" />
-                                </a>
-                            </li>
-                            <li>
-                                <a class="circle-footer" href="https://www.tiktok.com/@hnkrijeka" target="_blank">
-                                    <Icon name="famicons:logo-tiktok" class="custom-blue" />
-                                </a>
-                            </li>
-                            <li>
-                                <a class="circle-footer" href="https://www.instagram.com/nk_rijeka" target="_blank">
-                                    <Icon name="hugeicons:instagram" class="custom-blue" />
-                                </a>
-                            </li>
-                            <li>
-                                <a class="circle-footer" href="https://x.com/nkrijeka?mx=2" target="_blank">
-                                    <Icon name="garden:twitter-stroke-12" class="custom-blue" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="w-1/6">
-                        <h6 class="footer-title">O nama</h6>
-                        <p class="footer-text mb-4 link"><NuxtLink to="/kontakt">Kontakt</NuxtLink></p>
-                        <p class="footer-text link"><NuxtLink to="/fan-shop">Fan Shop HNK Rijeka</NuxtLink></p>
-                    </div>
-
-                    <div class="w-1/6">
-                        <h6 class="footer-title">Korisničke usluge</h6>
-                        <p class="footer-text link mb-4"><NuxtLink to="/dostava">Dostava unutar RH</NuxtLink></p>
-                        <p class="footer-text link"><NuxtLink to="/medunarodna-dostava">Međunarodna dostava</NuxtLink></p>
-                    </div>
-
-                    <div class="w-1/6">
-                        <h6 class="footer-title">Uvijeti korištenja</h6>
-                        <p class="footer-text link mb-4"><NuxtLink to="/nacin-placanja">Način plaćanja</NuxtLink></p>
-                        <p class="footer-text link mb-4"><NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink></p>
-                        <p class="footer-text link mb-4"><NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink></p>
-                        <p class="footer-text link"><NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink></p>
-                    </div>
-
-                    <div class="w-1/6">
-                        <h6 class="footer-title">Newsletter</h6>
-                        <p class="footer-text">Doznaj prvi sve vijesti i promocije u svom inboxu</p>
-                        <!-- newsletter code-->
-                    </div>
+    <div>
+        <img src="~/assets/images/hnk-rijeka-grb.svg" alt="HNK Rijeka Grb" />
+    </div>
+    <div>
+        <h6 class="footer-title">Društvene mreže</h6>
+        <p class="footer-text mb-4">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
+        <ul class="inline-flex gap-2">
+            <li><a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank"><Icon name="brandico:facebook" class="custom-blue" /></a></li>
+            <li><a class="circle-footer" href="https://www.youtube.com/user/hnkrijekasluzbeni" target="_blank"><Icon name="mdi:youtube" class="custom-blue" /></a></li>
+            <li><a class="circle-footer" href="https://www.tiktok.com/@hnkrijeka" target="_blank"><Icon name="famicons:logo-tiktok" class="custom-blue" /></a></li>
+            <li><a class="circle-footer" href="https://www.instagram.com/nk_rijeka" target="_blank"><Icon name="hugeicons:instagram" class="custom-blue" /></a></li>
+            <li><a class="circle-footer" href="https://x.com/nkrijeka?mx=2" target="_blank"><Icon name="garden:twitter-stroke-12" class="custom-blue" /></a></li>
+        </ul>
+    </div>
+    <div>
+        <h6 class="footer-title">O nama</h6>
+        <p class="footer-text mb-4 link"><NuxtLink to="/kontakt">Kontakt</NuxtLink></p>
+        <p class="footer-text link"><NuxtLink to="/fan-shop">Fan Shop HNK Rijeka</NuxtLink></p>
+    </div>
+    <div>
+        <h6 class="footer-title">Korisničke usluge</h6>
+        <p class="footer-text link mb-4"><NuxtLink to="/dostava">Dostava unutar RH</NuxtLink></p>
+        <p class="footer-text link"><NuxtLink to="/medunarodna-dostava">Međunarodna dostava</NuxtLink></p>
+    </div>
+    <div>
+        <h6 class="footer-title">Uvjeti korištenja</h6>
+        <p class="footer-text link mb-4"><NuxtLink to="/nacin-placanja">Način plaćanja</NuxtLink></p>
+        <p class="footer-text link mb-4"><NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink></p>
+        <p class="footer-text link mb-4"><NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink></p>
+        <p class="footer-text link"><NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink></p>
+    </div>
+    <div>
+        <h6 class="footer-title">Newsletter</h6>
+        <p class="footer-text">Doznaj prvi sve vijesti i promocije u svom inboxu</p>
+    </div>
+</div>
 
 
-                </div>
 
                 <!--cards-->
                 <div class="mx-auto max-w-[825px] flex flex-wrap items-center justify-center gap-2 py-14">         
