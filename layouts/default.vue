@@ -12,6 +12,7 @@
             </nav>
         </header>
 
+
         <!-- output page content -->
          <div class="container mx-auto p-4">
             <slot />
@@ -19,7 +20,11 @@
 
          
 
-         <footer class="mx-auto border-t-2 bg-cover bg-bottom bg-[url(/assets/images/Footer-bg.jpg)]">
+         <footer class="mx-auto border-t-2 bg-cover bg-top bg-[linear-gradient(0deg,rgba(0,25,38,1)_30%,rgba(0,25,38,1)_30%,rgba(0,25,38,0)_30%),url(/assets/images/Footer-bg-2.jpg)]">
+
+
+
+
             
             <div class="pt-32">
 
@@ -55,7 +60,7 @@
                     <div class="w-1/6">
                         <h6 class="footer-title">Društvene mreže</h6>
                         <p class="footer-text mb-4">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
-                        <ul class="inline-flex gap-1">
+                        <ul class="inline-flex gap-2">
                             <li>
                                 <a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank">
                                     <Icon name="brandico:facebook" class="custom-blue" />
@@ -114,18 +119,19 @@
                 </div>
 
                 <!--cards-->
-                <div class="mx-auto max-w-[825px] grid gap-2 grid-cols-10 items-center justify-items-center py-14">         
-                    <img src="~/assets/images/logos/mastercard-id.png" alt="Mastercard ID Check Logo"  />
-                    <img src="~/assets/images/logos/visa-secure.png" alt="Visa Secure Logo"  />
-                    <img src="~/assets/images/logos/american.png" alt=" American express Logo"  />
-                    <img src="~/assets/images/logos/diners.png" alt="Diners Club Logo"  />
-                    <img src="~/assets/images/logos/visa.png" alt="Visa Logo"  />
-                    <img src="~/assets/images/logos/mastercard.png" alt="MasterCard Logo"  />
-                    <img src="~/assets/images/logos/maestro.png" alt="Maestro Logo"  />
-                    <img src="~/assets/images/logos/discover.png" alt="Discover Network Logo"  />
-                    <img src="~/assets/images/logos/dina.png" alt="DinaCard Logo"  />
-                    <img src="~/assets/images/logos/wspay.png" alt="WS Pay Logo"  />
+                <div class="mx-auto max-w-[825px] flex flex-wrap items-center justify-center gap-2 py-14">         
+                    <img class="pr-3" src="~/assets/images/logos/mastercard-id.png" alt="Mastercard ID Check Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/visa-secure.png" alt="Visa Secure Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/american.png" alt="American Express Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/diners.png" alt="Diners Club Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/visa.png" alt="Visa Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/mastercard.png" alt="MasterCard Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/maestro.png" alt="Maestro Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/discover.png" alt="Discover Network Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/dina.png" alt="DinaCard Logo" />
+                    <img class="pr-3" src="~/assets/images/logos/wspay.png" alt="WS Pay Logo" />
                 </div>
+
 
             </div>
 
