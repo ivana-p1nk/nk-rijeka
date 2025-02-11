@@ -14,7 +14,7 @@
         </header>
 
 
-        <!-- output page content -->
+        <!-- Page content -->
          <div class="container mx-auto p-4">
             <slot />
          </div>
@@ -26,7 +26,7 @@
             <div class="pt-32">
 
                 <!--postani član -->
-                <div class="iskaznice relative mx-auto max-w-[830px] p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl">
+                <div class="iskaznice relative mx-auto max-w-[830px] p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl  max-xl:max-w-[700px]">
                     <div class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center">
                         <div class="col-span-1">
                             <h4 class="font-saira font-semibold text-blue-600 text-h4-normal uppercase mb-2 text-right max-xl:pt-14">Postani član</h4>
@@ -52,7 +52,6 @@
                 <div class="mx-auto max-w-[1480px] grid grid-cols-1 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-6">
                     <!-- Logo element -->
                     <div class="flex justify-center items-start sm:col-span-full lg:col-span-full 2xl:col-span-1 pb-0 sm:pb-5">
-                        <!-- Ovdje je max-w postavljen da logo uvijek bude iste veličine -->
                         <img class="w-full max-w-[108px]" src="~/assets/images/hnk-rijeka-grb.svg" alt="HNK Rijeka Grb" />
                     </div>
 
