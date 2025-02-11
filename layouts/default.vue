@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-span-1">
-                            <p class="font-roboto font-normal text-body2 text-blue-900">Učlani se u klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode i usluge naših partnera.</p>
+                            <p class="font-roboto font-normal text-body2 text-blue-900 max-xl:text-center">Učlani se u klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode i usluge naših partnera.</p>
                         </div>
                         
                         <div class="col-span-1">
@@ -43,7 +43,7 @@
                 </div>
 
                 <!--slogan -->
-                <div class="flex flex-col content-center justify-center items-center pb-10 pt-28 max-xl:pt-8 sm:pb-20">
+                <div class="flex flex-col content-center justify-center items-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
                   <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8">
                   <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer" class="font-saira font-semibold text-h4-normal text-blue-50">nk-rijeka.hr</a>
                 </div>
@@ -90,7 +90,7 @@
                     </div>
 
                     <!-- O nama -->
-                    <div>
+                    <div class="ml-10 max-lg:ml-0">
                         <h6 class="footer-title pt-3 sm:pt-0">O nama</h6>
                         <p class="footer-text mb-4 link">
                         <NuxtLink to="/kontakt">Kontakt</NuxtLink>
