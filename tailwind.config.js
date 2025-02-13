@@ -110,6 +110,7 @@ module.exports = {
           backgroundImage: {
             'dark-blue-gradient': 'linear-gradient(to right, #0083C9, #006296, #012436)', 
             'blue-gradient': 'linear-gradient(to right, #58B6E7, #0083C9)',
+            'header-gradient': 'linear-gradient(to top, #172A53, #0D1A35)',
           },
           backgroundSize: {
             'size-200': '200% 200%',
