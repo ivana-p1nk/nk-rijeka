@@ -95,6 +95,18 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
+      "#ui-colors": [
+        "./ui.colors.mjs"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -150,6 +162,10 @@
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime",
     "../node_modules/@nuxt/icon/runtime",
     "../node_modules/@nuxt/icon/dist/runtime",
+    "../node_modules/@nuxtjs/color-mode/runtime",
+    "../node_modules/@nuxtjs/color-mode/dist/runtime",
+    "../node_modules/@nuxt/ui/runtime",
+    "../node_modules/@nuxt/ui/dist/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
@@ -162,12 +178,18 @@
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
     "../node_modules/@nuxt/icon/node_modules",
+    "../node_modules/@nuxtjs/color-mode/node_modules",
+    "../node_modules/@nuxt/ui/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/@nuxtjs/tailwindcss/dist/runtime/server",
     "../node_modules/@nuxt/icon/runtime/server",
     "../node_modules/@nuxt/icon/dist/runtime/server",
+    "../node_modules/@nuxtjs/color-mode/runtime/server",
+    "../node_modules/@nuxtjs/color-mode/dist/runtime/server",
+    "../node_modules/@nuxt/ui/runtime/server",
+    "../node_modules/@nuxt/ui/dist/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",

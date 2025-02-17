@@ -1,3 +1,17 @@
+<script setup lang="ts">
+const items = [
+  [{
+    label: 'Profile',
+  }]
+]
+
+const open = ref(true)
+
+defineShortcuts({
+  o: () => open.value = !open.value
+})
+</script>
+
 <template>
     <div>
 
@@ -6,6 +20,12 @@
             <nav class="p-5 flex-between">
                 <NuxtLink to="/"><img src="/assets/images/logos/logo.svg"></NuxtLink>
                 <ul class="flex gap-12">
+                    <li>
+                         <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
+                            <UButton color="white" label="Options" trailing-icon="i-heroicons-chevron-down-20-solid" />
+                        </UDropdown>
+                    </li>
+                  
                     <li>
                         <NuxtLink to="/" class="header-text">DRESOVI</NuxtLink>
                     </li>

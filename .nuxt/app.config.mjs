@@ -197,6 +197,32 @@ const inlineConfig = {
       "zondicons"
     ],
     "fetchTimeout": 1500
+  },
+  "ui": {
+    "primary": "green",
+    "gray": "cool",
+    "colors": [
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "cyan",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+      "neutral-blue",
+      "primary"
+    ],
+    "strategy": "merge"
   }
 }
 
