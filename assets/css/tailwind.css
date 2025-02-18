@@ -376,6 +376,7 @@ body {
     .bullet { @apply hover:marker:text-blue-500 transition-colors duration-200;}
 
     .link { @apply hover:text-blue-500 transition-colors duration-200;}
+    
     .header-text {
         @apply font-saira font-medium text-body1 text-white link;
     }
@@ -385,8 +386,9 @@ body {
     }
 
 
-    
+    p {@apply text-gray-900;}
 }
+
 
 
 li::marker {

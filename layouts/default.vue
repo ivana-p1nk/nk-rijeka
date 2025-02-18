@@ -1,75 +1,184 @@
-<script setup lang="ts">
-const items = [
-  [{
-    label: 'Profile',
-  }]
-]
+<script setup>
+import { ref } from 'vue'
 
-const open = ref(true)
+const activeTab = ref('') 
 
-defineShortcuts({
-  o: () => open.value = !open.value
-})
+const setActive = (tab) => {
+  activeTab.value = activeTab.value === tab ? '' : tab 
+}
 </script>
 
 <template>
-    <div>
+  <div>
+    <!-- HEADER -->
+    <header class="container mx-auto mt-11 bg-header-gradient rounded-[40px]">
+      <nav>
+        <div class="p-5 flex-between">
+            <NuxtLink to="/"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+            
+            <!--navigacija-->
+            <div class="flex gap-10">
+                <NuxtLink to="#" @click.prevent="setActive('dresovi')" class="flex items-center gap-2">
+                    DRESOVI <Icon :name="activeTab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
+                </NuxtLink>
+                   
+                <NuxtLink to="#" @click.prevent="setActive('odjeca')" class="flex items-center gap-2">
+                    ODJEĆA <Icon :name="activeTab === 'odjeca' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
+                </NuxtLink>
+                 
+                <NuxtLink to="#" @click.prevent="setActive('kolekcije')" class="flex items-center gap-2">
+                    KOLEKCIJE <Icon :name="activeTab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
+                </NuxtLink>
+               
+                <NuxtLink to="#" @click.prevent="setActive('pokloni')" class="flex items-center gap-2">
+                    POKLONI <Icon :name="activeTab === 'pokloni' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
+                </NuxtLink>
+              
+                <NuxtLink to="#" @click.prevent="setActive('akcije')" class="flex items-center gap-2">
+                    AKCIJE <Icon :name="activeTab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
+                </NuxtLink>
+            </div>
 
-        <!-- HEADER -->
-        <header class="container mx-auto mt-11 bg-header-gradient rounded-[40px]">
-            <nav class="p-5 flex-between">
-                <NuxtLink to="/"><img src="/assets/images/logos/logo.svg"></NuxtLink>
-                <ul class="flex gap-12">
-                    <li>
-                         <UDropdown v-model:open="open" :items="items" :popper="{ placement: 'bottom-start' }">
-                            <UButton color="white" label="Options" trailing-icon="i-heroicons-chevron-down-20-solid" />
-                        </UDropdown>
-                    </li>
-                  
-                    <li>
-                        <NuxtLink to="/" class="header-text">DRESOVI</NuxtLink>
-                    </li>
-                    <li>
-                        <NuxtLink to="/" class="header-text">ODJEĆA</NuxtLink>
-                    </li>
-                    <li>
-                        <NuxtLink to="/" class="header-text">KOLEKCIJE</NuxtLink>
-                    </li>
-                    <li>
-                        <NuxtLink to="/" class="header-text">POKLONI</NuxtLink>
-                    </li>
-                    <li>
-                        <NuxtLink to="/" class="header-text">AKCIJE</NuxtLink>
-                    </li>
-                </ul>
-                <div class="flex flex-row gap-7">
-                    <div class="flex-between flex-row gap-4">
-                        <Icon name="akar-icons:search" class="text-white link" />
-                        <Icon name="line-md:heart" class="text-white link" />
-                        <Icon name="tdesign:user-circle" class="text-white link" />
-                    </div>
-                    <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-2 px-4">
-                        <p class="header-text hover:text-white">0,00 €</p>
-                        <Icon name="ci:shopping-cart-01" class="text-white" />
-                    </div>
+            <div class="flex flex-row gap-7">
+                <div class="flex-between flex-row gap-4">
+                    <Icon name="akar-icons:search" class="text-white link" />
+                    <Icon name="line-md:heart" class="text-white link" />
+                    <Icon name="tdesign:user-circle" class="text-white link" />
                 </div>
-            </nav>
-        </header>
+                <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-2 px-4">
+                    <p class="header-text hover:text-white">0,00 €</p>
+                    <Icon name="ci:shopping-cart-01" class="text-white" />
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Dropdown sekcija za navigaciju -->
+        <div v-if="activeTab" class="max-w-[550px] mx-auto">
+            <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
+                <ul>
+                    <li><NuxtLink to="/">2024./2025.</NuxtLink></li>
+                    <li><NuxtLink to="/">2023./2024.</NuxtLink></li>
+                    <li><NuxtLink to="/">Starije sezone</NuxtLink></li>
+                </ul>
+            </div>
+
+            <div v-show="activeTab === 'odjeca'" class="flex gap-4 justify-between" id="odjeca">
+                <div class="basis-1/4">
+                    <h5>MUŠKARCI</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>ŽENE</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>DJECA</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>MODNI DODACI</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Kape</NuxtLink></li>
+                        <li><NuxtLink to="/">Šalovi</NuxtLink></li>
+                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div v-show="activeTab === 'kolekcije'" class="flex gap-4 justify-between" id="kolekcije">
+                <div class="basis-1/4">
+                    <h5>JOMA</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Hlače</NuxtLink></li>
+                        <li><NuxtLink to="/">Majice</NuxtLink></li>
+                        <li><NuxtLink to="/">Trenerke</NuxtLink></li>
+                        <li><NuxtLink to="/">Jakne</NuxtLink></li>
+                        <li><NuxtLink to="/">Lopte</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>NOVE HOODICE</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Muškarci</NuxtLink></li>
+                        <li><NuxtLink to="/">Žene</NuxtLink></li>
+                        <li><NuxtLink to="/">Djeca</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>FORZA FIUME PREMIUM</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Pogledaj kolekciju</NuxtLink></li>
+                    </ul>
+                </div>
+                <div class="basis-1/4">
+                    <h5>ZIGMAN & HNK RIJEKA</h5>
+                    <hr>
+                    <ul>
+                        <li><NuxtLink to="/">Pogledaj kolekciju</NuxtLink></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div v-show="activeTab === 'pokloni'" class="flex gap-4" id="pokloni">
+                <ul>
+                    <li><NuxtLink to="/">Školski asortiman</NuxtLink></li>
+                    <li><NuxtLink to="/">Kućni asortiman</NuxtLink></li>
+                    <li><NuxtLink to="/">Privjesci</NuxtLink></li>
+                    <li><NuxtLink to="/">Zastave</NuxtLink></li>
+                    <li><NuxtLink to="/">Čestitke</NuxtLink></li>
+                    <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                </ul>
+            </div>
+
+            <div v-show="activeTab === 'akcije'" class="flex gap-4" id="akcije">
+                <ul>
+                    <li><NuxtLink to="/">Dresovi</NuxtLink></li>
+                    <li><NuxtLink to="/">JOMA</NuxtLink></li>
+                    <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                </ul>
+            </div>
+        </div>
+
+               
+     </nav>
+    </header>
 
         <!-- stari header -->
         <div class="mt-5 flex justify-center">
             <ul class="flex gap-4">
                 <li>
-                    <NuxtLink to="/">HOME</NuxtLink>
+                    <NuxtLink to="/" class="text-gray-900">HOME</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="/about">ABOUT</NuxtLink>
+                    <NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="/theme-config">THEME CONFIG</NuxtLink>
+                    <NuxtLink to="/theme-config" class="text-gray-900">THEME CONFIG</NuxtLink>
                 </li>
                 <li>
-                    <NuxtLink to="/products" class="btn">PRODUCTS</NuxtLink>
+                    <NuxtLink to="/products" class="btn ">PRODUCTS</NuxtLink>
                 </li>
             </ul>
         </div>
@@ -122,7 +231,7 @@ defineShortcuts({
                     class="flex flex-col content-center justify-center items-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
                     <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8">
                     <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer"
-                        class="font-saira font-semibold text-h4-normal text-blue-50">nk-rijeka.hr</a>
+                        class="font-saira font-semibold text-h4-normal text-blue-50 link">nk-rijeka.hr</a>
                 </div>
 
                 <!-- footer meni  -->
@@ -248,3 +357,5 @@ defineShortcuts({
         </footer>
     </div>
 </template>
+
+

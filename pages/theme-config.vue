@@ -1,54 +1,54 @@
 <template>
     <div>
-    <h1 class="font-saira font-black text-xl underline">Headings font: Saira Condensed</h1>
+    <h1 class="font-saira font-black text-xl underline text-gray-900">Headings font: Saira Condensed</h1>
     <br>
-    <h1 class="font-saira font-bold text-h1-display">
+    <h1 class="font-saira font-bold text-h1-display text-gray-900">
       H1 DISPLAY: Almost before we knew it, we had left the ground.
     </h1>
     <br>
-    <h2 class="font-saira font-bold text-h2-display">
+    <h2 class="font-saira font-bold text-h2-display text-gray-900">
       H2 DISPLAY: Almost before we knew it, we had left the ground.
     </h2>
     <br>
-    <h1 class="font-saira font-medium text-h1-normal">
+    <h1 class="font-saira font-medium text-h1-normal text-gray-900">
       H1: Almost before we knew it, we had left the ground.
     </h1>
     <br>
-    <h2 class="font-saira font-medium text-h2-normal">
+    <h2 class="font-saira font-medium text-h2-normal text-gray-900">
       H2: Almost before we knew it, we had left the ground.
     </h2>
     <br>
-    <h3 class="font-saira font-medium text-h3-normal">
+    <h3 class="font-saira font-medium text-h3-normal text-gray-900">
       H3: Almost before we knew it, we had left the ground.
     </h3>
     <br>
-    <h4 class="font-saira font-semibold text-h3-normal">
+    <h4 class="font-saira font-semibold text-h3-normal text-gray-900">
       H4: Almost before we knew it, we had left the ground.
     </h4> 
     <br>
-    <h5 class="font-saira font-semibold text-h4-normal">
+    <h5 class="font-saira font-semibold text-h4-normal text-gray-900">
       H5: Almost before we knew it, we had left the ground.
     </h5>
     <br>
-    <h6 class="font-saira font-bold text-h5-normal">
+    <h6 class="font-saira font-bold text-h5-normal text-gray-900">
       H6: Almost before we knew it, we had left the ground.
     </h6>
     
     <br><br>
     
-    <h1 class="font-saira font-thin">Thin naslov (100)</h1>
-    <h1 class="font-saira font-extralight">Extra Light naslov (200)</h1>
-    <h1 class="font-saira font-light">Light naslov (300)</h1>
-    <h1 class="font-saira font-normal">Normal naslov (400)</h1>
-    <h1 class="font-saira font-medium">Medium naslov (500)</h1>
-    <h1 class="font-saira font-semibold">Semi-Bold naslov (600)</h1>
-    <h1 class="font-saira font-bold">Bold naslov (700)</h1>
-    <h1 class="font-saira font-extrabold">Extra-Bold naslov (800)</h1>
-    <h1 class="font-saira font-black">Black naslov (900)</h1>
+    <h1 class="font-saira font-thin text-gray-900">Thin naslov (100)</h1>
+    <h1 class="font-saira font-extralight text-gray-900">Extra Light naslov (200)</h1>
+    <h1 class="font-saira font-light text-gray-900">Light naslov (300)</h1>
+    <h1 class="font-saira font-normal text-gray-900">Normal naslov (400)</h1>
+    <h1 class="font-saira font-medium text-gray-900">Medium naslov (500)</h1>
+    <h1 class="font-saira font-semibold text-gray-900">Semi-Bold naslov (600)</h1>
+    <h1 class="font-saira font-bold text-gray-900">Bold naslov (700)</h1>
+    <h1 class="font-saira font-extrabold text-gray-900">Extra-Bold naslov (800)</h1>
+    <h1 class="font-saira font-black text-gray-900">Black naslov (900)</h1>
     
     <br><br>
     
-    <h1 class="font-roboto font-black text-xl underline">Body font: Roboto Condensed</h1>
+    <h1 class="font-roboto font-black text-xl underline text-gray-900">Body font: Roboto Condensed</h1>
     <br>
     <p class="font-robot font-normal text-body1">
     Body1/Regular: Almost before we knew it, we had left the ground.
@@ -119,34 +119,34 @@
     </p>
     
     <br><br>
-    <h1 class="font-roboto font-thin">Thin naslov (100)</h1>
-    <h1 class="font-roboto font-extralight">Extra Light naslov (200)</h1>
-    <h1 class="font-roboto font-light">Light naslov (300)</h1>
-    <h1 class="font-roboto font-normal">Normal naslov (400)</h1>
-    <h1 class="font-roboto font-medium">Medium naslov (500)</h1>
-    <h1 class="font-roboto font-semibold">Semi-Bold naslov (600)</h1>
-    <h1 class="font-roboto font-bold">Bold naslov (700)</h1>
-    <h1 class="font-roboto font-extrabold">Extra-Bold naslov (800)</h1>
-    <h1 class="font-roboto font-black">Black naslov (900)</h1>
+    <h1 class="font-roboto font-thin text-gray-900">Thin naslov (100)</h1>
+    <h1 class="font-roboto font-extralight text-gray-900">Extra Light naslov (200)</h1>
+    <h1 class="font-roboto font-light text-gray-900">Light naslov (300)</h1>
+    <h1 class="font-roboto font-normal text-gray-900">Normal naslov (400)</h1>
+    <h1 class="font-roboto font-medium text-gray-900">Medium naslov (500)</h1>
+    <h1 class="font-roboto font-semibold text-gray-900">Semi-Bold naslov (600)</h1>
+    <h1 class="font-roboto font-bold text-gray-900">Bold naslov (700)</h1>
+    <h1 class="font-roboto font-extrabold text-gray-900">Extra-Bold naslov (800)</h1>
+    <h1 class="font-roboto font-black text-gray-900">Black naslov (900)</h1>
     <br><br>
 
     <div class="border-t border-gray-300 my-11"></div>
 
-    <ul class="bullet-lista font-roboto font-normal">
-      <li class="bullet">Text 1</li>
-      <li class="bullet">Text 2</li>
-      <li class="bullet">Text 3</li>
+    <ul class="bullet-lista font-roboto font-normal text-gray-900">
+      <li class="bullet text-gray-900">Text 1</li>
+      <li class="bullet text-gray-900">Text 2</li>
+      <li class="bullet text-gray-900">Text 3</li>
     </ul>
     
     <br><br>
 
-    <NuxtLink to="/" class="link font-roboto font-normal">Internal Link</NuxtLink>
+    <NuxtLink to="/" class="link font-roboto font-normal text-gray-900">Internal Link</NuxtLink>
     <br>
-    <a href="/" class="link font-roboto font-normal">External Link</a>
+    <a href="/" class="link font-roboto font-normal text-gray-900">External Link</a>
 
-    <div class="border-t border-gray-300 my-11"></div>
+    <div class="border-t border-gray-300 my-11 text-gray-900"></div>
     
-    <h1 class="font-saira font-black text-xl underline">Colors Shades</h1>
+    <h1 class="font-saira font-black text-xl underline text-gray-900">Colors Shades</h1>
     <br>
     
     <!-- Div za boje -->
@@ -245,7 +245,7 @@
     <br><br>
 
     <!-- Div za buttone -->
-    <h1 class="font-saira font-black text-xl underline">Buttons</h1>
+    <h1 class="font-saira font-black text-xl underline text-gray-900">Buttons</h1>
     <br>
 
 
