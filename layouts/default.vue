@@ -14,7 +14,7 @@ const setActive = (tab) => {
     <header class="container mx-auto mt-11 bg-header-gradient rounded-[40px]">
       <nav>
         <div class="p-5 flex-between">
-            <NuxtLink to="/"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+            <NuxtLink to=""><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
             
             <!--navigacija-->
             <div class="flex gap-10">
@@ -57,9 +57,9 @@ const setActive = (tab) => {
         <div v-if="activeTab" class="max-w-[550px] mx-auto">
             <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
                 <ul>
-                    <li><NuxtLink to="/">2024./2025.</NuxtLink></li>
-                    <li><NuxtLink to="/">2023./2024.</NuxtLink></li>
-                    <li><NuxtLink to="/">Starije sezone</NuxtLink></li>
+                    <li><NuxtLink to="">2024./2025.</NuxtLink></li>
+                    <li><NuxtLink to="">2023./2024.</NuxtLink></li>
+                    <li><NuxtLink to="">Starije sezone</NuxtLink></li>
                 </ul>
             </div>
 
@@ -68,36 +68,36 @@ const setActive = (tab) => {
                     <h5>MUŠKARCI</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ŽENE</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>DJECA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="/">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>MODNI DODACI</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Kape</NuxtLink></li>
-                        <li><NuxtLink to="/">Šalovi</NuxtLink></li>
-                        <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="">Kape</NuxtLink></li>
+                        <li><NuxtLink to="">Šalovi</NuxtLink></li>
+                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
             </div>
@@ -108,34 +108,34 @@ const setActive = (tab) => {
                     <h5>JOMA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Hlače</NuxtLink></li>
-                        <li><NuxtLink to="/">Majice</NuxtLink></li>
-                        <li><NuxtLink to="/">Trenerke</NuxtLink></li>
-                        <li><NuxtLink to="/">Jakne</NuxtLink></li>
-                        <li><NuxtLink to="/">Lopte</NuxtLink></li>
+                        <li><NuxtLink to="">Hlače</NuxtLink></li>
+                        <li><NuxtLink to="">Majice</NuxtLink></li>
+                        <li><NuxtLink to="">Trenerke</NuxtLink></li>
+                        <li><NuxtLink to="">Jakne</NuxtLink></li>
+                        <li><NuxtLink to="">Lopte</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>NOVE HOODICE</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Muškarci</NuxtLink></li>
-                        <li><NuxtLink to="/">Žene</NuxtLink></li>
-                        <li><NuxtLink to="/">Djeca</NuxtLink></li>
+                        <li><NuxtLink to="">Muškarci</NuxtLink></li>
+                        <li><NuxtLink to="">Žene</NuxtLink></li>
+                        <li><NuxtLink to="">Djeca</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>FORZA FIUME PREMIUM</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Pogledaj kolekciju</NuxtLink></li>
+                        <li><NuxtLink to="">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ZIGMAN & HNK RIJEKA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="/">Pogledaj kolekciju</NuxtLink></li>
+                        <li><NuxtLink to="">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
             </div>
@@ -143,20 +143,20 @@ const setActive = (tab) => {
 
             <div v-show="activeTab === 'pokloni'" class="flex gap-4" id="pokloni">
                 <ul>
-                    <li><NuxtLink to="/">Školski asortiman</NuxtLink></li>
-                    <li><NuxtLink to="/">Kućni asortiman</NuxtLink></li>
-                    <li><NuxtLink to="/">Privjesci</NuxtLink></li>
-                    <li><NuxtLink to="/">Zastave</NuxtLink></li>
-                    <li><NuxtLink to="/">Čestitke</NuxtLink></li>
-                    <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    <li><NuxtLink to="">Školski asortiman</NuxtLink></li>
+                    <li><NuxtLink to="">Kućni asortiman</NuxtLink></li>
+                    <li><NuxtLink to="">Privjesci</NuxtLink></li>
+                    <li><NuxtLink to="">Zastave</NuxtLink></li>
+                    <li><NuxtLink to="">Čestitke</NuxtLink></li>
+                    <li><NuxtLink to="">Ostalo</NuxtLink></li>
                 </ul>
             </div>
 
             <div v-show="activeTab === 'akcije'" class="flex gap-4" id="akcije">
                 <ul>
-                    <li><NuxtLink to="/">Dresovi</NuxtLink></li>
-                    <li><NuxtLink to="/">JOMA</NuxtLink></li>
-                    <li><NuxtLink to="/">Ostalo</NuxtLink></li>
+                    <li><NuxtLink to="">Dresovi</NuxtLink></li>
+                    <li><NuxtLink to="">JOMA</NuxtLink></li>
+                    <li><NuxtLink to="">Ostalo</NuxtLink></li>
                 </ul>
             </div>
         </div>
@@ -169,7 +169,7 @@ const setActive = (tab) => {
         <div class="mt-5 flex justify-center">
             <ul class="flex gap-4">
                 <li>
-                    <NuxtLink to="/" class="text-gray-900">HOME</NuxtLink>
+                    <NuxtLink to="" class="text-gray-900">HOME</NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink>
@@ -220,7 +220,7 @@ const setActive = (tab) => {
                         </div>
 
                         <div class="col-span-1">
-                            <NuxtLink to="/" target="_blank" rel="noopener noreferrer"
+                            <NuxtLink to="" target="_blank" rel="noopener noreferrer"
                                 class="inline-block  btn-secondary large uppercase">Registriraj se</NuxtLink>
                         </div>
                     </div>
