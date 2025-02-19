@@ -57,9 +57,9 @@ const setActive = (tab) => {
         <div v-if="activeTab" class="max-w-[550px] mx-auto">
             <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
                 <ul>
-                    <li><NuxtLink to="">2024./2025.</NuxtLink></li>
-                    <li><NuxtLink to="">2023./2024.</NuxtLink></li>
-                    <li><NuxtLink to="">Starije sezone</NuxtLink></li>
+                    <li><NuxtLink to="#">2024./2025.</NuxtLink></li>
+                    <li><NuxtLink to="#">2023./2024.</NuxtLink></li>
+                    <li><NuxtLink to="#">Starije sezone</NuxtLink></li>
                 </ul>
             </div>
 
@@ -68,36 +68,36 @@ const setActive = (tab) => {
                     <h5>MUŠKARCI</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ŽENE</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>DJECA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>MODNI DODACI</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Kape</NuxtLink></li>
-                        <li><NuxtLink to="">Šalovi</NuxtLink></li>
-                        <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                        <li><NuxtLink to="#">Kape</NuxtLink></li>
+                        <li><NuxtLink to="#">Šalovi</NuxtLink></li>
+                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
             </div>
@@ -108,34 +108,34 @@ const setActive = (tab) => {
                     <h5>JOMA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Hlače</NuxtLink></li>
-                        <li><NuxtLink to="">Majice</NuxtLink></li>
-                        <li><NuxtLink to="">Trenerke</NuxtLink></li>
-                        <li><NuxtLink to="">Jakne</NuxtLink></li>
-                        <li><NuxtLink to="">Lopte</NuxtLink></li>
+                        <li><NuxtLink to="#">Hlače</NuxtLink></li>
+                        <li><NuxtLink to="#">Majice</NuxtLink></li>
+                        <li><NuxtLink to="#">Trenerke</NuxtLink></li>
+                        <li><NuxtLink to="#">Jakne</NuxtLink></li>
+                        <li><NuxtLink to="#">Lopte</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>NOVE HOODICE</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Muškarci</NuxtLink></li>
-                        <li><NuxtLink to="">Žene</NuxtLink></li>
-                        <li><NuxtLink to="">Djeca</NuxtLink></li>
+                        <li><NuxtLink to="#">Muškarci</NuxtLink></li>
+                        <li><NuxtLink to="#">Žene</NuxtLink></li>
+                        <li><NuxtLink to="#">Djeca</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>FORZA FIUME PREMIUM</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Pogledaj kolekciju</NuxtLink></li>
+                        <li><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ZIGMAN & HNK RIJEKA</h5>
                     <hr>
                     <ul>
-                        <li><NuxtLink to="">Pogledaj kolekciju</NuxtLink></li>
+                        <li><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
             </div>
@@ -143,20 +143,20 @@ const setActive = (tab) => {
 
             <div v-show="activeTab === 'pokloni'" class="flex gap-4" id="pokloni">
                 <ul>
-                    <li><NuxtLink to="">Školski asortiman</NuxtLink></li>
-                    <li><NuxtLink to="">Kućni asortiman</NuxtLink></li>
-                    <li><NuxtLink to="">Privjesci</NuxtLink></li>
-                    <li><NuxtLink to="">Zastave</NuxtLink></li>
-                    <li><NuxtLink to="">Čestitke</NuxtLink></li>
-                    <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                    <li><NuxtLink to="#">Školski asortiman</NuxtLink></li>
+                    <li><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
+                    <li><NuxtLink to="#">Privjesci</NuxtLink></li>
+                    <li><NuxtLink to="#">Zastave</NuxtLink></li>
+                    <li><NuxtLink to="#">Čestitke</NuxtLink></li>
+                    <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                 </ul>
             </div>
 
             <div v-show="activeTab === 'akcije'" class="flex gap-4" id="akcije">
                 <ul>
-                    <li><NuxtLink to="">Dresovi</NuxtLink></li>
-                    <li><NuxtLink to="">JOMA</NuxtLink></li>
-                    <li><NuxtLink to="">Ostalo</NuxtLink></li>
+                    <li><NuxtLink to="#">Dresovi</NuxtLink></li>
+                    <li><NuxtLink to="#">JOMA</NuxtLink></li>
+                    <li><NuxtLink to="#">Ostalo</NuxtLink></li>
                 </ul>
             </div>
         </div>
@@ -169,7 +169,7 @@ const setActive = (tab) => {
         <div class="mt-5 flex justify-center">
             <ul class="flex gap-4">
                 <li>
-                    <NuxtLink to="" class="text-gray-900">HOME</NuxtLink>
+                    <NuxtLink to="#" class="text-gray-900">HOME</NuxtLink>
                 </li>
                 <li>
                     <NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink>
@@ -220,7 +220,7 @@ const setActive = (tab) => {
                         </div>
 
                         <div class="col-span-1">
-                            <NuxtLink to="" target="_blank" rel="noopener noreferrer"
+                            <NuxtLink to="#" target="_blank" rel="noopener noreferrer"
                                 class="inline-block  btn-secondary large uppercase">Registriraj se</NuxtLink>
                         </div>
                     </div>
@@ -282,10 +282,10 @@ const setActive = (tab) => {
                     <div class="ml-10 max-lg:ml-0">
                         <h6 class="footer-title pt-3 sm:pt-0">O nama</h6>
                         <p class="footer-text mb-4 link">
-                            <NuxtLink to="/kontakt">Kontakt</NuxtLink>
+                            <NuxtLink to="#">Kontakt</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="/fan-shop">Fan Shop HNK Rijeka</NuxtLink>
+                            <NuxtLink to="#">Fan Shop HNK Rijeka</NuxtLink>
                         </p>
                     </div>
 
@@ -293,10 +293,10 @@ const setActive = (tab) => {
                     <div>
                         <h6 class="footer-title pt-3 sm:pt-0">Korisničke usluge</h6>
                         <p class="footer-text link mb-4">
-                            <NuxtLink to="/dostava">Dostava unutar RH</NuxtLink>
+                            <NuxtLink to="#">Dostava unutar RH</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="/medunarodna-dostava">Međunarodna dostava</NuxtLink>
+                            <NuxtLink to="#">Međunarodna dostava</NuxtLink>
                         </p>
                     </div>
 
@@ -304,16 +304,16 @@ const setActive = (tab) => {
                     <div>
                         <h6 class="footer-title pt-3 sm:pt-0">Uvjeti korištenja</h6>
                         <p class="footer-text link mb-4">
-                            <NuxtLink to="/nacin-placanja">Način plaćanja</NuxtLink>
+                            <NuxtLink to="#">Način plaćanja</NuxtLink>
                         </p>
                         <p class="footer-text link mb-4">
-                            <NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink>
+                            <NuxtLink to="#">Opći uvjeti kupnje</NuxtLink>
                         </p>
                         <p class="footer-text link mb-4">
-                            <NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink>
+                            <NuxtLink to="#">Zaštita podataka</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink>
+                            <NuxtLink to="#">Politika o kolačićima</NuxtLink>
                         </p>
                     </div>
 
