@@ -154,7 +154,7 @@ body {
     .small {@apply px-3 py-2 text-button2;}
     .xs {@apply px-3 py-2 text-button3;}
 
-    /**/
+    
     .btn-primary {
         @apply font-roboto bg-blue-600 font-bold text-white rounded-[6px];
         transition: background-color 0.2s  ease-in-out; 
@@ -172,7 +172,7 @@ body {
         @apply bg-blue-100 cursor-not-allowed pointer-events-none;
     }
 
-    /**/
+    
     .btn-secondary {
         @apply font-roboto bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
         transition: background-color 0.5s ease-in-out, color 0.5s  ease-in-out, border-color 0.8s  ease-in-out;
@@ -194,7 +194,7 @@ body {
         @apply font-roboto font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
     }
 
-    /**/
+    
     .btn-text {
         @apply font-roboto font-bold text-blue-300 py-[4px] px-[8px] border-[2px] rounded-[8px] border-solid border-transparent;
         transition: color 0.2s  ease-in-out, border-color 0.2s  ease-in-out;
@@ -241,8 +241,6 @@ body {
         @apply flex items-center justify-center bg-blue-600 cursor-pointer bg-blue-300 outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-all duration-200 ease-in-out;;
         transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
-
-
 
 
     .btn-icon-secondary {
@@ -371,11 +369,11 @@ body {
 
     .frame-p {  @apply pr-5 pl-5;}
 
-
     .bullet-lista {@apply list-inside list-disc;}
     .bullet { @apply hover:marker:text-blue-500 transition-colors duration-200;}
 
     .link { @apply hover:text-blue-500 transition-colors duration-200;}
+    .icon-link  { @apply group-hover:text-blue-500 hover:text-blue-500 transition-colors duration-200;}
     
     .header-text {
         @apply font-saira font-medium text-body1 text-white link;
@@ -385,8 +383,15 @@ body {
         @apply flex justify-between items-center;
     }
 
-
     p {@apply text-gray-900;}
+
+    .heading {@apply font-saira font-semibold text-nav-heading text-white uppercase link;}
+
+    .heading-sub {@apply font-saira font-medium text-nav-heading text-white link;}
+
+    .heading-subtitle {@apply font-saira font-medium text-nav-subtitle text-blue-300;}
+    
+    .divider {@apply max-w-[46px] text-white opacity-25; }
 }
 
 

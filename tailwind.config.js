@@ -33,6 +33,9 @@ export default {
             'button3': ['13px', '1.2'],
             'link1': ['14px', '1.2'],
             'link2': ['12px', '1.2'],
+            'nav-heading': ['17px', '1.2'],
+            'nav-subtitle': ['15.5px', '18px'],
+
           },
           colors: {
             red: {

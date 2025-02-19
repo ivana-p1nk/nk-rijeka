@@ -2,6 +2,10 @@
     <div>
     <h1 class="font-saira font-black text-xl underline text-gray-900">Headings font: Saira Condensed</h1>
     <br>
+
+    <h1 class="heading text-gray-900"> 
+      NAV HEADING: Almost before we knew it, we had left the ground.
+    </h1><br>
     <h1 class="font-saira font-bold text-h1-display text-gray-900">
       H1 DISPLAY: Almost before we knew it, we had left the ground.
     </h1>

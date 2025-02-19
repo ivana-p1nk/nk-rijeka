@@ -13,30 +13,44 @@ const setActive = (tab) => {
     <!-- HEADER -->
     <header class="container mx-auto mt-11 bg-header-gradient rounded-[40px]">
       <nav>
-        <div class="p-5 flex-between">
-            <NuxtLink to=""><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+        <div class="p-5 flex-between ml-3">
+            <NuxtLink to="#"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
             
             <!--navigacija-->
-            <div class="flex gap-10">
-                <NuxtLink to="#" @click.prevent="setActive('dresovi')" class="flex items-center gap-2">
-                    DRESOVI <Icon :name="activeTab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
-                </NuxtLink>
-                   
-                <NuxtLink to="#" @click.prevent="setActive('odjeca')" class="flex items-center gap-2">
-                    ODJEĆA <Icon :name="activeTab === 'odjeca' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
-                </NuxtLink>
-                 
-                <NuxtLink to="#" @click.prevent="setActive('kolekcije')" class="flex items-center gap-2">
-                    KOLEKCIJE <Icon :name="activeTab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
-                </NuxtLink>
-               
-                <NuxtLink to="#" @click.prevent="setActive('pokloni')" class="flex items-center gap-2">
-                    POKLONI <Icon :name="activeTab === 'pokloni' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
-                </NuxtLink>
-              
-                <NuxtLink to="#" @click.prevent="setActive('akcije')" class="flex items-center gap-2">
-                    AKCIJE <Icon :name="activeTab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="text-white" />
-                </NuxtLink>
+            <div>
+                <ul class="flex gap-10">
+                    <li class="heading">
+                        <NuxtLink to="#" @click.prevent="setActive('dresovi')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'dresovi' ? 'text-blue-500' : ''">DRESOVI</span>
+                            <Icon :name="activeTab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'dresovi' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+                    <li class="heading">
+                        <NuxtLink to="#" @click.prevent="setActive('odjeca')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'odjeca' ? 'text-blue-500' : ''">ODJEĆA</span>
+                            <Icon :name="activeTab === 'odjeca' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'odjeca' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+                    <li class="heading">
+                        <NuxtLink to="#" @click.prevent="setActive('kolekcije')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'kolekcije' ? 'text-blue-500' : ''">KOLEKCIJE</span>
+                            <Icon :name="activeTab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'kolekcije' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+                    <li class="heading">
+                        <NuxtLink to="#" @click.prevent="setActive('pokloni')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'pokloni' ? 'text-blue-500' : ''">POKLONI</span>
+                            <Icon :name="activeTab === 'pokloni' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'pokloni' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+                    <li class="heading">
+                        <NuxtLink to="#" @click.prevent="setActive('akcije')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'akcije' ? 'text-blue-500' : ''">AKCIJE</span>
+                            <Icon :name="activeTab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'akcije' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+
+                </ul>
             </div>
 
             <div class="flex flex-row gap-7">
@@ -54,50 +68,50 @@ const setActive = (tab) => {
         </div>
         
         <!-- Dropdown sekcija za navigaciju -->
-        <div v-if="activeTab" class="max-w-[550px] mx-auto">
+        <div v-if="activeTab" class="max-w-[560px] mx-auto pt-5 pb-12">
             <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
-                <ul>
-                    <li><NuxtLink to="#">2024./2025.</NuxtLink></li>
-                    <li><NuxtLink to="#">2023./2024.</NuxtLink></li>
-                    <li><NuxtLink to="#">Starije sezone</NuxtLink></li>
+                <ul class="flex flex-col gap-3">
+                    <li class="heading-sub"><NuxtLink to="#">2024./2025.</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">2023./2024.</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Starije sezone</NuxtLink></li>
                 </ul>
             </div>
 
             <div v-show="activeTab === 'odjeca'" class="flex gap-4 justify-between" id="odjeca">
                 <div class="basis-1/4">
-                    <h5>MUŠKARCI</h5>
-                    <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                    <h5 class="heading-subtitle pb-4">MUŠKARCI</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
+                        <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ŽENE</h5>
                     <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>DJECA</h5>
                     <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Hoodice</NuxtLink></li>
-                        <li><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>MODNI DODACI</h5>
                     <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Kape</NuxtLink></li>
-                        <li><NuxtLink to="#">Šalovi</NuxtLink></li>
-                        <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Kape</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Šalovi</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
             </div>
@@ -106,57 +120,55 @@ const setActive = (tab) => {
             <div v-show="activeTab === 'kolekcije'" class="flex gap-4 justify-between" id="kolekcije">
                 <div class="basis-1/4">
                     <h5>JOMA</h5>
-                    <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Hlače</NuxtLink></li>
-                        <li><NuxtLink to="#">Majice</NuxtLink></li>
-                        <li><NuxtLink to="#">Trenerke</NuxtLink></li>
-                        <li><NuxtLink to="#">Jakne</NuxtLink></li>
-                        <li><NuxtLink to="#">Lopte</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Hlače</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Majice</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Trenerke</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Jakne</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Lopte</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>NOVE HOODICE</h5>
-                    <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Muškarci</NuxtLink></li>
-                        <li><NuxtLink to="#">Žene</NuxtLink></li>
-                        <li><NuxtLink to="#">Djeca</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Muškarci</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Žene</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Djeca</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>FORZA FIUME PREMIUM</h5>
                     <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
                     <h5>ZIGMAN & HNK RIJEKA</h5>
                     <hr>
-                    <ul>
-                        <li><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
+                    <ul class="flex flex-col gap-3">
+                        <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
             </div>
 
 
             <div v-show="activeTab === 'pokloni'" class="flex gap-4" id="pokloni">
-                <ul>
-                    <li><NuxtLink to="#">Školski asortiman</NuxtLink></li>
-                    <li><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
-                    <li><NuxtLink to="#">Privjesci</NuxtLink></li>
-                    <li><NuxtLink to="#">Zastave</NuxtLink></li>
-                    <li><NuxtLink to="#">Čestitke</NuxtLink></li>
-                    <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                <ul class="flex flex-col gap-3">
+                    <li class="heading-sub"><NuxtLink to="#">Školski asortiman</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Privjesci</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Zastave</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Čestitke</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                 </ul>
             </div>
 
             <div v-show="activeTab === 'akcije'" class="flex gap-4" id="akcije">
-                <ul>
-                    <li><NuxtLink to="#">Dresovi</NuxtLink></li>
-                    <li><NuxtLink to="#">JOMA</NuxtLink></li>
-                    <li><NuxtLink to="#">Ostalo</NuxtLink></li>
+                <ul class="flex flex-col gap-3">
+                    <li class="heading-sub"><NuxtLink to="#">Dresovi</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">JOMA</NuxtLink></li>
+                    <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                 </ul>
             </div>
         </div>
