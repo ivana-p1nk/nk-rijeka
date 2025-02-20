@@ -3,7 +3,7 @@ import { Server } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, getResponseStatus, setResponseHeaders, setHeaders, sendRedirect, proxyRequest, createError, getQuery as getQuery$1, getRequestURL, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getResponseStatusText } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/h3/dist/index.mjs';
+import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, getResponseStatus, setResponseHeaders, setHeaders, sendRedirect, proxyRequest, createError, getQuery as getQuery$1, getRequestURL, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, readBody, getResponseStatusText } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/h3/dist/index.mjs';
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { stringify, uneval } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/devalue/index.js';
 import destr from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/destr/dist/index.mjs';
@@ -22,12 +22,14 @@ import { consola } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/c
 import { getContext } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/unctx/dist/index.mjs';
 import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/errx/dist/index.js';
 import { isVNode, version, unref } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/vue/index.mjs';
-import { basename } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/pathe/dist/index.mjs';
+import { basename, isAbsolute } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/pathe/dist/index.mjs';
 import { getIcons } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/@iconify/utils/lib/index.mjs';
 import { hash } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/ohash/dist/index.mjs';
 import { createStorage, prefixStorage } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/unstorage/drivers/fs.mjs';
 import { collections } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/.nuxt/nuxt-icon-server-bundle.mjs';
+import { fileURLToPath } from 'node:url';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/ipx/dist/index.mjs';
 import { toRouteMatcher, createRouter } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/radix3/dist/index.mjs';
 import { defineHeadPlugin } from 'file://C:/Users/Ivana%20Cetina/nk-rijeka/node_modules/@unhead/shared/dist/index.mjs';
 
@@ -501,6 +503,7 @@ const inlineAppConfig = {
       "pink",
       "rose",
       "neutral-blue",
+      "custom-colors",
       "primary"
     ],
     "strategy": "merge"
@@ -577,6 +580,18 @@ const _inlineRuntimeConfig = {
   "public": {},
   "icon": {
     "serverKnownCssClasses": []
+  },
+  "ipx": {
+    "baseURL": "/_ipx",
+    "alias": {},
+    "fs": {
+      "dir": [
+        "C:/Users/Ivana Cetina/nk-rijeka/public"
+      ]
+    },
+    "http": {
+      "domains": []
+    }
   }
 };
 const envOptions = {
@@ -1192,11 +1207,30 @@ const _6cocF9 = defineCachedEventHandler(async (event) => {
   // 1 week
 });
 
+const _c251cB = lazyEventHandler(() => {
+  const opts = useRuntimeConfig().ipx || {};
+  const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : undefined;
+  const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : undefined;
+  const httpStorage = opts.http?.domains ? ipxHttpStorage({ ...opts.http }) : undefined;
+  if (!fsStorage && !httpStorage) {
+    throw new Error("IPX storage is not configured!");
+  }
+  const ipxOptions = {
+    ...opts,
+    storage: fsStorage || httpStorage,
+    httpStorage
+  };
+  const ipx = createIPX(ipxOptions);
+  const ipxHandler = createIPXH3Handler(ipx);
+  return useBase(opts.baseURL, ipxHandler);
+});
+
 const _lazy_9vWxbp = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/__nuxt_error', handler: _lazy_9vWxbp, lazy: true, middleware: false, method: undefined },
   { route: '/api/_nuxt_icon/:collection', handler: _6cocF9, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _c251cB, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_9vWxbp, lazy: true, middleware: false, method: undefined }
 ];
 

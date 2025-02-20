@@ -87,6 +87,10 @@ export default {
               '900': '#4A5E6D',
               '950': '#323F49',
             },
+            customColors: {
+              '100': '#172A53',
+              '200':'#004C75',
+            },
             blue: {
               '00': '#F3FBFF',
               '50': '#D9F1FD',
@@ -113,6 +117,7 @@ export default {
               '900': '#111827',
               '950': '#030712',
             },
+          
           },
           backgroundImage: {
             'dark-blue-gradient': 'linear-gradient(to right, #0083C9, #006296, #012436)', 

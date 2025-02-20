@@ -234,6 +234,7 @@
       <div class="w-24 h-10 bg-red-100"></div>
       <div class="w-24 h-10 bg-red-50"></div>
     </div>
+    
     <br>
     
     <div class="flex"> 
@@ -245,6 +246,13 @@
     <p class="font-roboto font-extrabold w-48 flex items-center">DARK BLUE GRADIENT</p>
     <div class="w-80 h-10 bg-dark-blue-gradient"></div> 
     </div>
+
+    <br>
+    <div class="flex"> <p class="font-roboto font-extrabold w-48 flex items-center">CUSTOM COLORS</p>
+      <div class="mr-2 w-24 h-10 bg-customColors-100"></div> 
+      <div class="w-24 h-10 bg-customColors-200"></div>
+    </div>
+
 
     <br><br>
 

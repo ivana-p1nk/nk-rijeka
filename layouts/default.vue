@@ -6,15 +6,28 @@ const activeTab = ref('')
 const setActive = (tab) => {
   activeTab.value = activeTab.value === tab ? '' : tab 
 }
+
+
+const items = [
+  [{ 
+    label: 'Prijavi se',
+    to: '/prijava',
+    class: 'px-4 py-2 bg-blue-500 text-white rounded-md block text-center'
+  }], 
+  [{ 
+    custom: 'Nemaš račun? <a href="/registracija" class="text-blue-500 text-sm font-semibold">Registriraj se!</a>',
+    class: 'text-gray-500 text-sm'
+  }]
+]
 </script>
 
 <template>
   <div>
     <!-- HEADER -->
-    <header class="container mx-auto mt-11 bg-header-gradient rounded-[40px]">
+    <header class="container mx-auto bg-customColors-100 mt-11 rounded-[40px]">
       <nav>
-        <div class="p-5 flex-between ml-3">
-            <NuxtLink to="#"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+        <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
+            <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
             
             <!--navigacija-->
             <div>
@@ -55,11 +68,24 @@ const setActive = (tab) => {
 
             <div class="flex flex-row gap-7">
                 <div class="flex-between flex-row gap-4">
-                    <Icon name="akar-icons:search" class="text-white link" />
-                    <Icon name="line-md:heart" class="text-white link" />
-                    <Icon name="tdesign:user-circle" class="text-white link" />
+                    <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
+                    <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
+                    <NuxtLink to="#"> <Icon name="tdesign:user-circle" class="text-white link" /></NuxtLink>
+                    
+                    <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+    <UButton color="white" trailing-icon="tdesign:user-circle" />
+  
+    <template #item="{ item }">
+        <span v-if="item.custom" v-html="item.custom"></span>
+        <span v-else>{{ item.label }}</span>
+    </template>
+</UDropdown>
+
+
+
+  
                 </div>
-                <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-2 px-4">
+                <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-1 px-3">
                     <p class="header-text hover:text-white">0,00 €</p>
                     <Icon name="ci:shopping-cart-01" class="text-white" />
                 </div>
@@ -68,7 +94,7 @@ const setActive = (tab) => {
         </div>
         
         <!-- Dropdown sekcija za navigaciju -->
-        <div v-if="activeTab" class="max-w-[560px] mx-auto pt-5 pb-12">
+        <div v-if="activeTab" class="max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
             <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
                 <ul class="flex flex-col gap-3">
                     <li class="heading-sub"><NuxtLink to="#">2024./2025.</NuxtLink></li>
@@ -88,27 +114,27 @@ const setActive = (tab) => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>ŽENE</h5>
-                    <hr>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">ŽENE</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>DJECA</h5>
-                    <hr>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">DJECA</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>MODNI DODACI</h5>
-                    <hr>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">MODNI DODACI</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Kape</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Šalovi</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
@@ -119,8 +145,9 @@ const setActive = (tab) => {
 
             <div v-show="activeTab === 'kolekcije'" class="flex gap-4 justify-between" id="kolekcije">
                 <div class="basis-1/4">
-                    <h5>JOMA</h5>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">JOMA</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hlače</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Majice</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Trenerke</NuxtLink></li>
@@ -129,24 +156,25 @@ const setActive = (tab) => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>NOVE HOODICE</h5>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">NOVE HOODICE</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Muškarci</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Žene</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Djeca</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>FORZA FIUME PREMIUM</h5>
-                    <hr>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">FORZA FIUME PREMIUM</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5>ZIGMAN & HNK RIJEKA</h5>
-                    <hr>
-                    <ul class="flex flex-col gap-3">
+                    <h5 class="heading-subtitle pb-4">ZIGMAN & HNK RIJEKA</h5>
+                    <hr class="divider">
+                    <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
@@ -180,22 +208,12 @@ const setActive = (tab) => {
         <!-- stari header -->
         <div class="mt-5 flex justify-center">
             <ul class="flex gap-4">
-                <li>
-                    <NuxtLink to="#" class="text-gray-900">HOME</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink to="/theme-config" class="text-gray-900">THEME CONFIG</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink to="/products" class="btn ">PRODUCTS</NuxtLink>
-                </li>
+                <li><NuxtLink to="#" class="text-gray-900">HOME</NuxtLink></li>
+                <li><NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink></li>
+                <li><NuxtLink to="/theme-config" class="text-gray-900">THEME CONFIG</NuxtLink></li>
+                <li><NuxtLink to="/products" class="btn ">PRODUCTS</NuxtLink></li>
             </ul>
         </div>
-
-
 
 
 
@@ -203,8 +221,6 @@ const setActive = (tab) => {
         <div class="container mx-auto p-4">
             <slot />
         </div>
-
-
 
 
 
@@ -220,8 +236,7 @@ const setActive = (tab) => {
                     <div
                         class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center">
                         <div class="col-span-1">
-                            <h4
-                                class="font-saira font-semibold text-blue-600 text-h4-normal uppercase mb-2 text-right max-xl:pt-14">
+                            <h4 class="font-saira font-semibold text-blue-600 text-h4-normal uppercase mb-2 text-right max-xl:pt-14">
                                 Postani član</h4>
                         </div>
 
@@ -353,6 +368,7 @@ const setActive = (tab) => {
                 </div>
 
             </div>
+            
 
             <div
                 class="mx-auto p-6 flex flex-col-reverse gap-5 sm:flex-row sm:gap-0 items-center justify-between border-t border-blue-800">

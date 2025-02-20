@@ -220,6 +220,7 @@ const inlineConfig = {
       "pink",
       "rose",
       "neutral-blue",
+      "custom-colors",
       "primary"
     ],
     "strategy": "merge"
