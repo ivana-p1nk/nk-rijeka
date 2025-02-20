@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+
 
 const activeTab = ref('') 
 
@@ -7,18 +8,50 @@ const setActive = (tab) => {
   activeTab.value = activeTab.value === tab ? '' : tab 
 }
 
+// Simulacija ulogiranog korisnika
+const isLoggedIn = ref(true);  
+const userName = ref('Ivana');  
 
-const items = [
-  [{ 
-    label: 'Prijavi se',
-    to: '/prijava',
-    class: 'px-4 py-2 bg-blue-500 text-white rounded-md block text-center'
-  }], 
-  [{ 
-    custom: 'Nemaš račun? <a href="/registracija" class="text-blue-500 text-sm font-semibold">Registriraj se!</a>',
-    class: 'text-gray-500 text-sm'
-  }]
-]
+const dropdownItems = computed(() => {
+  if (isLoggedIn.value) {
+    return [
+      [{
+        custom: `<span class="font-semibold text-gray-700">Pozdrav ${userName.value}</span>`,  
+        class: 'px-4 py-2'
+      }],
+      [{
+        label: 'Narudžbe',
+        to: '/moj-racun',
+        class: 'uppercase flex items-center',  
+        icon: 'iconify i-akar-icons:search text-white link' 
+      }],
+      [{
+        label: 'Detalji profila',
+        to: '/profil',
+        class: 'uppercase flex items-center',
+        icon: 'iconify i-akar-icons:search text-white link' 
+      }],
+      [{
+        label: 'Odjava',
+        to: '/odjava',
+        class: 'uppercase flex items-center',
+        icon: 'iconify i-akar-icons:search text-white link' 
+      }]
+    ];
+  } else {
+    return [
+      [{
+        label: 'Prijavi se',
+        to: '/prijava',
+        class: 'btn-primary xl uppercase'
+      }],
+      [{
+        custom: 'Nemaš račun? <a href="/registracija" class="hover:bg-red-100 btn-text text-button1 mr-4 underline">Registriraj se!</a>',
+        class: 'font-roboto font-body3 text-white'
+      }]
+    ];
+  }
+});
 </script>
 
 <template>
@@ -70,16 +103,23 @@ const items = [
                 <div class="flex-between flex-row gap-4">
                     <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
                     <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
-                    <NuxtLink to="#"> <Icon name="tdesign:user-circle" class="text-white link" /></NuxtLink>
-                    
-                    <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-    <UButton color="white" trailing-icon="tdesign:user-circle" />
-  
-    <template #item="{ item }">
-        <span v-if="item.custom" v-html="item.custom"></span>
-        <span v-else>{{ item.label }}</span>
-    </template>
-</UDropdown>
+                    <UDropdown :items="dropdownItems" :popper="{ placement: 'bottom-start' }">
+                        <UButton color="white" trailing-icon="tdesign:user-circle" />
+                        <!-- Stavke dropdowna -->
+                        <template #item="{ item }">
+                        <div>
+                            <span v-if="item.custom" v-html="item.custom"></span>
+                            <span v-else>
+                            <span v-if="item.icon" class="mr-2">
+                                <i :class="item.icon"></i> 
+                            </span>
+                            {{ item.label }}
+                            </span>
+                        </div>
+                        </template>
+                    </UDropdown>
+
+            
 
 
 
