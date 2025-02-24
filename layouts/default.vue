@@ -1,4 +1,5 @@
 <script setup>
+import { _white } from '#tailwind-config/theme/accentColor';
 import { computed, ref } from 'vue'
 
 
@@ -22,20 +23,17 @@ const dropdownItems = computed(() => {
       [{
         label: 'Narudžbe',
         to: '/moj-racun',
-        class: 'uppercase flex items-center',  
-        icon: 'iconify i-akar-icons:search text-white link' 
+        icon: 'iconify i-akar-icons:search' 
       }],
       [{
         label: 'Detalji profila',
         to: '/profil',
-        class: 'uppercase flex items-center',
-        icon: 'iconify i-akar-icons:search text-white link' 
+        icon: 'iconify i-akar-icons:search' 
       }],
       [{
         label: 'Odjava',
         to: '/odjava',
-        class: 'uppercase flex items-center',
-        icon: 'iconify i-akar-icons:search text-white link' 
+        icon: 'lucide:log-in' 
       }]
     ];
   } else {
@@ -43,15 +41,17 @@ const dropdownItems = computed(() => {
       [{
         label: 'Prijavi se',
         to: '/prijava',
-        class: 'btn-primary xl uppercase'
+         class: 'btn-primary uppercase'
+       
       }],
       [{
-        custom: 'Nemaš račun? <a href="/registracija" class="hover:bg-red-100 btn-text text-button1 mr-4 underline">Registriraj se!</a>',
-        class: 'font-roboto font-body3 text-white'
+        custom: '<span class="font-roboto font-body3 text-white">Nemaš račun?</span> <a href="/registracija" class="uppercase font-roboto font-body3 mr-4 underline text-blue-100">Registriraj se!</a>',
       }]
     ];
   }
 });
+
+
 </script>
 
 <template>
@@ -103,7 +103,14 @@ const dropdownItems = computed(() => {
                 <div class="flex-between flex-row gap-4">
                     <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
                     <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
-                    <UDropdown :items="dropdownItems" :popper="{ placement: 'bottom-start' }">
+                    <UDropdown
+                        :items="dropdownItems"
+                        :popper="{ placement: 'bottom-start' }"
+                        class="custom-dropdown"
+                        :ui="{
+                            width: 'w-[245px]',
+                            background: 'bg-header-gradient dark:bg-header-gradient', 
+                        }">
                         <UButton color="white" trailing-icon="tdesign:user-circle" />
                         <!-- Stavke dropdowna -->
                         <template #item="{ item }">
@@ -111,7 +118,7 @@ const dropdownItems = computed(() => {
                             <span v-if="item.custom" v-html="item.custom"></span>
                             <span v-else>
                             <span v-if="item.icon" class="mr-2">
-                                <i :class="item.icon"></i> 
+                                <i :class="item.icon"></i>
                             </span>
                             {{ item.label }}
                             </span>
@@ -426,4 +433,8 @@ const dropdownItems = computed(() => {
     </div>
 </template>
 
-
+<style scoped>
+.custom-dropdown .headlessui-menu-items {
+  padding: 1.5rem; /* Dodaje padding samo na okvir dropdowna, a ne na stavke */
+}
+</style>
