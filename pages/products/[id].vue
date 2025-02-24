@@ -17,7 +17,7 @@
     const uri = 'https://fakestoreapi.com/products/' + id
 
     //fetch the product
-    const { data: product } = await useFetch(uri, { key: id }) //Since useFetch now uses uri as the key, the extra key: id is no longer needed.
+    const { data: product } = await useFetch(uri, { key: id }) 
 
 
     if(!product.value){

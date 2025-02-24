@@ -55,9 +55,10 @@ const dropdownItems = computed(() => {
 </script>
 
 <template>
-  <div>
+<div>
+ 
     <!-- HEADER -->
-    <header class="container mx-auto bg-customColors-100 mt-11 rounded-[40px]">
+    <header class="container mx-auto bg-customColors-100 rounded-[40px] z-1 relative mt-11">
       <nav>
         <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
@@ -125,12 +126,6 @@ const dropdownItems = computed(() => {
                         </div>
                         </template>
                     </UDropdown>
-
-            
-
-
-
-  
                 </div>
                 <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-1 px-3">
                     <p class="header-text hover:text-white">0,00 €</p>
@@ -252,20 +247,8 @@ const dropdownItems = computed(() => {
      </nav>
     </header>
 
-        <!-- stari header -->
-        <div class="mt-5 flex justify-center">
-            <ul class="flex gap-4">
-                <li><NuxtLink to="#" class="text-gray-900">HOME</NuxtLink></li>
-                <li><NuxtLink to="/about" class="text-gray-900">ABOUT</NuxtLink></li>
-                <li><NuxtLink to="/theme-config" class="text-gray-900">THEME CONFIG</NuxtLink></li>
-                <li><NuxtLink to="/products" class="btn ">PRODUCTS</NuxtLink></li>
-            </ul>
-        </div>
-
-
-
         <!-- Page content -->
-        <div class="container mx-auto p-4">
+        <div>
             <slot />
         </div>
 
