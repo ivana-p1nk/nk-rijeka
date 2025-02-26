@@ -392,8 +392,8 @@ body {
     .heading-subtitle {@apply font-saira font-medium text-nav-subtitle text-blue-200;}
     
     .divider {@apply max-w-[46px] text-white opacity-25; }
-
-   
+    
+  
 }
 
 
