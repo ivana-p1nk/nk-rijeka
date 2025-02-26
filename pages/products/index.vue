@@ -1,9 +1,15 @@
 <template>
     <div>
       <p>https://fakestoreapi.com/</p><br>
-      <p class="text-lg font-semibold">Prikazujemo {{ products?.length || 0 }} proizvoda</p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div class="flex flex-row justify-between items-center pt-9 pb-12 border-t border-gray-200">
+        <p class="font-roboto font-normal text-body2 text-neutralBlue-950">Prikazujemo {{ products?.length || 0 }} proizvoda</p>
+    
+        <USelect v-model="selectedSort" :options="sortOptions" />
+
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10">
 
           <div v-for="p in products" :key="p.id">
            <ProductCard  :product="p"/>
@@ -14,12 +20,23 @@
   </template>
   
   <script setup>
+  import { ref } from 'vue'
    definePageMeta({
         layout: 'products'
     })
 
     // fetch products
     const { data: products } = await useFetch('https://fakestoreapi.com/products')
+
+    const sortOptions = [
+      { value: 'new', label: 'Poredaj po najnovijem' },
+      { value: 'popular', label: 'Poredaj po popularnosti' },
+      { value: 'asc', label: 'Poredaj po cijeni: od najniže do najviše' },
+      { value: 'desc', label: 'Poredaj po cijeni: od najviše do najniže' }
+    ]
+    
+    // Postavljamo SELECTED na 'new'
+    const selectedSort = ref(sortOptions[0].value)
 
     useHead({  //adding custom page meta (first way)
       title: 'NK Rijeka | Products',
