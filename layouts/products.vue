@@ -18,6 +18,7 @@
                 <li><NuxtLink to="/about">ABOUT</NuxtLink></li>
                 <li><NuxtLink to="/theme-config">THEME CONFIG</NuxtLink></li>
                 <li><NuxtLink to="/products">PRODUCTS</NuxtLink></li>
+                <li><NuxtLink to="/categories">CATEGORIES</NuxtLink></li>
             </ul>
          </footer>
     </div>

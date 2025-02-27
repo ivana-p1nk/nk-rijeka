@@ -29,7 +29,7 @@
                 <NuxtLink :to="`/products/${product.id}`" class="btn-primary medium font-semibold">DODAJ U KOŠARICU</NuxtLink>
             </div>
         </div>
-
+        <p> {{ product.category}}</p>
         <p class="font-saira font-semibold text-h5-normal text-center text-blue-900 mt-2 p-2">{{ product.title }}</p>
     </div>
 </template>
