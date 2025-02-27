@@ -6,7 +6,7 @@
 <p>Početna / {{ products?.category}}</p>
              
 
-      <div class="flex flex-row justify-between items-center pt-9 pb-12 border-t border-gray-200">
+<div class="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between items-start sm:items-center pt-9 pb-12 border-t border-gray-200">
         <p class="font-roboto font-normal text-body2 text-neutralBlue-950">Prikazujemo {{ products?.length || 0 }} proizvoda</p>
     
         <USelect 
