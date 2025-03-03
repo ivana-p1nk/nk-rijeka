@@ -22,7 +22,7 @@ onMounted(async () => {
 
 <template>
     <div class="px-4 pt-96 pb-74 bg-home1 bg-auto bg-no-repeat bg-top mt-[-125px] bg-players">
-        <div class="max-w-[1120px] mx-auto">
+        <div class="max-w-[1120px] mx-auto relative">
             <div class="w-1/2">
                 <h1 class="font-saira font-bold text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="font-roboto font-normal text-body1 text-gray-900 mt-2 mb-6">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>
@@ -130,8 +130,8 @@ onMounted(async () => {
     .bg-players::after {
         position: absolute;
         content: url('/assets/images/players-home.png');
-        right: 9%;
-        top: 25%;
+        right: 0%;
+        top: 20%;
         z-index: 0;
     }
 
