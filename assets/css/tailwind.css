@@ -321,6 +321,10 @@ body {
         @apply bg-blue-50 w-9 h-9 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-200;
     }
 
+    .circle-page{
+        @apply bg-blue-300 w-7 h-7 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors duration-200;
+    }
+
     .footer-title{
         @apply font-saira font-bold text-blue-200 uppercase text-h6-normal mb-5;
     }
@@ -393,7 +397,8 @@ body {
     
     .divider {@apply max-w-[46px] text-white opacity-25; }
     
-  
+    .btn-size {@apply w-[42px] h-[42px] flex justify-center py-3 px-5;}
+
 }
 
 

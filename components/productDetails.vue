@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="grid grid-cols-2 gap-10">
-            <div class="p-5 bg-white border border-neutralBlue-100">
+            <div class="p-5 bg-white border border-neutralBlue-100 h-fit">
                 <div class="flex flex-row justify-between items-center">
                     <p><Icon name="material-symbols:favorite-outline" class="icon-xl text-gray-900" /></p>
                     <p id="tag" class="tags bg-blue-300 font-saira font-semibold text-label1 text-white px-3 py-2 radius rounded-lg">NOVO</p>
@@ -17,7 +17,11 @@
                 <!-- details-->
                 <div>
                     <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
-                        Opis:</span>{{ product.description }}</p>
+                        Opis: </span>{{ product.description }}</p>
+                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                        Boja: </span> </p>
+                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                        Sastav: </span> </p>
                 </div>
                 <!--price-->
                 <div class="flex flex-col gap-3 my-7 py-7 border-y border-neutralBlue-100">
@@ -33,30 +37,30 @@
 
                 <button class="btn-secondary xl flex flex-row items-center gap-2 w-fit uppercase">
                     Personaliziraj
-                    <Icon name="material-symbols:favorite-outline" class="icon-xl text-gray-900" />
+                    <Icon name="streamline:shopping-cart-1" class="icon-large text-gray-900" />
                 </button>
 
                 <!--veličina-->
                 <div class="py-7 border-b border-neutralBlue-100">
                     <p class="font-saira font-bold text-h6-normal text-gray-900">Veličina</p>
                     <div class="flex flex-row gap-1 py-3">
-                        <button class="btn-secondary xl" >S</button>
-                        <button class="btn-secondary xl">M</button>
-                        <button class="btn-secondary xl">L</button>
-                        <button class="btn-secondary xl">XL</button>
-                        <button class="btn-secondary xl">2XL</button>
-                        <button class="btn-secondary xl"> 3XL</button>
+                        <button class="btn-secondary xl btn-size" >S</button>
+                        <button class="btn-secondary xl btn-size">M</button>
+                        <button class="btn-secondary xl btn-size">L</button>
+                        <button class="btn-secondary xl btn-size">XL</button>
+                        <button class="btn-secondary xl btn-size">2XL</button>
+                        <button class="btn-secondary xl btn-size"> 3XL</button>
                     </div>
                     <NuxtLink to="" class="font-roboto font-normal text-body2 text-gray-900 underline">Pogledajte tablicu veličina</NuxtLink>
                     <div class="flex flex-row gap-4 mt-7">
-                        <div class="flex flex-row gap-1">
-                            <button class="btn-secondary xl" >-</button>
-                            <button class="btn-secondary xl">01</button>
-                            <button class="btn-secondary xl">+</button>
+                        <div class="flex flex-row items-center gap-1">
+                            <button class="btn-secondary xl btn-size" >-</button>
+                            <button class="btn-secondary xl btn-size">01</button>
+                            <button class="btn-secondary xl btn-size">+</button>
                         </div>
-                        <button class="btn-primary xl flex flex-row gap-2 items-center w-fit uppercase">
+                        <button class="btn-primary large flex flex-row gap-2 items-center w-fit uppercase">
                         Dodaj u košaricu
-                        <Icon name="material-symbols:favorite-outline" class="icon-xl text-white" />
+                        <Icon name="streamline:shopping-cart-1" class="icon-large text-white" />
                         </button>
                     </div>
                 </div>
@@ -79,20 +83,20 @@
 
                 <div>
                     <p class="font-saira font-bold text-h6-normal text-gray-900">Podijeli</p>
-                    <ul class="inline-flex gap-2">
+                    <ul class="inline-flex gap-2 mt-2">
                             <li>
-                                <a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank">
-                                    <Icon name="brandico:facebook" class="custom-blue" />
+                                <a class="circle-page" href="https://www.facebook.com/nk.rijeka" target="_blank">
+                                    <Icon name="brandico:facebook" class="text-white icon-small" />
                                 </a>
                             </li>
                             <li>
-                                <a class="circle-footer" href="https://www.instagram.com/nk_rijeka" target="_blank">
-                                    <Icon name="hugeicons:instagram" class="custom-blue" />
+                                <a class="circle-page" href="https://www.instagram.com/nk_rijeka" target="_blank">
+                                    <Icon name="hugeicons:instagram" class="text-white icon-small" />
                                 </a>
                             </li>
                             <li>
-                                <a class="circle-footer" href="https://x.com/nkrijeka?mx=2" target="_blank">
-                                    <Icon name="garden:twitter-stroke-12" class="custom-blue" />
+                                <a class="circle-page" href="https://x.com/nkrijeka?mx=2" target="_blank">
+                                    <Icon name="garden:twitter-stroke-12" class="text-white icon-xs" />
                                 </a>
                             </li>
                         </ul>
@@ -112,5 +116,7 @@
 img {
     max-width:400px;
 }
+
+
 
 </style>
