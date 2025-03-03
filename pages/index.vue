@@ -1,6 +1,28 @@
+<script setup>
+import { ref, onMounted } from 'vue'
+import ProductCard from '@/components/productCard.vue'
+
+const items = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await fetch('https://fakestoreapi.com/products')
+    if (!response.ok) {
+      throw new Error('Failed to fetch products')
+    }
+    const data = await response.json()
+
+    // zadnjih 8 proizvoda
+    items.value = data.slice(-8)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
+})
+</script>
+
 <template>
     <div class="px-4 pt-96 pb-74 bg-home1 bg-auto bg-no-repeat bg-top mt-[-125px] bg-players">
-        <div class="container max-w-[1120px] mx-auto">
+        <div class="max-w-[1120px] mx-auto">
             <div class="w-1/2">
                 <h1 class="font-saira font-bold text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="font-roboto font-normal text-body1 text-gray-900 mt-2 mb-6">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>
@@ -34,16 +56,61 @@
         </div>
         
     </div>
-    <div class="container max-w-[1120px] mx-auto">
+
+    <!-- Vertikalni divider -->
+    <div class="w-px h-14 bg-blue-700 mx-auto my-20"></div>
+
+    <div class="container mx-auto">
+        <div class="flex flex-col gap-1 items-center pb-10">
+            <h1 class="font-saira font-bold text-h2-normal text-blue-900 uppercase">BESTSELLERI</h1>
+            <p class="font-roboto font-normal text-body1 text-blue-900">Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...</p>
+        </div>
+        <p>Primjer slidera</p>
         
+        <UCarousel 
+            v-slot="{ item }"
+            loop
+            arrows
+            indicators 
+            :autoplay="{ delay: 2000 }"
+            :items="items"
+            :ui="{ item: 'basis-1/4' }" >
+            <ProductCard :product="item" class="pt-6" />
+        </UCarousel>
+    </div>
+
+    <div class="container mx-auto my-40 relative">
+        <div class="bg-dark-blue-gradient2 p-20 rounded-2xl  max-w-[920px]">
+            <h1 class="font-saira font-bold text-h2-display text-blue-50 uppercase mb-2">PERSONALIZIRAJ <br>SVOJ DRES</h1>
+            <p class="font-roboto font-normal text-body1 text-white mb-7">Tvoj dres, tvoja pravila. Personaliziraj svoj <br>omiljeni dres i učini ga jedinstvenim.</p>
+            <NuxtLink to="/" class="btn-primary small uppercase">Naruči svoj dres</NuxtLink>
+        </div>
+        <img class="absolute top-[-20%] right-0" src="~/assets/images/dresovi.png" alt="Dresovi" />
+    </div>
+
+    <div class="container mx-auto pb-6">
+        <div class="flex flex-row justify-between items-center">
+            <div class="flex flex-row gap-9">
+                <h1 class="font-saira font-bold text-h2-normal text-blue-900 uppercase">NOVO U PONUDI</h1>
+                <p class="font-roboto font-normal text-body1 text-blue-900">Naš se asortiman stalno proširuje novim <br>atraktivnim artiklima, ovo su samo neki od njih.</p>
+            </div>
+            <NuxtLink to="/products" class="btn-secondary xs h-fit uppercase">Pogledaj sve</NuxtLink>
+        </div>
+        <p>Primjer slidera</p>             
+        
+        <UCarousel 
+            v-slot="{ item }"
+            loop
+            arrows
+            indicators 
+            :autoplay="{ delay: 2000 }"
+            :items="items"
+            :ui="{ item: 'basis-1/4' }" >
+            <ProductCard :product="item" class="pt-6" />
+        </UCarousel>
     </div>
 
 </template>
-
-
-<script setup>
-   
-</script>
 
 <style scoped>
     .bg-dresovi {
@@ -63,8 +130,8 @@
     .bg-players[data-v-02281a80]::after {
         position: absolute;
         content: url('/assets/images/players-home.png');
-        right: 10%;
-        top: 21%;
+        right: 0%;
+        top: 40%;
         z-index: 0;
     }
 

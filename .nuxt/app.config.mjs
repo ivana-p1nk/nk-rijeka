@@ -198,6 +198,9 @@ const inlineConfig = {
     ],
     "fetchTimeout": 1500
   },
+  "__swiper": {
+    "bundled": true
+  },
   "ui": {
     "primary": "green",
     "gray": "cool",

@@ -408,4 +408,7 @@ li::marker {
     transition: color 0.2s ease;
   }
 
+  .container {
+    max-width: 1436px;
+}
 
