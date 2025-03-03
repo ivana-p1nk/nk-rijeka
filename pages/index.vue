@@ -58,7 +58,7 @@ onMounted(async () => {
     </div>
 
     <!-- Vertikalni divider -->
-    <div class="w-px h-14 bg-blue-700 mx-auto my-20"></div>
+    <div class="w-px h-14 bg-blue-700 mx-auto my-20 bg-home2 relative"></div>
 
     <div class="container mx-auto">
         <div class="flex flex-col gap-1 items-center pb-10">
@@ -127,10 +127,20 @@ onMounted(async () => {
     background-image: url('/assets/images/bg-home1.png');
     }
 
+    .bg-home2::before { 
+        position: absolute;
+        content: url('/assets/images/bg-home2.jpg');
+        left: 50%;
+        top: -200%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+    
+
     .bg-players::after {
         position: absolute;
         content: url('/assets/images/players-home.png');
-        right: 0%;
+        right: 9%;
         top: 20%;
         z-index: 0;
     }
