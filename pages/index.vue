@@ -127,7 +127,7 @@ onMounted(async () => {
     background-image: url('/assets/images/bg-home1.png');
     }
 
-    .bg-players[data-v-02281a80]::after {
+    .bg-players::after {
         position: absolute;
         content: url('/assets/images/players-home.png');
         right: 0%;
