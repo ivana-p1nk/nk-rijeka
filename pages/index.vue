@@ -130,8 +130,8 @@ onMounted(async () => {
     .bg-players::after {
         position: absolute;
         content: url('/assets/images/players-home.png');
-        right: 0%;
-        top: 40%;
+        right: 9%;
+        top: 25%;
         z-index: 0;
     }
 
