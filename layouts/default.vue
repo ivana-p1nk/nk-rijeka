@@ -1,6 +1,6 @@
 <script setup>
 import { _white } from '#tailwind-config/theme/accentColor';
-import { computed, ref } from 'vue'
+import { ref, computed, toValue } from 'vue'
 
 
 const activeTab = ref('') 
@@ -17,23 +17,26 @@ const dropdownItems = computed(() => {
   if (isLoggedIn.value) {
     return [
       [{
-        custom: `<span class="font-semibold text-gray-700">Pozdrav ${userName.value}</span>`,  
-        class: 'px-4 py-2'
+        custom: `Pozdrav ${userName.value}`,  
+        class: 'px-4 py-2 font-roboto text-sm font-normal text-white',
       }],
       [{
         label: 'Narudžbe',
         to: '/moj-racun',
-        icon: 'iconify i-akar-icons:search' 
+        icon: 'streamline:ticket-1 text-blue-500 w-5 h-5 -m-1',
+        class: 'font-saira font-medium text-sm text-white uppercase',
       }],
       [{
         label: 'Detalji profila',
         to: '/profil',
-        icon: 'iconify i-akar-icons:user-circle' 
+        icon: 'tdesign:user-circle text-blue-500 w-5 h-5 -m-1',
+        class: 'font-saira font-medium text-sm text-white uppercase',
       }],
       [{
         label: 'Odjava',
         to: '/odjava',
-        icon: 'lucide:log-in' 
+        icon: 'uiw:login text-blue-500 w-5 h-5 -m-1',
+        class: 'font-saira font-medium text-sm text-white uppercase', 
       }]
     ];
   } else {
@@ -50,6 +53,9 @@ const dropdownItems = computed(() => {
     ];
   }
 });
+
+
+
 
 
 </script>
@@ -109,17 +115,30 @@ const dropdownItems = computed(() => {
                         :popper="{ placement: 'bottom-start' }"
                         class="custom-dropdown"
                         :ui="{
+                           container: '',
                             width: 'w-[245px]',
-                            background: 'bg-header-gradient dark:bg-header-gradient', 
-                        }">
+                            background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3', 
+                            rounded: 'rounded-2xl',
+                            padding:'p-0',
+                            divide: 'divide-none',
+                            shadow: 'shadow-lg',
+                            ring: 'ring-0',
+                            item: {
+                                active: 'bg-gray-100 dark:bg-red-900 text-gray-900 dark:text-white',
+                            }
+                        }"
+                        
+
+                        >
                         <UButton color="white" trailing-icon="tdesign:user-circle" />
                         <!-- Stavke dropdowna -->
                         <template #item="{ item }">
-                        <div>
+                        <div class="py-2 px-1">
+                            
                             <span v-if="item.custom" v-html="item.custom"></span>
                             <span v-else>
                             <span v-if="item.icon" class="mr-2">
-                                <i :class="item.icon"></i>
+                                <Icon :name="item.icon"/>
                             </span>
                             {{ item.label }}
                             </span>
@@ -127,10 +146,18 @@ const dropdownItems = computed(() => {
                         </template>
                     </UDropdown>
                 </div>
-                <div class="text-white bg-blue-500 rounded-3xl flex-between gap-2 py-1 px-3">
-                    <p class="header-text hover:text-white">0,00 €</p>
-                    <Icon name="ci:shopping-cart-01" class="text-white" />
-                </div>
+              
+                <UChip 
+                    text="0" 
+                    size="2xl" inset  
+                    :ui="{
+                        base: 'mx-2 -my-1 ring-0',
+                        background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                    }"
+                    class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
+                        <p class="header-text hover:text-white ">0,00 €</p>
+                        <Icon name="ci:shopping-cart-01" class="text-white" />
+                </UChip>
             </div>
 
         </div>
@@ -246,6 +273,7 @@ const dropdownItems = computed(() => {
                
      </nav>
     </header>
+
 
         <!-- Page content -->
         <div>

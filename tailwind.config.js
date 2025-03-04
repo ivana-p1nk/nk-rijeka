@@ -117,6 +117,9 @@ export default {
               '900': '#111827',
               '950': '#030712',
             },
+            gold: {
+              '50': '#D6A655',
+            },
           
           },
           backgroundImage: {
