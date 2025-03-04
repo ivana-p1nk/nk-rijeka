@@ -28,7 +28,7 @@ const dropdownItems = computed(() => {
       [{
         label: 'Detalji profila',
         to: '/profil',
-        icon: 'iconify i-akar-icons:search' 
+        icon: 'iconify i-akar-icons:user-circle' 
       }],
       [{
         label: 'Odjava',
@@ -58,7 +58,7 @@ const dropdownItems = computed(() => {
 <div>
  
     <!-- HEADER -->
-    <header class="container mx-auto bg-customColors-100 rounded-[40px] z-1 relative mt-11">
+    <header class="container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
       <nav>
         <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>

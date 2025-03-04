@@ -139,6 +139,10 @@ body {
     @apply bg-blue-00;
 }
 
+::selection {
+    color: white!important;
+    background-color: #1AA6F180!important;
+  }
 
 @layer components {
     .btn {
@@ -156,7 +160,7 @@ body {
 
     
     .btn-primary {
-        @apply font-roboto bg-blue-600 font-bold text-white rounded-[6px];
+        @apply font-saira bg-blue-600 font-bold text-white rounded-[6px];
         transition: background-color 0.2s  ease-in-out; 
     }
 
@@ -174,7 +178,7 @@ body {
 
     
     .btn-secondary {
-        @apply font-roboto bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
+        @apply font-saira bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
         transition: background-color 0.5s ease-in-out, color 0.5s  ease-in-out, border-color 0.8s  ease-in-out;
     }
       
@@ -191,12 +195,12 @@ body {
     }
 
     .btn-secondary-focus {
-        @apply font-roboto font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
+        @apply font-saira font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
     }
 
     
     .btn-text {
-        @apply font-roboto font-bold text-blue-300 py-[4px] px-[8px] border-[2px] rounded-[8px] border-solid border-transparent;
+        @apply font-saira font-bold text-blue-300 py-[4px] px-[8px] border-[2px] rounded-[8px] border-solid border-transparent;
         transition: color 0.2s  ease-in-out, border-color 0.2s  ease-in-out;
     }
     
@@ -408,7 +412,8 @@ li::marker {
     transition: color 0.2s ease;
   }
 
-  .container {
+  .container2 {
     max-width: 1436px;
 }
 
+  

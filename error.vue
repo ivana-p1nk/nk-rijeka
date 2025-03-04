@@ -8,9 +8,14 @@
   </template>
   
   <script setup>
+
    defineProps(['error'])
 
    const handleClearError = () => clearError({ redirect: '/'})
+
+   definePageMeta({
+  layout: 'default'
+})
   </script>
   
   <style scoped>

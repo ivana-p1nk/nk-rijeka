@@ -21,7 +21,8 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="px-4 pt-96 pb-74 bg-home1 bg-auto bg-no-repeat bg-top mt-[-125px] bg-players">
+
+    <div class="px-4 pt-96 pb-74 bg-home1 bg-auto bg-no-repeat bg-top bg-players">
         <div class="max-w-[1120px] mx-auto relative">
             <div class="w-1/2">
                 <h1 class="font-saira font-bold text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
@@ -57,8 +58,11 @@ onMounted(async () => {
         
     </div>
 
+    <div class="bg-home2 pt-20 mt-[-80px]">
+
+   
     <!-- Vertikalni divider -->
-    <div class="w-px h-14 bg-blue-700 mx-auto my-20 bg-home2 relative"></div>
+    <div class="w-px h-14 bg-blue-700 mx-auto my-20 relative"></div>
 
     <div class="container mx-auto">
         <div class="flex flex-col gap-1 items-center pb-10">
@@ -79,7 +83,7 @@ onMounted(async () => {
         </UCarousel>
     </div>
 
-    <div class="container mx-auto my-40 relative">
+    <div class="container2 mx-auto my-40 relative">
         <div class="bg-dark-blue-gradient2 p-20 rounded-2xl  max-w-[920px]">
             <h1 class="font-saira font-bold text-h2-display text-blue-50 uppercase mb-2">PERSONALIZIRAJ <br>SVOJ DRES</h1>
             <p class="font-roboto font-normal text-body1 text-white mb-7">Tvoj dres, tvoja pravila. Personaliziraj svoj <br>omiljeni dres i učini ga jedinstvenim.</p>
@@ -87,6 +91,7 @@ onMounted(async () => {
         </div>
         <img class="absolute top-[-20%] right-0" src="~/assets/images/dresovi.png" alt="Dresovi" />
     </div>
+  
 
     <div class="container mx-auto pb-6">
         <div class="flex flex-row justify-between items-center">
@@ -110,6 +115,8 @@ onMounted(async () => {
         </UCarousel>
     </div>
 
+</div>
+
 </template>
 
 <style scoped>
@@ -127,15 +134,11 @@ onMounted(async () => {
     background-image: url('/assets/images/bg-home1.png');
     }
 
-    .bg-home2::before { 
-        position: absolute;
-        content: url('/assets/images/bg-home2.jpg');
-        left: 50%;
-        top: -200%;
-        transform: translateX(-50%);
-        z-index: -1;
+    .bg-home2 {
+        background-image: url('/assets/images/bg-home2.jpg');
+        background-repeat: no-repeat;
+        background-position: top;
     }
-    
 
     .bg-players::after {
         position: absolute;
