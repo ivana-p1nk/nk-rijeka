@@ -36,14 +36,23 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
+  import { useFetch } from 'nuxt/app'
+
    definePageMeta({
         layout: 'products'
     })
 
     // fetch products
-    const { data: products } = await useFetch('https://fakestoreapi.com/products')
+    const { data: response, error } = await useFetch('https://nkrijeka-app.laravel.cloud/api/v1/products/')
+    const products = computed(() => response.value?.data || [])
 
+    console.log("API Response:", response.value) 
+
+
+    if (error.value) {
+        console.error("Greška pri dohvaćanju proizvoda")
+    }
 
     const sortOptions = [
       { value: 'new', label: 'Poredaj po najnovijem' },
@@ -53,7 +62,6 @@
     ]
 
     const selectedSort = ref(sortOptions[0].value)
-
 
 
     useHead({  //adding custom page meta (first way)
