@@ -1,3 +1,14 @@
+<script setup>
+    import { useCartStore } from "~/composables/useCart";
+
+    const cartStore = useCartStore();
+    const { product } = defineProps(['product']);
+
+    const addToCart = () => {
+		cartStore.addCartProduct(product);
+	};
+</script>
+
 <template>
     <div class="relative transition-all duration-500 frame group hover:-translate-y-3">
         <div class="card flex flex-col justify-between text-center relative transition-shadow duration-500 group-hover:shadow-[0px_10px_15px_0px_#0000001A]">
@@ -26,17 +37,13 @@
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
                 <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary medium">ODABERI OPCIJE</NuxtLink>
-                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary medium">DODAJ U KOŠARICU</NuxtLink>
+                <UButton @click="addToCart" class="font-semibold btn-primary medium">DODAJ U KOŠARICU</UButton>
             </div>
         </div>
         <!--<p> {{ product.category}}</p>-->
         <p class="p-2 mt-2 font-semibold text-center text-blue-900 font-saira text-h5-normal">{{ product.title }}</p>
     </div>
 </template>
-
-<script setup>
-const { product } = defineProps(['product'])
-</script>
 
 <style scoped>
 .middle {

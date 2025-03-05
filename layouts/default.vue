@@ -1,7 +1,9 @@
 <script setup>
 import { _white } from '#tailwind-config/theme/accentColor';
 import { ref, computed, toValue } from 'vue'
+import { useCartStore } from '~/composables/useCart';
 
+const cartStore = useCartStore();
 
 const activeTab = ref('') 
 
@@ -48,7 +50,7 @@ const dropdownItems = computed(() => {
        
       }],
       [{
-        custom: '<span class="font-roboto font-body3 text-white">Nemaš račun?</span> <a href="/registracija" class="uppercase font-roboto font-body3 mr-4 underline text-blue-100">Registriraj se!</a>',
+        custom: '<span class="text-white font-roboto font-body3">Nemaš račun?</span> <a href="/registracija" class="mr-4 text-blue-100 underline uppercase font-roboto font-body3">Registriraj se!</a>',
       }]
     ];
   }
@@ -107,7 +109,7 @@ const dropdownItems = computed(() => {
             </div>
 
             <div class="flex flex-row gap-7">
-                <div class="flex-between flex-row gap-4">
+                <div class="flex-row gap-4 flex-between">
                     <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
                     <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
                     <UDropdown
@@ -133,7 +135,7 @@ const dropdownItems = computed(() => {
                         <UButton color="white" trailing-icon="tdesign:user-circle" />
                         <!-- Stavke dropdowna -->
                         <template #item="{ item }">
-                        <div class="py-2 px-1">
+                        <div class="px-1 py-2">
                             
                             <span v-if="item.custom" v-html="item.custom"></span>
                             <span v-else>
@@ -148,14 +150,14 @@ const dropdownItems = computed(() => {
                 </div>
               
                 <UChip 
-                    text="0" 
+                    :text="cartStore.totalPriceQuantity.quantity" 
                     size="2xl" inset  
                     :ui="{
                         base: 'mx-2 -my-1 ring-0',
                         background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
                     }"
                     class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
-                        <p class="header-text hover:text-white ">0,00 €</p>
+                        <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
                         <Icon name="ci:shopping-cart-01" class="text-white" />
                 </UChip>
             </div>
@@ -172,9 +174,9 @@ const dropdownItems = computed(() => {
                 </ul>
             </div>
 
-            <div v-show="activeTab === 'odjeca'" class="flex gap-4 justify-between" id="odjeca">
+            <div v-show="activeTab === 'odjeca'" class="flex justify-between gap-4" id="odjeca">
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">MUŠKARCI</h5>
+                    <h5 class="pb-4 heading-subtitle">MUŠKARCI</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
@@ -183,7 +185,7 @@ const dropdownItems = computed(() => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">ŽENE</h5>
+                    <h5 class="pb-4 heading-subtitle">ŽENE</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
@@ -192,7 +194,7 @@ const dropdownItems = computed(() => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">DJECA</h5>
+                    <h5 class="pb-4 heading-subtitle">DJECA</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hoodice</NuxtLink></li>
@@ -201,7 +203,7 @@ const dropdownItems = computed(() => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">MODNI DODACI</h5>
+                    <h5 class="pb-4 heading-subtitle">MODNI DODACI</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Kape</NuxtLink></li>
@@ -212,9 +214,9 @@ const dropdownItems = computed(() => {
             </div>
 
 
-            <div v-show="activeTab === 'kolekcije'" class="flex gap-4 justify-between" id="kolekcije">
+            <div v-show="activeTab === 'kolekcije'" class="flex justify-between gap-4" id="kolekcije">
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">JOMA</h5>
+                    <h5 class="pb-4 heading-subtitle">JOMA</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Hlače</NuxtLink></li>
@@ -225,7 +227,7 @@ const dropdownItems = computed(() => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">NOVE HOODICE</h5>
+                    <h5 class="pb-4 heading-subtitle">NOVE HOODICE</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Muškarci</NuxtLink></li>
@@ -234,14 +236,14 @@ const dropdownItems = computed(() => {
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">FORZA FIUME PREMIUM</h5>
+                    <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
                     </ul>
                 </div>
                 <div class="basis-1/4">
-                    <h5 class="heading-subtitle pb-4">ZIGMAN & HNK RIJEKA</h5>
+                    <h5 class="pb-4 heading-subtitle">ZIGMAN & HNK RIJEKA</h5>
                     <hr class="divider">
                     <ul class="flex flex-col gap-3 pt-4">
                         <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
@@ -294,29 +296,29 @@ const dropdownItems = computed(() => {
                     <div
                         class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center">
                         <div class="col-span-1">
-                            <h4 class="font-saira font-semibold text-blue-600 text-h4-normal uppercase mb-2 text-right max-xl:pt-14">
+                            <h4 class="mb-2 font-semibold text-right text-blue-600 uppercase font-saira text-h4-normal max-xl:pt-14">
                                 Postani član</h4>
                         </div>
 
                         <div class="col-span-1">
-                            <p class="font-roboto font-normal text-body2 text-blue-900 max-xl:text-center">Učlani se u
+                            <p class="font-normal text-blue-900 font-roboto text-body2 max-xl:text-center">Učlani se u
                                 klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode
                                 i usluge naših partnera.</p>
                         </div>
 
                         <div class="col-span-1">
                             <NuxtLink to="#" target="_blank" rel="noopener noreferrer"
-                                class="inline-block  btn-secondary large uppercase">Registriraj se</NuxtLink>
+                                class="inline-block uppercase btn-secondary large">Registriraj se</NuxtLink>
                         </div>
                     </div>
                 </div>
 
                 <!--slogan -->
                 <div
-                    class="flex flex-col content-center justify-center items-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
+                    class="flex flex-col items-center content-center justify-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
                     <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8">
                     <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer"
-                        class="font-saira font-semibold text-h4-normal text-blue-50 link">nk-rijeka.hr</a>
+                        class="font-semibold font-saira text-h4-normal text-blue-50 link">nk-rijeka.hr</a>
                 </div>
 
                 <!-- footer meni  -->
@@ -324,15 +326,15 @@ const dropdownItems = computed(() => {
                     class="mx-auto max-w-[1480px] grid grid-cols-1 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-6">
                     <!-- Logo element -->
                     <div
-                        class="flex justify-center items-start sm:col-span-full lg:col-span-full 2xl:col-span-1 pb-0 sm:pb-5">
+                        class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5">
                         <img class="w-full max-w-[108px]" src="~/assets/images/hnk-rijeka-grb.svg"
                             alt="HNK Rijeka Grb" />
                     </div>
 
                     <!-- Društvene mreže -->
                     <div>
-                        <h6 class="footer-title pt-3 sm:pt-0">Društvene mreže</h6>
-                        <p class="footer-text mb-4">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
+                        <h6 class="pt-3 footer-title sm:pt-0">Društvene mreže</h6>
+                        <p class="mb-4 footer-text">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
                         <ul class="inline-flex gap-2">
                             <li>
                                 <a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank">
@@ -365,8 +367,8 @@ const dropdownItems = computed(() => {
 
                     <!-- O nama -->
                     <div class="ml-10 max-lg:ml-0">
-                        <h6 class="footer-title pt-3 sm:pt-0">O nama</h6>
-                        <p class="footer-text mb-4 link">
+                        <h6 class="pt-3 footer-title sm:pt-0">O nama</h6>
+                        <p class="mb-4 footer-text link">
                             <NuxtLink to="#">Kontakt</NuxtLink>
                         </p>
                         <p class="footer-text link">
@@ -376,8 +378,8 @@ const dropdownItems = computed(() => {
 
                     <!-- Korisničke usluge -->
                     <div>
-                        <h6 class="footer-title pt-3 sm:pt-0">Korisničke usluge</h6>
-                        <p class="footer-text link mb-4">
+                        <h6 class="pt-3 footer-title sm:pt-0">Korisničke usluge</h6>
+                        <p class="mb-4 footer-text link">
                             <NuxtLink to="#">Dostava unutar RH</NuxtLink>
                         </p>
                         <p class="footer-text link">
@@ -387,14 +389,14 @@ const dropdownItems = computed(() => {
 
                     <!-- Uvjeti korištenja -->
                     <div>
-                        <h6 class="footer-title pt-3 sm:pt-0">Uvjeti korištenja</h6>
-                        <p class="footer-text link mb-4">
+                        <h6 class="pt-3 footer-title sm:pt-0">Uvjeti korištenja</h6>
+                        <p class="mb-4 footer-text link">
                             <NuxtLink to="#">Način plaćanja</NuxtLink>
                         </p>
-                        <p class="footer-text link mb-4">
+                        <p class="mb-4 footer-text link">
                             <NuxtLink to="#">Opći uvjeti kupnje</NuxtLink>
                         </p>
-                        <p class="footer-text link mb-4">
+                        <p class="mb-4 footer-text link">
                             <NuxtLink to="#">Zaštita podataka</NuxtLink>
                         </p>
                         <p class="footer-text link">
@@ -404,7 +406,7 @@ const dropdownItems = computed(() => {
 
                     <!-- Newsletter -->
                     <div>
-                        <h6 class="footer-title pt-3 sm:pt-0">Newsletter</h6>
+                        <h6 class="pt-3 footer-title sm:pt-0">Newsletter</h6>
                         <p class="footer-text">
                             Doznaj prvi sve vijesti i promocije u svom inboxu
                         </p>
@@ -429,14 +431,14 @@ const dropdownItems = computed(() => {
             
 
             <div
-                class="mx-auto p-6 flex flex-col-reverse gap-5 sm:flex-row sm:gap-0 items-center justify-between border-t border-blue-800">
-                <div class="text-blue-400 text-roboto text-body4 font-normal">
+                class="flex flex-col-reverse items-center justify-between gap-5 p-6 mx-auto border-t border-blue-800 sm:flex-row sm:gap-0">
+                <div class="font-normal text-blue-400 text-roboto text-body4">
                     Copyright © {{ new Date().getFullYear() }} HNK Rijeka
                 </div>
-                <div class="text-blue-400 text-roboto text-body4 font-normal">
+                <div class="font-normal text-blue-400 text-roboto text-body4">
                     Design and development by:
                     <a href="https://prospekt.hr" target="_blank" rel="noopener noreferrer"
-                        class="text-white font-bold hover:underline">Prospekt</a>
+                        class="font-bold text-white hover:underline">Prospekt</a>
                 </div>
             </div>
 

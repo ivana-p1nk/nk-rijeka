@@ -2,13 +2,21 @@ export interface IProduct {
     id: number;
     title: string;
     price: number;
+    quantity: number;
     description: string;
-    category: string;
-    image: string;
-    rating: IRating;
-}
-
-export interface IRating {
-    rate: number;
-    count: number;
+    gallery: string[];
+    type_product: string;
+    category: {
+        id: number;
+        title: string;
+        image: string;
+    },
+    variations?: {
+        id: number;
+        packaging: string;
+        price: number;
+        minimum_quantity: number;
+        gallery?: string[];
+    }[];
+    orderQuantity?: number;
 }
