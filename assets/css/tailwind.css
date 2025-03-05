@@ -403,7 +403,14 @@ body {
     
     .btn-size {@apply w-[42px] h-[42px] flex justify-center py-3 px-5;}
 
-}
+
+    .account-frame-items {@apply px-4 text-sm text-white dark:text-white font-saira font-medium uppercase;}
+
+
+    .account-login-btn {@apply  btn-primary justify-center uppercase hover:dark:bg-blue-700 focus:dark:bg-blue-800 dark:hover:text-white dark:hover:rounded-[6px];}
+
+    .account-transparent {@apply dark:hover:text-white dark:hover:bg-transparent text-white dark:text-white dark:hover:bg-transparent}
+} 
 
 
 

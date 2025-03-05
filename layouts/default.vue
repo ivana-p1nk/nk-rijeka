@@ -18,25 +18,25 @@ const dropdownItems = computed(() => {
     return [
       [{
         custom: `Pozdrav ${userName.value}`,  
-        class: 'px-4 py-2 font-roboto text-sm font-normal text-white',
+        class: 'font-roboto font-normal account-frame pl-3 pt-0 pb-3 account-transparent',
       }],
       [{
         label: 'Narudžbe',
         to: '/moj-racun',
-        icon: 'streamline:ticket-1 text-blue-500 w-5 h-5 -m-1',
-        class: 'font-saira font-medium text-sm text-white uppercase',
+        icon: 'streamline:ticket-1',
+        class: 'account-frame-items',
       }],
       [{
         label: 'Detalji profila',
         to: '/profil',
-        icon: 'tdesign:user-circle text-blue-500 w-5 h-5 -m-1',
-        class: 'font-saira font-medium text-sm text-white uppercase',
+        icon: 'tdesign:user-circle',
+        class: 'account-frame-items',
       }],
       [{
         label: 'Odjava',
         to: '/odjava',
-        icon: 'uiw:login text-blue-500 w-5 h-5 -m-1',
-        class: 'font-saira font-medium text-sm text-white uppercase', 
+        icon: 'uiw:login',
+        class: 'account-frame-items',
       }]
     ];
   } else {
@@ -44,17 +44,21 @@ const dropdownItems = computed(() => {
       [{
         label: 'Prijavi se',
         to: '/prijava',
-         class: 'btn-primary uppercase'
-       
+         class: 'account-login-btn w-[80%] mb-2 mx-auto'
       }],
-      [{
-        custom: '<span class="font-roboto font-body3 text-white">Nemaš račun?</span> <a href="/registracija" class="uppercase font-roboto font-body3 mr-4 underline text-blue-100">Registriraj se!</a>',
-      }]
+      [{custom: `
+        <div class="pt-3 border-t-[1px] border-blue-800 flex gap-3 w-fit">
+            <span class="account-transparent">Nemaš račun?</span> 
+            <a href="/registracija" class="link uppercase font-roboto font-body3 underline text-blue-100">
+            Registriraj se
+            </a>
+        </div>
+        `,
+        class: 'pt-2 pb-2 px-4 font-roboto font-body3 account-transparent',
+       }],
     ];
   }
 });
-
-
 
 
 
@@ -110,43 +114,47 @@ const dropdownItems = computed(() => {
                 <div class="flex-between flex-row gap-4">
                     <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
                     <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
+
+                    <!--Login/Account Dropdown-->
                     <UDropdown
                         :items="dropdownItems"
                         :popper="{ placement: 'bottom-start' }"
                         class="custom-dropdown"
                         :ui="{
-                           container: '',
                             width: 'w-[245px]',
-                            background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3', 
+                            background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3',
                             rounded: 'rounded-2xl',
-                            padding:'p-0',
+                            padding: 'p-0',
                             divide: 'divide-none',
                             shadow: 'shadow-lg',
                             ring: 'ring-0',
                             item: {
-                                active: 'bg-gray-100 dark:bg-red-900 text-gray-900 dark:text-white',
+                                inactive: 'text-white dark:text-white',
+                                active:  'rounded-none bg-blue-500 dark:bg-blue-500 dark:bg-opacity-10 bg-opacity-10 text-text-blue-400 dark:text-blue-400',
                             }
                         }"
-                        
-
-                        >
-                        <UButton color="white" trailing-icon="tdesign:user-circle" />
+                    >
+                        <UButton 
+                            color="white" 
+                            class="dark:bg-transparent dark:hover:bg-transparent dark:hover:link p-0 dark:ring-0"
+                            trailing-icon="tdesign:user-circle"
+                        />
                         <!-- Stavke dropdowna -->
-                        <template #item="{ item }">
-                        <div class="py-2 px-1">
-                            
-                            <span v-if="item.custom" v-html="item.custom"></span>
-                            <span v-else>
-                            <span v-if="item.icon" class="mr-2">
-                                <Icon :name="item.icon"/>
-                            </span>
-                            {{ item.label }}
-                            </span>
-                        </div>
+                        <template #item="{ item, isActive }">
+                            <div class="py-1 px-2">
+                                <span v-if="item.custom" v-html="item.custom"></span>
+                                <span v-else>
+                                    <span v-if="item.icon" class="mr-1">
+                                        <Icon :name="item.icon" class="text-blue-500 w-5 h-5 -mb-1 ml-5 " />
+                                    </span>   
+                                    {{ item.label }}
+                                </span>
+                            </div>
                         </template>
                     </UDropdown>
                 </div>
               
+                <!--Cart-->
                 <UChip 
                     text="0" 
                     size="2xl" inset  
@@ -159,7 +167,6 @@ const dropdownItems = computed(() => {
                         <Icon name="ci:shopping-cart-01" class="text-white" />
                 </UChip>
             </div>
-
         </div>
         
         <!-- Dropdown sekcija za navigaciju -->
@@ -445,7 +452,7 @@ const dropdownItems = computed(() => {
 </template>
 
 <style scoped>
-.custom-dropdown .headlessui-menu-items {
-  padding: 1.5rem; /* Dodaje padding samo na okvir dropdowna, a ne na stavke */
-}
+
+
+
 </style>
