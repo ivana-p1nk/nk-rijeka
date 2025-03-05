@@ -19,5 +19,6 @@ export default defineNuxtConfig({
       ],
     }
   },
-  css: ['~/assets/icomoon/style.css'] 
+  css: ['~/assets/icomoon/style.css'],
+  ssr: false,
 })
