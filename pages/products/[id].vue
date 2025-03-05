@@ -3,7 +3,7 @@
         <!--adding custom page meta (second way)-->
         <Head>
             <Title>
-                NK Rijeka | {{ product.title }}
+                NK Rijeka | {{ product?.title }}
             </Title>
             <Meta name="description" :content="product.description" />
         </Head>
@@ -14,11 +14,10 @@
 
 <script setup>
     const { id } = useRoute().params
-    const uri = 'https://fakestoreapi.com/products/' + id
+    const uri = 'https://nkrijeka-app.laravel.cloud/api/v1/products/${id}'
 
     //fetch the product
-    const { data: product } = await useFetch(uri, { key: id }) 
-
+    const { data: product, error } = await useFetch(uri, { key: id }) 
 
     if(!product.value){
         throw createError({ statusCode: 404, statusMessage: 'Product not found', fatal: true })
