@@ -1,48 +1,54 @@
+<script setup lang="ts">
+    import type { IProduct } from '~/types/product';
+    
+    const props = defineProps<{ product: IProduct; }>();
+</script>
+
 <template>
     <div>
         <div class="grid grid-cols-2 gap-10">
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit">
-                <div class="flex flex-row justify-between items-center">
-                    <p><Icon name="material-symbols:favorite-outline" class="icon-xl text-gray-900" /></p>
-                    <p id="tag" class="tags bg-blue-300 font-saira font-semibold text-label1 text-white px-3 py-2 radius rounded-lg">NOVO</p>
+                <div class="flex flex-row items-center justify-between">
+                    <p><Icon name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" /></p>
+                    <p id="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">NOVO</p>
                 </div>
-                <img :src="product.image" alt="product img" class="mx-auto my-7">
+                <img :src="product.gallery[0]" alt="product img" class="mx-auto my-7">
             </div>
             <div class="p-7" >
-                <p class="font-roboto font-normal text-body2 text-blue-900">
+                <p class="font-normal text-blue-900 font-roboto text-body2">
                     <NuxtLink class="text-blue-400 " to="/">Početna /</NuxtLink>
                      <span class="uppercase">Breadcrumbs</span>
                 </p>
-                <h1 class="font-saira font-medium text-h1-normal text-blue-900 my-6">{{ product.title }}</h1>
+                <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
                 <!-- details-->
                 <div>
-                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Opis: </span>{{ product.description }}</p>
-                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Boja: </span> </p>
-                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Sastav: </span> </p>
                 </div>
                 <!--price-->
                 <div class="flex flex-col gap-3 my-7 py-7 border-y border-neutralBlue-100">
                     <div class="flex flex-row gap-3">
-                        <p class="font-saira font-semibold text-h4-normal text-blue-900">{{ product.price }} €</p>
-                        <p class="bg-gray-900 py-1 px-3 rounded-lg uppercase font-saira font-bold text-label1 text-white flex items-center">REDOVNA CIJENA</p>
+                        <p class="font-semibold text-blue-900 font-saira text-h4-normal">{{ product.price }} €</p>
+                        <p class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">REDOVNA CIJENA</p>
                     </div>
                     <div class="flex flex-row gap-3">
-                        <p class="font-saira font-semibold text-h4-normal text-blue-300">{{ product.price }} €</p>
-                        <p class="bg-blue-300 py-1 px-3 rounded-lg uppercase font-saira font-bold text-label1 text-white flex items-center">CIJENA ZA ČLANOVE</p>
+                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">{{ product.price }} €</p>
+                        <p class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">CIJENA ZA ČLANOVE</p>
                     </div>
                 </div>
 
-                <button class="btn-secondary xl flex flex-row items-center gap-2 w-fit uppercase">
+                <button class="flex flex-row items-center gap-2 uppercase btn-secondary xl w-fit">
                     Personaliziraj
-                    <Icon name="streamline:shopping-cart-1" class="icon-large text-gray-900" />
+                    <Icon name="streamline:shopping-cart-1" class="text-gray-900 icon-large" />
                 </button>
 
                 <!--veličina-->
-                <div class="py-7 border-b border-neutralBlue-100">
-                    <p class="font-saira font-bold text-h6-normal text-gray-900">Veličina</p>
+                <div class="border-b py-7 border-neutralBlue-100">
+                    <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
                     <div class="flex flex-row gap-1 py-3">
                         <button class="btn-secondary xl btn-size" >S</button>
                         <button class="btn-secondary xl btn-size">M</button>
@@ -51,38 +57,38 @@
                         <button class="btn-secondary xl btn-size">2XL</button>
                         <button class="btn-secondary xl btn-size"> 3XL</button>
                     </div>
-                    <NuxtLink to="" class="font-roboto font-normal text-body2 text-gray-900 underline">Pogledajte tablicu veličina</NuxtLink>
+                    <NuxtLink to="" class="font-normal text-gray-900 underline font-roboto text-body2">Pogledajte tablicu veličina</NuxtLink>
                     <div class="flex flex-row gap-4 mt-7">
                         <div class="flex flex-row items-center gap-1">
                             <button class="btn-secondary xl btn-size" >-</button>
                             <button class="btn-secondary xl btn-size">01</button>
                             <button class="btn-secondary xl btn-size">+</button>
                         </div>
-                        <button class="btn-primary large flex flex-row gap-2 items-center w-fit uppercase">
+                        <button class="flex flex-row items-center gap-2 uppercase btn-primary large w-fit">
                         Dodaj u košaricu
-                        <Icon name="streamline:shopping-cart-1" class="icon-large text-white" />
+                        <Icon name="streamline:shopping-cart-1" class="text-white icon-large" />
                         </button>
                     </div>
                 </div>
 
                 <div class="pt-7">
-                    <p class="font-roboto fontnormal text-body2 text-gray-900 pb-3"><span class="font-bold">
+                    <p class="pb-3 text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Model: </span>{{ product.model }}
                     </p>
-                    <p class="font-roboto fontnormal text-body2 text-gray-900"><span class="font-bold">
+                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Kategorija: </span>{{ product.category }}
                     </p>
                 </div>
 
                 <div class="pt-6 pb-7">
-                    <p class="font-roboto font-normal text-body3 text-blue-900">* Personalizacija dresova i hlačica tiska se po fontu sezone 2024/25<br><br>
+                    <p class="font-normal text-blue-900 font-roboto text-body3">* Personalizacija dresova i hlačica tiska se po fontu sezone 2024/25<br><br>
                         * Molimo da prilikom preuzimanja pošiljke, u prisustvu djelatnika Hrvatske pošte, 
                         utvrdite eventualna oštećenja ili manjkavost.
                     </p>
                 </div>
 
                 <div>
-                    <p class="font-saira font-bold text-h6-normal text-gray-900">Podijeli</p>
+                    <p class="font-bold text-gray-900 font-saira text-h6-normal">Podijeli</p>
                     <ul class="inline-flex gap-2 mt-2">
                             <li>
                                 <a class="circle-page" href="https://www.facebook.com/nk.rijeka" target="_blank">
@@ -107,16 +113,8 @@
     </div>
 </template>
 
-<script setup>
-    const { product} = defineProps(['product'])
-</script>
-
 <style scoped>
-
-img {
-    max-width:400px;
-}
-
-
-
+    img {
+        max-width:400px;
+    }
 </style>

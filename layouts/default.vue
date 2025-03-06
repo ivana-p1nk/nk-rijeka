@@ -48,15 +48,6 @@ const dropdownItems = computed(() => {
         to: '/prijava',
          class: 'account-login-btn w-[80%] mb-2 mx-auto'
       }],
-<div class="pt-3 border-t-[1px] border-blue-800 flex gap-3 w-fit">
-            <span class="account-transparent">Nemaš račun?</span> 
-            <a href="/registracija" class="link uppercase font-roboto font-body3 underline text-blue-100">
-            Registriraj se
-            </a>
-        </div>
-        `,
-        class: 'pt-2 pb-2 px-4 font-roboto font-body3 account-transparent',
-       }],
     ];
   }
 });
@@ -137,16 +128,16 @@ const dropdownItems = computed(() => {
                     >
                         <UButton 
                             color="white" 
-                            class="dark:bg-transparent dark:hover:bg-transparent dark:hover:link p-0 dark:ring-0"
+                            class="p-0 dark:bg-transparent dark:hover:bg-transparent dark:hover:link dark:ring-0"
                             trailing-icon="tdesign:user-circle"
                         />
                         <!-- Stavke dropdowna -->
 <template #item="{ item, isActive }">
-                            <div class="py-1 px-2">
+                            <div class="px-2 py-1">
                                 <span v-if="item.custom" v-html="item.custom"></span>
                                 <span v-else>
                                     <span v-if="item.icon" class="mr-1">
-                                        <Icon :name="item.icon" class="text-blue-500 w-5 h-5 -mb-1 ml-5 " />
+                                        <Icon :name="item.icon" class="w-5 h-5 ml-5 -mb-1 text-blue-500 " />
                                     </span>   
                                     {{ item.label }}
                                 </span>
