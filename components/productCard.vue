@@ -1,11 +1,13 @@
-<script setup>
+<script setup lang="ts">
     import { useCartStore } from "~/composables/useCart";
+    import type { IProduct } from '~/types/product';
+    
+    const props = defineProps<{ product: IProduct; }>();
 
     const cartStore = useCartStore();
-    const { product } = defineProps(['product']);
 
     const addToCart = () => {
-		cartStore.addCartProduct(product);
+		cartStore.addCartProduct(props.product);
 	};
 </script>
 
@@ -18,7 +20,7 @@
                     <p id="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">NOVO</p>
                 </div>
         
-                <img :src="product.image" alt="product thumb" class="max-h-[320px] max-w-[85%] mx-auto">
+                <img :src="product.gallery[0]" alt="product thumb" class="max-h-[320px] max-w-[85%] mx-auto">
             </div>
 
             <div class="flex flex-row justify-center gap-2 pt-6">
