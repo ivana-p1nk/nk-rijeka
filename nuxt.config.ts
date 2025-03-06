@@ -22,4 +22,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/icomoon/style.css'],
   ssr: false,
+  
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+  },
 })
