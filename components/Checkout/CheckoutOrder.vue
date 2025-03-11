@@ -127,7 +127,7 @@
       <!-- Place Order Button -->
       <div>
         <div class="mt-6">
-          <UButton type="submit" class="hover:text-white">
+          <UButton type="submit" class="bg-blue-500 hover:bg-blue-600">
             Submit
           </UButton>
         </div>

@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <div class="p-10 py-20 mx-auto mt-40 rounded-md bg-slate-500 max-w-7xl">
+    <div class="p-10 py-20 mx-auto my-40 bg-white shadow-lg rounded-2xl max-w-7xl">
       <h1 class="mb-8 text-3xl font-bold">Košarica</h1>
   
       <div v-if="cartStore.cart_products.length > 0">
@@ -54,29 +54,29 @@
             </div>
           </NuxtLink>
           <div class="flex items-center">
-            <div class="flex items-center p-1 space-x-1 bg-white rounded-lg">
+            <div class="flex items-center p-1 space-x-1 rounded-lg bg-slate-100">
               <button
-                class="px-3 py-1 rounded text-background"
+                class="px-3 py-1 rounded"
                 @click="cartStore.quantityDecrement(item, item.variationId)"
               >
-                <UIcon name="heroicons:minus" class="text-red-500" />
+                <UIcon name="heroicons:minus"  />
               </button>
               <input
-                class="w-5 text-center bg-red-500 text-background"
+                class="w-5 text-center"
                 type="text"
                 :value="item.orderQuantity"
                 :v-model="item.orderQuantity"
                 disabled
               />
               <button
-                class="px-3 py-1 rounded text-background"
+                class="px-3 py-1 rounded"
                 @click="cartStore.addCartProduct(item, item.variationId)"
               >
-              <UIcon name="heroicons:plus" class="text-red-500" />
+              <UIcon name="heroicons:plus"  />
               </button>
             </div>
 
-            <UIcon name="heroicons:trash" class="h-6 ml-3 text-red-600 cursor-pointer w-7" @click="cartStore.removeCartProduct(item, item.variationId)" />
+            <UIcon name="heroicons:trash" class="h-6 ml-3 cursor-pointer w-7" @click="cartStore.removeCartProduct(item, item.variationId)" />
           </div>
         </div>
         <div class="mt-8 text-right">
@@ -85,7 +85,7 @@
           </p>
           <NuxtLink
             to="/checkout"
-            class="px-4 py-2 text-white transition-colors rounded-lg bg-green"
+            class="px-4 py-2 text-white transition-colors bg-blue-400 rounded-lg"
           >
             Nastavi na naplatu
           </NuxtLink>

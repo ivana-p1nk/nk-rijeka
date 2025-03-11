@@ -11,26 +11,24 @@ const setActive = (tab) => {
   activeTab.value = activeTab.value === tab ? '' : tab 
 }
 
-// Simulacija ulogiranog korisnika
-const isLoggedIn = ref(true);  
-const userName = ref('Ivana');  
+const user = useSanctumUser();
 
 const dropdownItems = computed(() => {
-  if (isLoggedIn.value) {
+  if (user.value != null) {
     return [
       [{
-        custom: `Pozdrav ${userName.value}`,  
+        custom: `Pozdrav ${user.value.name}`,  
         class: 'font-roboto font-normal account-frame pl-3 pt-0 pb-3 account-transparent',
       }],
       [{
         label: 'Narudžbe',
-        to: '/moj-racun',
+        to: '/profile',
         icon: 'streamline:ticket-1',
         class: 'account-frame-items',
       }],
       [{
         label: 'Detalji profila',
-        to: '/profil',
+        to: '/profile',
         icon: 'tdesign:user-circle',
         class: 'account-frame-items',
       }],
@@ -45,7 +43,7 @@ const dropdownItems = computed(() => {
     return [
       [{
         label: 'Prijavi se',
-        to: '/prijava',
+        to: '/login',
          class: 'account-login-btn w-[80%] mb-2 mx-auto'
       }],
     ];

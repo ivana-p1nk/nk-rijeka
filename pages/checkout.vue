@@ -2,6 +2,10 @@
     useSeoMeta({
         title: "Checkout Page",
     });
+
+    definePageMeta({
+        middleware: 'sanctum:auth',
+    })
 </script>
 
 <template>

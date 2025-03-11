@@ -3,9 +3,10 @@ import axios from "axios";
 export default function useAxios(customBaseUrl?: boolean) {
 
     const config = useRuntimeConfig();
+    const customUrl = customBaseUrl ? config.public.baseUrl : config.public.url;
 
     let api = axios.create({
-        baseURL: config.public.url,
+        baseURL: customUrl,
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
