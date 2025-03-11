@@ -23,8 +23,18 @@
 		}
 	};
 
+    const carouselNew = ref()
+
 	onMounted(() => {
 		fetchData();
+
+        setInterval(() => {
+            if (!carouselNew.value) return
+            if (carouselNew.value.page === carouselNew.value.pages) {
+                return carouselNew.value.select(0)
+            }
+            carouselNew.value.next()
+        }, 3000)
 	});
 </script>
 
@@ -82,10 +92,8 @@
         <UCarousel 
             v-if="products.length > 0"
             v-slot="{ item }"
-            loop
             arrows
             indicators 
-            :autoplay="{ delay: 2000 }"
             :items="products"
             :ui="{ item: 'basis-1/4' }" >
             <ProductCard :product="item" class="pt-6" />
@@ -113,15 +121,14 @@
         <p>Primjer slidera</p>             
         
         <UCarousel 
+            ref="carouselNew"
             v-if="products.length > 0"
             v-slot="{ item }"
-            loop
             arrows
             indicators 
-            :autoplay="{ delay: 2000 }"
             :items="products"
             :ui="{ item: 'basis-1/4' }" >
-            <ProductCard :product="item" class="pt-6" />
+            <ProductCard :product="item" />
         </UCarousel>
     </div>
 

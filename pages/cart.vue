@@ -83,12 +83,12 @@
           <p class="mb-10 text-xl font-bold">
             Ukupno: {{ cartStore.totalPriceQuantity.total.toFixed(2) }} €
           </p>
-          <!-- <NuxtLink
+          <NuxtLink
             to="/checkout"
             class="px-4 py-2 text-white transition-colors rounded-lg bg-green"
           >
             Nastavi na naplatu
-          </NuxtLink> -->
+          </NuxtLink>
         </div>
       </div>
       <div v-else class="text-center">

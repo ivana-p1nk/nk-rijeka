@@ -28,6 +28,10 @@ export default defineNuxtConfig({
   css: ['~/assets/icomoon/style.css'],
   ssr: false,
 
+  colorMode: {
+    preference: 'light'
+  },
+
   devServer: {
     host: 'localhost',
     port: 3000,
