@@ -1,5 +1,6 @@
 <script setup lang="ts">
 	import type { IProduct } from '~/types/product';
+	const config = useRuntimeConfig();
 
 	definePageMeta({
 		layout: 'products'
@@ -12,7 +13,7 @@
 		loading.value = true;
 
 		try {
-			const { data: productData } = await useFetch(`https://nkrijeka-app.laravel.cloud/api/v1/products`);
+			const { data: productData } = await useFetch(`${config.public.url}/products`);
 
 			// @ts-ignore
 			products.value = productData.value.data || [];
