@@ -11,26 +11,24 @@ const setActive = (tab) => {
   activeTab.value = activeTab.value === tab ? '' : tab 
 }
 
-// Simulacija ulogiranog korisnika
-const isLoggedIn = ref(true);  
-const userName = ref('Ivana');  
+const user = useSanctumUser();
 
 const dropdownItems = computed(() => {
-  if (isLoggedIn.value) {
+  if (user.value != null) {
     return [
       [{
-        custom: `Pozdrav ${userName.value}`,  
+        custom: `Pozdrav ${user.value.name}`,  
         class: 'font-roboto font-normal account-frame pl-3 pt-0 pb-3 account-transparent',
       }],
       [{
         label: 'Narudžbe',
-        to: '/moj-racun',
+        to: '/profile',
         icon: 'streamline:ticket-1',
         class: 'account-frame-items',
       }],
       [{
         label: 'Detalji profila',
-        to: '/profil',
+        to: '/profile',
         icon: 'tdesign:user-circle',
         class: 'account-frame-items',
       }],
@@ -45,7 +43,7 @@ const dropdownItems = computed(() => {
     return [
       [{
         label: 'Prijavi se',
-        to: '/prijava',
+        to: '/login',
          class: 'account-login-btn w-[80%] mb-2 mx-auto'
       }],
     ];
@@ -126,13 +124,17 @@ const dropdownItems = computed(() => {
                             }
                         }"
                     >
-                        <UButton 
-                            color="white" 
-                            class="p-0 dark:bg-transparent dark:hover:bg-transparent dark:hover:link dark:ring-0"
-                            trailing-icon="tdesign:user-circle"
+
+                        <UButton
+                            icon="i-heroicons-user-circle"
+                            size="sm"
+                            color="dark"
+                            square
+                            variant="solid"
+                            class="p-0"
                         />
                         <!-- Stavke dropdowna -->
-<template #item="{ item, isActive }">
+                        <template #item="{ item, isActive }">
                             <div class="px-2 py-1">
                                 <span v-if="item.custom" v-html="item.custom"></span>
                                 <span v-else>
@@ -147,17 +149,19 @@ const dropdownItems = computed(() => {
                 </div>
               
                 <!--Cart-->
-                <UChip 
-                    :text="cartStore.totalPriceQuantity.quantity" 
-                    size="2xl" inset  
-                    :ui="{
-                        base: 'mx-2 -my-1 ring-0',
-                        background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
-                    }"
-                    class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
-                        <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
-                        <Icon name="ci:shopping-cart-01" class="text-white" />
-                </UChip>
+                <NuxtLink to="/cart">
+                    <UChip 
+                        :text="cartStore.totalPriceQuantity.quantity" 
+                        size="2xl" inset  
+                        :ui="{
+                            base: 'mx-2 -my-1 ring-0',
+                            background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                        }"
+                        class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
+                            <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                            <Icon name="ci:shopping-cart-01" class="text-white" />
+                    </UChip>
+                </NuxtLink>
             </div>
         </div>
         

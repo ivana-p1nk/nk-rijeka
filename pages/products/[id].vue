@@ -13,8 +13,10 @@
 </template>
 
 <script setup>
+    const config = useRuntimeConfig();
+
     const { id } = useRoute().params
-    const uri = `https://nkrijeka-app.laravel.cloud/api/v1/products/${id}`
+    const uri = `${config.public.url}/products/${id}`
 
     //fetch the product
     const { data: product, error } = await useFetch(uri) 
