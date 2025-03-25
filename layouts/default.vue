@@ -58,7 +58,7 @@ const dropdownItems = computed(() => {
 <div>
  
     <!-- HEADER -->
-    <header class="container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
+    <header class="hidden lg:block container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
       <nav>
         <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
@@ -120,7 +120,7 @@ const dropdownItems = computed(() => {
                             ring: 'ring-0',
                             item: {
                                 inactive: 'text-white dark:text-white',
-                                active:  'rounded-none bg-blue-500 dark:bg-blue-500 dark:bg-opacity-10 bg-opacity-10 text-text-blue-400 dark:text-blue-400',
+                                active:  'rounded-none bg-blue-500 dark:bg-blue-500 dark:bg-opacity-10 bg-opacity-10 text-white dark:text-white',
                             }
                         }"
                     >
@@ -131,7 +131,7 @@ const dropdownItems = computed(() => {
                             color="dark"
                             square
                             variant="solid"
-                            class="p-0"
+                            class="p-0 dark:text-white text-white" 
                         />
                         <!-- Stavke dropdowna -->
                         <template #item="{ item, isActive }">
@@ -276,6 +276,115 @@ const dropdownItems = computed(() => {
                
      </nav>
     </header>
+
+
+
+
+    <!-- MOBILE HEADER -->
+    <header class="block lg:hidden container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
+      <nav>
+        <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
+            <div class="flex flex-row gap-6 items-center">
+             
+                <!-- Ikona za otvaranje hamburger menija -->
+                <NuxtLink to="#" @click.prevent="setActive('hamburger')" class="flex items-center gap-2 group">
+                    <Icon 
+                        :name="'radix-icons:hamburger-menu'" 
+                        :class="[ (activeTab === 'hamburger' || activeTab === 'dresovi') ? 'text-blue-500' : 'text-white', 'icon-link']" 
+                    />
+                </NuxtLink>
+
+                <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
+            </div>
+
+            <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+            <div class="flex flex-row gap-6 items-center">
+                <!--Login/Account Dropdown-->
+                <UDropdown
+                    :items="dropdownItems"
+                    :popper="{ placement: 'bottom-start' }"
+                    class="custom-dropdown"
+                    :ui="{
+                        width: 'w-[245px]',
+                        background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3',
+                        rounded: 'rounded-2xl',
+                        padding: 'p-0',
+                        divide: 'divide-none',
+                        shadow: 'shadow-lg',
+                        ring: 'ring-0',
+                        item: {
+                            inactive: 'text-white dark:text-white',
+                            active:  'rounded-none bg-blue-500 dark:bg-blue-500 dark:bg-opacity-10 bg-opacity-10 text-white dark:text-red-500',
+                        }
+                    }"
+                >
+
+                    <UButton
+                        icon="i-heroicons-user-circle"
+                        size="sm"
+                        color="dark"
+                        square
+                        variant="solid"
+                        class="p-0 dark:text-white text-white" 
+                    />
+                    <!-- Stavke dropdowna -->
+                    <template #item="{ item, isActive }">
+                        <div class="px-2 py-1">
+                            <span v-if="item.custom" v-html="item.custom"></span>
+                            <span v-else>
+                                <span v-if="item.icon" class="mr-1">
+                                    <Icon :name="item.icon" class="w-5 h-5 ml-5 -mb-1 text-blue-500 " />
+                                </span>   
+                                {{ item.label }}
+                            </span>
+                        </div>
+                    </template>
+                </UDropdown>
+
+
+                <!--Cart-->
+                <NuxtLink to="/cart">
+                <UChip 
+                    :text="cartStore.totalPriceQuantity.quantity" 
+                    size="2xl" inset  
+                    :ui="{
+                        base: 'ml-2 -my-1 ring-0',
+                        background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                    }"
+                    class="rounded-3xl flex items-center gap-2 py-2 px-2 bg-blue-500 text-white">
+                        <Icon name="ci:shopping-cart-01" class="text-white" />
+                </UChip>
+            </NuxtLink>
+        </div>
+        </div>
+
+
+        <!-- Dropdown sekcija za navigaciju -->
+        <div v-if="activeTab === 'hamburger' || activeTab === 'dresovi'" class="max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
+            <div class="flex gap-4" id="hamburger">
+                <ul class="flex flex-col gap-3">
+                    <li>
+                        <NuxtLink to="#" @click.prevent="setActive(activeTab === 'dresovi' ? 'hamburger' : 'dresovi')" class="flex items-center gap-2 group">
+                            <span :class="activeTab === 'dresovi' ? 'text-blue-500' : ''">DRESOVI</span>
+                            <Icon :name="activeTab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'" :class="[ activeTab === 'dresovi' ? 'text-blue-500' : 'text-white', 'icon-link']" />
+                        </NuxtLink>
+                    </li>
+                   
+                    <!-- Prikazuje se samo kad su dresovi aktivni -->
+                    <template v-if="activeTab === 'dresovi'">
+                        <li class="heading-sub"><NuxtLink to="#">2024./2025.</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">2023./2024.</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Starije sezone</NuxtLink></li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+
+
+       </nav>
+    </header>
+  
 
 
         <!-- Page content -->
