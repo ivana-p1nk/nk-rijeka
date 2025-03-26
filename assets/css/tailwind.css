@@ -474,6 +474,10 @@ body {
         @apply text-white dark:hover:text-white dark:text-white dark:hover:bg-transparent;
     }
 
+
+    .mobile-nav{
+    @apply font-saira font-medium uppercase tracking-wider text-nav-heading link;
+    }   
 }
 
 
