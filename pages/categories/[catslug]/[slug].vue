@@ -80,6 +80,7 @@
         fetchData();
     });
 
+
     watch([categoriy, sort], () => {
 		products.value = [];
 		page.value = 1;
