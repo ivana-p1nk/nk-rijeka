@@ -333,9 +333,15 @@ body {
         @apply w-5 h-5;
     }
 
+    .icon-extra {
+        @apply w-[17px] h-[17px];
+    }
+
+
     .icon-large {
         @apply w-5 h-5;
     }
+
 
     .icon-medium {
         @apply w-4 h-4;

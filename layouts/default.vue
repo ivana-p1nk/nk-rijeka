@@ -121,8 +121,8 @@ const dropdownItems = computed(() => {
 
             <div class="flex flex-row gap-7">
                 <div class="flex-row gap-4 flex-between">
-                    <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
-                    <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link" /></NuxtLink>
+                    <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white icon-extra link" /></NuxtLink>
+                    <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link icon-extra" /></NuxtLink>
 
                     <!--Login/Account Dropdown-->
                     <UDropdown
@@ -146,7 +146,7 @@ const dropdownItems = computed(() => {
 
                         <UButton
                             icon="i-heroicons-user-circle"
-                            size="sm"
+                            size="lg"
                             color="dark"
                             square
                             variant="solid"
@@ -313,12 +313,12 @@ const dropdownItems = computed(() => {
                <NuxtLink to="#" @click.prevent="toggleHamburger" class="flex items-center gap-2 group">
                     <Icon 
                         :name="isHamburgerOpen ? 'radix-icons:cross-2' : 'radix-icons:hamburger-menu'" 
-                        :class="[isHamburgerOpen ? 'text-white' : 'text-white', 'icon-link']" 
+                        :class="[isHamburgerOpen ? 'text-white' : 'text-white', 'icon-link icon-xl']" 
                     />
                 </NuxtLink>
 
 
-                <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link" /></NuxtLink>
+                <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link icon-xl" /></NuxtLink>
             </div>
 
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
@@ -345,7 +345,7 @@ const dropdownItems = computed(() => {
 
                     <UButton
                         icon="i-heroicons-user-circle"
-                        size="sm"
+                        size="xl"
                         color="dark"
                         square
                         variant="solid"
@@ -551,6 +551,7 @@ const dropdownItems = computed(() => {
                 <span class="">FAVORITI</span>
                 <Icon name="line-md:heart" />
             </NuxtLink>
+
         </div>
     </Transition>
 

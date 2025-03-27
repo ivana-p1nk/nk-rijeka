@@ -90,6 +90,7 @@ export default {
             customColors: {
               '100': '#172A53',
               '200':'#004C75',
+              '300':'#D2D6DB',
             },
             blue: {
               '00': '#F3FBFF',

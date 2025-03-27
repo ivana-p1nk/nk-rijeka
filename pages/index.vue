@@ -87,15 +87,19 @@
             <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
             <p class="font-normal text-blue-900 font-roboto text-body1">Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...</p>
         </div>
-        <p>Primjer slidera</p>
         
         <UCarousel 
             v-if="products.length > 0"
             v-slot="{ item }"
-            arrows
             indicators 
             :items="products"
-            :ui="{ item: 'basis-1/4' }" >
+            :ui="{ item: 'basis-1/4',
+                indicators: {
+                    wrapper: 'flex gap-2 mt-8',  
+                    indicator: 'w-2 h-2 bg-customColors-300 rounded-full transition-all duration-300', 
+                    active: 'bg-blue-800 w-2 h-2'
+                }
+             }" >
             <ProductCard :product="item" class="pt-6" />
         </UCarousel>
     </div>
@@ -116,18 +120,22 @@
                 <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">NOVO U PONUDI</h1>
                 <p class="font-normal text-blue-900 font-roboto text-body1">Naš se asortiman stalno proširuje novim <br>atraktivnim artiklima, ovo su samo neki od njih.</p>
             </div>
-            <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
-        </div>
-        <p>Primjer slidera</p>             
+            <NuxtLink to="/products" class="uppercase  btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
+        </div>          
         
         <UCarousel 
             ref="carouselNew"
             v-if="products.length > 0"
             v-slot="{ item }"
-            arrows
             indicators 
             :items="products"
-            :ui="{ item: 'basis-1/4' }" >
+            :ui="{ item: 'basis-1/4',
+                indicators: {
+                    wrapper: 'flex gap-2 mt-8',  
+                    indicator: 'w-2 h-2 bg-customColors-300 rounded-full transition-all duration-300', 
+                    active: 'bg-blue-800 w-2 h-2'
+                }
+             }" >
             <ProductCard :product="item" />
         </UCarousel>
     </div>
