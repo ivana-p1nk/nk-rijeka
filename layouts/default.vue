@@ -74,8 +74,11 @@ const dropdownItems = computed(() => {
 <div>
  
     <!-- HEADER -->
+   
     <header class="hidden lg:block container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
-      <nav>
+        
+        <nav>
+           
         <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
             
@@ -181,8 +184,10 @@ const dropdownItems = computed(() => {
             </div>
         </div>
         
+        <Transition name="fade">
         <!-- Dropdown sekcija za navigaciju -->
         <div v-if="activeTab" class="max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
+            
             <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
                 <ul class="flex flex-col gap-3">
                     <li class="heading-sub"><NuxtLink to="#">2024./2025.</NuxtLink></li>
@@ -287,10 +292,12 @@ const dropdownItems = computed(() => {
                     <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
                 </ul>
             </div>
+      
         </div>
-
-               
+        </Transition>
+   
      </nav>
+     
     </header>
 
 
@@ -375,7 +382,7 @@ const dropdownItems = computed(() => {
         </div>
         </div>
 
-
+        <Transition name="fade">
         <!-- Dropdown sekcija za navigaciju -->
         <div v-if="isHamburgerOpen" class="pt-5 pb-5 px-6 border-t border-customColors-200">
         <ul class="flex flex-col gap-4">
@@ -545,12 +552,12 @@ const dropdownItems = computed(() => {
                 <Icon name="line-md:heart" />
             </NuxtLink>
         </div>
-
+    </Transition>
 
 
        </nav>
     </header>
-  
+
 
 
         <!-- Page content -->
@@ -723,7 +730,13 @@ const dropdownItems = computed(() => {
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-
-
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
