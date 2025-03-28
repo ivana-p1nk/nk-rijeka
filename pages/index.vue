@@ -41,7 +41,7 @@
 <template>
 
     <div class="px-4 bg-top bg-no-repeat bg-auto pt-96 pb-74 bg-home1 bg-players">
-        <div class="max-w-[1120px] mx-auto relative">
+        <div class="max-w-[1120px] mx-auto relative z-[1]">
             <div class="w-1/2">
                 <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>

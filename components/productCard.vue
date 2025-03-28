@@ -39,7 +39,7 @@
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
                 <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary medium">ODABERI OPCIJE</NuxtLink>
-                <UButton @click="addToCart" class="font-semibold btn-primary medium">DODAJ U KOŠARICU</UButton>
+                <NuxtLink @click="addToCart" class="font-semibold btn-primary medium" >DODAJ U KOŠARICU</NuxtLink>
             </div>
         </div>
         <!--<p> {{ product.category}}</p>-->
