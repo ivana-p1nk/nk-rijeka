@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
 
   devServer: {
-   // host: 'web.nkrijeka-app.test',
+    //host: 'web.nkrijeka-app.test',
     host: 'localhost',
     port: 3000,
   },

@@ -19,7 +19,7 @@ import { InfoLinks } from '#components';
         <br>
         <p class="font-roboto font-normal text-body2 text-gray-900">
         <b>2. Kartice:</b>
-        <ul class="font-roboto font-normal text-body2 text-gray-900">
+        <ul class="font-roboto font-normal text-body2 text-gray-900 pl-2 list-disc list-inside marker:text-xs">
             <li>Maestro</li>
             <li>MasterCard</li>
             <li>Visa</li>

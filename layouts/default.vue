@@ -664,10 +664,10 @@ const dropdownItems = computed(() => {
                     <div>
                         <h6 class="pt-3 footer-title sm:pt-0">Korisničke usluge</h6>
                         <p class="mb-4 footer-text link">
-                            <NuxtLink to="#">Dostava unutar RH</NuxtLink>
+                            <NuxtLink to="/korisnicke-usluge">Dostava unutar RH</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="#">Međunarodna dostava</NuxtLink>
+                            <NuxtLink to="/korisnicke-usluge">Međunarodna dostava</NuxtLink>
                         </p>
                     </div>
 
@@ -675,16 +675,16 @@ const dropdownItems = computed(() => {
                     <div>
                         <h6 class="pt-3 footer-title sm:pt-0">Uvjeti korištenja</h6>
                         <p class="mb-4 footer-text link">
-                            <NuxtLink to="#">Način plaćanja</NuxtLink>
+                            <NuxtLink to="/nacini-placanja">Način plaćanja</NuxtLink>
                         </p>
                         <p class="mb-4 footer-text link">
-                            <NuxtLink to="#">Opći uvjeti kupnje</NuxtLink>
+                            <NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink>
                         </p>
                         <p class="mb-4 footer-text link">
-                            <NuxtLink to="#">Zaštita podataka</NuxtLink>
+                            <NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="#">Politika o kolačićima</NuxtLink>
+                            <NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink>
                         </p>
                     </div>
 
