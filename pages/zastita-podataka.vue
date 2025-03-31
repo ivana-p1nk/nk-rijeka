@@ -108,9 +108,9 @@ import { InfoLinks } from '#components';
         </h2>
         <p class="font-roboto font-normal text-body2 text-gray-900 ">
             Prikupljene podatke koristimo kako bismo Vam omogućili naručivanje i kupnju proizvoda na našoj web stranici u našoj internetskoj trgovini.
-            <br>
-            Podatke koje ste s nama podijelili koristit ćemo za:
-            <ul class="pb-5 font-roboto font-normal text-body2 text-gray-900 pl-2 list-disc list-inside marker:text-xs">
+            <br>Podatke koje ste s nama podijelili koristit ćemo za: 
+        </p>
+        <ul class="pb-5 font-roboto font-normal text-body2 text-gray-900 pl-2 list-disc list-inside marker:text-xs">
             <li>primanje Vaše narudžbe,</li>
             <li>izradu računa za kupljeni proizvod,</li>
             <li>plaćanje kupljenog proizvoda,</li>
@@ -119,7 +119,7 @@ import { InfoLinks } from '#components';
             <li>podrške za sve Vaše upite, komentare i sugestije,</li>
             <li>podrške u procesu reklamacije i odustajanju od kupnje.</li>
         </ul>
-        </p>
+       
 
         <h2 class="font-saira font-semibold text-h5-normal text-gray-900 pt-3">
             7. S KIM DIJELIMO VAŠE OSOBNE PODATKE

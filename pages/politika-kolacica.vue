@@ -53,43 +53,48 @@ import { InfoLinks } from '#components';
         </p>
 
         <table class="font-roboto font-normal text-body2 text-gray-900 w-full border-collapse">
-            <tr class="border-b border-gray-300 text-left align-top">
-                <td class="pt-7 pb-4 w-[20%]">KOLAČIĆ</td>
-                <td class="pt-7 pb-4 w-[35%]">IME</td>
-                <td class="pt-7 pb-4 w-[45%]">SVRHA</td>
-            </tr>
-            <tr class="border-b border-gray-300 text-left align-top">
-                <td class="py-7">Google Analytics</td>
-                <td class="py-7 leading-[2.5]">
-                    _dc_gtm_UA-#<br>
-                    _ga<br>
-                    _gid<br>
-                    collect
-                </td>
-                <td class="py-7">
-                    Ove kolačiće koristimo radi skupljanja informacija o tome kako posjetitelji koriste našu web stranicu. 
-                    Ove informacije koristimo za izradu izvještaja i poboljšanje stranice. Kolačići prikupljaju informacije 
-                    u anonimnom obliku, uključujući i broj posjetitelja web stranice, od kuda posjetitelji dolaze na web stranicu 
-                    i pojedinačne stranice koje posjećuju. Ako ne dopustite ove kolačiće, mi vaš posjet nećemo uključiti u našu statistiku.
-                </td>
-            </tr>
-            <tr class="border-b border-gray-300 text-left align-top">
-                <td class="py-7">WordPress / Woocommerce</td>
-                <td class="py-7 leading-[2.5]">
-                    wordpress_user_sw_secure_#<br>
-                    wordpress_logged_in_#<br>
-                    wordpress_sec_#<br>
-                    woo_cart_expiration<br>
-                    wp_woocommerce_session_#<br>
-                    woocommerce_items_in_cart<br>
-                    woocommerce_cart_hash
-                </td>
-                <td class="py-7">
-                    Ovi kolačići koriste se za funkcionalnost web shopa, autentikaciju korisnika prilikom prijave, korištenje košarice, 
-                    liste želja, i generalnog procesa kupnje. Kolačići su nužni za normalan rad web stranice.
-                </td>
-            </tr>
+            <thead>
+                <tr class="border-b border-gray-300 text-left align-top">
+                    <th class="pt-7 pb-4 w-[20%]">KOLAČIĆ</th>
+                    <th class="pt-7 pb-4 w-[35%]">IME</th>
+                    <th class="pt-7 pb-4 w-[45%]">SVRHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-gray-300 text-left align-top">
+                    <td class="py-7">Google Analytics</td>
+                    <td class="py-7 leading-[2.5]">
+                        _dc_gtm_UA-#<br>
+                        _ga<br>
+                        _gid<br>
+                        collect
+                    </td>
+                    <td class="py-7">
+                        Ove kolačiće koristimo radi skupljanja informacija o tome kako posjetitelji koriste našu web stranicu. 
+                        Ove informacije koristimo za izradu izvještaja i poboljšanje stranice. Kolačići prikupljaju informacije 
+                        u anonimnom obliku, uključujući i broj posjetitelja web stranice, od kuda posjetitelji dolaze na web stranicu 
+                        i pojedinačne stranice koje posjećuju. Ako ne dopustite ove kolačiće, mi vaš posjet nećemo uključiti u našu statistiku.
+                    </td>
+                </tr>
+                <tr class="border-b border-gray-300 text-left align-top">
+                    <td class="py-7">WordPress / Woocommerce</td>
+                    <td class="py-7 leading-[2.5]">
+                        wordpress_user_sw_secure_#<br>
+                        wordpress_logged_in_#<br>
+                        wordpress_sec_#<br>
+                        woo_cart_expiration<br>
+                        wp_woocommerce_session_#<br>
+                        woocommerce_items_in_cart<br>
+                        woocommerce_cart_hash
+                    </td>
+                    <td class="py-7">
+                        Ovi kolačići koriste se za funkcionalnost web shopa, autentikaciju korisnika prilikom prijave, korištenje košarice, 
+                        liste želja, i generalnog procesa kupnje. Kolačići su nužni za normalan rad web stranice.
+                    </td>
+                </tr>
+            </tbody>
         </table>
+
 
         <h2 class="font-saira font-semibold text-h5-normal text-gray-900 pt-8">
             KAKAV IZBOR IMATE U VEZI KOLAČIĆA?

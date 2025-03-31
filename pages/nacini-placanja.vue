@@ -18,14 +18,15 @@ import { InfoLinks } from '#components';
         </p>
         <br>
         <p class="font-roboto font-normal text-body2 text-gray-900">
-        <b>2. Kartice:</b>
+            <b>2. Kartice:</b>
+        </p>
         <ul class="font-roboto font-normal text-body2 text-gray-900 pl-2 list-disc list-inside marker:text-xs">
             <li>Maestro</li>
             <li>MasterCard</li>
             <li>Visa</li>
             <li>Diners</li>
         </ul>
-        </p>
+        
         <br>
         <h2 class="font-saira font-semibold text-h5-normal text-gray-900 pt-3">
             Plaćanje pouzećem nije moguće ako kupujete virtualni Gift Card, ili ako vam je taj proizvod dio narudžbe.
