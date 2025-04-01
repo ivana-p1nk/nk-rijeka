@@ -570,7 +570,7 @@ const dropdownItems = computed(() => {
 
         <!-- FOOTER -->
         <footer
-            class="mx-auto bg-cover bg-top bg-[linear-gradient(180deg,rgba(0,25,38,0)_30%,rgba(0,25,38,0.4)_60%,rgba(0,25,38,1)_95%),url(/assets/images/Footer-bg-2.jpg)]">
+            class="mx-auto bg-cover bg-top bg-[linear-gradient(180deg,rgba(0,25,38,0)_30%,rgba(0,25,38,0.4)_60%,rgba(0,25,38,1)_95%),url(/assets/images/backgrounds/Footer-bg-2.jpg)]">
 
             <div class="pt-32 frame-p">
 
@@ -611,7 +611,7 @@ const dropdownItems = computed(() => {
                     <!-- Logo element -->
                     <div
                         class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5">
-                        <img class="w-full max-w-[108px]" src="~/assets/images/hnk-rijeka-grb.svg"
+                        <img class="w-full max-w-[108px]" src="~/assets/images/logos/hnk-rijeka-grb.svg"
                             alt="HNK Rijeka Grb" />
                     </div>
 

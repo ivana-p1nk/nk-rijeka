@@ -156,11 +156,11 @@
     }
 
     .bg-home1 {
-    background-image: url('/assets/images/bg-home1.png');
+    background-image: url('/assets/images/backgrounds/bg-home1.png');
     }
 
     .bg-home2 {
-        background-image: url('/assets/images/bg-home2.jpg');
+        background-image: url('/assets/images/backgrounds/bg-home2.jpg');
         background-repeat: no-repeat;
         background-position: top;
     }
