@@ -27,9 +27,9 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: dedi3734.your-server.de
+          server: shop.nk-rijeka.hr
           username: ${{ secrets.ftp_username}}
           password: ${{ secrets.ftp_password }}
           protocol: ftps
-          server-dir: /public_html/shop.nk-rijeka.hr/
+          server-dir: /newshop.shop.nk-rijeka.hr/
           local-dir: ./web/dist/
