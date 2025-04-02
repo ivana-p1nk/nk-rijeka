@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   vite: {
     server: {
-      allowedHosts: ['web.nkrijeka-app.test'],
+      allowedHosts: ['http://backend.newshop.shop.nk-rijeka.hr/'],
       strictPort: false
     }
   },
