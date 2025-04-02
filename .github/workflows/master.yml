@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.ftp_password }}
           protocol: ftps
           server-dir: /newshop.shop.nk-rijeka.hr/
-          local-dir: ./web/dist/
+          local-dir: ./dist/
