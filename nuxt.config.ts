@@ -28,8 +28,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL || 'http://nkri-shop.hr.dedi3734.your-server.de',
-      url: process.env.API_URL || 'http://nkri-shop.hr.dedi3734.your-server.de/api/v1',
+      baseUrl: process.env.BASE_URL || 'http://newshop.shop.nk-rijeka.hr/',
+      url: process.env.API_URL || 'http://newshop.shop.nk-rijeka.hr/api/v1',
     }
   },
 
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   ],
 
   sanctum: {
-    baseUrl: process.env.BASE_URL || 'http://nkri-shop.hr.dedi3734.your-server.de',
+    baseUrl: process.env.BASE_URL || 'http://newshop.shop.nk-rijeka.hr/',
     redirect: {
       onAuthOnly: '/login',
       onLogin: '/profile'
