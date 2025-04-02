@@ -13,7 +13,7 @@
         
         <div class="flex md:flex-row flex-col">
             <div class="w-full md:w-2/5 xl:w-1/4 flex flex-row gap-6 md:gap-0 md:flex-col bg-white p-6 md:p-12">
-                <img src="/assets/images/logos/grb-rijeka.svg" alt="Grb NK Rijeka" class="max-w-[50px] mb-6">
+                <img src="/assets/images/logos/grb-rijeka.svg" alt="Grb NK Rijeka" class="max-w-[50px] mb-0 md:mb-6">
                 <p class="font-roboto font-normal text-body2 ">
                     <span class="font-semibold text-blue-600">Adresa: </span>HNK Rijeka, Rujevica 10<br>
                     <span class="font-semibold text-blue-600">OIB: 38726608831</span><br>
@@ -34,16 +34,18 @@
             FAN SHOP
         </h1>
 
-        <div class="flex py-7">
+        <div class="flex md:flex-row flex-col py-7">
             <div class="w-full md:w-2/5 xl:w-1/4 flex flex-col bg-white p-6 md:p-12">
                 <img src="/assets/images/logos/grb-rijeka.svg" alt="Grb NK Rijeka" class="max-w-[50px] mb-6">
-                <h5 class="font-saira font-semibold text-h5-normal text-blue-900 pb-6">Fan Shop Stadion HNK Rijeka – Istok i zapad</h5>
-                <p class="font-roboto font-normal text-body2">
-                    <span class="font-semibold text-blue-600 text-body3">Radno vrijeme: </span><br>
-                    Za dan domaće utakmice
-                </p>
+                <div>
+                    <h5 class="font-saira font-semibold text-h5-normal text-blue-900 pb-6">Fan Shop Stadion HNK Rijeka – Istok i zapad</h5>
+                    <p class="font-roboto font-normal text-body2">
+                        <span class="font-semibold text-blue-600 text-body3">Radno vrijeme: </span><br>
+                        Za dan domaće utakmice
+                    </p>
+                </div>
             </div>
-            <div class="w-full md:w-3/5 xl:w-3/4 flex flex-row">
+            <div class="w-full md:w-3/5 xl:w-3/4 flex flex-col md:flex-row">
                 <div class="relative w-1/2">
                     <img src="/assets/images/fanshop1.jpg" class="h-full w-full object-cover">
                     <p class="absolute left-6 bottom-6 uppercase font-saira font-bold text-label1 text-white rounded-lg py-3 px-6 bg-blue-950 text-center w-fit">ISTOK</p>
@@ -56,8 +58,8 @@
             
         </div>
 
-        <div class="flex pb-14">
-            <div class="w-1/4 flex flex-col bg-white p-12">
+        <div class="flex md:flex-row flex-col pb-14">
+            <div class="w-full md:w-2/5 xl:w-1/4 flex flex-row gap-6 md:gap-0 md:flex-col bg-white p-6 md:p-12">
                 <img src="/assets/images/logos/fan-shop-logo.svg" alt="Grb NK Rijeka" class="mb-6">
                 <h5 class="font-saira font-semibold text-h5-normal text-blue-900 pb-4">Fan Shop HNK Rijeka</h5>
                 <p class="font-roboto font-normal text-body2 pb-3">
@@ -73,7 +75,7 @@
                 </p>
                 <img src="/assets/images/fan-shop.jpg" alt="Fan Shop trgovina" class="">
             </div>
-            <div class="w-3/4 relative">
+            <div class="w-full md:w-3/5 xl:w-3/4 relative">
                 <img src="/assets/images/map2.jpg" class="absolute inset-0 w-full h-full object-cover z-0">
                 <a href="https://www.google.hr/maps/place/Ul.+Pavla+Rittera+Vitezovi%C4%87a+1,+51000,+Rijeka/@45.3261946,14.4433704,17z/data=!3m1!4b1!4m6!3m5!1s0x4764a0e2c016ca2b:0x8122a0a3e427c9fa!8m2!3d45.3261946!4d14.4459453!16s%2Fg%2F11q2n8cd5g?hl=hr&entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
                     target="_blank" class="uppercase btn-primary large absolute bottom-6 left-6 z-10">
@@ -91,10 +93,10 @@
 <style>
 
 .bg-igraci {
-        background-image: url('/assets/images/backgrounds/bg-igraci.jpg');
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size: contain;
-    }
+    background-image: url('/assets/images/backgrounds/bg-igraci.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
 
 </style>

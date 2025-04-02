@@ -653,10 +653,10 @@ const dropdownItems = computed(() => {
                     <div class="ml-10 max-lg:ml-0">
                         <h6 class="pt-3 footer-title sm:pt-0">O nama</h6>
                         <p class="mb-4 footer-text link">
-                            <NuxtLink to="#">Kontakt</NuxtLink>
+                            <NuxtLink to="/kontakt">Kontakt</NuxtLink>
                         </p>
                         <p class="footer-text link">
-                            <NuxtLink to="#">Fan Shop HNK Rijeka</NuxtLink>
+                            <NuxtLink to="/kontakt">Fan Shop HNK Rijeka</NuxtLink>
                         </p>
                     </div>
 
