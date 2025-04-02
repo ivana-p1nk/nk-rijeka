@@ -104,15 +104,15 @@ import { InfoLinks } from '#components';
             kontrolirati i konfigurirati u vašem internet pregledniku. Za informacije o postavkama kolačića, odaberite Internet 
             preglednik koji koristite.
             <br><br>
-            <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=hr" target="blank" class="text-blue-600 underline decoration-1 font-semibold">Chrome</a><br>
-            <a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US" target="blank" class="text-blue-600 underline decoration-1 font-semibold">Firefox</a><br>
-            <a href="https://support.microsoft.com/hr-hr/windows/upravljanje-kola%C4%8Di%C4%87ima-u-pregledniku-microsoft-edge-prikaz-dopu%C5%A1tanje-blokiranje-brisanje-i-kori%C5%A1tenje-168dab11-0753-043d-7c16-ede5947fc64d" target="blank" class="text-blue-600 underline decoration-1 font-semibold">Internet Explorer</a><br>
-            <a href="https://help.opera.com/en/latest/web-preferences/" target="blank" class="text-blue-600 underline decoration-1 font-semibold">Opera</a> (stranica na engleskom jeziku)<br>
-            <a href="https://support.apple.com/hr-hr/guide/safari/sfri11471/mac" target="blank" class="text-blue-600 underline decoration-1 font-semibold">Safari</a>
+            <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=hr" target="blank" class="link-plavi underline decoration-1 font-semibold">Chrome</a><br>
+            <a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US" target="blank" class="link-plavi underline decoration-1 font-semibold">Firefox</a><br>
+            <a href="https://support.microsoft.com/hr-hr/windows/upravljanje-kola%C4%8Di%C4%87ima-u-pregledniku-microsoft-edge-prikaz-dopu%C5%A1tanje-blokiranje-brisanje-i-kori%C5%A1tenje-168dab11-0753-043d-7c16-ede5947fc64d" target="blank" class="link-plavi underline decoration-1 font-semibold">Internet Explorer</a><br>
+            <a href="https://help.opera.com/en/latest/web-preferences/" target="blank" class="link-plavi underline decoration-1 font-semibold">Opera</a> (stranica na engleskom jeziku)<br>
+            <a href="https://support.apple.com/hr-hr/guide/safari/sfri11471/mac" target="blank" class="link-plavi underline decoration-1 font-semibold">Safari</a>
             <br><br>
             Imajte na umu, blokiranjem kolačića i dalje možete pregledavati ovu web stranicu, no neke njezine mogućnosti Vam možda neće biti dostupne.
             Ako želite saznati više o kolačićima, uključujući i informacije o tome kako se kolačići postavljaju te kako možete upravljati njima ili ih
-            isključiti, posjetite web stranicu <a href="https://allaboutcookies.org/" target="blank" class="text-blue-600 underline  decoration-1 font-semibold"> www.allaboutcookies.org </a> ili  <a href="https://youronlinechoices.eu/" target="blank" class="text-blue-600 underline  decoration-1 font-semibold"> www.youronlinechoices.eu</a>. 
+            isključiti, posjetite web stranicu <a href="https://allaboutcookies.org/" target="blank" class="link-plavi underline  decoration-1 font-semibold"> www.allaboutcookies.org </a> ili  <a href="https://youronlinechoices.eu/" target="blank" class="link-plavi underline  decoration-1 font-semibold"> www.youronlinechoices.eu</a>. 
             Ako želite onemogućiti praćenje putem servisa 
             Google Analytics na svim web smjestima, posjetite web stranicu http://tools.google.com/dlpage/gaoptout.
         </p>

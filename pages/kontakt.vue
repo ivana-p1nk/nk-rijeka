@@ -12,7 +12,7 @@
                     <p class="font-roboto font-normal text-body2 ">
                         <span class="font-semibold text-blue-600">Adresa: </span>HNK Rijeka, Rujevica 10<br>
                         <span class="font-semibold text-blue-600">OIB: 38726608831</span><br>
-                        <span class="font-semibold text-blue-600">E-mail: <a href="mailto:shop@nk-rijeka.hr" class="underline text-blue-300 hover:text-blue-500 transition-colors duration-200">shop@nk-rijeka.hr</a></span>
+                        <span class="font-semibold text-blue-600">E-mail: <a href="mailto:shop@nk-rijeka.hr" class="underline link-plavi">shop@nk-rijeka.hr</a></span>
                     </p>
                 </div>
                 <div class="w-full md:w-3/5 xl:w-3/4 relative">

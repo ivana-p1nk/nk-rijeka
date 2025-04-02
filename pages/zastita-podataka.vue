@@ -15,7 +15,7 @@ import { InfoLinks } from '#components';
         <p class="font-roboto font-normal text-body2 text-gray-900 pb-5">
             HNK Rijeka se raduje Vašoj posjeti našoj web stranici i mogućnosti da Vam pokažemo tko smo i što smo i što Vam nudimo. Zaštita Vaših
             podataka nam je bitna i željeli bismo da ste u potpunosti upoznati s našom Politikom privatnosti te Vašim mogućnostima vezanim za
-            zaštitu osobnih podataka sukladno važećim zakonskim propisima. Vlasnik internetske stranice <a href="https://nk-rijeka.hr" target="blank" class="text-blue-600 underline decoration-1 font-semibold">www.nk-rijeka.hr </a>(u daljnjem
+            zaštitu osobnih podataka sukladno važećim zakonskim propisima. Vlasnik internetske stranice <a href="https://nk-rijeka.hr" target="blank" class="link-plavi underline decoration-1 font-semibold">www.nk-rijeka.hr </a>(u daljnjem
             tekstu “web stranica”) koju ste posjetili je društvo HNK Rijeka s.d.d. Rijeka, Rujevica 10.
             <br><br>
             Voditelj zbirke Vaših osobnih podataka registrirani je ured društva HNK Rijeka s.d.d. Rijeka, na adresi Rujevica 10.
@@ -198,8 +198,8 @@ import { InfoLinks } from '#components';
         </h2>
         <p class="font-roboto font-normal text-body2 text-gray-900 pb-5">
             Tu smo da vam pomognemo oko svih Vaših otvorenih pitanja. Molimo da nam se obratite direktno sa svim Vašim komentarima, pitanjima i 
-            sugestijama direktno na mail 
-            <a href="mailto:zastitapodataka@nk-rijeka.hr" class="text-blue-600 underline decoration-1 font-semibold"> zastitapodataka@nk-rijeka.hr</a> 
+            sugestijama direktno na mail 
+            <a href="mailto:zastitapodataka@nk-rijeka.hr" class="link-plavi underline decoration-1 font-semibold"> zastitapodataka@nk-rijeka.hr</a> 
             ili na adresu HNK Rijeka s.d.d, Rijeka, Rujevica 10, Službenik za zaštitu podataka.
             <br><br>
             Naš tim odgovorit će na Vaša pitanja i zahtjeve u roku reguliranom Općom uredbom o zaštiti osobnih podataka.

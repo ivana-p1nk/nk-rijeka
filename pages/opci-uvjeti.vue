@@ -21,8 +21,8 @@ import { InfoLinks } from '#components';
             u kojem je roba i dostavljena) s računom. Kod oštećenja, koja su nastala prilikom transporta i još posebno, kada se vide 
             na pakiranju, potrebno ih je odmah reklamirati kuriru ili naknadno (u roku 24h)  na dostavna služba
             Hrvatske pošte 
-            Paket 24 – <a href="tel:0800202202" class="text-blue-600 underline  decoration-1 font-semibold">0800 202 202</a>
-            i DHL <a href="tel:+38516651111" class="text-blue-600 underline  decoration-1 font-semibold">+385 1 6651 111</a>
+            Paket 24 – <a href="tel:0800202202" class="link-plavi underline  decoration-1 font-semibold">0800 202 202</a>
+            i DHL <a href="tel:+38516651111" class="link-plavi underline  decoration-1 font-semibold">+385 1 6651 111</a>
             <br><br>
             *Pakete koji sadrže lomljive artikle molimo da u prisustvu djelatnika Hrvatske pošte pregledate prije preuzimanja.
         </p>

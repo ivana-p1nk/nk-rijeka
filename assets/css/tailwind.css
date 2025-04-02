@@ -426,8 +426,12 @@ body {
         @apply transition-colors duration-200 hover:marker:text-blue-500;
     }
 
-    .link {
-        @apply transition-colors duration-200 hover:text-blue-500;
+    .link-plavi {
+        @apply transition-colors duration-200 text-blue-300 hover:text-blue-500;
+    }
+
+    .link-bijeli {
+        @apply transition-colors duration-200 text-white hover:text-blue-500;
     }
 
     .icon-link {
@@ -435,7 +439,7 @@ body {
     }
 
     .header-text {
-        @apply font-medium text-white font-saira text-body1 link;
+        @apply font-medium text-white font-saira text-body1 link-bijeli;
     }
 
     .flex-between {
@@ -447,11 +451,11 @@ body {
     }
 
     .heading {
-        @apply font-semibold text-white uppercase font-saira text-nav-heading link;
+        @apply font-semibold text-white uppercase font-saira text-nav-heading link-bijeli;
     }
 
     .heading-sub {
-        @apply font-medium text-white font-saira text-nav-heading link;
+        @apply font-medium text-white font-saira text-nav-heading link-bijeli;
     }
 
     .heading-subtitle {
@@ -481,7 +485,7 @@ body {
 
 
     .mobile-nav{
-    @apply font-saira font-medium uppercase tracking-wider text-nav-heading link;
+    @apply font-saira font-medium uppercase tracking-wider text-nav-heading link-bijeli;
     }   
 }
 

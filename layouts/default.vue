@@ -121,8 +121,8 @@ const dropdownItems = computed(() => {
 
             <div class="flex flex-row gap-7">
                 <div class="flex-row gap-4 flex-between">
-                    <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white icon-extra link" /></NuxtLink>
-                    <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link icon-extra" /></NuxtLink>
+                    <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white icon-extra link-bijeli" /></NuxtLink>
+                    <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link-bijeli icon-extra" /></NuxtLink>
 
                     <!--Login/Account Dropdown-->
                     <UDropdown
@@ -318,7 +318,7 @@ const dropdownItems = computed(() => {
                 </NuxtLink>
 
 
-                <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link icon-xl" /></NuxtLink>
+                <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white link-bijeli icon-xl" /></NuxtLink>
             </div>
 
             <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
@@ -602,7 +602,7 @@ const dropdownItems = computed(() => {
                     class="flex flex-col items-center content-center justify-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
                     <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8">
                     <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer"
-                        class="font-semibold font-saira text-h4-normal text-blue-50 link">nk-rijeka.hr</a>
+                        class="font-semibold font-saira text-h4-normal text-blue-50 link-bijeli">nk-rijeka.hr</a>
                 </div>
 
                 <!-- footer meni  -->
@@ -652,10 +652,10 @@ const dropdownItems = computed(() => {
                     <!-- O nama -->
                     <div class="ml-10 max-lg:ml-0">
                         <h6 class="pt-3 footer-title sm:pt-0">O nama</h6>
-                        <p class="mb-4 footer-text link">
+                        <p class="mb-4 footer-text link-bijeli">
                             <NuxtLink to="/kontakt">Kontakt</NuxtLink>
                         </p>
-                        <p class="footer-text link">
+                        <p class="footer-text link-bijeli">
                             <NuxtLink to="/kontakt">Fan Shop HNK Rijeka</NuxtLink>
                         </p>
                     </div>
@@ -663,10 +663,10 @@ const dropdownItems = computed(() => {
                     <!-- Korisničke usluge -->
                     <div>
                         <h6 class="pt-3 footer-title sm:pt-0">Korisničke usluge</h6>
-                        <p class="mb-4 footer-text link">
+                        <p class="mb-4 footer-text link-bijeli">
                             <NuxtLink to="/korisnicke-usluge">Dostava unutar RH</NuxtLink>
                         </p>
-                        <p class="footer-text link">
+                        <p class="footer-text link-bijeli">
                             <NuxtLink to="/korisnicke-usluge">Međunarodna dostava</NuxtLink>
                         </p>
                     </div>
@@ -674,16 +674,16 @@ const dropdownItems = computed(() => {
                     <!-- Uvjeti korištenja -->
                     <div>
                         <h6 class="pt-3 footer-title sm:pt-0">Uvjeti korištenja</h6>
-                        <p class="mb-4 footer-text link">
+                        <p class="mb-4 footer-text link-bijeli">
                             <NuxtLink to="/nacini-placanja">Način plaćanja</NuxtLink>
                         </p>
-                        <p class="mb-4 footer-text link">
+                        <p class="mb-4 footer-text link-bijeli">
                             <NuxtLink to="/opci-uvjeti">Opći uvjeti kupnje</NuxtLink>
                         </p>
-                        <p class="mb-4 footer-text link">
+                        <p class="mb-4 footer-text link-bijeli">
                             <NuxtLink to="/zastita-podataka">Zaštita podataka</NuxtLink>
                         </p>
-                        <p class="footer-text link">
+                        <p class="footer-text link-bijeli">
                             <NuxtLink to="/politika-kolacica">Politika o kolačićima</NuxtLink>
                         </p>
                     </div>
