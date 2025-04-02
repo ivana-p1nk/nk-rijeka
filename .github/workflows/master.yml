@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy Nuxt website
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 21
+        uses: actions/setup-node@v2
+        with:
+          node-version: "21"
+
+      - name: Install all dependencies
+        working-directory: ./web
+        run: npm install
+
+      - name: 🔨 Build Project
+        working-directory: ./web
+        run: npm run generate
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: dedi3734.your-server.de
+          username: ${{ secrets.ftp_username}}
+          password: ${{ secrets.ftp_password }}
+          protocol: ftps
+          server-dir: /public_html/shop.nk-rijeka.hr/
+          local-dir: ./web/dist/

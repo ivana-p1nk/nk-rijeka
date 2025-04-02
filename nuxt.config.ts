@@ -28,8 +28,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL || 'https://nkrijeka-app.laravel.cloud',
-      url: process.env.API_URL || 'https://nkrijeka-app.laravel.cloud/api/v1',
+      baseUrl: process.env.BASE_URL || 'http://nkri-shop.hr.dedi3734.your-server.de',
+      url: process.env.API_URL || 'http://nkri-shop.hr.dedi3734.your-server.de/api/v1',
     }
   },
 
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   ],
 
   sanctum: {
-    baseUrl: 'http://nkrijeka-app.test',
+    baseUrl: process.env.BASE_URL || 'http://nkri-shop.hr.dedi3734.your-server.de',
     redirect: {
       onAuthOnly: '/login',
       onLogin: '/profile'
