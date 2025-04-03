@@ -1,6 +1,7 @@
 
 <template>
-  <div class="bg-goal flex flex-col items-center justify-center h-screen">
+  <Header />
+  <div class="bg-goal flex flex-col justify-center items-center visina h-screen">
     <!--<p classs="mt-7"> {{ error.message }}</p>-->
     <h1 class="font-saira font-medium text-h1-normal text-blue-900">Stranica nije pronađena</h1>
     <p class="font-roboto font-normal text-body1 text-gray-900 py-7">Sadržaj koji ste tražili ne postoji</p>
@@ -13,32 +14,36 @@
       </NuxtLink>
     </div>
   </div>
+  <Footer />
 </template>
 
 
-  
-<script setup>
-  import { useRouter } from 'vue-router'
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+import Footer from '~/components/footer.vue'
+import Header from '~/components/header.vue'
 
-  const router = useRouter()
+defineProps<{ error: { statusCode: number } }>()
 
-    defineProps(['error'])
+const router = useRouter()
 
-    const goBack = () => {
-    router.back()
-  }
+const goBack = () => {
+  router.back()
+}
 
- //const handleClearError = () => clearError({ redirect: '/'})
 
 </script>
 
+
 <style scoped>
-  .bg-goal::before {
-    position: absolute;
-    content: url('/assets/images/bg-gol.png');
-    left: 50%; 
-    top: 0;
-    transform: translateX(-50%);
-    z-index:-1;
+  .bg-goal {
+    background-image: url('/assets/images/backgrounds/bg-goal.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
   }
+
+  .visina {max-height:60vh;}
+
+
 </style>

@@ -73,7 +73,7 @@
 
                 <div class="pt-7">
                     <p class="pb-3 text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                        Model: </span>{{ product.model }}
+                        Model: </span><!--{{ product.model }}-->
                     </p>
                     <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Kategorija: </span>{{ product.category }}
