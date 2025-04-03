@@ -11,20 +11,6 @@ export default defineNuxtConfig({
     }
   },
 
-  /*
-  vite: {
-    server: {
-      allowedHosts: ['http://backend.newshop.shop.nk-rijeka.hr/'],
-      strictPort: false
-    }
-  },
-
-  devServer: {
-    //host: 'web.nkrijeka-app.test',
-    host: 'localhost',
-    port: 3000,
-  },
-*/
   devtools: { enabled: true },
 
   runtimeConfig: {
@@ -62,5 +48,3 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-11-01',
 })
-
-
