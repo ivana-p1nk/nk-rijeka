@@ -6,13 +6,12 @@
 <template>
     <div class="py-10 related-products">
       <h2 class="mb-6 text-2xl font-semibold text-gray-800">Related Products</h2>
-      <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <li
-          v-for="related in product.related_products"
-          :key="related.id"
-        >
-          <ProductCard :product="related" />
-        </li>
-      </ul>
+      <UCarousel 
+        v-slot="{ item }" 
+        :items="product.related_products"
+        :ui="{ item: 'basis-1/4' }"
+      >
+        <ProductCard :product="item" />
+      </UCarousel>
     </div>
   </template>
