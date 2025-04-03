@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     }
   },
 
+  /*
   vite: {
     server: {
       allowedHosts: ['http://backend.newshop.shop.nk-rijeka.hr/'],
@@ -23,7 +24,7 @@ export default defineNuxtConfig({
     host: 'localhost',
     port: 3000,
   },
-
+*/
   devtools: { enabled: true },
 
   runtimeConfig: {
