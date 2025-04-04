@@ -6,8 +6,9 @@ import { _white } from '#tailwind-config/theme/accentColor';
 import { ref, computed, toValue } from 'vue'
 import { useCartStore } from '~/composables/useCart';
 
-import Footer from '~/components/footer.vue'
-import Header from '~/components/header.vue'
+import Footer from '~/components/Footer.vue'
+import HeaderDesktop from '~/components/Header/Desktop.vue'
+import HeaderMobile from '~/components/Header/Mobile.vue'
 
 const cartStore = useCartStore();
 
@@ -15,7 +16,8 @@ const cartStore = useCartStore();
 
 
 <template>
-    <Header />
+    <HeaderDesktop />
+    <HeaderMobile />
     <template v-if="error">
       <ErrorPage :error="error" />
     </template>

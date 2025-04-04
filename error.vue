@@ -1,6 +1,7 @@
 
 <template>
-  <Header />
+  <HeaderDesktop />
+  <HeaderMobile />
   <div class="bg-goal flex flex-col justify-center items-center visina h-screen">
     <!--<p classs="mt-7"> {{ error.message }}</p>-->
     <h1 class="font-saira font-medium text-h1-normal text-blue-900">Stranica nije pronađena</h1>
@@ -20,8 +21,9 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import Footer from '~/components/footer.vue'
-import Header from '~/components/header.vue'
+import Footer from '~/components/Footer.vue'
+import HeaderDesktop from '~/components/Header/Desktop.vue'
+import HeaderMobile from '~/components/Header/Mobile.vue'
 
 defineProps<{ error: { statusCode: number } }>()
 
