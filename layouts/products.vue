@@ -1,18 +1,18 @@
 <template>
     <div>
-        <header class="shadow-sm bg-white  text-black">
-            <nav class="container mx-auto p-4">
+        <header class="text-black bg-white shadow-sm">
+            <nav class="container p-4 mx-auto">
                 <NuxtLink to="/products" class="font-bold font-saira">PRODUCTS</NuxtLink>
             </nav>
         </header>
 
         <!-- output page content -->
-         <div class="container mx-auto p-4">
+         <div class="container p-4 mx-auto">
             <slot />
          </div>
 
 
-         <footer class="container mx-auto p-4 flex justify-between border-t-2">
+         <div class="container flex justify-between p-4 mx-auto border-t-2">
             <ul class="flex gap-4 text-black">
                 <li><NuxtLink to="/">HOME</NuxtLink></li>
                 <li><NuxtLink to="/about">ABOUT</NuxtLink></li>
@@ -20,6 +20,6 @@
                 <li><NuxtLink to="/products">PRODUCTS</NuxtLink></li>
                 <li><NuxtLink to="/categories">CATEGORIES</NuxtLink></li>
             </ul>
-         </footer>
+         </div>
     </div>
 </template>

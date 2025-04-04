@@ -2,10 +2,11 @@
 <template>
   <HeaderDesktop />
   <HeaderMobile />
-  <div class="bg-goal flex flex-col justify-center items-center visina h-screen">
+  
+  <div class="flex flex-col items-center justify-center h-screen bg-goal visina">
     <!--<p classs="mt-7"> {{ error.message }}</p>-->
-    <h1 class="font-saira font-medium text-h1-normal text-blue-900">Stranica nije pronađena</h1>
-    <p class="font-roboto font-normal text-body1 text-gray-900 py-7">Sadržaj koji ste tražili ne postoji</p>
+    <h1 class="font-medium text-blue-900 font-saira text-h1-normal">Stranica nije pronađena</h1>
+    <p class="font-normal text-gray-900 font-roboto text-body1 py-7">Sadržaj koji ste tražili ne postoji</p>
     <div class="flex flex-row justify-center gap-2">
       <button @click="goBack" class="uppercase btn-secondary medium">
         Povratak
@@ -15,15 +16,13 @@
       </NuxtLink>
     </div>
   </div>
+  
   <Footer />
 </template>
 
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import Footer from '~/components/Footer.vue'
-import HeaderDesktop from '~/components/Header/Desktop.vue'
-import HeaderMobile from '~/components/Header/Mobile.vue'
 
 defineProps<{ error: { statusCode: number } }>()
 

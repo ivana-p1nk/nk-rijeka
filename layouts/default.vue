@@ -4,8 +4,6 @@
   import { ref, computed, toValue } from 'vue'
   import { useCartStore } from '~/composables/useCart';
 
-  import Footer from '~/components/Footer.vue';
-
   const cartStore = useCartStore();
 </script>
 
