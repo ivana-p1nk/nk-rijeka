@@ -17,7 +17,8 @@
                         <div class="col-span-1">
                             <p class="font-normal text-blue-900 font-roboto text-body2 max-xl:text-center">Učlani se u
                                 klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode
-                                i usluge naših partnera.</p>
+                                i usluge naših partnera.
+                            </p>
                         </div>
 
                         <div class="col-span-1">
