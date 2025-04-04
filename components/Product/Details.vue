@@ -76,7 +76,7 @@
                         Model: </span><!--{{ product.model }}-->
                     </p>
                     <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                        Kategorija: </span>{{ product.category }}
+                        Kategorija: </span>{{ product.category.title }}
                     </p>
                 </div>
 

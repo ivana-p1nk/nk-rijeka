@@ -15,8 +15,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL || 'http://backend.newshop.shop.nk-rijeka.hr/',
-      url: process.env.API_URL || 'http://backend.newshop.shop.nk-rijeka.hr/api/v1',
+      baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
+      url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
     }
   },
 
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   ],
 
   sanctum: {
-    baseUrl: process.env.BASE_URL || 'http://backend.newshop.shop.nk-rijeka.hr/',
+    baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
     redirect: {
       onAuthOnly: '/login',
       onLogin: '/profile'
