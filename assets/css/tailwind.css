@@ -333,6 +333,10 @@ body {
     }
 
     .icon-extra {
+        @apply w-[18px] h-[18px];
+    }
+
+    .icon-extra2 {
         @apply w-[17px] h-[17px];
     }
 
