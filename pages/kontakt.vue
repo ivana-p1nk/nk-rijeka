@@ -81,14 +81,3 @@
         </div>
     </div>
 </template>
-
-<style>
-
-.bg-igraci {
-    background-image: url('/assets/images/backgrounds/bg-igraci.jpg');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
-}
-
-</style>

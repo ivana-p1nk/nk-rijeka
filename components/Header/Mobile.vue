@@ -204,7 +204,7 @@
               <li class="heading-sub pl-5 font-normal"><NuxtLink to="#">Ostalo</NuxtLink></li>
           </template>
       </ul>
-          <NuxtLink to="#" class="mobile-nav flex items-center -mx-6  px-6 justify-between pt-2 mt-2 border-t border-customColors-200">
+          <NuxtLink to="/favorites" class="mobile-nav flex items-center -mx-6  px-6 justify-between pt-2 mt-2 border-t border-customColors-200">
               <span class="">FAVORITI</span>
               <Icon name="line-md:heart" />
           </NuxtLink>

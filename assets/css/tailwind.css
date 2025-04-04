@@ -503,3 +503,10 @@ li::marker {
 .container2 {
     max-width: 1436px;
 }
+
+.bg-igraci {
+    background-image: url('/assets/images/backgrounds/bg-igraci.jpg');
+    background-repeat: no-repeat;
+    background-position:  top;
+    background-size: contain;
+}

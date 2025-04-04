@@ -50,7 +50,7 @@
                 <div class="flex flex-row gap-7">
                     <div class="flex-row gap-4 flex-between">
                         <NuxtLink to="#">  <Icon name="akar-icons:search" class="text-white icon-extra link-bijeli" /></NuxtLink>
-                        <NuxtLink to="#"> <Icon name="line-md:heart" class="text-white link-bijeli icon-extra" /></NuxtLink>
+                        <NuxtLink to="/favorites"> <Icon name="line-md:heart" class="text-white link-bijeli icon-extra" /></NuxtLink>
     
                         <HeaderAccountDropdown />
                     </div>
