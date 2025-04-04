@@ -80,6 +80,10 @@ const dropdownItems = computed(() => {
         to: '/login',
          class: 'account-login-btn w-[80%] mb-2 mx-auto'
       }],
+      [{
+        custom: '<div class="flex flex-row gap-3"><p class="font-normal font-roboto text-white text-sm mb-1">Nemaš račun?</p><nuxt-link to="/register" class="uppercase link-plavi underline ">Registriraj se</nuxt-link></div>',
+        class: 'justify-center w-full mx-auto text-center',
+      }]
     ];
   }
 });
