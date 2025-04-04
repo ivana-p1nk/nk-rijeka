@@ -52,7 +52,7 @@
       return [
         [{
           custom: `Pozdrav ${user.value.name}`,  
-          class: 'font-roboto font-normal account-frame pl-3 pt-0 pb-3 account-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent',
+          class: 'font-roboto font-normal account-frame pl-3 pt-0 pb-3 account-transparent',
         }],
         [{
           label: 'Narudžbe',
@@ -82,7 +82,7 @@
         }],
         [{
           custom: '<div class="border-t border-blue-800 pt-4 flex flex-row gap-3"><p class="font-normal mb-0 font-roboto text-white text-sm mb-1">Nemaš račun?</p><nuxt-link to="/register" class="uppercase link-plavi underline ">Registriraj se</nuxt-link></div>',
-          class: 'justify-center w-full mx-auto text-center hover:bg-transparent focus:bg-transparent active:bg-transparent', 
+          class: 'justify-center w-full mx-auto text-center account-transparent', 
         }]
       ];
     }

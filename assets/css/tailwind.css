@@ -484,7 +484,7 @@ body {
     }
 
     .account-transparent {
-        @apply text-white dark:hover:text-white dark:text-white dark:hover:bg-transparent;
+        @apply text-white dark:hover:text-white dark:text-white dark:hover:bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent;
     }
 
 
