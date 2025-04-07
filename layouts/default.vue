@@ -11,14 +11,15 @@
 <template>
   <HeaderDesktop />
   <HeaderMobile />
-
+  
   <template v-if="error">
     <ErrorPage :error="error" />
   </template>
   <template v-else>
     <slot />
   </template>
-  
+  <HeaderTest />
   <Footer />
+  
 </template>
 
