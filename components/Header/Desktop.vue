@@ -71,10 +71,10 @@
         
                     <div class="flex flex-row gap-7">
                         <div class="flex items-center gap-4">
-                            <NuxtLink to="#">
+                            <NuxtLink to="#" class="flex">
                                 <Icon name="akar-icons:search" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
-                            <NuxtLink to="/favorites"> 
+                            <NuxtLink to="/favorites" class="flex"> 
                                 <Icon name="heroicons:heart" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
         

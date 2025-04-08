@@ -51,8 +51,6 @@
 	<!--Login/Account Dropdown-->
 	<UDropdown
 		:items="dropdownItems"
-		:popper="{ placement: 'bottom-start' }"
-		class="custom-dropdown"
 		:ui="{
 			width: 'w-[245px]',
 			background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3',
