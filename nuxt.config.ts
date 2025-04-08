@@ -20,8 +20,8 @@ export default defineNuxtConfig({
     }
   },
 
-  colorMode: {
-    preference: 'light'
+  ui: {
+    colorMode: false,
   },
 
   css: ['~/assets/css/main.css'],
