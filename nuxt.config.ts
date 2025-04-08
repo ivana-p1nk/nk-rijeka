@@ -20,11 +20,11 @@ export default defineNuxtConfig({
     }
   },
 
-  ui: {
-    colorMode: false,
+  colorMode: {
+    preference: 'light'
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/icomoon/style.css'],
 
   modules: [
     '@nuxt/ui',
