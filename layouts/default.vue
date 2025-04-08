@@ -18,7 +18,6 @@
   <template v-else>
     <slot />
   </template>
-  <HeaderTest />
   <Footer />
   
 </template>
