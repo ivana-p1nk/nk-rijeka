@@ -72,7 +72,7 @@
 			size="lg"
 			color="neutral"
 			square
-			class="p-0 text-white dark:text-white" 
+			class="p-0 text-white transition-colors duration-200 ease-in-out dark:text-white hover:text-blue-500" 
 		/>
 		<!-- Stavke dropdowna -->
 		<template #item="{ item, isActive }">
