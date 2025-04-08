@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     preference: 'light'
   },
 
-  css: ['~/assets/icomoon/style.css'],
+  css: ['~/assets/css/main.css'],
 
   modules: [
     '@nuxt/ui',
