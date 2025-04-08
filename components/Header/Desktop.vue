@@ -31,15 +31,19 @@
         }
     };
 
+    const activeTabContentRef = ref<HTMLElement | null>(null);
     const dropdownRef = ref<HTMLElement | null>(null);
     const dropdownHeight = ref('0px');
 
-    watch(openMenu, (isOpen) => {
-        if (isOpen && dropdownRef.value) {
-            nextTick(() => {
-                const scrollHeight = dropdownRef.value?.scrollHeight || 0;
-                dropdownHeight.value = scrollHeight + 'px';
-            });
+    watch([openMenu, activeTab], () => {
+        if (openMenu.value) {
+            setTimeout(() => {
+                if (!activeTabContentRef.value) return;
+
+                const el = activeTabContentRef.value;
+                const newHeight = (el.scrollHeight + 70) + 'px';
+                dropdownHeight.value = newHeight;
+            }, 10);
         } else {
             dropdownHeight.value = '0px';
         }
@@ -123,12 +127,12 @@
                 <div
                     ref="dropdownRef"
                     :style="{ height: dropdownHeight }"
-                    class="overflow-hidden transition-all duration-500 ease-in-out"
+                    class="overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
                 >
                     <!-- Dropdown sekcija za navigaciju -->
                     <div class="max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
                         
-                        <div v-show="activeTab === 'dresovi'" class="flex gap-4" id="dresovi">
+                        <div v-if="activeTab === 'dresovi'" :key="activeTab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                             <ul class="flex flex-col gap-3">
                                 <li class="heading-sub"><NuxtLink to="/categories/dresovi/2024-2025">2024./2025.</NuxtLink></li>
                                 <li class="heading-sub"><NuxtLink to="/categories/dresovi/2023-2024">2023./2024.</NuxtLink></li>
@@ -136,7 +140,7 @@
                             </ul>
                         </div>
             
-                        <div v-show="activeTab === 'odjeca'" class="flex justify-between gap-4" id="odjeca">
+                        <div v-if="activeTab === 'odjeca'" :key="activeTab" ref="activeTabContentRef" class="flex justify-between gap-4" id="odjeca">
                             <div class="basis-1/4">
                                 <h5 class="pb-4 heading-subtitle">MUŠKARCI</h5>
                                 <hr class="divider">
@@ -176,7 +180,7 @@
                         </div>
             
             
-                        <div v-show="activeTab === 'kolekcije'" class="flex justify-between gap-4" id="kolekcije">
+                        <div v-if="activeTab === 'kolekcije'" :key="activeTab" ref="activeTabContentRef" class="flex justify-between gap-4" id="kolekcije">
                             <div class="basis-1/4">
                                 <h5 class="pb-4 heading-subtitle">JOMA</h5>
                                 <hr class="divider">
@@ -214,7 +218,7 @@
                         </div>
             
             
-                        <div v-show="activeTab === 'pokloni'" class="flex gap-4" id="pokloni">
+                        <div v-if="activeTab === 'pokloni'" :key="activeTab" ref="activeTabContentRef" class="flex gap-4" id="pokloni">
                             <ul class="flex flex-col gap-3">
                                 <li class="heading-sub"><NuxtLink to="#">Školski asortiman</NuxtLink></li>
                                 <li class="heading-sub"><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
@@ -225,7 +229,7 @@
                             </ul>
                         </div>
             
-                        <div v-show="activeTab === 'akcije'" class="flex gap-4" id="akcije">
+                        <div v-if="activeTab === 'akcije'" :key="activeTab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                             <ul class="flex flex-col gap-3">
                                 <li class="heading-sub"><NuxtLink to="#">Dresovi</NuxtLink></li>
                                 <li class="heading-sub"><NuxtLink to="#">JOMA</NuxtLink></li>
