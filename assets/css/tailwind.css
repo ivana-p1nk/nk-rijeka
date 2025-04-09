@@ -136,7 +136,7 @@
 
 
 body {
-    @apply bg-blue-00;
+    @apply bg-blue-00 font-roboto;
 }
 
 ::selection {

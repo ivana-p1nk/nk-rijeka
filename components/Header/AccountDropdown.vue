@@ -39,7 +39,7 @@
 				}],
 				[{
 					label: 'Nemaš račun?',
-					custom: '<div class="flex flex-row gap-3 pt-4 border-t border-blue-800"><p class="mb-0 mb-1 text-sm font-normal text-white font-roboto">Nemaš račun?</p><nuxt-link to="/register" class="underline uppercase link-plavi ">Registriraj se</nuxt-link></div>',
+					custom: '<div class="flex flex-row gap-3 pt-4 border-t border-blue-800"> <p class="mb-0 mb-1 text-sm font-normal text-white font-roboto">Nemaš račun?</p> <nuxt-link to="/register" class="font-bold underline uppercase link-plavi">Registriraj se</nuxt-link></div>',
 					class: 'justify-center w-full mx-auto text-center account-transparent',
 				}]
 			];
@@ -54,6 +54,7 @@
 		:ui="{
 			width: 'w-[245px]',
 			background: 'bg-header-gradient dark:bg-header-gradient pt-6 pb-3',
+			container: '!top-8',
 			rounded: 'rounded-2xl',
 			padding: 'p-0',
 			divide: 'divide-none',
