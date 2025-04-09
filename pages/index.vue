@@ -40,7 +40,7 @@
 
 <template>
 
-    <div class="px-4 bg-top bg-no-repeat bg-auto pt-96 pb-74 bg-home1 bg-players">
+    <div class="px-4 bg-top bg-no-repeat bg-auto pt-72 pb-74 bg-home1 bg-players">
         <div class="max-w-[1120px] mx-auto relative z-[1]">
             <div class="w-1/2">
                 <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
@@ -88,20 +88,7 @@
             <p class="font-normal text-blue-900 font-roboto text-body1">Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...</p>
         </div>
         
-        <UCarousel 
-            v-if="products.length > 0"
-            v-slot="{ item }"
-            indicators 
-            :items="products"
-            :ui="{ item: 'basis-1/4',
-                indicators: {
-                    wrapper: 'flex gap-2 mt-8',  
-                    indicator: 'w-2 h-2 bg-customColors-300 rounded-full transition-all duration-300', 
-                    active: 'bg-blue-800 w-2 h-2'
-                }
-             }" >
-            <ProductCard :product="item" class="pt-6" />
-        </UCarousel>
+        <Carousel :products="products" />
     </div>
 
     <div class="relative mx-auto my-40 container2">
@@ -120,24 +107,10 @@
                 <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">NOVO U PONUDI</h1>
                 <p class="font-normal text-blue-900 font-roboto text-body1">Naš se asortiman stalno proširuje novim <br>atraktivnim artiklima, ovo su samo neki od njih.</p>
             </div>
-            <NuxtLink to="/products" class="uppercase  btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
+            <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
         </div>          
         
-        <UCarousel 
-            ref="carouselNew"
-            v-if="products.length > 0"
-            v-slot="{ item }"
-            indicators 
-            :items="products"
-            :ui="{ item: 'basis-1/4',
-                indicators: {
-                    wrapper: 'flex gap-2 mt-8',  
-                    indicator: 'w-2 h-2 bg-customColors-300 rounded-full transition-all duration-300', 
-                    active: 'bg-blue-800 w-2 h-2'
-                }
-             }" >
-            <ProductCard :product="item" />
-        </UCarousel>
+        <Carousel :products="products" />
     </div>
 
 </div>
