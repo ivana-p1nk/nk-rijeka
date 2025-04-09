@@ -431,11 +431,11 @@ body {
     }
 
     .link-plavi {
-        @apply transition-colors duration-200 text-blue-300 hover:text-blue-500;
+        @apply text-blue-300 transition-colors duration-200 hover:text-blue-500;
     }
 
     .link-bijeli {
-        @apply transition-colors duration-200 text-white hover:text-blue-500;
+        @apply text-white transition-colors duration-200 hover:text-blue-500;
     }
 
     .icon-link {
@@ -488,9 +488,9 @@ body {
     }
 
 
-    .mobile-nav{
-    @apply font-saira font-medium uppercase tracking-wider text-nav-heading link-bijeli;
-    }   
+    .mobile-nav {
+        @apply font-medium tracking-wider uppercase font-saira text-nav-heading link-bijeli;
+    }
 }
 
 
@@ -507,6 +507,32 @@ li::marker {
 .bg-igraci {
     background-image: url('/assets/images/backgrounds/bg-igraci.jpg');
     background-repeat: no-repeat;
-    background-position:  top;
+    background-position: top;
     background-size: contain;
+}
+
+/* ulaz */
+.reveal-enter-active {
+    @apply transition-all duration-500 ease-out delay-200;
+}
+
+/* izlaz */
+.reveal-leave-active {
+    @apply transition-all duration-75 ease-in;
+}
+
+.reveal-enter-from {
+    @apply translate-y-3 opacity-0;
+}
+
+.reveal-enter-to {
+    @apply translate-y-0 opacity-100;
+}
+
+.reveal-leave-from {
+    @apply translate-y-0 opacity-100;
+}
+
+.reveal-leave-to {
+    @apply translate-y-3 opacity-0;
 }
