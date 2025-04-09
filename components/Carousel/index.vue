@@ -15,9 +15,20 @@
 </script>
 
 <template>
-    <div class="relative">
+    <div class="relative mx-4">
         <Swiper
-            :slidesPerView="4"
+            :slidesPerView="1"
+            :breakpoints="{
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            }"
             :spaceBetween="10"
             :loop="false"
             :autoplay="{
