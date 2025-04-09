@@ -47,9 +47,12 @@
 <template>
     <div>
         <!-- MOBILE HEADER -->
-        <header class="block lg:hidden container  mx-auto w-auto max-w-[calc(100%-1rem)] bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
+        <header 
+            class="block lg:hidden container transition-all duration-300 ease-in-out mx-auto w-auto max-w-[calc(100%-2rem)] bg-customColors-100 rounded-[40px] z-1 mt-6 fixed top-0 left-0 right-0 z-50"
+            :class="isHamburgerOpen ? '!rounded-[24px]' : ''"
+        >
             <nav>
-                <div class="p-5 flex-between items-center rounded-[40px] bg-header-gradient">
+                <div class="flex-between py-[18px] px-5 items-center rounded-[40px] transition-all duration-300 ease-in-out bg-header-gradient" :class="isHamburgerOpen ? '!rounded-[24px]' : ''">
                     <div class="flex flex-row items-center gap-6">
                         <!-- Ikona za otvaranje hamburger menu -->
                         <NuxtLink to="#" @click.prevent="toggleHamburger" class="flex items-center gap-2 group">
@@ -61,11 +64,12 @@
 
 
                         <NuxtLink to="#" class="flex">
-                            <Icon name="akar-icons:search" class="text-white link-bijeli icon-lg" />
+                            <Icon name="akar-icons:search" class="text-white link-bijeli size-4" />
                         </NuxtLink>
                     </div>
 
-                    <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+                    <NuxtLink to="/" class="ml-3"><img class="h-auto w-28" src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+                    
                     <div class="flex flex-row items-center gap-6">
                         <HeaderAccountDropdown />
 
@@ -73,9 +77,10 @@
                         <NuxtLink to="/cart">
                             <UChip 
                                 :text="cartStore.totalPriceQuantity.quantity" 
-                                size="2xl" inset  
+                                size="lg"
+                                inset  
                                 :ui="{
-                                    base: 'ml-2 -my-1 ring-0',
+                                    base: 'ring-0 !-top-1 py-2 px-[6px]',
                                     background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
                                 }"
                                 class="flex items-center gap-2 px-2 py-2 text-white bg-blue-500 rounded-3xl">

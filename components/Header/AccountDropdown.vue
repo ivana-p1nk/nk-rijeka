@@ -68,8 +68,8 @@
 	>
 		<UButton
 			icon="i-heroicons-user-circle"
-			size="lg"
-			color="neutral"
+			size="sm"
+			variant="neutral"
 			square
 			class="p-0 text-white transition-colors duration-200 ease-in-out dark:text-white hover:text-blue-500" 
 		/>
