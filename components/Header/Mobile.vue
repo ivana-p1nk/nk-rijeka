@@ -9,6 +9,9 @@
     const isHamburgerOpen = ref(false);
 
     const toggleHamburger = () => {
+        if(isHamburgerOpenAccount) isHamburgerOpenAccount.value = false;
+        if(isHamburgerOpenSearch) isHamburgerOpenSearch.value = false;
+
         isHamburgerOpen.value = !isHamburgerOpen.value;
    
         if (!isHamburgerOpen.value) {
@@ -42,6 +45,58 @@
             dropdownHeight.value = '0px';
         }
     });
+
+    // ACCOUNT
+    const isHamburgerOpenAccount = ref(false);
+    const activeDropdownRefAccount = ref<HTMLElement | null>(null);
+    const dropdownHeightAccount = ref('0px');
+    
+    const toggleHamburgerAccount = () => {
+        if(isHamburgerOpen) isHamburgerOpen.value = false;
+        if(isHamburgerOpenSearch) isHamburgerOpenSearch.value = false;
+
+        isHamburgerOpenAccount.value = !isHamburgerOpenAccount.value;
+    };
+
+    watch([isHamburgerOpenAccount, activeTab, subActive], () => {
+        if (isHamburgerOpenAccount.value) {
+            setTimeout(() => {
+                if (!activeDropdownRefAccount.value) return;
+
+                const el = activeDropdownRefAccount.value;
+                const newHeight = (el.scrollHeight + 5) + 'px';
+                dropdownHeightAccount.value = newHeight;
+            }, 10);
+        } else {
+            dropdownHeightAccount.value = '0px';
+        }
+    });
+
+    // SEARCH
+    const isHamburgerOpenSearch = ref(false);
+    const activeDropdownRefSearch = ref<HTMLElement | null>(null);
+    const dropdownHeightSearch = ref('0px');
+    
+    const toggleHamburgerSearch = () => {
+        if(isHamburgerOpen) isHamburgerOpen.value = false;
+        if(isHamburgerOpenAccount) isHamburgerOpenAccount.value = false;
+
+        isHamburgerOpenSearch.value = !isHamburgerOpenSearch.value;
+    };
+
+    watch([isHamburgerOpenSearch, activeTab, subActive], () => {
+        if (isHamburgerOpenSearch.value) {
+            setTimeout(() => {
+                if (!activeDropdownRefSearch.value) return;
+
+                const el = activeDropdownRefSearch.value;
+                const newHeight = (el.scrollHeight + 10) + 'px';
+                dropdownHeightSearch.value = newHeight;
+            }, 10);
+        } else {
+            dropdownHeightSearch.value = '0px';
+        }
+    });
 </script>
 
 <template>
@@ -49,10 +104,10 @@
         <!-- MOBILE HEADER -->
         <header 
             class="block lg:hidden container transition-all duration-300 ease-in-out mx-auto w-auto max-w-[calc(100%-2rem)] bg-customColors-100 rounded-[40px] z-1 mt-6 fixed top-0 left-0 right-0 z-50"
-            :class="isHamburgerOpen ? '!rounded-[24px]' : ''"
+            :class="isHamburgerOpen || isHamburgerOpenAccount || isHamburgerOpenSearch ? '!rounded-[24px]' : ''"
         >
             <nav>
-                <div class="flex-between py-[18px] px-5 items-center rounded-[40px] transition-all duration-300 ease-in-out bg-header-gradient" :class="isHamburgerOpen ? '!rounded-[24px]' : ''">
+                <div class="flex-between py-[18px] px-5 items-center rounded-[40px] transition-all duration-300 ease-in-out bg-header-gradient" :class="isHamburgerOpen || isHamburgerOpenAccount || isHamburgerOpenSearch ? '!rounded-[24px]' : ''">
                     <div class="flex flex-row items-center gap-6">
                         <!-- Ikona za otvaranje hamburger menu -->
                         <NuxtLink to="#" @click.prevent="toggleHamburger" class="flex items-center gap-2 group">
@@ -63,15 +118,16 @@
                         </NuxtLink>
 
 
-                        <NuxtLink to="#" class="flex">
+                        <div @click="toggleHamburgerSearch" class="flex">
                             <Icon name="akar-icons:search" class="text-white link-bijeli size-4" />
-                        </NuxtLink>
+                        </div>
                     </div>
 
                     <NuxtLink to="/" class="ml-3"><img class="h-auto w-28" src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
                     
                     <div class="flex flex-row items-center gap-6">
-                        <HeaderAccountDropdown />
+                        <HeaderAccountDropdown class="hidden md:block" />
+                        <HeaderAccountDropdownMobile class="block md:hidden" @toggleHamburgerAccount="toggleHamburgerAccount" />
 
                         <!--Cart-->
                         <NuxtLink to="/cart">
@@ -90,6 +146,47 @@
                     </div>
                 </div>
 
+                <!-- Search dropdown -->
+                <div
+                    ref="dropdownRefSearch"
+                    :style="{ height: dropdownHeightSearch }"
+                    class="overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
+                >
+                    <div ref="activeDropdownRefSearch" class="border-t border-customColors-200">
+                        <div class="p-4">
+                            <UInput 
+                                icon="i-heroicons-magnifying-glass-20-solid" 
+                                :trailing="true" 
+                                placeholder="Pretraži proizvode..." 
+                                class="overflow-hidden rounded-3xl"
+                            />
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Account dropdown -->
+                <div
+                    ref="dropdownRefAccount"
+                    :style="{ height: dropdownHeightAccount }"
+                    class="overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
+                >
+                    <div ref="activeDropdownRefAccount" class="border-t border-customColors-200">
+                        <div class="p-4">
+                            <NuxtLink to="/login" class="block w-full text-center uppercase btn-primary large">
+                                Prijavi se
+                            </NuxtLink>
+
+                            <div class="flex items-center justify-center gap-3 pt-4 mt-4 border-t border-blue-800"> 
+                                <p class="text-sm font-normal text-white font-roboto">Nemaš račun?</p> 
+                                <NuxtLink to="/register" class="font-bold underline uppercase link-plavi">
+                                    Registriraj se
+                                </NuxtLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main dropdown -->
                 <div 
                     ref="dropdownRef"
                     :style="{ height: dropdownHeight }"
