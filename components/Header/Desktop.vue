@@ -27,13 +27,13 @@
 <template>
     <div>
         <!-- HEADER -->
-        <header ref="dropdownWrapper" class="hidden lg:block container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
+        <header class="hidden lg:block container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50">
             <nav> 
                 <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
                     <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
                     
                     <!--navigacija-->
-                    <div>
+                    <div ref="dropdownWrapper">
                         <ul class="flex gap-10">
                             <li class="heading">
                                 <NuxtLink to="#" @click.prevent="setActive('dresovi')" class="flex items-center gap-2 group">
