@@ -97,12 +97,28 @@
             dropdownHeightSearch.value = '0px';
         }
     });
+
+    const dropdownWrapper = ref<HTMLElement | null>(null);
+    onMounted(() => {
+        document.addEventListener('click', handleClickOutside);
+    });
+    onBeforeUnmount(() => {
+        document.removeEventListener('click', handleClickOutside);
+    });
+    const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownWrapper.value && !dropdownWrapper.value.contains(event.target as Node)) {
+            if(isHamburgerOpen) isHamburgerOpen.value = false;
+            if(isHamburgerOpenAccount) isHamburgerOpenAccount.value = false;
+            if(isHamburgerOpenSearch) isHamburgerOpenSearch.value = false;
+        }
+    };
 </script>
 
 <template>
     <div>
         <!-- MOBILE HEADER -->
         <header 
+            ref="dropdownWrapper"
             class="block lg:hidden container transition-all duration-300 ease-in-out mx-auto w-auto max-w-[calc(100%-2rem)] bg-customColors-100 rounded-[40px] z-1 mt-6 fixed top-0 left-0 right-0 z-50"
             :class="isHamburgerOpen || isHamburgerOpenAccount || isHamburgerOpenSearch ? '!rounded-[24px]' : ''"
         >
