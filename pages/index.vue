@@ -119,77 +119,28 @@
             <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
         </div>
         <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-4">
-            <div class="relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[437px]">
+            <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[437px]">
 
                 <!-- Background slika (slabo vidljiva) -->
-                <img src="~/assets/images/playerbg.jpg" alt="player-bg" class="absolute inset-0 object-cover w-full h-full opacity-40" />
+                <!-- <img src="~/assets/images/playerbg.jpg" alt="player-bg" class="absolute inset-0 object-cover w-full h-full opacity-40" /> -->
 
                 <!-- Ime i broj -->
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
                 </span>
-                <div class="absolute z-10 flex items-end h-auto origin-bottom-left -rotate-90 bottom-2 left-[4.3rem]">
+                <div class="absolute z-10 flex items-end h-auto origin-bottom-left -rotate-90 bottom-7 left-[4.3rem]">
                     <span class="font-saira text-[#D9F1FD] font-bold text-5xl whitespace-nowrap uppercase">
                         <span style="-webkit-text-stroke:1px white;color:transparent;">andro</span> babić
                     </span>
                 </div>
 
-                <!-- Glavna slika igrača, desno poravnata -->
-                <img src="~/assets/images/player.png" alt="player" class="absolute bottom-0 z-10 object-cover h-full -right-16" />
-            </div>
-            <div class="relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[437px]">
+                <!-- Default slika -->
+                <img src="~/assets/images/player.png" alt="player"
+                    class="absolute bottom-0 z-10 object-cover h-[90%] transition-opacity duration-500 opacity-100 -right-3 group-hover:opacity-0" />
 
-                <!-- Background slika (slabo vidljiva) -->
-                <img src="~/assets/images/playerbg.jpg" alt="player-bg" class="absolute inset-0 object-cover w-full h-full opacity-40" />
-
-                <!-- Ime i broj -->
-                <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
-                    29
-                </span>
-                <div class="absolute z-10 flex items-end h-auto origin-bottom-left -rotate-90 bottom-2 left-[4.3rem]">
-                    <span class="font-saira text-[#D9F1FD] font-bold text-5xl whitespace-nowrap uppercase">
-                        <span style="-webkit-text-stroke:1px white;color:transparent;">andro</span> babić
-                    </span>
-                </div>
-
-                <!-- Glavna slika igrača, desno poravnata -->
-                <img src="~/assets/images/player.png" alt="player" class="absolute bottom-0 z-10 object-cover h-full -right-16" />
-            </div>
-            <div class="relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[437px]">
-
-                <!-- Background slika (slabo vidljiva) -->
-                <img src="~/assets/images/playerbg.jpg" alt="player-bg" class="absolute inset-0 object-cover w-full h-full opacity-40" />
-
-                <!-- Ime i broj -->
-                <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
-                    29
-                </span>
-                <div class="absolute z-10 flex items-end h-auto origin-bottom-left -rotate-90 bottom-2 left-[4.3rem]">
-                    <span class="font-saira text-[#D9F1FD] font-bold text-5xl whitespace-nowrap uppercase">
-                        <span style="-webkit-text-stroke:1px white;color:transparent;">andro</span> babić
-                    </span>
-                </div>
-
-                <!-- Glavna slika igrača, desno poravnata -->
-                <img src="~/assets/images/player.png" alt="player" class="absolute bottom-0 z-10 object-cover h-full -right-16" />
-            </div>
-            <div class="relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[437px]">
-
-                <!-- Background slika (slabo vidljiva) -->
-                <img src="~/assets/images/playerbg.jpg" alt="player-bg" class="absolute inset-0 object-cover w-full h-full opacity-40" />
-
-                <!-- Ime i broj -->
-                <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
-                    29
-                </span>
-                <div class="absolute z-10 flex items-end h-auto origin-bottom-left -rotate-90 bottom-2 left-[4.3rem]">
-                    <span class="font-saira text-[#D9F1FD] font-bold text-5xl whitespace-nowrap uppercase">
-                        <span style="-webkit-text-stroke:1px white;color:transparent;">andro</span> babić
-                    </span>
-                </div>
-
-                <!-- Glavna slika igrača, desno poravnata -->
-                <img src="~/assets/images/player.png" alt="player" class="absolute bottom-0 z-10 object-cover h-full -right-16" />
+                <!-- Hover slika -->
+                <img src="~/assets/images/player-bg.png" alt="player-hover"
+                    class="absolute bottom-0 z-10 object-cover h-[90%] transition-opacity duration-500 opacity-0 -right-3 group-hover:opacity-100" />
             </div>
         </div>
     </div>
