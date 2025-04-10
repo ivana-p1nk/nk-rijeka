@@ -74,7 +74,8 @@
                             <NuxtLink to="#" class="flex">
                                 <Icon name="akar-icons:search" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
-                            <NuxtLink to="/favorites" class="flex"> 
+                            <NuxtLink to="/favorites" class="relative flex">
+                                <UChip :text="useFavoritesStore().favoriteProducts.length" size="2xl" /> 
                                 <Icon name="heroicons:heart" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
         

@@ -34,6 +34,7 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@pinia/nuxt',
     'nuxt-auth-sanctum',
+    '@nuxt/devtools',
   ],
 
   sanctum: {

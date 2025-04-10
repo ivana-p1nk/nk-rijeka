@@ -120,7 +120,6 @@
         </div>
         <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-4">
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[400px]">
-                <!-- Ime i broj -->
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
                 </span>
@@ -140,7 +139,6 @@
 
             </div>
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[400px]">
-                <!-- Ime i broj -->
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
                 </span>
@@ -159,7 +157,6 @@
                     class="absolute bottom-0 z-10 object-cover h-full transition-all duration-500 transform translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 right-[-0.75rem]" />
             </div>
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[400px]">
-                <!-- Ime i broj -->
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
                 </span>
@@ -179,7 +176,6 @@
 
             </div>
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[400px]">
-                <!-- Ime i broj -->
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
                 </span>
