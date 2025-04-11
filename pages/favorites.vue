@@ -56,7 +56,7 @@
             <div v-if="favorites.length > 0" class="grid grid-cols-1 gap-4 py-4 md:grid-cols-4">
                 <div
                     v-for="item in favorites"
-                    :key="`${item.id}-${item.variationId ?? 0}`"
+                    :key="`${item.id}`"
                 >
                     <ProductCard :product="item" />
                 </div>
