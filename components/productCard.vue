@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { useCartStore } from "~/composables/useCart";
     import type { IProduct } from '~/types/product';
+    import { defineConfig, presetIcons } from 'unocss'
     
     const props = defineProps<{ product: IProduct; }>();
 
@@ -35,11 +36,12 @@
             </div>
 
             <div class="flex flex-row justify-center gap-2 pt-6">
-                <p class="font-bold text-blue-900 font-saira text-h6-normal">{{ product.price }} €</p> 
+                <p class="font-bold text-blue-900 font-saira text-h6-normal">{{ product.price.toFixed(2).replace('.', ',') }} €</p> 
                 <span class="font-bold text-blue-900 font-saira text-h6-normal">|</span>
-                <p class="font-bold text-blue-500 font-saira text-h6-normal ">{{ product.price }} €</p>
+                <p class="font-bold text-blue-500 font-saira text-h6-normal ">{{ product.price.toFixed(2).replace('.', ',') }} €</p>
                 <UPopover :popper="{ placement: 'top-start' }" :ui="{ring:'ring-0', background:'dark:bg-blue-50 bg-blue-50'}">
-                    <UButton trailing-icon="mynaui:info-hexagon" class="bg-white dark:bg-white shadow-none hover:bg-white dark:hover:bg-white dark:text-blue-500 p-0 mt-[2px]" />
+                    <UButton trailing-icon="mynaui:info-hexagon" class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]" />
+  
                     <template #panel>
                         <div class="px-3 py-2">
                         <p class="font-bold text-gray-900 font-roboto text-body4">Cijena za članove</p>
@@ -49,11 +51,22 @@
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
-                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary medium">ODABERI OPCIJE</NuxtLink>
-                <UButton @click="addToCart" class="font-semibold btn-primary medium" >DODAJ U KOŠARICU</UButton>
+                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary large active:bg-blue-800">ODABERI OPCIJE</NuxtLink>
+                <UButton
+                @click="addToCart"
+                size="lg"
+                :ui="{
+                    base: 'bg-blue-600 text-white hover:bg-blue-700',  
+                    variant: '',
+                    color: ''
+                }"
+                class="flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-semibold"
+                >
+                DODAJ U KOŠARICU
+                </UButton>
+                
             </div>
         </div>
-        <!--<p> {{ product.category}}</p>-->
         <p class="p-2 mt-2 font-semibold text-center text-blue-900 font-saira text-h5-normal">{{ product.title }}</p>
     </div>
 </template>
