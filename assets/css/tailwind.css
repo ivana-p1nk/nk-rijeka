@@ -189,6 +189,7 @@ body {
         @apply bg-blue-800;
     }
 
+
     .btn-primary:disabled {
         @apply bg-blue-100 cursor-not-allowed pointer-events-none;
     }
