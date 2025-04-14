@@ -16,7 +16,18 @@
         <div class="card flex flex-col justify-between text-center relative transition-shadow duration-500 group-hover:shadow-[0px_10px_15px_0px_#0000001A]">
             <div>
                 <div class="flex flex-row items-center justify-between">
-                    <p><Icon name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" /></p>
+                    <div v-if="useFavoritesStore().isFavorite(props.product)">
+                        <Icon 
+                            @click="useFavoritesStore().removeFavoriteProduct(props.product)" 
+                            name="material-symbols:favorite" 
+                            class="text-blue-500 icon-xl" />
+                    </div>
+                    <div v-else>
+                        <Icon 
+                            @click="useFavoritesStore().addFavoriteProduct(props.product)" 
+                            name="material-symbols:favorite-outline" 
+                            class="text-gray-900 icon-xl" />
+                    </div>
                     <p id="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">NOVO</p>
                 </div>
         
