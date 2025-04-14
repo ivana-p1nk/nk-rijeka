@@ -13,7 +13,7 @@
 				}],
 				[{
 					label: 'Narudžbe',
-					to: '/profile',
+					to: '/profile/orders',
 					icon: 'streamline:ticket-1',
 					class: 'account-frame-items',
 				}],
