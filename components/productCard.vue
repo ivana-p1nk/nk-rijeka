@@ -60,7 +60,7 @@
                     variant: '',
                     color: ''
                 }"
-                class="flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold "
+                class="text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold "
                 >
                 DODAJ U KOŠARICU
                 </UButton>
