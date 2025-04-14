@@ -1,11 +1,89 @@
-<script setup>
+<script setup lang="ts">
+	import { z } from 'zod';
+	import type { FormSubmitEvent } from '#ui/types'
 	import { useCartStore } from "~/composables/useCart";
 
 	useSeoMeta({
 		title: 'Košarica',
 	})
 
+	const user = useSanctumUser();
+	const { api } = useAxios()
+	const toast = useToast()
 	const cartStore = useCartStore();
+
+	const coupon = ref('');
+	const useCoupon = () => {
+		console.log('ok')
+		toast.add({
+			title: 'O fuck jea',
+			description: 'bibibibibi',
+			timeout: 1000,
+		})
+	}
+
+	const terms = ref(false);
+
+	const schema = z.object({
+		firstName: z.string().min(1, 'First name is required'),
+		lastName: z.string().min(1, 'Last name is required'),
+		company: z.string().optional(),
+		country: z.string().optional(),
+		address: z.string().min(1, 'Street address is required'),
+		apartment: z.string().optional(),
+		city: z.string().min(1, 'City is required'),
+		state: z.string().min(1, 'State is required'),
+		zipCode: z.string().min(1, 'ZIP code is required'),
+		phone: z.string().min(10, 'Phone number must be at least 10 characters'),
+		email: z.string().email('Invalid email address'),
+		orderNote: z.string().optional(),
+	});
+
+	const countries = ['United States', 'Canada', 'Mexico']
+
+	type Schema = z.output<typeof schema>
+
+	const state = reactive({
+		firstName: undefined,
+		lastName: undefined,
+		company: undefined,
+		country: undefined,
+		address: undefined,
+		apartment: undefined,
+		city: undefined,
+		state: countries[0],
+		zipCode: undefined,
+		phone: undefined,
+		email: undefined,
+		orderNote: undefined,
+	});
+
+	async function handleOnSubmit (event: FormSubmitEvent<Schema>) {
+		const params = {
+			user: user.value != null ? user.value : null,
+			data: event.data,
+			items: cartStore.cart_products,
+			total: cartStore.totalPriceQuantity.total.toFixed(2),
+		}
+
+		console.log(params);
+		
+		toast.add({
+			title: 'test slanje',
+			timeout: 1000,
+		})
+
+		// api.post("/create-orders", {...params}).then(({data}) => {
+		// 	if(data == 'ok'){
+		// 		cartStore.clear_cart();
+		// 		navigateTo(`/order`);
+		// 	}
+		// }).catch(err => {
+		// 	toast.add({
+		// 		title: 'test slanje'
+		// 	})
+		// })
+	}
 </script>
 
 <template>
@@ -16,9 +94,9 @@
 			<div class="col-span-12">
 				<h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
 			</div>
-			<div class="col-span-7 px-12 py-10 bg-white shadow-lg rounded-2xl">
-				<div v-if="cartStore.cart_products.length > 0">
-					<div class="grid grid-cols-[2fr_1fr_1fr_1fr_40px] pb-2 mb-4 font-semibold text-gray-700 border-b">
+			<div class="col-span-7 h-fit">
+				<div v-if="cartStore.cart_products.length > 0" class="px-12 py-10 bg-white shadow-lg rounded-2xl">
+					<div class="grid grid-cols-[2fr_1fr_1fr_1fr_40px] gap-4 pb-2 mb-4 font-semibold text-gray-700 border-b">
 						<div>PROIZVOD</div>
 						<div>CIJENA</div>
 						<div>KOLIČINA</div>
@@ -35,9 +113,9 @@
 						<div class="flex items-center gap-3">
 							<img :src="item.gallery[0]" class="object-contain w-16 h-16" />
 							<div>
-							<p class="font-bold">{{ item.title }}</p>
-							<p class="text-sm text-gray-500">MODEL: TEST</p>
-							<p class="text-sm text-gray-500">{{ item.variationName }}</p>
+								<p class="font-bold">{{ item.title }}</p>
+								<p class="text-sm text-gray-500">MODEL: TEST</p>
+								<p class="text-sm text-gray-500">{{ item.variationName }}</p>
 							</div>
 						</div>
 
@@ -95,13 +173,119 @@
 						</div>
 					</div>
 				</div>
-				<div v-else class="text-center">
+				<div v-else class="px-12 py-10 text-center bg-white shadow-lg rounded-2xl">
 					<p>Tvoja košarica je prazna</p>
+				</div>
+
+				<h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Adresa za naplatu</h2>
+
+				<div class="px-12 py-10 bg-white shadow-lg rounded-2xl">
+					<h2 class="text-xl font-bold text-blue-900 font-saira">Podaci o kupcu</h2>
+
+					<div class="w-full pt-4">
+						<UForm @submit="handleOnSubmit" :schema="schema" :state="state" class="grid grid-cols-2 gap-4">
+							<!-- First Name -->
+							<UFormGroup label="Ime" name="firstName" class="col-span-2 sm:col-span-1">
+								<UInput v-model="state.firstName" placeholder="Ime" required />
+							</UFormGroup>
+	
+							<!-- Last Name -->
+							<UFormGroup label="Prezime" name="lastName" class="col-span-2 sm:col-span-1">
+								<UInput v-model="state.lastName" placeholder="Prezime" />
+							</UFormGroup>
+	
+							<!-- Company Name (optional) -->
+							<UFormGroup label="Naziv firme (opcionalno)" name="company" class="col-span-2">
+								<UInput v-model="state.company" placeholder="Naziv firme" />
+							</UFormGroup>
+	
+							<!-- Country/Region -->
+							<UFormGroup label="Država" name="country" class="col-span-2">
+								<UInput v-model="state.country" placeholder="Croatia" />
+							</UFormGroup>
+	
+							<!-- City -->
+							<UFormGroup label="Grad" name="city" class="col-span-2">
+								<UInput v-model="state.city" placeholder="Grad" />
+							</UFormGroup>
+
+							<!-- ZIP/Postcode -->
+							<UFormGroup label="Poštanski broj" name="zipCode" class="col-span-2">
+								<UInput v-model="state.zipCode" placeholder="Poštanski broj" />
+							</UFormGroup>
+
+							<!-- Street Address -->
+							<UFormGroup label="Adresa" name="address" class="col-span-2 space-y-2">
+								<UInput v-model="state.address" placeholder="Ime ulice i broj" />
+							</UFormGroup>
+	
+							<!-- Phone -->
+							<UFormGroup label="Telefon" name="phone" class="col-span-2">
+								<UInput v-model="state.phone" placeholder="Phone" />
+							</UFormGroup>
+	
+							<!-- Email -->
+							<UFormGroup label="Email" name="email" class="col-span-2">
+								<UInput v-model="state.email" placeholder="Email" type="email" />
+							</UFormGroup>
+	
+							<!-- Order Notes -->
+							<UFormGroup label="Order Notes (optional)" name="orderNote" class="col-span-2">
+								<UTextarea v-model="state.orderNote" placeholder="Notes about your order, e.g. special instructions for delivery." />
+							</UFormGroup>
+						</UForm>
+					</div>
 				</div>
 			</div>
 			<div class="col-span-5">
 				<div class="p-10 rounded-lg bg-[#D9F1FD]">
-					<p>VAŠA NARUDŽBA</p>
+					<p class="pb-10 text-xl font-bold">VAŠA NARUDŽBA</p>
+
+					<p class="flex items-center justify-between text-xl font-normal">
+						<span>Ukupno:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</span>
+					</p>
+					<p class="flex items-center justify-between text-xl font-normal">
+						<span>Dostava:</span> <span>Besplatna dostava iznad 26,54 €</span>
+					</p>
+					<p class="flex items-center justify-between text-xl font-normal">
+						<span>Dostava:</span> <span>Besplatna dostava iznad 26,54 €</span>
+					</p>
+
+					<div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
+
+					<div class="flex items-center gap-2">
+						<UInput icon="cuida:ticket-outline" v-model="coupon" size="md" class="w-full" variant="outline" />
+						<button @click="useCoupon" class="uppercase btn-secondary xs w-36">
+							Iskoristi kupon
+						</button>
+					</div>
+					
+					<div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
+
+					<p class="flex items-center justify-between text-xl font-normal">
+						<span>Ukupno za plaćanje:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</span>
+					</p>
+
+					<div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
+
+					<p>
+						Vaši osobni podaci koristit će se za obradu vaše narudžbe, pružanja boljeg iskustva na web stranici i u 
+						druge svrhe opisane u našoj <a href="#" class="text-blue-500 underline">pravilima privatnosti</a>.
+					</p>
+
+					<UCheckbox class="mt-4">
+						<template #label>
+							<span class="italic">
+								Prihvaćam i slažem se sa 
+								<a href="#" class="text-blue-500 underline">uvjetima prodaje i pravilima primatnosti</a>
+								<span class="text-red-500"> *</span>
+							</span>
+						</template>
+					</UCheckbox>
+
+					<button class="w-full px-5 py-3 mt-4 font-bold text-white uppercase rounded-lg" style="background: linear-gradient(79.46deg, #0083C9 3.18%, #58B6E7 107.55%);">
+						naruči i plati
+					</button>
 				</div>
 			</div>
 		</div>
