@@ -69,9 +69,14 @@
 		<UButton
 			icon="i-heroicons-user-circle"
 			size="sm"
-			variant="neutral"
-			square
-			class="p-0 text-white transition-colors duration-200 ease-in-out dark:text-white hover:text-blue-500" 
+			variant="ghost"
+            square
+            :ui="{
+                variant: {
+                ghost: 'bg-transparent hover:bg-transparent text-white hover:text-blue-500'
+                }
+            }"
+			class="p-0 transition-colors duration-200 ease-in-out" 
 		/>
 		<!-- Stavke dropdowna -->
 		<template #item="{ item, isActive }">

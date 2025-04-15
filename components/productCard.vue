@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { useCartStore } from "~/composables/useCart";
     import type { IProduct } from '~/types/product';
-    import { defineConfig, presetIcons } from 'unocss'
+
     
     const props = defineProps<{ product: IProduct; }>();
 
@@ -55,10 +55,12 @@
                 <UButton
                 @click="addToCart"
                 size="lg"
+                variant="solid"
                 :ui="{
-                    base: 'bg-blue-600 text-white hover:bg-blue-700',  
-                    variant: '',
-                    color: ''
+                    base: 'text-white font-saira font-semibold',
+                    variant: {
+                    solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800'
+                    }
                 }"
                 class="text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold "
                 >
