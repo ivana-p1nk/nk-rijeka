@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { useCartStore } from '~/composables/useCart';
     import { activetab, setActiveTab, openMenu } from "~/composables/activeTabNavigation";
+import { SidebarContent } from '#components';
 
     const cartStore = useCartStore();
 
@@ -81,6 +82,8 @@
         
                             <HeaderAccountDropdown />
                         </div>
+
+                        <SidebarContent />
                     
                         <!--Cart-->
                         <NuxtLink to="/cart">

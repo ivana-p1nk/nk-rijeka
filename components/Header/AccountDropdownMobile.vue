@@ -7,9 +7,14 @@
         <UButton
             icon="i-heroicons-user-circle"
             size="sm"
-            variant="neutral"
+            variant="ghost"
             square
-            class="p-0 text-white transition-colors duration-200 ease-in-out dark:text-white hover:text-blue-500" 
+            :ui="{
+                variant: {
+                ghost: 'bg-transparent hover:bg-transparent text-white hover:text-blue-500'
+                }
+            }"
+            class="p-0 transition-colors duration-200 ease-in-out" 
             @click="$emit('toggleHamburgerAccount')"
         />
     </div>
