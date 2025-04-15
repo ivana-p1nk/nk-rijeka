@@ -60,7 +60,7 @@
                     variant: '',
                     color: ''
                 }"
-                class="flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-semibold"
+                class="text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold "
                 >
                 DODAJ U KOŠARICU
                 </UButton>
@@ -81,7 +81,7 @@
     transition: opacity 0.5s ease;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     width:60%;
 }
 </style>
