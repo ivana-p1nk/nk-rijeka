@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export default function useAxios(customBaseUrl?: boolean) {
+export default function useAxios() {
 
     const config = useRuntimeConfig();
-    const customUrl = customBaseUrl ? config.public.baseUrl : config.public.url;
+    const customUrl = config.public.url;
 
     let api = axios.create({
         baseURL: customUrl,
