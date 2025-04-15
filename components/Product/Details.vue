@@ -36,7 +36,7 @@
                         <p class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">REDOVNA CIJENA</p>
                     </div>
                     <div class="flex flex-row gap-3">
-                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">{{ product.price }} €</p>
+                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">{{ product.member_price }} €</p>
                         <p class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">CIJENA ZA ČLANOVE</p>
                     </div>
                 </div>
