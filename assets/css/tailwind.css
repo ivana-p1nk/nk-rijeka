@@ -267,7 +267,7 @@ body {
 
 
     .btn-icon-secondary {
-        @apply flex items-center justify-center bg-white cursor-pointer border-blue-500 border-[1px];
+        @apply flex items-center justify-center bg-white cursor-pointer  border-blue-500 border-[1px];
         transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
     }
 
@@ -275,7 +275,7 @@ body {
         @apply bg-blue-50;
     }
 
-    .btn-icon-secondary:focus {
+    .btn-icon-secondary:active {
         @apply transition-all duration-200 ease-in-out bg-white outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white;
     }
 
