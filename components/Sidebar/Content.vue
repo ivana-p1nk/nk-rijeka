@@ -1,9 +1,21 @@
 <template>
     <div>
-      <button @click="show = true" class="bg-blue-500 text-white px-4 py-2 rounded">
-        Otvori
-      </button>
+        <!-- košarica -->
+        <button @click="show = true" class="text-white px-4 py-2 rounded">
+            <UChip 
+            :text="cartStore.totalPriceQuantity.quantity" 
+            size="2xl" inset  
+            :ui="{
+            base: 'mx-2 -my-1 ring-0',
+            background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+            }"
+            class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
+                <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                <Icon name="ci:shopping-cart-01" class="text-white" />
+            </UChip>
+        </button>
   
+        <!-- Sadržaj sidebara-->
       <Offcanvas  :isOpen="show" @close="show = false">
         <div>
             <div v-if="cartStore.cart_products.length > 0" class="flex flex-col gap-4">
@@ -23,10 +35,26 @@
                                 <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">MODEL:</span> TEST</p>
                                 <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">BROJ: </span>{{ item.variationName }}</p>
                             </div>
+                             <!-- dvojna cijena -->
                             <div>
-                                <p class="font-bold">{{ item.orderQuantity }} x {{ item.price.toFixed(2).replace('.', ',') }} €</p>
+                                <p class="font-bold">
+                                    {{ item.orderQuantity }} x 
+
+                                    <template v-if="isLoggedIn">
+                                        <span class="line-through text-gray-500 mr-2">
+                                        {{ item.price.toFixed(2).replace('.', ',') }} €
+                                        </span>
+                                        <span class="text-green-600">
+                                        {{ item.member_price.toFixed(2).replace('.', ',') }} €
+                                        </span>
+                                    </template>
+
+                                    <template v-else>
+                                        {{ item.price.toFixed(2).replace('.', ',') }} €
+                                    </template>
+                                </p>
                             </div>
-                            <!-- KOLIČINA -->
+                            <!-- Količina -->
                             <div class="flex items-center space-x-2">
                                 <div class="flex items-center p-1 space-x-1">
                                     <button class="btn-icon-secondary square-medium rounded-md" @click="cartStore.quantityDecrement(item, item.variationId)">
@@ -52,11 +80,19 @@
                         </div>
 
                     </div>
-					
+
+
 				</div>
-                <p class="">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                <div class="border-b pb-4 grid grid-cols-2" style="grid-template-columns: 2fr 100px;">
+                    <p class="font-saira font-bold text-h6-normal text-blue-900 text-center pl-12">Ukupno:</p>
+                    <p class="font-saira font-bold text-h6-normal text-blue-900 text-right"> {{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                </div>
+                <div>
+                    <NuxtLink to="/cart" class="btn-primary large uppercase block text-center">Pregledaj  košaricu i naruči</NuxtLink>
+                </div>
+                
 			</div>
-				<div v-else class="text-center">
+				<div v-else class="text-center ">
 					<p>Tvoja košarica je prazna</p>
 				</div>
 		</div>
@@ -64,10 +100,14 @@
     </div>
 </template>
   
-<script setup>
+<script setup lang="ts">
   import Offcanvas  from '~/components/Sidebar/Offcanvas.vue'
   import { ref } from 'vue'
   import { useCartStore } from '~/composables/useCart';
+  
+  import type { IUser } from '~/types/user';
+  const user = useSanctumUser() as Ref<IUser | null>;
+  const isLoggedIn = computed(() => !!user.value);
   
   const cartStore = useCartStore();
   const show = ref(false)

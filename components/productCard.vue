@@ -2,7 +2,6 @@
     import { useCartStore } from "~/composables/useCart";
     import type { IProduct } from '~/types/product';
 
-    
     const props = defineProps<{ product: IProduct; }>();
 
     const cartStore = useCartStore();
