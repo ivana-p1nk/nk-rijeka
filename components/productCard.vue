@@ -38,7 +38,7 @@
             <div class="flex flex-row justify-center gap-2 pt-6">
                 <p class="font-bold text-blue-900 font-saira text-h6-normal">{{ product.price.toFixed(2).replace('.', ',') }} €</p> 
                 <span class="font-bold text-blue-900 font-saira text-h6-normal">|</span>
-                <p class="font-bold text-blue-500 font-saira text-h6-normal ">{{ product.price.toFixed(2).replace('.', ',') }} €</p>
+                <p class="font-bold text-blue-500 font-saira text-h6-normal ">{{ product.member_price.toFixed(2).replace('.', ',') }} €</p>
                 <UPopover :popper="{ placement: 'top-start' }" :ui="{ring:'ring-0', background:'dark:bg-blue-50 bg-blue-50'}">
                     <UButton trailing-icon="mynaui:info-hexagon" class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]" />
   

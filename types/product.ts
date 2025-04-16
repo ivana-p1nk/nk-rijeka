@@ -2,6 +2,7 @@ export interface IProduct {
     id: number;
     title: string;
     price: number;
+    member_price: number;
     quantity: number;
     description: string;
     gallery: string[];
