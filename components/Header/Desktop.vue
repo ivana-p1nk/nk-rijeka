@@ -76,7 +76,14 @@
                                 <Icon name="akar-icons:search" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
                             <NuxtLink to="/favorites" class="relative flex">
-                                <UChip :text="useFavoritesStore().favorite_products.length" size="2xl" /> 
+                                <UChip :text="useFavoritesStore().favorite_products.length" 
+                                size="2xl" 
+                                inset  
+                                :ui="{
+                                    base: '-mx-7 -my-2 ring-0',
+                                    background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                                    }"
+                                />
                                 <Icon name="heroicons:heart" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
         
