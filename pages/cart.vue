@@ -31,16 +31,34 @@ const updateTerms = () => {
 }
 
 const schema = z.object({
-	firstName: z.string().min(1, 'First name is required'),
-	lastName: z.string().min(1, 'Last name is required'),
+	firstName: z.string({ required_error: "Ime je obavezan podatak" }).min(1, 'Ime je obavezan podatak'),
+	lastName: z.string({ required_error: "Prezime je obavezan podatak" }).min(1, 'Prezime je obavezan podatak'),
 	company: z.string().optional(),
-	country: z.string().optional(),
-	city: z.string().min(1, 'City is required'),
-	zipCode: z.string().min(1, 'ZIP code is required'),
-	address: z.string().min(1, 'Street address is required'),
-	phone: z.string().min(10, 'Phone number must be at least 10 characters'),
-	email: z.string().email('Invalid email address'),
+	country: z.string({ required_error: "Država je obavezan podatak" }).min(1, 'Država je obavezan podatak'),
+	city: z.string({ required_error: "Grad je obavezan podatak" }).min(1, 'Grad je obavezan podatak'),
+	zipCode: z.string({ required_error: "Poštanski broj je obavezan podatak" }).min(1, 'Poštanski broj je obavezan podatak'),
+	address: z.string({ required_error: "Adresa je obavezan podatak" }).min(1, 'Adresa je obavezan podatak'),
+	phone: z.string({ required_error: "Telefon je obavezan podatak" }).min(10, 'Telefon mora imati najmanje 10 znakova'),
+	email: z.string({ required_error: "Email je obavezan podatak" }).email('Pogrešna email adresa'),
 	orderNote: z.string().optional(),
+
+	anotherAddress: z.boolean(),
+	anotherCompany: z.string().optional(),
+	anotherCountry: z.string().optional(),
+	anotherCity: z.string().optional(),
+	anotherZipCode: z.string().optional(),
+	anotherStreetAddress: z.string().optional(),
+	anotherPhone: z.string().optional(),
+}).refine((data) => {
+	if (!data.anotherAddress) return true;
+
+	return !!(data.anotherCountry?.length &&
+		data.anotherCity?.length &&
+		data.anotherZipCode?.length &&
+		data.anotherStreetAddress?.length);
+}, {
+	message: "Sva polja za dodatnu adresu su obavezna kada je uključena opcija 'Dostavi na drugu adresu'",
+	path: ['anotherAddress'],
 });
 
 type Schema = z.output<typeof schema>
@@ -56,6 +74,13 @@ const state = reactive({
 	phone: undefined,
 	email: undefined,
 	orderNote: undefined,
+
+	anotherAddress: false,
+	anotherCompany: undefined,
+	anotherCountry: undefined,
+	anotherCity: undefined,
+	anotherZipCode: undefined,
+	anotherStreetAddress: undefined,
 });
 
 const submitForm = () => formRef.value?.submit()
@@ -76,8 +101,8 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 		total: cartStore.totalPriceQuantity.total.toFixed(2),
 	}
 
-	api.post("/create-orders", {...params}).then(({data}) => {
-		if(data.status != 'error') {
+	api.post("/create-orders", { ...params }).then(({ data }) => {
+		if (data.status != 'error') {
 			toast.add({
 				title: 'Narudžba uspješno kreirana!',
 				color: 'green',
@@ -130,13 +155,8 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 				</div>
 			</div>
 			<div class="col-span-5">
-				<CartTotal 
-					@useCoupon="applyCoupon" 
-					:submitForm="submitForm" 
-					:term="updateTerms" 
-					:termMessage="termValidationMessage" 
-					:loadingForm="loadingForm" 
-				/>
+				<CartTotal @useCoupon="applyCoupon" :submitForm="submitForm" :term="updateTerms"
+					:termMessage="termValidationMessage" :loadingForm="loadingForm" />
 			</div>
 		</div>
 	</div>
