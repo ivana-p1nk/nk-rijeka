@@ -83,22 +83,9 @@ import { SidebarContent } from '#components';
                             <HeaderAccountDropdown />
                         </div>
 
+                        <!--košarica-->
                         <SidebarContent />
                     
-                        <!--Cart-->
-                        <NuxtLink to="/cart">
-                            <UChip 
-                                :text="cartStore.totalPriceQuantity.quantity" 
-                                size="2xl" inset  
-                                :ui="{
-                                    base: 'mx-2 -my-1 ring-0',
-                                    background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
-                                }"
-                                class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
-                                    <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
-                                    <Icon name="ci:shopping-cart-01" class="text-white" />
-                            </UChip>
-                        </NuxtLink>
                     </div>
                 </div>
                 
