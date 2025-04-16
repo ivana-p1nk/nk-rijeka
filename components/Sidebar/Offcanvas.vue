@@ -9,7 +9,7 @@
   
       <!-- Offcanvas -->
       <div
-        class="fixed top-0 right-0 w-96 h-full bg-blue-00 shadow-lg z-50 transform transition-transform duration-300"
+        class="fixed top-0 right-0 max-w-96 h-full bg-blue-00 shadow-lg z-50 transform transition-transform duration-300"
         :class="{ 'translate-x-0': isOpen, 'translate-x-full': !isOpen }"
       >
         <div class="flex flex-col h-full">

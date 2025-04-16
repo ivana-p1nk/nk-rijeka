@@ -145,20 +145,8 @@
                         <HeaderAccountDropdown class="hidden md:block" />
                         <HeaderAccountDropdownMobile class="block md:hidden" @toggleHamburgerAccount="toggleHamburgerAccount" />
 
-                        <!--Cart-->
-                        <NuxtLink to="/cart">
-                            <UChip 
-                                :text="cartStore.totalPriceQuantity.quantity" 
-                                size="lg"
-                                inset  
-                                :ui="{
-                                    base: 'ring-0 !-top-1 py-2 px-[6px]',
-                                    background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
-                                }"
-                                class="flex items-center gap-2 px-2 py-2 text-white bg-blue-500 rounded-3xl">
-                                    <Icon name="ci:shopping-cart-01" class="text-white" />
-                            </UChip>
-                        </NuxtLink>
+                        <!--ikona košarice-->
+                        <SidebarContent />
                     </div>
                 </div>
 

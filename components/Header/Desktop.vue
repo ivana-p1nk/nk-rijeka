@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { useCartStore } from '~/composables/useCart';
     import { activetab, setActiveTab, openMenu } from "~/composables/activeTabNavigation";
-import { SidebarContent } from '#components';
+    import { SidebarContent } from '#components';
 
     const cartStore = useCartStore();
 
@@ -82,10 +82,9 @@ import { SidebarContent } from '#components';
         
                             <HeaderAccountDropdown />
                         </div>
-
-                        <!--košarica-->
-                        <SidebarContent />
                     
+                       <!--ikona košarice-->
+                       <SidebarContent />
                     </div>
                 </div>
                 

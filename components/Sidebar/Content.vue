@@ -1,23 +1,40 @@
 <template>
-    <div>
-        <!-- košarica -->
-        <button @click="show = true" class="text-white px-4 py-2 rounded">
+      <div>
+        <!-- košarica DEKSTOP -->
+        <button @click="show = true" class="hidden lg:inline-block">
             <UChip 
-            :text="cartStore.totalPriceQuantity.quantity" 
-            size="2xl" inset  
-            :ui="{
-            base: 'mx-2 -my-1 ring-0',
-            background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
-            }"
-            class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
-                <p class="header-text hover:text-white ">{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                :text="cartStore.totalPriceQuantity.quantity" 
+                size="2xl" inset  
+                :ui="{
+                    base: 'mx-2 -my-1 ring-0',
+                    background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                }"
+                class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
+                <p class="header-text hover:text-white">
+                    {{ cartStore.totalPriceQuantity.total.toFixed(2) }} €
+                </p>
+                <Icon name="ci:shopping-cart-01" class="text-white" />
+            </UChip>
+        </button>
+
+        <!-- košarica MOBILE -->
+        <button @click="show = true" class="inline-block lg:hidden">
+            <UChip 
+                :text="cartStore.totalPriceQuantity.quantity" 
+                size="lg"
+                inset  
+                :ui="{
+                    base: 'ring-0 !-top-1 py-2 px-[6px]',
+                    background: 'bg-gold-50 dark:bg-gold-50 dark:text-white text-white text-2xs'
+                }"
+                class="flex items-center gap-2 px-2 py-2 text-white bg-blue-500 rounded-3xl">
                 <Icon name="ci:shopping-cart-01" class="text-white" />
             </UChip>
         </button>
   
         <!-- Sadržaj sidebara-->
-      <Offcanvas  :isOpen="show" @close="show = false">
-        <div>
+        <Offcanvas  :isOpen="show" @close="show = false">
+          <div>
             <div v-if="cartStore.cart_products.length > 0" class="flex flex-col gap-4">
                 <div
                 v-for="(item, index) in cartStore.cart_products"
@@ -33,7 +50,6 @@
                             <p class="font-saira font-bold text-h6-normal text-blue-900">{{ item.title }}</p>
                             <div class="flex flex-col gap-1">
                                 <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">MODEL:</span> TEST</p>
-                                <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">BROJ: </span>{{ item.variationName }}</p>
                             </div>
                              <!-- dvojna cijena -->
                             <div>
@@ -41,10 +57,10 @@
                                     {{ item.orderQuantity }} x 
 
                                     <template v-if="isLoggedIn">
-                                        <span class="line-through text-gray-500 mr-2">
+                                        <span class="line-through text-blue-900 mr-2">
                                         {{ item.price.toFixed(2).replace('.', ',') }} €
                                         </span>
-                                        <span class="text-green-600">
+                                        <span class="text-blue-500">
                                         {{ item.member_price.toFixed(2).replace('.', ',') }} €
                                         </span>
                                     </template>
@@ -95,8 +111,8 @@
 				<div v-else class="text-center ">
 					<p>Tvoja košarica je prazna</p>
 				</div>
-		</div>
-      </Offcanvas >
+		  </div>
+        </Offcanvas >
     </div>
 </template>
   
