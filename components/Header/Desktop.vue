@@ -93,3 +93,10 @@
         </header>
     </div>
 </template>
+
+
+<style>
+.container {
+    width: 98%;
+}
+</style>

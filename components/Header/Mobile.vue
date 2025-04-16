@@ -207,9 +207,9 @@
                                 </NuxtLink>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">2024./2025.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">2023./2024.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Starije sezone</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2024-2025">2024./2025.</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2023-2024">2023./2024.</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi">Starije sezone</NuxtLink></li>
                             </template>
 
                             <!-- ODJEĆA -->
@@ -313,10 +313,10 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'forza'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="/categories/ff">Pogledaj kolekciju</NuxtLink></li>
                                 </template>
 
-                                <!-- Forza fiume premium-->
+                                <!-- Zigman premium-->
                                 <li>
                                     <NuxtLink to="#" @click.prevent="setSubActive('zigman')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'zigman' ? 'text-blue-500' : ''">ZIGMAN & HNK RIJEKA</span>
@@ -355,9 +355,9 @@
                                 </NuxtLink>
                             </li>
                             <template v-if="activeTab === 'akcije'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Dresovi</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">JOMA</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija">Dresovi</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija">JOMA</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo">Ostalo</NuxtLink></li>
                             </template>
                         </ul>
                         <NuxtLink to="/favorites" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">

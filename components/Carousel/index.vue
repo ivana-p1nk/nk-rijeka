@@ -15,7 +15,7 @@
 </script>
 
 <template>
-    <div class="relative mx-4">
+    <div class="relative">
         <Swiper
             :slidesPerView="1"
             :breakpoints="{

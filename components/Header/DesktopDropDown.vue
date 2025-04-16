@@ -107,7 +107,7 @@
                         <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
+                            <li class="heading-sub"><NuxtLink to="/categories/ff">Pogledaj kolekciju</NuxtLink></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
@@ -137,9 +137,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'akcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><NuxtLink to="#">Dresovi</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="#">JOMA</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija">Dresovi</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija">JOMA</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo">Ostalo</NuxtLink></li>
                     </ul>
                 </div>
             </Transition>

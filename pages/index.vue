@@ -40,7 +40,7 @@
 <template>
 
     <div class="px-4 bg-top bg-no-repeat bg-auto pt-72 pb-74 bg-home1 bg-players">
-        <div class="max-w-[1120px] mx-auto relative z-[1]">
+        <div class="max-w-[1120px] mx-auto relative z-[1] px-2">
             <div class="w-1/2">
                 <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>
@@ -81,7 +81,7 @@
         <!-- Vertikalni divider -->
         <div class="relative w-px mx-auto my-20 bg-blue-700 h-14"></div>
 
-        <div class="container mx-auto">
+        <div class="container mx-auto px-5">
             <div class="flex flex-col items-center gap-1 pb-10">
                 <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
                 <p class="font-normal text-blue-900 font-roboto text-body1">Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...</p>
@@ -90,7 +90,7 @@
             <Carousel :products="products" />
         </div>
 
-        <div class="relative mx-3 my-40 md:container md:mx-auto">
+        <div class="relative mx-3 my-40 md:container md:mx-auto px-5">
             <div class="bg-dark-blue-gradient2 p-20 rounded-2xl  max-w-[920px]">
                 <h1 class="mb-2 font-bold uppercase font-saira text-h2-display text-blue-50">PERSONALIZIRAJ <br>SVOJ DRES</h1>
                 <p class="font-normal text-white font-roboto text-body1 mb-7">Tvoj dres, tvoja pravila. Personaliziraj svoj <br>omiljeni dres i učini ga jedinstvenim.</p>
@@ -100,7 +100,7 @@
         </div>
     
 
-        <div class="container pb-6 mx-auto">
+        <div class="container pb-6 mx-auto px-5">
             <div class="flex flex-row items-center justify-between">
                 <div class="flex flex-row gap-9">
                     <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">NOVO U PONUDI</h1>
@@ -113,7 +113,7 @@
         </div>
     </div>
 
-    <div class="mx-5 my-20 md:container md:mx-auto">
+    <div class="mx-5 my-20 md:container md:mx-auto px-5">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
             <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
