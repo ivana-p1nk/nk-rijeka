@@ -9,12 +9,7 @@
     const orderQuantity = ref(1);
 
     const addToCart = () => {
-        const item = {
-            ...props.product,
-            variationId: selectedVariationId.value,
-            orderQuantity: orderQuantity.value,
-        };
-        cartStore.addCartProduct(item, selectedVariationId.value ?? undefined);
+        cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
     };
 
     const decrementQuantity = () => {
@@ -131,18 +126,15 @@
                     <div class="flex flex-row gap-4 mt-7 pb-7">
 
                         <div class="flex flex-row items-center gap-1">
-
-                            <button class="btn-secondary square-large rounded-md flex items-center justify-center" @click="decrementQuantity">
+                            <button class="btn-nofocus square-large rounded-md flex items-center justify-center"
+                                @click="cartStore.decrement(product.minimum_quantity || 1)"
+                                 >
                                 <UIcon name="heroicons:minus" />
                             </button>
-
-                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                type="text"
-                                v-model="orderQuantity"
-                                disabled />
-
-                            <button class="btn-secondary square-large rounded-md flex items-center justify-center" @click="incrementQuantity">
-                                <UIcon name="heroicons:plus" />
+                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center" type="text"
+                                :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
+                            <button class="btn-nofocus square-large rounded-md flex items-center justify-center" @click="cartStore.increment()">
+                                <UIcon name="heroicons:plus"/>
                             </button>
                         </div>
 

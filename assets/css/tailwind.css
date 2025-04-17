@@ -175,7 +175,6 @@ body {
         @apply px-3 py-2 text-button3;
     }
 
-
     .btn-primary {
         @apply font-saira bg-blue-600 font-bold text-white rounded-[6px];
         transition: background-color 0.2s ease-in-out;
@@ -195,22 +194,23 @@ body {
     }
 
 
-    .btn-secondary {
+    .btn-secondary, .btn-nofocus {
         @apply font-saira bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
         transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.8s ease-in-out;
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover,.btn-nofocus:hover {
         @apply bg-blue-50;
     }
 
-    .btn-secondary:focus, .btn-secondary:active  {
+    .btn-secondary:focus, .btn-secondary:active,.btn-nofocus:active  {
         @apply text-white bg-blue-800 border-blue-800;
     }
 
-    .btn-secondary:disabled {
+    .btn-secondary:disabled, .btn-nofocus:disabled {
         @apply text-white bg-blue-100 border-blue-100 cursor-not-allowed pointer-events-none;
     }
+
 
     .btn-secondary-focus {
         @apply font-saira font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
