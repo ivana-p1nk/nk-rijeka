@@ -2,10 +2,6 @@
 	import type { IProduct } from '~/types/product';
 	const config = useRuntimeConfig();
 
-	definePageMeta({
-		layout: 'products'
-	})
-
 	const products = ref<IProduct[]>([]);
 	const loading = ref(false);
 

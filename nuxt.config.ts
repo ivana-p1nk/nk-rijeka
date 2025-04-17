@@ -13,6 +13,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  /*
   vite: {
     server: {
       allowedHosts: ['web.nkrijeka-app.test'],
@@ -24,6 +25,7 @@ export default defineNuxtConfig({
     host: 'web.nkrijeka-app.test',
     port: 3000,
   },
+  */
 
   runtimeConfig: {
     public: {

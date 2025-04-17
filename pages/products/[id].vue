@@ -9,9 +9,7 @@
     //fetch the product
     const { data: product, error } = await useFetch<IProduct>(uri) 
 
-    definePageMeta({
-        layout: 'products'
-    })
+   
 </script>
 
 <template>
