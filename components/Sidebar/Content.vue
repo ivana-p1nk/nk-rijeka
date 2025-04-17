@@ -76,7 +76,7 @@
                                     <button class="btn-icon-secondary square-medium rounded-md" @click="cartStore.quantityDecrement(item, item.variationId)">
                                         <UIcon name="heroicons:minus" />
                                     </button>
-                                    <input class="bg-white border-blue-500 border-[1px] square-medium rounded-lg text-center" type="text" :value="item.orderQuantity" :v-model="item.orderQuantity"
+                                    <input class="bg-white border-blue-500 border-[1.5px] square-medium rounded-lg text-center" type="text" :value="item.orderQuantity" :v-model="item.orderQuantity"
                                         disabled />
                                     <button class="btn-icon-secondary square-medium rounded-md" @click="cartStore.addCartProduct(item, item.variationId)">
                                         <UIcon name="heroicons:plus" />
@@ -129,4 +129,6 @@
   const show = ref(false)
 
 </script>
+
+
 

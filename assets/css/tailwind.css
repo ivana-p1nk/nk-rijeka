@@ -204,7 +204,7 @@ body {
         @apply bg-blue-50;
     }
 
-    .btn-secondary:focus {
+    .btn-secondary:focus, .btn-secondary:active  {
         @apply text-white bg-blue-800 border-blue-800;
     }
 
@@ -438,6 +438,11 @@ body {
     .link-bijeli {
         @apply text-white transition-colors duration-200 hover:text-blue-500;
     }
+
+    .link-color {
+        @apply transition-colors duration-200 hover:text-blue-700;
+    }
+
 
     .icon-link {
         @apply transition-colors duration-200 group-hover:text-blue-500 hover:text-blue-500;
