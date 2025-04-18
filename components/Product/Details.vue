@@ -1,25 +1,35 @@
 <script setup lang="ts">
     import type { IProduct } from '~/types/product';
     import { useCartStore } from "~/composables/useCart";
+    import { useNotification } from '~/composables/useNotification';
+    import BannerNotification from '~/components/Product/BannerNotification.vue'; 
     
     const props = defineProps<{ product: IProduct; }>();
 
     const cartStore = useCartStore();
     const selectedVariationId = ref<number | null>(null);
-    const orderQuantity = ref(1);
+
+    const {
+        showNotification,
+        triggerNotification,
+        closeNotification,
+        notificationBanner
+    } = useNotification();
 
     const addToCart = () => {
-        cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
+    if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
+        alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
+        return;
+    }
+
+    cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
+    triggerNotification();
+
+    selectedVariationId.value = null;
+    cartStore.orderQuantity = 1;
     };
 
-    const decrementQuantity = () => {
-    orderQuantity.value = Math.max(1, orderQuantity.value - 1);
-    };
-
-    const incrementQuantity = () => {
-    orderQuantity.value++;
-    };
-
+ 
     const cleanDescription = computed(() => {
         const tmp = document.createElement('div')
         tmp.innerHTML = props.product.description || ''
@@ -50,7 +60,17 @@
 
 
 <template>
-    <div class="container mx-auto px-5 pt-60 pb-20">
+    <div class="container mx-auto px-5 pt-32 pb-20">
+
+        <!--Banner Added to Cart -->
+        <div ref="notificationBanner" class="h-32 w-full flex items-center justify-center overflow-hidden">
+            <BannerNotification
+                :show="showNotification"
+                :title="product.title"
+                @close="closeNotification"
+            />
+        </div>
+
         <div class="grid grid-cols-2 gap-10">
 
             <!-- PRVI STUPAC: Product Gallery -->
@@ -111,11 +131,20 @@
 
                         <div class="flex flex-wrap flex-row gap-1 py-3">
                             <button
-                                v-for="variation in product.variations"
-                                :key="variation.id"
-                                class="btn-secondary xl btn-size w-fit">
-                                {{ variation.packaging }}
-                            </button>
+                            v-for="variation in product.variations"
+                            :key="variation.id"
+                            :class="[
+                                'btn-variations', 
+                                'xl', 
+                                'btn-size', 
+                                'w-fit', 
+                                { 
+                                    'active-variation': selectedVariationId === variation.id, 
+                                    'hover:bg-blue-50': selectedVariationId !== variation.id 
+                                }]"
+                            @click="selectedVariationId = selectedVariationId === variation.id ? null : variation.id">
+                            {{ variation.packaging }}
+                        </button>
                         </div>
 
                         <NuxtLink to="/tablica-velicina" class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi">
@@ -126,14 +155,14 @@
                     <div class="flex flex-row gap-4 mt-7 pb-7">
 
                         <div class="flex flex-row items-center gap-1">
-                            <button class="btn-nofocus square-large rounded-md flex items-center justify-center"
+                            <button class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
                                 @click="cartStore.decrement(product.minimum_quantity || 1)"
                                  >
                                 <UIcon name="heroicons:minus" />
                             </button>
                             <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center" type="text"
                                 :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
-                            <button class="btn-nofocus square-large rounded-md flex items-center justify-center" @click="cartStore.increment()">
+                            <button class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]" @click="cartStore.increment()">
                                 <UIcon name="heroicons:plus"/>
                             </button>
                         </div>

@@ -194,16 +194,20 @@ body {
     }
 
 
-    .btn-secondary, .btn-nofocus {
+    .btn-secondary, .btn-nofocus, .btn-variations {
         @apply font-saira bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
         transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.8s ease-in-out;
+    }
+
+    .active-variation {
+        @apply bg-blue-800 hover:bg-blue-800 text-white border-blue-800;
     }
 
     .btn-secondary:hover,.btn-nofocus:hover {
         @apply bg-blue-50;
     }
 
-    .btn-secondary:focus, .btn-secondary:active,.btn-nofocus:active  {
+    .btn-secondary:focus, .btn-secondary:active, .btn-nofocus:active  {
         @apply text-white bg-blue-800 border-blue-800;
     }
 
@@ -542,4 +546,10 @@ li::marker {
 .reveal-leave-to {
     @apply translate-y-3 opacity-0;
 }
+
+.notification-banner {
+    @apply w-fit bg-white shadow-lg rounded-lg p-3 relative flex items-center justify-between gap-3;
+}
+
+
 

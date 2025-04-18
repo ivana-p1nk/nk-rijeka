@@ -11,7 +11,7 @@
                 }"
                 class="rounded-3xl flex items-center gap-2 py-[7px] px-4 bg-blue-500 text-white">
                 <p class="header-text hover:text-white">
-                    {{ cartStore.totalPriceQuantity.total.toFixed(2) }} €
+                    {{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €
                 </p>
                 <Icon name="ci:shopping-cart-01" class="text-white" />
             </UChip>
@@ -43,13 +43,20 @@
                 >
                     <div class="grid gap-3" style="grid-template-columns: 96px 1fr 38px;">
                         <!-- PRVI STUPAC: Slika proizvoda-->
-                        <img :src="item.gallery[0]" class="object-contain w-24 h-24" />
+                        <NuxtLink :to="`/products/${item.id}`" @click="show = false">
+                            <img :src="item.gallery[0]" class="object-contain w-24 h-24" />
+                        </NuxtLink>
+                        
 
                         <!-- DRUGI STUPAC: Detalji o proizvodu -->
                         <div class="flex flex-col gap-4">
                             <p class="font-saira font-bold text-h6-normal text-blue-900">{{ item.title }}</p>
                             <div class="flex flex-col gap-1">
                                 <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">MODEL:</span> TEST</p>
+                                <p v-if="item.variationId && item.variations" class="font-roboto text-body3 text-gray-900">
+                                    <span class="font-bold">VELIČINA:</span>
+                                    {{ item.variations.find(v => v.id === item.variationId)?.packaging }}
+                                </p>
                             </div>
                              <!-- dvojna cijena -->
                             <div>
@@ -73,12 +80,12 @@
                             <!-- Količina -->
                             <div class="flex items-center space-x-2">
                                 <div class="flex items-center p-1 space-x-1">
-                                    <button class="btn-icon-secondary square-medium rounded-md" @click="cartStore.quantityDecrement(item, item.variationId)">
+                                    <button class="btn-icon-secondary square-medium rounded-md border-[1.5px]" @click="cartStore.quantityDecrement(item, item.variationId)">
                                         <UIcon name="heroicons:minus" />
                                     </button>
                                     <input class="bg-white border-blue-500 border-[1.5px] square-medium rounded-lg text-center" type="text" :value="item.orderQuantity" :v-model="item.orderQuantity"
                                         disabled />
-                                    <button class="btn-icon-secondary square-medium rounded-md" @click="cartStore.addCartProduct(item, item.variationId)">
+                                    <button class="btn-icon-secondary square-medium rounded-md border-[1.5px]" @click="cartStore.addCartProduct(item, item.variationId)">
                                         <UIcon name="heroicons:plus" />
                                     </button>
                                 </div>
@@ -101,7 +108,7 @@
 				</div>
                 <div class="border-b pb-4 grid grid-cols-2" style="grid-template-columns: 2fr 100px;">
                     <p class="font-saira font-bold text-h6-normal text-blue-900 text-center pl-12">Ukupno:</p>
-                    <p class="font-saira font-bold text-h6-normal text-blue-900 text-right"> {{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</p>
+                    <p class="font-saira font-bold text-h6-normal text-blue-900 text-right"> {{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</p>
                 </div>
                 <div>
                     <NuxtLink to="/cart" class="btn-primary large uppercase block text-center">Pregledaj  košaricu i naruči</NuxtLink>
