@@ -4,17 +4,11 @@
 </script>
 
 <template>
-	<div class="py-10 related-products">
-		<h2 class="mb-6 text-2xl font-semibold text-gray-800">Related Products</h2>
-		
-		<!-- <UCarousel 
-		v-slot="{ item }" 
-		:items="product.related_products"
-		:ui="{ item: 'basis-1/4' }"
-		>
-			<ProductCard :product="item" />
-		</UCarousel> -->
+	<div class="container mx-auto px-5 pb-5 pt-24 border-t border-neutralBlue-100">
+		<h2 class="font-saira text-h3-normal font-medium text-neutralBlue-950 uppercase text-center pb-12">
+			Povezani proizvodi
+		</h2>
 
 		<Carousel :products="product.related_products" />
 	</div>
-</template>
+</template> 

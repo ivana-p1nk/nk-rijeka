@@ -115,9 +115,9 @@
                 </div>
                 
 			</div>
-				<div v-else class="text-center ">
-					<p>Tvoja košarica je prazna</p>
-				</div>
+			<div v-else class="text-center w-96">
+				<p>Tvoja košarica je prazna</p>
+			</div>
 		  </div>
         </Offcanvas >
     </div>

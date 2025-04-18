@@ -18,10 +18,10 @@
   </template>
   
   <script setup lang="ts">
-  const props = defineProps<{
-  show: boolean;
-  title: string;
-}>();
+    const props = defineProps<{
+    show: boolean;
+    title: string;
+  }>();
   
   const emit = defineEmits(['close'])
   
@@ -34,7 +34,7 @@
   .fade-enter-active,.fade-leave-active {
     transition: opacity 0.5s ease;
   }
-  
+
   .fade-enter-from,.fade-leave-to {
     opacity: 0;
   }

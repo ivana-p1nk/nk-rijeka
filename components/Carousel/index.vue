@@ -55,6 +55,15 @@
         padding-bottom: 3rem;
     }
     .swiper-pagination-bullet-active {
-        background-color: #013958 !important;
+        background-color:#013958 !important;
     }
+
+    .swiper-pagination-bullet {
+        background-color:#CED7DE;
+    }
+
+    .swiper-pagination-bullet {
+     opacity: 1;
+    }
+
 </style>

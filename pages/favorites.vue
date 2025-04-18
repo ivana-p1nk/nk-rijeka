@@ -67,21 +67,8 @@
                     <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
                     <p class="font-normal text-blue-900 font-roboto text-body1">Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...</p>
                 </div>
-                
-                <UCarousel 
-                    v-if="products.length > 0"
-                    v-slot="{ item }"
-                    indicators 
-                    :items="products"
-                    :ui="{ item: 'basis-1/4',
-                        indicators: {
-                            wrapper: 'flex gap-2 mt-8',  
-                            indicator: 'w-2 h-2 bg-customColors-300 rounded-full transition-all duration-300', 
-                            active: 'bg-blue-800 w-2 h-2'
-                        }
-                    }" >
-                    <ProductCard :product="item" class="pt-6" />
-                </UCarousel>
+
+                <Carousel :products="products" class="pt-6" />
             </div>
        
         </div>

@@ -7,7 +7,7 @@ export const useNotification = () => {
   const triggerNotification = () => {
     showNotification.value = true;
 
-    // Scroll to the banner if it exists
+    // Scroll to the banner
     nextTick(() => {
       notificationBanner.value?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
@@ -25,6 +25,6 @@ export const useNotification = () => {
     showNotification,
     triggerNotification,
     closeNotification,
-    notificationBanner, // exposed so you can bind to ref
+    notificationBanner, 
   };
 };
