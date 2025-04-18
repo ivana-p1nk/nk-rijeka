@@ -47,7 +47,7 @@
 			// user: user.value,
 			data: event.data,
 			items: cartStore.cart_products,
-			total: cartStore.totalPriceQuantity.total.toFixed(2),
+			total: cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ','),
 		}
 
 		api.post("/create-orders", {...params}).then(({data}) => {

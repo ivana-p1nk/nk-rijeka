@@ -19,7 +19,7 @@ const emit = defineEmits(['useCoupon']);
         <p class="pb-10 text-xl font-bold">VAŠA NARUDŽBA</p>
 
         <p class="flex items-center justify-between text-xl font-normal">
-            <span>Ukupno:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</span>
+            <span>Ukupno:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</span>
         </p>
         <p class="flex items-center justify-between text-xl font-normal">
             <span>Dostava:</span> <span>Besplatna dostava iznad 26,54 €</span>
@@ -40,7 +40,7 @@ const emit = defineEmits(['useCoupon']);
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
 
         <p class="flex items-center justify-between text-xl font-normal">
-            <span>Ukupno za plaćanje:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2) }}
+            <span>Ukupno za plaćanje:</span> <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }}
                 €</span>
         </p>
 

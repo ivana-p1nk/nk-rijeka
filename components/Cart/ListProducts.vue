@@ -19,23 +19,23 @@ const cartStore = useCartStore();
             <div class="flex items-center gap-3">
                 <img :src="item.gallery[0]" class="object-contain w-16 h-16" />
                 <div>
-                    <p class="font-bold">{{ item.title }}</p>
-                    <p class="text-sm text-gray-500">MODEL: TEST</p>
-                    <p class="text-sm text-gray-500">{{ item.variationName }}</p>
+                    <p class="font-bold font-saira text-h6-normal pb-3">{{ item.title }}</p>
+                    <p class="text-sm text-blue-900"><span class="font-bold">ŠIFRA:</span> TEST</p>
+                    <p v-if="item.variationName" class="text-sm text-blue-900"><span class="font-bold">VELIČINA:</span> {{ item.variationName }}</p>
                 </div>
             </div>
 
             <!-- Prikaz cijene s popustom, ako postoji -->
             <div v-if="item.price_discount > 0">
                 <span class="text-lg font-bold text-red-500">
-                    {{ item.price_discount.toFixed(2) }} €{{ " " }}
+                    {{ item.price_discount.toFixed(2).replace('.', ',') }} €{{ " " }}
                 </span>
                 <span class="font-normal text-white line-through text-md">
-                    {{ item.price.toFixed(2) }} €
+                    {{ item.price.toFixed(2).replace('.', ',') }} €
                 </span>
             </div>
             <span v-else class="mb-4 text-lg font-bold text-green-600">
-                {{ item.price.toFixed(2) }} €
+                {{ item.price.toFixed(2).replace('.', ',') }} €
             </span>
 
             <!-- KOLIČINA -->
@@ -54,7 +54,7 @@ const cartStore = useCartStore();
 
             <!-- UKUPNO -->
             <div>
-                {{ (item.orderQuantity * item.price).toFixed(2) }}
+                {{ (item.orderQuantity * item.price).toFixed(2).replace('.', ',') }} € 
             </div>
 
             <!-- DELETE -->

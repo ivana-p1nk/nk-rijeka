@@ -45,26 +45,26 @@
           <!-- Prikaz cijene s popustom, ako postoji -->
           <div v-if="item.price_discount > 0">
             <span class="text-lg font-bold text-red-500">
-              {{ item.price_discount.toFixed(2) }} €{{ " " }}
+              {{ item.price_discount.toFixed(2).replace('.', ',') }} €{{ " " }}
             </span>
             <span
               class="font-normal line-through text-md text-background"
             >
-              {{ item.price }}€
+              {{ item.price.toFixed(2).replace('.', ',') }} €
             </span>
           </div>
           <span
             v-else
             class="mb-4 text-lg font-bold text-background"
           >
-            {{ item.price.toFixed(2) }} €
+            {{ item.price.toFixed(2).replace('.', ',') }} €
           </span>
         </li>
 
         <!-- subtotal -->
         <li class="flex justify-between pt-2 font-semibold border-t">
           <span>Subtotal</span>
-          <span>{{ cartStore.totalPriceQuantity.total.toFixed(2) }} €</span>
+          <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</span>
         </li>
 
         <!-- shipping -->
@@ -89,7 +89,7 @@
         <!-- total -->
         <li class="flex justify-between pt-2 text-lg font-semibold border-t text-background">
           <span>Total</span>
-          <span>{{ (cartStore.totalPriceQuantity.total + shipCost).toFixed(2) }} €</span>
+          <span>{{ (cartStore.totalPriceQuantity.total + shipCost).toFixed(2).replace('.', ',') }} €</span>
         </li>
       </ul>
     </div>
