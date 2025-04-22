@@ -501,9 +501,51 @@ body {
     .mobile-nav {
         @apply font-medium tracking-wider uppercase font-saira text-nav-heading link-bijeli;
     }
+
+        /* ulaz */
+    .reveal-enter-active {
+        @apply transition-all duration-500 ease-out delay-200;
+    }
+
+    /* izlaz */
+    .reveal-leave-active {
+        @apply transition-all duration-75 ease-in;
+    }
+
+    .reveal-enter-from {
+        @apply translate-y-3 opacity-0;
+    }
+
+    .reveal-enter-to {
+        @apply translate-y-0 opacity-100;
+    }
+
+    .reveal-leave-from {
+        @apply translate-y-0 opacity-100;
+    }
+
+    .reveal-leave-to {
+        @apply translate-y-3 opacity-0;
+    }
+
+    .notification-banner {
+        @apply w-fit bg-white shadow-lg rounded-lg p-3 relative flex items-center justify-between gap-3;
+    }
+
 }
 
-
+.swiper-initialized {
+    padding-bottom: 3rem;
+  }
+  
+.swiper-pagination-bullet-active {
+    background-color: #013958 !important;
+  }
+  
+.swiper-pagination-bullet {
+    background-color: #CED7DE;
+    opacity: 1;
+  }
 
 li::marker {
     color: #000000;
@@ -519,36 +561,6 @@ li::marker {
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
-}
-
-/* ulaz */
-.reveal-enter-active {
-    @apply transition-all duration-500 ease-out delay-200;
-}
-
-/* izlaz */
-.reveal-leave-active {
-    @apply transition-all duration-75 ease-in;
-}
-
-.reveal-enter-from {
-    @apply translate-y-3 opacity-0;
-}
-
-.reveal-enter-to {
-    @apply translate-y-0 opacity-100;
-}
-
-.reveal-leave-from {
-    @apply translate-y-0 opacity-100;
-}
-
-.reveal-leave-to {
-    @apply translate-y-3 opacity-0;
-}
-
-.notification-banner {
-    @apply w-fit bg-white shadow-lg rounded-lg p-3 relative flex items-center justify-between gap-3;
 }
 
 

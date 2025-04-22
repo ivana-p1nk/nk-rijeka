@@ -146,7 +146,7 @@
                         <HeaderAccountDropdownMobile class="block md:hidden" @toggleHamburgerAccount="toggleHamburgerAccount" />
 
                         <!--ikona košarice-->
-                        <SidebarContent />
+                        <SidebarCartList />
                     </div>
                 </div>
 

@@ -3,11 +3,21 @@
     import { useCartStore } from "~/composables/useCart";
     import { useNotification } from '~/composables/useNotification';
     import BannerNotification from '~/components/Product/BannerNotification.vue'; 
-    
+    import Gallery from './Gallery.vue'
+    import { SidebarPersonalize } from '#components';
+
     const props = defineProps<{ product: IProduct; }>();
 
     const cartStore = useCartStore();
     const selectedVariationId = ref<number | null>(null);
+
+    const updateSelectedVariation  = (id: number | null) => {
+    if (selectedVariationId.value === id) {
+        selectedVariationId.value = null; 
+    } else {
+        selectedVariationId.value = id; 
+    }
+    };
 
     const {
         showNotification,
@@ -75,11 +85,24 @@
 
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit">
+              
                 <div class="flex flex-row items-center justify-between">
-                    <p><Icon name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" /></p>
+                    <div v-if="useFavoritesStore().isFavorite(props.product)">
+                        <Icon 
+                            @click="useFavoritesStore().removeFavoriteProduct(props.product)" 
+                            name="material-symbols:favorite" 
+                            class="text-blue-500 icon-xl" />
+                    </div>
+                    <div v-else>
+                        <Icon 
+                            @click="useFavoritesStore().addFavoriteProduct(props.product)" 
+                            name="material-symbols:favorite-outline" 
+                            class="text-gray-900 icon-xl" />
+                    </div>
                     <p id="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">NOVO</p>
                 </div>
-                <img :src="product.gallery[0]" alt="product img" class="mx-auto my-7">
+                <Gallery :product="product" />
+                
             </div>
 
             <!-- DRUGI STUPAC: Product Details-->
@@ -118,10 +141,12 @@
                 <div class="border-b border-neutralBlue-100">
 
                     <div>
-                        <button class="flex flex-row items-center gap-2 uppercase btn-secondary medium w-fit">
-                            Personaliziraj
-                            <Icon name="streamline:shopping-cart-1" class="text-gray-900 icon-large" />
-                        </button>
+                        <!-- Personaliziraj -->
+                        <SidebarPersonalize 
+                        :product="product" 
+                        :selectedVariationId="selectedVariationId" 
+                        @update-selected-variation="updateSelectedVariation"
+                        />
                     </div>
                     
                     
@@ -142,7 +167,7 @@
                                     'active-variation': selectedVariationId === variation.id, 
                                     'hover:bg-blue-50': selectedVariationId !== variation.id 
                                 }]"
-                            @click="selectedVariationId = selectedVariationId === variation.id ? null : variation.id">
+                             @click="updateSelectedVariation(variation.id)">
                             {{ variation.packaging }}
                         </button>
                         </div>
@@ -151,9 +176,12 @@
                             Pogledajte tablicu veličina
                         </NuxtLink>
                     </div>
+
+        
                     
                     <div class="flex flex-row gap-4 mt-7 pb-7">
 
+                        <!--količina-->
                         <div class="flex flex-row items-center gap-1">
                             <button class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
                                 @click="cartStore.decrement(product.minimum_quantity || 1)"
