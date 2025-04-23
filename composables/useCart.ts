@@ -7,6 +7,7 @@ interface CartProduct extends IProduct {
     textInput?: string;
     numberInput?: string;
     personalizationPrice?: number;
+    discountPrice?: number;
 }
 
 export const useCartStore = defineStore("cart_product", () => {
@@ -17,6 +18,7 @@ export const useCartStore = defineStore("cart_product", () => {
     const addCartProduct = (payload: CartProduct, variationId?: number, isPersonalization?: boolean) => {
         let productPrice = payload.price;
         let variationName = null;
+        let discountPrice = payload.price_discount;
 
         if (variationId) {
             const selectedVariation = payload.variations?.find(
@@ -26,11 +28,13 @@ export const useCartStore = defineStore("cart_product", () => {
             if (selectedVariation) {
                 variationName = selectedVariation.packaging;
                 productPrice = selectedVariation.price;
+                discountPrice = selectedVariation.price_discount;
             }
         }
 
         if (isPersonalization) {
             productPrice = payload.personalizationPrice || 0;
+            discountPrice = undefined;
         }
 
         const isExist = cart_products.value.some(
@@ -41,6 +45,7 @@ export const useCartStore = defineStore("cart_product", () => {
             const newItem = {
                 ...payload,
                 price: productPrice,
+                discountPrice: discountPrice,
                 variationId: variationId,
                 variationName: variationName,
                 orderQuantity: orderQuantity.value != 1 ? orderQuantity.value : 1,
@@ -71,7 +76,7 @@ export const useCartStore = defineStore("cart_product", () => {
         orderQuantity.value = Math.max(orderQuantity.value - 1, min);
     };
 
-    const quantityDecrement = (payload: IProduct, variationId?: number) => {
+    const quantityDecrement = (payload: CartProduct, variationId?: number) => {
         cart_products.value.map((item) => {
             if (item.id === payload.id && item.variationId === variationId && item.textInput === payload.textInput && item.numberInput === payload.numberInput) {
                 if (typeof item.orderQuantity !== "undefined" && item.orderQuantity > 1) {
@@ -107,9 +112,10 @@ export const useCartStore = defineStore("cart_product", () => {
     const totalPriceQuantity = computed(() => {
         return cart_products.value.reduce(
             (cartTotal, cartItem) => {
-                const { price, orderQuantity } = cartItem;
+                const { price, discountPrice, orderQuantity } = cartItem;
                 if (typeof orderQuantity !== "undefined") {
-                    const itemTotal = price * orderQuantity;
+                    const itemPrice = discountPrice !== undefined ? discountPrice : price;
+                    const itemTotal = itemPrice * orderQuantity;
                     cartTotal.total += itemTotal;
                     cartTotal.quantity += orderQuantity;
                 }
