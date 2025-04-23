@@ -61,6 +61,7 @@ export const useCartStore = defineStore("cart_product", () => {
                 return { ...item };
             });
         }
+
         localStorage.setItem("cart_products", JSON.stringify(cart_products.value));
     };
 
@@ -113,8 +114,9 @@ export const useCartStore = defineStore("cart_product", () => {
         return cart_products.value.reduce(
             (cartTotal, cartItem) => {
                 const { price, discountPrice, orderQuantity } = cartItem;
+
                 if (typeof orderQuantity !== "undefined") {
-                    const itemPrice = discountPrice !== undefined ? discountPrice : price;
+                    const itemPrice = discountPrice !== undefined && discountPrice !== 0 ? discountPrice : price;
                     const itemTotal = itemPrice * orderQuantity;
                     cartTotal.total += itemTotal;
                     cartTotal.quantity += orderQuantity;
