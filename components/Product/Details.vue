@@ -12,11 +12,11 @@
     const selectedVariationId = ref<number | null>(null);
 
     const updateSelectedVariation  = (id: number | null) => {
-    if (selectedVariationId.value === id) {
-        selectedVariationId.value = null; 
-    } else {
-        selectedVariationId.value = id; 
-    }
+        if (selectedVariationId.value === id) {
+            selectedVariationId.value = null; 
+        } else {
+            selectedVariationId.value = id; 
+        }
     };
 
     const {
@@ -27,24 +27,17 @@
     } = useNotification();
 
     const addToCart = () => {
-    if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
-        alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
-        return;
-    }
+        if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
+            alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
+            return;
+        }
 
-    cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
-    triggerNotification();
+        cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
+        triggerNotification();
 
-    selectedVariationId.value = null;
-    cartStore.orderQuantity = 1;
+        selectedVariationId.value = null;
+        cartStore.orderQuantity = 1;
     };
-
- 
-    const cleanDescription = computed(() => {
-        const tmp = document.createElement('div')
-        tmp.innerHTML = props.product.description || ''
-        return tmp.textContent || tmp.innerText || ''
-    })
 
 
     /* SHARE PRODUCT */
@@ -54,18 +47,16 @@
     const config = useRuntimeConfig();
 
     const currentUrl = computed(() => {
-    return `${config.public.siteUrl}${route.fullPath}`;
+        return `${config.public.siteUrl}${route.fullPath}`;
     });
 
     const facebookShare = computed(() => 
-    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl.value)}`
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl.value)}`
     );
 
     const twitterShare = computed(() => 
-    `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl.value)}&text=${encodeURIComponent(props.product.title)}`
+        `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl.value)}&text=${encodeURIComponent(props.product.title)}`
     );
-
-
 </script>
 
 
@@ -117,8 +108,10 @@
 
                 <div>
                     <p class="text-gray-900 font-roboto fontnormal text-body2">
-                        <span class="font-bold">Opis: </span>{{ cleanDescription }}
+                        <span class="font-bold">Opis: </span>
                     </p>
+                    <p class="text-white font-montserrat" v-html="product.description"></p>
+
                     <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Boja: </span> </p>
                     <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
