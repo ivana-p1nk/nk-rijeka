@@ -2,6 +2,7 @@ export interface IProduct {
     id: number;
     title: string;
     price: number;
+    price_discount?: number;
     member_price: number;
     quantity: number;
     description: string;
@@ -16,6 +17,7 @@ export interface IProduct {
         id: number;
         packaging: string;
         price: number;
+        price_discount?: number;
         minimum_quantity: number;
         gallery?: string[];
     }[];
@@ -24,6 +26,7 @@ export interface IProduct {
         id: number;
         title: string;
         price: number;
+        price_discount?: number;
         quantity: number;
         description: string;
         gallery: string[];
@@ -37,6 +40,7 @@ export interface IProduct {
             id: number;
             packaging: string;
             price: number;
+            price_discount?: number;
             minimum_quantity: number;
             gallery?: string[];
         }[];

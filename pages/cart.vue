@@ -135,7 +135,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 	<div class="py-20 mx-10 mt-20 xl:mx-auto max-w-7xl">
 		<h1 class="mb-10 font-medium text-blue-900 font-saira text-h1-normal">Košarica</h1>
 
-		<div class="grid grid-cols-12 gap-4">
+		<div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
 			<div class="col-span-12">
 				<h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
 			</div>
@@ -158,6 +158,11 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 				<CartTotal @useCoupon="applyCoupon" :submitForm="submitForm" :term="updateTerms"
 					:termMessage="termValidationMessage" :loadingForm="loadingForm" />
 			</div>
+		</div>
+		<div v-else class="flex flex-col justify-center items-center py-20">
+			<h1 class="text-2xl font-bold text-blue-900 font-saira">Košarica je prazna</h1>
+			<p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
+			<NuxtLink to="/products" class="btn-primary large mt-10">Nastavi s kupnjom</NuxtLink>
 		</div>
 	</div>
 </template>

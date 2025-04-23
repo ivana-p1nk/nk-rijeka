@@ -4,6 +4,10 @@ import { defineStore } from "pinia";
 
 interface CartProduct extends IProduct {
     variationId?: number;
+    textInput?: string;
+    numberInput?: string;
+    personalizationPrice?: number;
+    discountPrice?: number;
 }
 
 export const useCartStore = defineStore("cart_product", () => {
@@ -11,9 +15,10 @@ export const useCartStore = defineStore("cart_product", () => {
     let cart_products = ref<CartProduct[]>([]);
     let orderQuantity = ref<number>(1);
 
-    const addCartProduct = (payload: IProduct, variationId?: number) => {
+    const addCartProduct = (payload: CartProduct, variationId?: number, isPersonalization?: boolean) => {
         let productPrice = payload.price;
         let variationName = null;
+        let discountPrice = payload.price_discount;
 
         if (variationId) {
             const selectedVariation = payload.variations?.find(
@@ -23,17 +28,24 @@ export const useCartStore = defineStore("cart_product", () => {
             if (selectedVariation) {
                 variationName = selectedVariation.packaging;
                 productPrice = selectedVariation.price;
+                discountPrice = selectedVariation.price_discount;
             }
         }
 
+        if (isPersonalization) {
+            productPrice = payload.personalizationPrice || 0;
+            discountPrice = undefined;
+        }
+
         const isExist = cart_products.value.some(
-            (i) => i.id === payload.id && i.variationId === variationId
+            (i) => i.id === payload.id && i.variationId === variationId && i.textInput === payload.textInput && i.numberInput === payload.numberInput
         );
 
         if (!isExist) {
             const newItem = {
                 ...payload,
                 price: productPrice,
+                discountPrice: discountPrice,
                 variationId: variationId,
                 variationName: variationName,
                 orderQuantity: orderQuantity.value != 1 ? orderQuantity.value : 1,
@@ -41,7 +53,7 @@ export const useCartStore = defineStore("cart_product", () => {
             cart_products.value.push(newItem);
         } else {
             cart_products.value.map((item) => {
-                if (item.id === payload.id && item.variationId === variationId) {
+                if (item.id === payload.id && item.variationId === variationId && item.textInput === payload.textInput && item.numberInput === payload.numberInput) {
                     if (typeof item.orderQuantity !== "undefined") {
                         item.orderQuantity = orderQuantity.value !== 1 ? orderQuantity.value + item.orderQuantity : item.orderQuantity + 1;
                     }
@@ -49,6 +61,7 @@ export const useCartStore = defineStore("cart_product", () => {
                 return { ...item };
             });
         }
+
         localStorage.setItem("cart_products", JSON.stringify(cart_products.value));
     };
 
@@ -64,9 +77,9 @@ export const useCartStore = defineStore("cart_product", () => {
         orderQuantity.value = Math.max(orderQuantity.value - 1, min);
     };
 
-    const quantityDecrement = (payload: IProduct, variationId?: number) => {
+    const quantityDecrement = (payload: CartProduct, variationId?: number) => {
         cart_products.value.map((item) => {
-            if (item.id === payload.id && item.variationId === variationId) {
+            if (item.id === payload.id && item.variationId === variationId && item.textInput === payload.textInput && item.numberInput === payload.numberInput) {
                 if (typeof item.orderQuantity !== "undefined" && item.orderQuantity > 1) {
                     item.orderQuantity -= 1;
                 }
@@ -76,9 +89,9 @@ export const useCartStore = defineStore("cart_product", () => {
         localStorage.setItem("cart_products", JSON.stringify(cart_products.value));
     };
 
-    const removeCartProduct = (payload: IProduct, variationId?: number) => {
+    const removeCartProduct = (payload: CartProduct, variationId?: number) => {
         cart_products.value = cart_products.value.filter(
-            (p) => !(p.id === payload.id && p.variationId === variationId)
+            (p) => !(p.id === payload.id && p.variationId === variationId && p.textInput === payload.textInput && p.numberInput === payload.numberInput)
         );
         localStorage.setItem("cart_products", JSON.stringify(cart_products.value));
     };
@@ -100,9 +113,11 @@ export const useCartStore = defineStore("cart_product", () => {
     const totalPriceQuantity = computed(() => {
         return cart_products.value.reduce(
             (cartTotal, cartItem) => {
-                const { price, orderQuantity } = cartItem;
+                const { price, discountPrice, orderQuantity } = cartItem;
+
                 if (typeof orderQuantity !== "undefined") {
-                    const itemTotal = price * orderQuantity;
+                    const itemPrice = discountPrice !== undefined && discountPrice !== 0 ? discountPrice : price;
+                    const itemTotal = itemPrice * orderQuantity;
                     cartTotal.total += itemTotal;
                     cartTotal.quantity += orderQuantity;
                 }
