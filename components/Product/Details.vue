@@ -101,14 +101,13 @@
             <div class="px-7 pb-7" >
 
                 <p class="font-normal text-blue-900 font-roboto text-body2">
-
                 <UBreadcrumb
                     divider="/"
                     :links="[
                     { label: 'Početna', to: '/' },
                     { 
                         label: product.category?.title || 'No Category', 
-                        to: product.category?.slug ? `/categories/${encodeURIComponent(product.category.slug)}` : '' 
+                        to: product.category?.slug ? `/categories/${encodeURIComponent(product.category.slug)}` : '/categories/no-category'
                     },
                     { label: product.title }
                     ]"
@@ -117,15 +116,11 @@
 
                 <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
 
-                <div>
+                <div v-if="product.description">
                     <p class="text-gray-900 font-roboto fontnormal text-body2">
                         <span class="font-bold inline-block mr-2">Opis:</span>
                         <span v-html="product.description" class="inline-block"></span>
                     </p>
-                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                        Boja: </span> </p>
-                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                        Sastav: </span> </p>
                 </div>
 
                 <!-- Dvojna cijena  -->
