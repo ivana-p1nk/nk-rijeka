@@ -39,14 +39,6 @@
     cartStore.orderQuantity = 1;
     };
 
- 
-    const cleanDescription = computed(() => {
-        const tmp = document.createElement('div')
-        tmp.innerHTML = props.product.description || ''
-        return tmp.textContent || tmp.innerText || ''
-    })
-
-
     /* SHARE PRODUCT */
     //Dohvati trenutni URL proizvoda 
     import { useRoute, useRuntimeConfig } from 'nuxt/app'; 
@@ -109,15 +101,26 @@
             <div class="px-7 pb-7" >
 
                 <p class="font-normal text-blue-900 font-roboto text-body2">
-                    <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
-                    <span class="uppercase">Breadcrumbs</span>
+
+                <UBreadcrumb
+                    divider="/"
+                    :links="[
+                    { label: 'Početna', to: '/' },
+                    { 
+                        label: product.category?.title || 'No Category', 
+                        to: product.category?.slug ? `/categories/${encodeURIComponent(product.category.slug)}` : '' 
+                    },
+                    { label: product.title }
+                    ]"
+                />
                 </p>
 
                 <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
 
                 <div>
                     <p class="text-gray-900 font-roboto fontnormal text-body2">
-                        <span class="font-bold">Opis: </span>{{ cleanDescription }}
+                        <span class="font-bold inline-block mr-2">Opis:</span>
+                        <span v-html="product.description" class="inline-block"></span>
                     </p>
                     <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
                         Boja: </span> </p>
