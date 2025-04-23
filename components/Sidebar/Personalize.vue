@@ -44,7 +44,7 @@
 
                 <!-- Veličine -->
                 <div v-if="product.variations && product.variations.length"
-                    class="my-4 pt-4 border-y border-neutralBlue-100">
+                    class="my-4 pb-1 pt-4 border-y border-neutralBlue-100">
                     <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
                     <div class="flex flex-wrap flex-row gap-1 py-3">
                         <button v-for="variation in product.variations" :key="variation.id" :class="[

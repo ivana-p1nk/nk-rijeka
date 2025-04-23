@@ -48,10 +48,18 @@
                                     </p>
 
                                     <div v-if="item.textInput || item.numberInput">
-                                        <p>Personalizirano</p>
-                                        <p>Naziv: {{ item.textInput }}</p>
-                                        <p>Broj: {{ item.numberInput }}</p>
-                                        <p>Cijena: {{ item.personalizationPrice.toFixed(2).replace('.', ',') }} €</p>
+                                        <p class="font-roboto text-body3 text-blue-600">
+                                            <span class="font-bold"> PERSONALIZIRANO </span>
+                                        </p>
+                                        <p class="font-roboto text-body3 text-gray-900">
+                                            <span class="font-bold">IME:</span> {{ item.textInput }} 
+                                        </p>
+                                        <p class="font-roboto text-body3 text-gray-900">
+                                            <span class="font-bold">BROJ:</span> {{ item.numberInput }}
+                                        </p>
+                                        <p class="font-roboto text-body3 text-gray-900">
+                                            <span class="font-bold">CIJENA:</span> {{ item.personalizationPrice.toFixed(2).replace('.', ',') }} €
+                                        </p>
                                     </div>
                                 </div>
                                 <!-- dvojna cijena -->
