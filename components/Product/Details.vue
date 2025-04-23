@@ -97,6 +97,22 @@ const twitterShare = computed(() =>
                     <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
                     <span class="uppercase">Breadcrumbs</span>
                 </p>
+                
+                <!--
+                <p class="font-normal text-blue-900 font-roboto text-body2">
+                <UBreadcrumb
+                    divider="/"
+                    :links="[
+                    { label: 'Početna', to: '/' },
+                    { 
+                        label: product.category?.title || 'No Category', 
+                        to: product.category?.slug ? `/categories/${encodeURIComponent(product.category.slug)}` : '/categories/no-category'
+                    },
+                    { label: product.title }
+                    ]"
+                />
+                </p>
+                -->
 
                 <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
 
@@ -105,11 +121,6 @@ const twitterShare = computed(() =>
                         <span class="font-bold">Opis: </span>
                     </p>
                     <p class="text-white font-montserrat" v-html="product.description"></p>
-
-                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                            Boja: </span> </p>
-                    <p class="text-gray-900 font-roboto fontnormal text-body2"><span class="font-bold">
-                            Sastav: </span> </p>
                 </div>
 
                 <!-- Dvojna cijena  -->
@@ -132,38 +143,38 @@ const twitterShare = computed(() =>
 
 
                 <div class="border-b border-neutralBlue-100">
-
-                    <div>
-                        <!-- Personaliziraj -->
-                        <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
-                            @update-selected-variation="updateSelectedVariation" />
-                    </div>
-
-
-                    <!-- veličina -->
                     <div v-if="product.variations && product.variations.length" class="pt-7">
-                        <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
-
-                        <div class="flex flex-wrap flex-row gap-1 py-3">
-                            <button v-for="variation in product.variations" :key="variation.id" :class="[
-                                'btn-variations',
-                                'xl',
-                                'btn-size',
-                                'w-fit',
-                                {
-                                    'active-variation': selectedVariationId === variation.id,
-                                    'hover:bg-blue-50': selectedVariationId !== variation.id
-                                }]" @click="updateSelectedVariation(variation.id)">
-                                {{ variation.packaging }}
-                            </button>
+                        <div>
+                            <!-- Personaliziraj -->
+                            <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
+                                @update-selected-variation="updateSelectedVariation" />
                         </div>
 
-                        <NuxtLink to="/tablica-velicina"
-                            class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi">
-                            Pogledajte tablicu veličina
-                        </NuxtLink>
-                    </div>
 
+                        <!-- veličina -->
+                        <div class="pt-7">
+                            <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
+
+                            <div class="flex flex-wrap flex-row gap-1 py-3">
+                                <button v-for="variation in product.variations" :key="variation.id" :class="[
+                                    'btn-variations',
+                                    'xl',
+                                    'btn-size',
+                                    'w-fit',
+                                    {
+                                        'active-variation': selectedVariationId === variation.id,
+                                        'hover:bg-blue-50': selectedVariationId !== variation.id
+                                    }]" @click="updateSelectedVariation(variation.id)">
+                                    {{ variation.packaging }}
+                                </button>
+                            </div>
+
+                            <NuxtLink to="/tablica-velicina"
+                                class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi">
+                                Pogledajte tablicu veličina
+                            </NuxtLink>
+                        </div>
+                    </div>
 
 
                     <div class="flex flex-row gap-4 mt-7 pb-7">
