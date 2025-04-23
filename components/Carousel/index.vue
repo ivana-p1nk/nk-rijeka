@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
     import { Swiper, SwiperSlide } from 'swiper/vue';
     import 'swiper/css';
@@ -50,3 +49,12 @@
     </div>
 </template>
 
+<style>
+    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -5px);
+    }
+
+    .swiper.swiper-initialized.swiper-horizontal {
+        padding-bottom: 30px;
+    }
+</style>

@@ -3,7 +3,7 @@
       <!-- Overlay -->
       <div
         v-if="isOpen"
-        class="fixed inset-0 bg-black/60 z-40"
+        class="fixed inset-0 bg-black/60 z-50"
         @click="closeOffcanvas"
       ></div>
   
@@ -26,13 +26,13 @@
   </template>
   
   <script setup>
-  const props = defineProps({
-    isOpen: Boolean,
-  })
-  
-  const emit = defineEmits(['close'])
-  
-  const closeOffcanvas = () => {
-    emit('close')
-  }
+    const props = defineProps({
+      isOpen: Boolean,
+    })
+    
+    const emit = defineEmits(['close'])
+    
+    const closeOffcanvas = () => {
+      emit('close')
+    }
   </script>
