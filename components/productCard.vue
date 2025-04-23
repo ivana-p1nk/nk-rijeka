@@ -53,9 +53,10 @@
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
-                <NuxtLink v-if="product.variations?.length > 0" :to="`/products/${product.id}`"
-                    class="font-semibold btn-primary large active:bg-blue-800">
-                    ODABERI OPCIJE
+                
+
+                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary large active:bg-blue-800">
+                    {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 
                 <UButton v-if="product.variations?.length < 1" @click="addToCart" size="lg" variant="solid" :ui="{
@@ -68,6 +69,7 @@
                     DODAJ U KOŠARICU
                 </UButton>
 
+                
             </div>
         </div>
         <p class="p-2 mt-2 font-semibold text-center text-blue-900 font-saira text-h5-normal">{{ product.title }}
