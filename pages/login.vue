@@ -54,50 +54,25 @@ const goToPreviousPage = () => {
 </script>
 
 <template>
-    <section
-        id="form"
-        aria-labelledby="form"
-        class="container mx-auto justify-center pt-20 pb-32"
-    >
+    <section id="form" aria-labelledby="form" class="container mx-auto justify-center pt-20 pb-32">
         <div class="absolute top-7 left-7">
-            <button
-                @click="goToPreviousPage"
-                class="uppercase btn-secondary py-3 xs flex items-center w-fit h-fit"
-            >
+            <button @click="goToPreviousPage" class="uppercase btn-secondary py-3 xs flex items-center w-fit h-fit">
                 <Icon name="i-heroicons-chevron-left" />
             </button>
         </div>
 
         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
-            <img
-                src="/assets/images/grbrijeka.svg"
-                alt="logo"
-                class="w-20 h-20 mx-auto"
-            />
-            <h2
-                class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center"
-            >
-                Prijava
-            </h2>
+            <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            <h2 class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center">Prijava</h2>
 
             <p class="text-center pt-4">
                 Nemaš račun?
-                <NuxtLink
-                    to="/register"
-                    class="font-bold underline uppercase link-plavi"
-                >
-                    Registriraj se
-                </NuxtLink>
+                <NuxtLink to="/register" class="font-bold underline uppercase link-plavi"> Registriraj se </NuxtLink>
             </p>
         </div>
 
         <UContainer :ui="{ constrained: 'mx-auto w-full sm:max-w-lg' }">
-            <UForm
-                :schema="schema"
-                :state="state"
-                class="space-y-4"
-                @submit="onSubmit"
-            >
+            <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
                 <UFormGroup
                     label="Korisničko ime ili email"
                     required
@@ -137,10 +112,7 @@ const goToPreviousPage = () => {
                     >
                         <template #trailing>
                             <UButton
-                                v-show="
-                                    typePass == 'password' &&
-                                    state.password !== undefined
-                                "
+                                v-show="typePass == 'password' && state.password !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye"
@@ -148,10 +120,7 @@ const goToPreviousPage = () => {
                                 @click="showPassword"
                             />
                             <UButton
-                                v-show="
-                                    typePass == 'text' &&
-                                    state.password !== undefined
-                                "
+                                v-show="typePass == 'text' && state.password !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye-slash"
@@ -176,10 +145,7 @@ const goToPreviousPage = () => {
                 </UButton>
 
                 <div>
-                    <NuxtLink
-                        to="/lost-password"
-                        class="text-sm font-bold text-[#0083C9] hover:underline"
-                    >
+                    <NuxtLink to="/lost-password" class="text-sm font-bold text-[#0083C9] hover:underline">
                         Izgubili ste lozinku?
                     </NuxtLink>
                 </div>

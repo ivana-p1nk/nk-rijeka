@@ -87,8 +87,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             toast.add({
                 color: 'red',
                 title: 'Greška',
-                description:
-                    'Nešto nije kako treba, javite se korisničkoj podršci.',
+                description: 'Nešto nije kako treba, javite se korisničkoj podršci.',
                 timeout: 2500,
             })
         })
@@ -108,29 +107,16 @@ const goToPreviousPage = () => {
 </script>
 
 <template>
-    <section
-        id="form"
-        aria-labelledby="form"
-        class="container mx-auto justify-center pt-20 pb-32"
-    >
+    <section id="form" aria-labelledby="form" class="container mx-auto justify-center pt-20 pb-32">
         <div class="absolute top-7 left-7">
-            <button
-                @click="goToPreviousPage"
-                class="uppercase btn-secondary py-3 xs flex items-center w-fit h-fit"
-            >
+            <button @click="goToPreviousPage" class="uppercase btn-secondary py-3 xs flex items-center w-fit h-fit">
                 <Icon name="i-heroicons-chevron-left" />
             </button>
         </div>
 
         <div class="pb-12 mx-auto">
-            <img
-                src="/assets/images/grbrijeka.svg"
-                alt="logo"
-                class="w-20 h-20 mx-auto"
-            />
-            <h2
-                class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center"
-            >
+            <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            <h2 class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center">
                 Kreiraj račun
             </h2>
 
@@ -139,23 +125,13 @@ const goToPreviousPage = () => {
 
                 <span class="block">
                     Već imaš račun?
-                    <NuxtLink
-                        to="/login"
-                        class="font-bold underline uppercase link-plavi"
-                    >
-                        PRIJAVI SE
-                    </NuxtLink>
+                    <NuxtLink to="/login" class="font-bold underline uppercase link-plavi"> PRIJAVI SE </NuxtLink>
                 </span>
             </p>
         </div>
 
         <UContainer :ui="{ constrained: 'mx-auto w-full sm:max-w-lg' }">
-            <UForm
-                :schema="schema"
-                :state="state"
-                class="space-y-4"
-                @submit="onSubmit"
-            >
+            <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
                 <div class="text-red-500" v-for="(item, index) in errors">
                     {{ item[0] }}
                 </div>
@@ -169,12 +145,7 @@ const goToPreviousPage = () => {
                         },
                     }"
                 >
-                    <UInput
-                        v-model="state.barcode"
-                        :name="state.barcode"
-                        placeholder="Kod"
-                        size="lg"
-                    />
+                    <UInput v-model="state.barcode" :name="state.barcode" placeholder="Kod" size="lg" />
                 </UFormGroup>
 
                 <UFormGroup
@@ -187,12 +158,7 @@ const goToPreviousPage = () => {
                         },
                     }"
                 >
-                    <UInput
-                        v-model="state.name"
-                        :name="state.name"
-                        placeholder="Ime i prezime"
-                        size="lg"
-                    />
+                    <UInput v-model="state.name" :name="state.name" placeholder="Ime i prezime" size="lg" />
                 </UFormGroup>
 
                 <UFormGroup
@@ -205,12 +171,7 @@ const goToPreviousPage = () => {
                         },
                     }"
                 >
-                    <UInput
-                        v-model="state.email"
-                        :name="state.email"
-                        placeholder="E-pošta"
-                        size="lg"
-                    />
+                    <UInput v-model="state.email" :name="state.email" placeholder="E-pošta" size="lg" />
                 </UFormGroup>
 
                 <UFormGroup
@@ -233,10 +194,7 @@ const goToPreviousPage = () => {
                     >
                         <template #trailing>
                             <UButton
-                                v-show="
-                                    typePass == 'password' &&
-                                    state.password !== undefined
-                                "
+                                v-show="typePass == 'password' && state.password !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye"
@@ -244,10 +202,7 @@ const goToPreviousPage = () => {
                                 @click="showPassword"
                             />
                             <UButton
-                                v-show="
-                                    typePass == 'text' &&
-                                    state.password !== undefined
-                                "
+                                v-show="typePass == 'text' && state.password !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye-slash"
@@ -277,10 +232,7 @@ const goToPreviousPage = () => {
                     >
                         <template #trailing>
                             <UButton
-                                v-show="
-                                    typePass == 'password' &&
-                                    state.password_confirmation !== undefined
-                                "
+                                v-show="typePass == 'password' && state.password_confirmation !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye"
@@ -288,10 +240,7 @@ const goToPreviousPage = () => {
                                 @click="showPassword"
                             />
                             <UButton
-                                v-show="
-                                    typePass == 'text' &&
-                                    state.password_confirmation !== undefined
-                                "
+                                v-show="typePass == 'text' && state.password_confirmation !== undefined"
                                 color="gray"
                                 variant="link"
                                 icon="i-heroicons-eye-slash"
@@ -303,15 +252,9 @@ const goToPreviousPage = () => {
                 </UFormGroup>
 
                 <p>
-                    Vaši će se osobni podaci koristiti za pružanje boljeg
-                    iskustvu na web stranici, za upravljanje pristupom vašem
-                    računu i za druge svrhe opisane u našoj
-                    <NuxtLink
-                        to="/politika-kolacica"
-                        class="link-plavi underline"
-                    >
-                        pravilima privatnosti</NuxtLink
-                    >.
+                    Vaši će se osobni podaci koristiti za pružanje boljeg iskustvu na web stranici, za upravljanje
+                    pristupom vašem računu i za druge svrhe opisane u našoj
+                    <NuxtLink to="/politika-kolacica" class="link-plavi underline"> pravilima privatnosti</NuxtLink>.
                 </p>
 
                 <UButton
