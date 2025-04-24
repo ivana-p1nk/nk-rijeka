@@ -26,7 +26,6 @@ const state = reactive({
     password: undefined,
 })
 
-const errors = ref({})
 const loading = ref(false)
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -99,10 +98,6 @@ const goToPreviousPage = () => {
                 class="space-y-4"
                 @submit="onSubmit"
             >
-                <div class="text-red-500" v-for="(item, index) in errors">
-                    {{ item[0] }}
-                </div>
-
                 <UFormGroup
                     label="Korisničko ime ili email"
                     required
@@ -117,6 +112,7 @@ const goToPreviousPage = () => {
                         v-model="state.email"
                         :name="state.email"
                         placeholder="Korisničko ime"
+                        variant="outline"
                         size="lg"
                     />
                 </UFormGroup>
