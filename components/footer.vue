@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="col-span-1">
-                        <NuxtLink to="#" target="_blank" rel="noopener noreferrer"
+                        <NuxtLink to="/register" rel="noopener noreferrer"
                             class="inline-block uppercase btn-secondary large">Registriraj se</NuxtLink>
                     </div>
                 </div>
