@@ -19,12 +19,12 @@ export default defineNuxtConfig({
       strictPort: false
     }
   },
-
+/*
   devServer: {
     host: 'web.nkrijeka-app.test',
     port: 3000,
   },
-
+*/
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',

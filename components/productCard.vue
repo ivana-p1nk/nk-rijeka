@@ -1,13 +1,25 @@
     <script setup lang="ts">
     import { useCartStore } from "~/composables/useCart";
     import type { IProduct } from '~/types/product';
+    import { useRouter } from 'vue-router';
 
     const props = defineProps<{ product: IProduct; }>();
+    const router = useRouter()
+    const toast = useToast();
 
     const cartStore = useCartStore();
 
     const addToCart = () => {
-        cartStore.addCartProduct(props.product, null, false);
+        cartStore.addCartProduct(props.product, undefined, false);
+        toast.add({
+            icon: 'solar:check-circle-broken',
+            title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
+            description: `Kliknite ovdje za pregled košarice`,
+            color: 'green',
+            click: () => {
+            router.push('/cart');
+        }
+    });
     };
 </script>
 

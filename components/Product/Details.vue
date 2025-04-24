@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { IProduct } from '~/types/product';
 import { useCartStore } from "~/composables/useCart";
-import { useNotification } from '~/composables/useNotification';
-import BannerNotification from '~/components/Product/BannerNotification.vue';
 import Gallery from './Gallery.vue'
 import { SidebarPersonalize } from '#components';
+import { useRouter } from 'vue-router';
 
 const props = defineProps<{ product: IProduct; }>();
+
+const router = useRouter()
+const toast = useToast();
 
 const cartStore = useCartStore();
 const selectedVariationId = ref<number | null>(null);
@@ -19,13 +21,6 @@ const updateSelectedVariation = (id: number | null) => {
     }
 };
 
-const {
-    showNotification,
-    triggerNotification,
-    closeNotification,
-    notificationBanner
-} = useNotification();
-
 const addToCart = () => {
     if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
         alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
@@ -33,12 +28,20 @@ const addToCart = () => {
     }
 
     cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined);
-    triggerNotification();
 
     selectedVariationId.value = null;
     cartStore.orderQuantity = 1;
-};
 
+    toast.add({
+        icon: 'solar:check-circle-broken',
+        title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
+        description: `Kliknite ovdje za pregled košarice`,
+        color: 'green',
+        click: () => {
+        router.push('/cart');
+        }
+    });
+};
 
 /* SHARE PRODUCT */
 //Dohvati trenutni URL proizvoda 
@@ -63,12 +66,8 @@ const twitterShare = computed(() =>
 <template>
     <div class="container mx-auto px-5 pt-32 pb-20">
 
-        <!--Banner Added to Cart -->
-        <div ref="notificationBanner" class="h-32 w-full flex items-center justify-center overflow-hidden">
-            <BannerNotification :show="showNotification" :title="product.title" @close="closeNotification" />
-        </div>
 
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid grid-cols-2 gap-10 pt-32">
 
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit">
@@ -143,7 +142,7 @@ const twitterShare = computed(() =>
 
 
                 <div class="border-b border-neutralBlue-100">
-                    <div v-if="product.variations && product.variations.length" class="pt-7">
+                    <div v-if="product.variations && product.variations.length">
                         <div>
                             <!-- Personaliziraj -->
                             <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
