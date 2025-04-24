@@ -49,17 +49,21 @@
     <div class="bg-igraci">
         <div class="container px-5 pb-12 mx-auto pt-52">
 
-            <h1 class="pb-6 font-medium text-gray-900 font-saira text-h1-normal md:pb-20">
+            <h1 class="pb-6 font-medium text-gray-900 font-saira text-h1-normal">
                 Favoriti
             </h1>
             
-            <div v-if="favorites.length > 0" class="grid grid-cols-1 gap-4 py-4 md:grid-cols-4">
+            <div v-if="favorites.length > 0" class="grid grid-cols-1 gap-4 py-4 md:grid-cols-4 pb-10">
                 <div
                     v-for="item in favorites"
                     :key="`${item.id}`"
                 >
                     <ProductCard :product="item" />
                 </div>
+            </div>
+
+            <div v-else class="text-center py-10 text-blue-900 font-saira font-medium text-lg">
+                Nijedan proizvod nije dodan na listu želja.
             </div>
 
             <div class="container pt-8 mx-auto border-t border-neutralBlue-100">

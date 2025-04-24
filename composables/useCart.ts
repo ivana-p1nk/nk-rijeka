@@ -49,6 +49,7 @@ export const useCartStore = defineStore("cart_product", () => {
                 variationId: variationId,
                 variationName: variationName,
                 orderQuantity: orderQuantity.value != 1 ? orderQuantity.value : 1,
+                
             };
             cart_products.value.push(newItem);
         } else {

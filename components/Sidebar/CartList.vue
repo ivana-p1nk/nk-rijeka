@@ -121,6 +121,7 @@
                                             <span class="font-bold">BROJ:</span>
                                             {{ item.numberInput }}
                                         </p>
+<<<<<<< HEAD
                                         <p
                                             class="font-roboto text-body3 text-gray-900"
                                         >
@@ -134,6 +135,11 @@
                                             }}
                                             €
                                         </p>
+=======
+                                        <!--<p class="font-roboto text-body3 text-gray-900">
+                                            <span class="font-bold">CIJENA:</span> {{ item.personalizationPrice.toFixed(2).replace('.', ',') }} €
+                                        </p>-->
+>>>>>>> 641944a2f347f1b46240da1edde45f7700231420
                                     </div>
                                 </div>
                                 <!-- dvojna cijena -->

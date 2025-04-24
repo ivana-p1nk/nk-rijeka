@@ -12,34 +12,41 @@
             ]" />
         </button>
 
+        
+
         <!-- SIDEBAR CONTENT  -->
         <Offcanvas :isOpen="show" @close="show = false">
             <div>
+               
                 <h1 class="text-h4-normal font-semibold font-saira mb-4 text-blue-900">Personalizacija</h1>
 
                 <div v-if="product?.gallery?.length" class="bg-white rounded-lg p-3 border border-neutralBlue-100">
                     <img :src="product.gallery[0]" alt="Product Image" class="mx-auto rounded-lg max-w-full h-auto" />
                 </div>
 
-                <!-- Input za slova -->
                 <div>
-
+                    <!-- Input za slova -->
                     <div class="mt-4">
                         <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
                         <input id="textInput" v-model="textInput" type="text" maxlength="12"
                             pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
                             class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
                             placeholder="Maksimalno 12 znakova" />
+                        <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                            {{ textInputPrice.toFixed(2).replace('.', ',') }} €
+                        </p>
                     </div>
 
                     <!-- Input za brojeve -->
-                    <div class="mt-4">
+                    <div>
                         <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
                         <input id="numberInput" v-model="numberInput" type="text" maxlength="2" pattern="[0-9]*"
                             class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
                             placeholder="Maksimalno 2 znaka" />
+                            <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                                {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
+                            </p>
                     </div>
-
                 </div>
 
                 <!-- Veličine -->
@@ -61,6 +68,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="flex flex-row justify-between">
                     <!-- količina -->
                     <div class="flex flex-row items-center gap-1">
@@ -77,7 +85,7 @@
                             <UIcon name="heroicons:plus" />
                         </button>
                     </div>
-
+                    
                     <!-- košarica -->
                     <UButton @click="addToCart" size="lg" variant="solid" :ui="{
                         base: 'text-white font-saira font-semibold',
@@ -96,70 +104,95 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import Offcanvas from '~/components/Sidebar/Offcanvas.vue';
-import { useCartStore } from '~/composables/useCart';
-import type { IProduct } from '~/types/product';
+    import { ref } from 'vue';
+    import Offcanvas from '~/components/Sidebar/Offcanvas.vue';
+    import { useCartStore } from '~/composables/useCart';
+    import type { IProduct } from '~/types/product';
+    import { useRouter } from 'vue-router';
 
-const textInput = ref('');
-const numberInput = ref('');
+    const router = useRouter()
+    const toast = useToast();
 
-const props = defineProps<{ product: IProduct; selectedVariationId: number | null }>();
-const emit = defineEmits(['update-selected-variation']);
-const cartStore = useCartStore();
+    const textInput = ref('');
+    const numberInput = ref('');
 
-const show = ref(false);
-const selectedVariationId = computed({
-    get: () => props.selectedVariationId,
-    set: (val) => emit('update-selected-variation', val)
-});
-
-const updateVariation = (id: number | null) => {
-    selectedVariationId.value = selectedVariationId.value === id ? null : id;
-};
-
-const addToCart = () => {
-    if (!/^[A-Za-zČĆŽŠĐčćžšđ ]{1,12}$/.test(textInput.value)) {
-        alert("Molim vas unesite samo slova - bez brojeva i posebnih znakova!");
-        return;
-    }
-
-    if (!/^[0-9]{1,2}$/.test(numberInput.value)) {
-        alert("Molim vas unesite samo broj - bez slova i posebnih znakova!");
-        return;
-    }
-
-    if (!selectedVariationId.value) {
-        alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
-        return;
-    }
-
-    // Update price based on textInput and numberInput
-    const price = props.product.price;
     const textInputPrice = ref(0);
     const numberInputPrice = ref(0);
 
-    if (textInput.value) {
-        textInputPrice.value = 15;
+    watch(textInput, (val) => {
+    textInputPrice.value = val.trim() ? 5.30 : 0;
+    });
+
+    watch(numberInput, (val) => {
+    const digits = val.trim();
+    if (digits.length === 1) {
+        numberInputPrice.value = 5.30;
+    } else if (digits.length === 2) {
+        numberInputPrice.value = 10.60;
+    } else {
+        numberInputPrice.value = 0;
     }
+    });
 
-    if (numberInput.value) {
-        numberInputPrice.value = 15;
-    }
+    const props = defineProps<{ product: IProduct; selectedVariationId: number | null }>();
+    const emit = defineEmits(['update-selected-variation']);
+    const cartStore = useCartStore();
 
-    const totalPrice = price + textInputPrice.value + numberInputPrice.value;
+    const show = ref(false);
+    const selectedVariationId = computed({
+        get: () => props.selectedVariationId,
+        set: (val) => emit('update-selected-variation', val)
+    });
 
-    const structureData = {
-        ...props.product,
-        'textInput': textInput.value,
-        'numberInput': numberInput.value,
-        'personalizationPrice': totalPrice,
-    }
+    const updateVariation = (id: number | null) => {
+        selectedVariationId.value = selectedVariationId.value === id ? null : id;
+    };
 
-    cartStore.addCartProduct(structureData, selectedVariationId.value, true);
-    selectedVariationId.value = null;
-    cartStore.orderQuantity = 1;
-    show.value = false;
-};
+    const addToCart = () => {
+        if (!/^[A-Za-zČĆŽŠĐčćžšđ ]{1,12}$/.test(textInput.value)) {
+            alert("Molim vas unesite samo slova - bez brojeva i posebnih znakova!");
+            return;
+        }
 
+        if (!/^[0-9]{1,2}$/.test(numberInput.value)) {
+            alert("Molim vas unesite samo broj - bez slova i posebnih znakova!");
+            return;
+        }
+
+        if (!selectedVariationId.value) {
+            alert("Molimo odaberite veličinu prije dodavanja u košaricu.");
+            return;
+        }
+
+        // Update price based on textInput and numberInput
+        const price = props.product.price;
+        const totalPrice = price + textInputPrice.value + numberInputPrice.value;
+
+        const structureData = {
+            ...props.product,
+            'textInput': textInput.value,
+            'numberInput': numberInput.value,
+            'personalizationPrice': totalPrice,
+            textInputAddonPrice: textInputPrice.value,
+            numberInputAddonPrice: numberInputPrice.value
+        }
+
+        cartStore.addCartProduct(structureData, selectedVariationId.value, true);
+        selectedVariationId.value = null;
+        cartStore.orderQuantity = 1;
+        textInput.value = '';
+        numberInput.value = '';
+        show.value = false;
+
+        toast.add({
+            icon: 'solar:check-circle-broken',
+            title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
+            description: `Kliknite ovdje za pregled košarice`,
+            color: 'green',
+            click: () => {
+            router.push('/cart');
+        }
+    });
+    };
+   
 </script>
