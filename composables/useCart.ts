@@ -7,7 +7,8 @@ interface CartProduct extends IProduct {
     textInput?: string
     numberInput?: string
     personalizationPrice?: number
-    discountPrice?: number
+    textInputAddonPrice?: number
+    numberInputAddonPrice?: number
 }
 
 export const useCartStore = defineStore('cart_product', () => {
@@ -19,7 +20,7 @@ export const useCartStore = defineStore('cart_product', () => {
         payload: CartProduct,
         variationId?: number,
         isPersonalization?: boolean,
-        price?: number
+        userRole?: string
     ) => {
         let productPrice = payload.price
         let variationName = null
@@ -35,13 +36,16 @@ export const useCartStore = defineStore('cart_product', () => {
             }
         }
 
-        if (isPersonalization) {
-            productPrice = payload.personalizationPrice || 0
-            discountPrice = undefined
+        if (userRole === 'member') {
+            productPrice = payload.member_price
         }
 
-        if (price) {
-            productPrice = price
+        if (discountPrice) {
+            productPrice = discountPrice
+        }
+
+        if (isPersonalization) {
+            productPrice = productPrice + (payload.personalizationPrice || 0)
         }
 
         const isExist = cart_products.value.some(
@@ -55,7 +59,7 @@ export const useCartStore = defineStore('cart_product', () => {
         if (!isExist) {
             const newItem = {
                 ...payload,
-                price: productPrice,
+                totalPrice: productPrice,
                 discountPrice: discountPrice,
                 variationId: variationId,
                 variationName: variationName,
@@ -143,10 +147,10 @@ export const useCartStore = defineStore('cart_product', () => {
     const totalPriceQuantity = computed(() => {
         return cart_products.value.reduce(
             (cartTotal, cartItem) => {
-                const { price, discountPrice, orderQuantity } = cartItem
+                const { totalPrice, discountPrice, orderQuantity } = cartItem
 
                 if (typeof orderQuantity !== 'undefined') {
-                    const itemPrice = discountPrice !== undefined && discountPrice !== 0 ? discountPrice : price
+                    const itemPrice = discountPrice !== undefined && discountPrice !== 0 ? discountPrice : totalPrice
                     const itemTotal = itemPrice * orderQuantity
                     cartTotal.total += itemTotal
                     cartTotal.quantity += orderQuantity

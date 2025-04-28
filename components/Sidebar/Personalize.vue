@@ -144,6 +144,9 @@ import { useCartStore } from '~/composables/useCart'
 import type { IProduct } from '~/types/product'
 import { useRouter } from 'vue-router'
 
+import type { IUser } from '~/types/user'
+const user = useSanctumUser() as Ref<IUser | null>
+
 const router = useRouter()
 const toast = useToast()
 
@@ -178,8 +181,8 @@ const selectedVariationId = computed({
     set: (val) => emit('update-selected-variation', val),
 })
 
-const updateVariation = (id: number | null) => {
-    selectedVariationId.value = selectedVariationId.value === id ? null : id
+const updateVariation = (id: number) => {
+    selectedVariationId.value = id
 }
 
 const addToCart = () => {
@@ -198,9 +201,7 @@ const addToCart = () => {
         return
     }
 
-    // Update price based on textInput and numberInput
-    const price = props.product.price
-    const totalPrice = price + textInputPrice.value + numberInputPrice.value
+    const totalPrice = textInputPrice.value + numberInputPrice.value
 
     const structureData = {
         ...props.product,
@@ -211,9 +212,8 @@ const addToCart = () => {
         numberInputAddonPrice: numberInputPrice.value,
     }
 
-    cartStore.addCartProduct(structureData, selectedVariationId.value, true)
-    selectedVariationId.value = null
-    cartStore.orderQuantity = 1
+    cartStore.addCartProduct(structureData, selectedVariationId.value, true, user.value?.role ?? 'guest')
+
     textInput.value = ''
     numberInput.value = ''
     show.value = false

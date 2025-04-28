@@ -72,14 +72,15 @@
                                         <p class="font-roboto text-body3 text-gray-900">
                                             <span class="font-bold">IME:</span>
                                             {{ item.textInput }}
+                                            -
+                                            {{ item.textInputAddonPrice?.toFixed(2).replace('.', ',') }} €
                                         </p>
                                         <p class="font-roboto text-body3 text-gray-900">
                                             <span class="font-bold">BROJ:</span>
                                             {{ item.numberInput }}
+                                            -
+                                            {{ item.numberInputAddonPrice?.toFixed(2).replace('.', ',') }} €
                                         </p>
-                                        <!--<p class="font-roboto text-body3 text-gray-900">
-                                            <span class="font-bold">CIJENA:</span> {{ item.personalizationPrice.toFixed(2).replace('.', ',') }} €
-                                        </p>-->
                                     </div>
                                 </div>
                                 <!-- dvojna cijena -->
