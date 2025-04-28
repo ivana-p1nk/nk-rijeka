@@ -22,6 +22,7 @@
 
     const sort = ref("Najnoviji");
 
+
 	const fetchData = async () => {
         if(!category.value) {
             loadingCat.value = true;
@@ -84,28 +85,57 @@
 		allLoaded.value = false;
 		fetchData();
 	}, { deep: true });
+
+
+
+       /*za filtere*/
+       const activeFilters = ref<Record<string, string>>({});
+
+        const filteredProducts = computed(() => {
+        return products.value.filter(product => {
+        const packagingFilter = activeFilters.value.size;
+        if (packagingFilter) {
+        return product.variations?.some(v => v.packaging === packagingFilter);
+        }
+        return true; // ako nema filtera, prikaži sve
+        });
+        });
+
 </script>
 
-<template>
-	<div class="container px-20 pt-40 mx-auto" v-if="!loadingCat && category">
-		<NuxtLink to="/categories" class="text-blue-500 underline">
-			Nazad na kategorije
-		</NuxtLink>
+<template>   
+    <div class="bg-igraci">
+        <div class="container mx-auto pt-52 pb-5 px-5">
+            <div v-if="!loadingCat && category">
+                <p class="font-normal text-blue-900 font-roboto text-body2">
+                    <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+                    <span>Breadcrumbs</span>
+                </p>
+                <p class="pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">{{ category.title }}</p>
+                <div>
+                    <div v-if="category.sub_categories" class="flex flex-row flex-wrap gap-2">
+                        <div v-for="(item, index) in category.sub_categories" :key="index">
+                            <NuxtLink :to="`/categories/${category.slug!}/${item.slug!}`" 
+                            class="btn-secondary uppercase small px-5">
+                                {{ item.title }}
+                            </NuxtLink>
+                        </div>
+                    </div>
+                    <!-- FILTRACIJA -->
+                    <FilterAtributeFilter :products="products" v-model:filters="activeFilters"/>
+                </div>
 
-        <p class="py-10 text-2xl font-bold">{{ category.title }}</p>
-
-		<div v-if="category.sub_categories" class="space-y-2 columns-1 md:columns-2">
-            <div v-for="(item, index) in category.sub_categories" :key="index">
-                <NuxtLink :to="`/categories/${category.slug!}/${item.slug!}`" class="text-black transition duration-500 ease-in-out cursor-pointer hover:text-blue-400">
-                    {{ item.title }} ({{ item.products_count }})
-                </NuxtLink>
+                <div class="col-span-1 pt-10 products md:col-span-4">
+                    <div class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
+                        <ProductCard v-for="(product, index) in filteredProducts"
+  :key="index"
+  :product="product" class="w-full" />
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="col-span-1 pt-10 products md:col-span-4">
-            <div class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
-                <ProductCard v-for="(product, index) in products" :key="index" :product="product" class="w-full" />
-            </div>
-        </div>
-	</div>
+	    </div>
+    </div>
 </template>
+
+
+

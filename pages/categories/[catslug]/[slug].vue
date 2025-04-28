@@ -90,25 +90,27 @@
 </script>
 
 <template>
-	<div class="container px-20 pt-40 mx-auto" v-if="!loadingCat && category">
-		<NuxtLink :to="`/categories/${catslug}`" class="text-blue-500 underline">
-			Nazad na kategorije
-		</NuxtLink>
+    <div class="bg-igraci">
+        <div class="container mx-auto pt-52 pb-5 px-5" v-if="!loadingCat && category">
+            <NuxtLink :to="`/categories/${catslug}`" class="text-blue-500 underline">
+                Nazad na kategorije
+            </NuxtLink>
 
-        <p class="py-10 text-2xl font-bold">{{ category.title }}</p>
+            <p class="py-10 text-2xl font-bold">{{ category.title }}</p>
 
-		<div v-if="category.sub_categories" class="space-y-2 columns-1 md:columns-2">
-            <div v-for="(item, index) in category.sub_categories" :key="index">
-                <NuxtLink :to="`/categories/${category.slug!}/${item.slug!}`" class="text-black transition duration-500 ease-in-out cursor-pointer hover:text-blue-400">
-                    {{ item.title }} ({{ item.products_count }})
-                </NuxtLink>
+            <div v-if="category.sub_categories" class="space-y-2 columns-1 md:columns-2">
+                <div v-for="(item, index) in category.sub_categories" :key="index">
+                    <NuxtLink :to="`/categories/${category.slug!}/${item.slug!}`" class="text-black transition duration-500 ease-in-out cursor-pointer hover:text-blue-400">
+                        {{ item.title }} ({{ item.products_count }})
+                    </NuxtLink>
+                </div>
+            </div>
+
+            <div class="col-span-1 pt-10 products md:col-span-4">
+                <div class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
+                    <ProductCard v-for="(product, index) in products" :key="index" :product="product" class="w-full" />
+                </div>
             </div>
         </div>
-
-        <div class="col-span-1 pt-10 products md:col-span-4">
-            <div class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4">
-                <ProductCard v-for="(product, index) in products" :key="index" :product="product" class="w-full" />
-            </div>
-        </div>
-	</div>
+    </div>
 </template>
