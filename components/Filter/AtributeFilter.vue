@@ -1,13 +1,11 @@
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div v-for="filter in filterConfigs" :key="filter.key">
-        <USelect
+      <div v-for="filter in filterConfigs" :key="filter.key" class="w-full sm:w-48">
+        <USelect  class="w-full sm:w-48"
           v-model="filters[filter.key as FilterKey]"
           :options="filter.options"
           :placeholder="filter.label"
           :ui="selectUI"
         />
-      </div>
     </div>
   </template>
   
@@ -43,46 +41,56 @@
         return Array.from(new Set(allVariations));
     });
     
-    const filterConfigs = computed(() => [
+    const filterConfigs = computed(() => {
+      const configs = [];
+
+      if (availableVariations.value.length > 0) {
+        configs.push({
+          key: 'size',
+          label: 'Veličina',
+          options: availableVariations.value
+        });
+      }
+
+      configs.push(
         {
-        key: 'size',
-        label: 'Veličina',
-        options: availableVariations.value
+          key: 'gender',
+          label: 'Spol',
+          options: ['Muškarci', 'Žene']
         },
         {
-        key: 'gender',
-        label: 'Spol',
-        options: ['Muškarci', 'Žene']
+          key: 'age',
+          label: 'Dob',
+          options: ['Odrasli', 'Djeca']
         },
         {
-        key: 'age',
-        label: 'Dob',
-        options: ['Odrasli', 'Djeca']
-        },
-        {
-        key: 'price',
-        label: 'Cijena',
-        options: ['0-50€', '50-100€', '100-200€', '200€+']
+          key: 'price',
+          label: 'Cijena',
+          options: ['0-50€', '50-100€', '100-200€', '200€+']
         }
-    ]);
-    
+      );
+
+      return configs;
+    });
+
+
     const selectUI = {
         color: {
-        white: {
+          white: {
             outline: `
-            border border-gray-300
-            bg-white
-            text-black
-            placeholder-black
-            dark:bg-white
-            dark:text-black
-            dark:placeholder-black
-            shadow-none
-            ring-0
-            focus:ring-0
-            focus:ring-blue-500
+              border border-gray-300
+              bg-white
+              text-black
+              placeholder-black
+              dark:bg-white
+              dark:text-black
+              dark:placeholder-black  
+              shadow-none
+              ring-0
+              focus:ring-0
+              focus:ring-blue-500
             `
-        }
+          }
         }
     };
   </script>

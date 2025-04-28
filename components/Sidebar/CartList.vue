@@ -132,7 +132,7 @@
                     </div>
 
                 </div>
-                <div v-else class="text-center w-96">
+                <div v-else class="text-center">
                     <p>Tvoja košarica je prazna</p>
                 </div>
             </div>
