@@ -15,7 +15,12 @@ export const useCartStore = defineStore('cart_product', () => {
     let cart_products = ref<CartProduct[]>([])
     let orderQuantity = ref<number>(1)
 
-    const addCartProduct = (payload: CartProduct, variationId?: number, isPersonalization?: boolean) => {
+    const addCartProduct = (
+        payload: CartProduct,
+        variationId?: number,
+        isPersonalization?: boolean,
+        price?: number
+    ) => {
         let productPrice = payload.price
         let variationName = null
         let discountPrice = payload.price_discount
@@ -33,6 +38,10 @@ export const useCartStore = defineStore('cart_product', () => {
         if (isPersonalization) {
             productPrice = payload.personalizationPrice || 0
             discountPrice = undefined
+        }
+
+        if (price) {
+            productPrice = price
         }
 
         const isExist = cart_products.value.some(

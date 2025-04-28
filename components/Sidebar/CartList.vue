@@ -97,21 +97,15 @@
                                                 €
                                             </span>
                                         </template>
-
-                                        <template v-if="isLoggedIn && user?.role === 'member'">
+                                        <template v-else>
                                             <span class="line-through text-blue-900 mr-2">
                                                 {{ item.price.toFixed(2).replace('.', ',') }}
                                                 €
                                             </span>
                                             <span class="text-blue-500">
-                                                {{ item.discount_price.toFixed(2).replace('.', ',') }}
+                                                {{ item.discountPrice?.toFixed(2).replace('.', ',') }}
                                                 €
                                             </span>
-                                        </template>
-
-                                        <template v-else>
-                                            {{ item.price.toFixed(2).replace('.', ',') }}
-                                            €
                                         </template>
                                     </p>
                                 </div>
