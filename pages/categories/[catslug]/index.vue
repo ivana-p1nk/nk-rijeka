@@ -124,8 +124,8 @@
             <div v-if="!loadingCat && category">
                 <div class="pb-16 mb-8 border-b border-1 border-gray-200">
                     <p class="font-normal text-blue-900 font-roboto text-body2">
-                    <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
-                    <span>Breadcrumbs</span>
+                        <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
+                        <span>{{ category?.title }}</span>
                     </p>
                     <p class="pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">{{ category.title }}</p>
    
