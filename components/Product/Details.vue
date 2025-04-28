@@ -17,11 +17,7 @@ const cartStore = useCartStore()
 const selectedVariationId = ref<number | null>(null)
 
 const updateSelectedVariation = (id: number | null) => {
-    if (selectedVariationId.value === id) {
-        selectedVariationId.value = null
-    } else {
-        selectedVariationId.value = id
-    }
+    selectedVariationId.value = id
 }
 
 const selectedVariation = computed(() => {
@@ -34,17 +30,12 @@ const addToCart = () => {
         return
     }
 
-    let price = selectedVariation?.value?.price || props.product.price
-
-    if (user.value?.role === 'member') {
-        price = selectedVariation?.value?.member_price || props.product.member_price
-    }
-
-    if (props.product.price_discount) {
-        price = props.product.price_discount
-    }
-
-    cartStore.addCartProduct(props.product, selectedVariationId.value ?? undefined, undefined, price)
+    cartStore.addCartProduct(
+        props.product,
+        selectedVariationId.value ?? undefined,
+        undefined,
+        user.value?.role ?? 'guest'
+    )
 
     toast.add({
         icon: 'solar:check-circle-broken',
