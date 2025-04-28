@@ -1,64 +1,62 @@
-import { defineNuxtConfig } from "nuxt/config";
+import { defineNuxtConfig } from 'nuxt/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      title: 'NK Rijeka',
-      meta: [
-        { name: 'description', content: 'Test' }
-      ],
-    }
-  },
+    app: {
+        head: {
+            title: 'NK Rijeka',
+            meta: [{ name: 'description', content: 'Test' }],
+        },
+    },
 
-  devtools: { enabled: true },
+    devtools: { enabled: true },
 
-  vite: {
-    server: {
-      allowedHosts: ['web.nkrijeka-app.test'],
-      strictPort: false
-    }
-  },
-/*
-  devServer: {
-    host: 'web.nkrijeka-app.test',
-    port: 3000,
-  },
-*/
-  runtimeConfig: {
-    public: {
-      baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
-      url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
-      siteUrl: 'https://newshop.shop.nk-rijeka.hr/'
-    }
-  },
+    vite: {
+        server: {
+            allowedHosts: ['web.nkrijeka-app.test'],
+            strictPort: false,
+        },
+    },
 
-  colorMode: {
-    preference: 'light'
-  },
+    devServer: {
+        host: 'web.nkrijeka-app.test',
+        port: 3000,
+    },
 
-  css: ['~/assets/icomoon/style.css'],
+    runtimeConfig: {
+        public: {
+            baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
+            url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
+            siteUrl: 'https://newshop.shop.nk-rijeka.hr/',
+        },
+    },
 
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/icon',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/image',
-    'nuxt-swiper',
-    '@pinia/nuxt',
-    'nuxt-auth-sanctum',
-    '@nuxt/devtools',
-  ],
+    colorMode: {
+        preference: 'light',
+    },
 
-  sanctum: {
-    baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
-    redirect: {
-      onAuthOnly: '/login',
-      onLogin: '/profile'
-    }
-  },
+    css: ['~/assets/icomoon/style.css'],
 
-  ssr: false,
+    modules: [
+        '@nuxt/ui',
+        '@nuxt/icon',
+        '@nuxtjs/tailwindcss',
+        '@nuxt/image',
+        'nuxt-swiper',
+        '@pinia/nuxt',
+        'nuxt-auth-sanctum',
+        '@nuxt/devtools',
+    ],
 
-  compatibilityDate: '2024-11-01',
+    sanctum: {
+        baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
+        redirect: {
+            onAuthOnly: '/login',
+            onLogin: '/profile',
+        },
+    },
+
+    ssr: false,
+
+    compatibilityDate: '2024-11-01',
 })
