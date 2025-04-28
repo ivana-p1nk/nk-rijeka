@@ -9,6 +9,8 @@ interface CartProduct extends IProduct {
     personalizationPrice?: number
     textInputAddonPrice?: number
     numberInputAddonPrice?: number
+    discountPrice?: number
+    totalPrice?: number
 }
 
 export const useCartStore = defineStore('cart_product', () => {
@@ -150,11 +152,11 @@ export const useCartStore = defineStore('cart_product', () => {
                 const { totalPrice, discountPrice, orderQuantity } = cartItem
 
                 if (typeof orderQuantity !== 'undefined') {
-                    const itemPrice = discountPrice !== undefined && discountPrice !== 0 ? discountPrice : totalPrice
-                    const itemTotal = itemPrice * orderQuantity
+                    const itemTotal = totalPrice * orderQuantity
                     cartTotal.total += itemTotal
                     cartTotal.quantity += orderQuantity
                 }
+
                 return cartTotal
             },
             {
