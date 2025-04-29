@@ -10,7 +10,8 @@ const {
   activeFilters,
   loadingCat,
   loadingParentCat,
-  fetchAll
+  fetchAll,
+  sort
 } = useCategoryProducts(catslug, slug);
 
 onMounted(fetchAll);
@@ -28,6 +29,9 @@ onMounted(fetchAll);
         :products="products"
         :filtered-products="filteredProducts"
         :active-filters="activeFilters"
+        :sort="sort"
+        @update:activeFilters="activeFilters = $event"
+        @update:sort="sort = $event"
       />
     </div>
   </div>

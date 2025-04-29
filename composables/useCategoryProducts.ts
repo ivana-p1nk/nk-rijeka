@@ -79,42 +79,53 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
 	};
 
 	const fetchProducts = async () => {
-		if (loadingProduct.value || allLoaded.value || isFetching.value) return;
-
-		isFetching.value = true;
-		loadingProduct.value = true;
-
-		if (!loadingCat.value && category.value) {
-			const catIds = slug
-				? category.value.id
-				: (category.value.sub_categories?.map(c => c.id).join(',') || category.value.id);
-
-			try {
-				const { data: productData } = await useFetch(`${config.public.url}/products`, {
-					params: {
-						categories: categoriy.value.length > 0 ? categoriy.value : catIds,
-						sort: sort.value,
-						page: page.value,
-						perPage,
-					},
-				});
-				// @ts-ignore
-				const newProducts = productData.value.data || [];
-				products.value = [...products.value, ...newProducts];
-				// @ts-ignore
-				totalProducts.value = productData.value.total;
-
-				if (products.value.length >= totalProducts.value) {
-					allLoaded.value = true;
-				}
-			} catch (err) {
-				console.error('Greška pri učitavanju proizvoda:', err);
-			} finally {
-				isFetching.value = false;
-				loadingProduct.value = false;
-			}
-		}
-	};
+        if (loadingProduct.value || allLoaded.value || isFetching.value) return;
+      
+        isFetching.value = true;
+        loadingProduct.value = true;
+      
+        if (!loadingCat.value && category.value) {
+          const catIds = slug
+            ? category.value.id
+            : (category.value.sub_categories?.map(c => c.id).join(',') || category.value.id);
+      
+          try {
+            const { data: productData } = await useFetch(`${config.public.url}/products`, {
+              params: {
+                categories: categoriy.value.length > 0 ? categoriy.value : catIds,
+                page: page.value,
+                perPage,
+                // samo ako backend podržava:
+                sort: sort.value,
+              },
+            });
+      
+            // @ts-ignore
+            let newProducts = productData.value.data || [];
+      
+            // Ako backend **ne podržava** sortiranje:
+            if (sort.value === 'Cijena: Rastuće') {
+              newProducts = [...newProducts].sort((a, b) => a.price - b.price);
+            } else if (sort.value === 'Cijena: Opadajuće') {
+              newProducts = [...newProducts].sort((a, b) => b.price - a.price);
+            }
+      
+            products.value = [...products.value, ...newProducts];
+            // @ts-ignore
+            totalProducts.value = productData.value.total;
+      
+            if (products.value.length >= totalProducts.value) {
+              allLoaded.value = true;
+            }
+          } catch (err) {
+            console.error('Greška pri učitavanju proizvoda:', err);
+          } finally {
+            isFetching.value = false;
+            loadingProduct.value = false;
+          }
+        }
+      };
+      
 
 	const fetchAll = async () => {
 		await Promise.all([fetchCategory(), fetchParentCategory()]);
