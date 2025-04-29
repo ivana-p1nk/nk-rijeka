@@ -3,11 +3,14 @@ import { useCartStore } from '~/composables/useCart'
 import type { IProduct } from '~/types/product'
 import { useRouter } from 'vue-router'
 import type { IUser } from '~/types/user'
+import { useFavoritesStore } from '~/composables/favorites'
 
 const props = defineProps<{ product: IProduct }>()
 const router = useRouter()
 const toast = useToast()
 const user = useSanctumUser() as Ref<IUser | null>
+
+const favoriteStore = useFavoritesStore()
 
 const cartStore = useCartStore()
 
@@ -33,16 +36,16 @@ const addToCart = () => {
         >
             <div>
                 <div class="flex flex-row items-center justify-between">
-                    <div v-if="useFavoritesStore().isFavorite(props.product)">
+                    <div v-if="favoriteStore.isFavorite(props.product)">
                         <Icon
-                            @click="useFavoritesStore().removeFavoriteProduct(props.product)"
+                            @click="favoriteStore.removeFavoriteProduct(props.product)"
                             name="material-symbols:favorite"
                             class="text-blue-500 icon-xl"
                         />
                     </div>
                     <div v-else>
                         <Icon
-                            @click="useFavoritesStore().addFavoriteProduct(props.product)"
+                            @click="favoriteStore.addFavoriteProduct(props.product)"
                             name="material-symbols:favorite-outline"
                             class="text-gray-900 icon-xl"
                         />
