@@ -152,9 +152,8 @@ export const useCartStore = defineStore('cart_product', () => {
     const totalPriceQuantity = computed(() => {
         return cart_products.value.reduce(
             (cartTotal, cartItem) => {
-                const { totalPrice, discountPrice, orderQuantity } = cartItem
-
-                if (typeof orderQuantity !== 'undefined') {
+                const { totalPrice, orderQuantity } = cartItem
+                if (typeof orderQuantity !== 'undefined' && typeof totalPrice !== 'undefined') {
                     const itemTotal = totalPrice * orderQuantity
                     cartTotal.total += itemTotal
                     cartTotal.quantity += orderQuantity
