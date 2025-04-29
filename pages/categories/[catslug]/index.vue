@@ -92,29 +92,29 @@
     const activeFilters = ref<Record<string, string>>({});
 
     const filteredProducts = computed(() => {
-  return products.value.filter(product => {
-    const { size, price } = activeFilters.value;
+        return products.value.filter(product => {
+        const { size, price } = activeFilters.value;
 
-    if (size && !product.variations?.some(v => v.packaging === size)) {
-      return false;
-    }
-
-    if (price && product.price !== undefined && product.price !== null) {
-      if (price === '200€+') {
-        if (product.price < 200) return false;
-      } else {
-        const [minStr, maxStr] = price.split('-');
-        const min = parseFloat(minStr);
-        const max = parseFloat(maxStr);
-        if (!(product.price >= min && product.price < max)) {
-          return false;
+        if (size && !product.variations?.some(v => v.packaging === size)) {
+        return false;
         }
-      }
-    }
 
-    return true;
-  });
-});
+        if (price && product.price !== undefined && product.price !== null) {
+            if (price === '200€+') {
+                if (product.price < 200) return false;
+            } else {
+                const [minStr, maxStr] = price.split('-');
+                const min = parseFloat(minStr);
+                const max = parseFloat(maxStr);
+                if (!(product.price >= min && product.price < max)) {
+                return false;
+                }
+            }
+        }
+
+        return true;
+        });
+    });
 
 </script>
 
@@ -124,8 +124,8 @@
             <div v-if="!loadingCat && category">
                 <div class="pb-16 mb-8 border-b border-1 border-gray-200">
                     <p class="font-normal text-blue-900 font-roboto text-body2">
-                    <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
-                    <span>Breadcrumbs</span>
+                        <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
+                        <span>{{ category?.title }}</span>
                     </p>
                     <p class="pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">{{ category.title }}</p>
    

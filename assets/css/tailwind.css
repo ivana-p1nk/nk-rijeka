@@ -207,7 +207,7 @@ body {
         @apply bg-blue-50;
     }
 
-    .btn-secondary:focus, .btn-secondary:active, .btn-nofocus:active  {
+    .btn-secondary:focus, .btn-secondary:active, .btn-nofocus:active, .btn-secondary.active  {
         @apply text-white bg-blue-800 border-blue-800;
     }
 
