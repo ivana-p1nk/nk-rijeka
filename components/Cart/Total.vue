@@ -20,7 +20,20 @@ const emit = defineEmits(['useCoupon'])
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
 
-        <div class="flex items-center gap-2">
+        <div v-if="cartStore.coupon" class="flex items-center gap-2">
+            <UInput
+                icon="cuida:ticket-outline"
+                v-model="cartStore.coupon.code"
+                disabled
+                size="md"
+                class="w-full"
+                variant="outline"
+            />
+            <button @click="cartStore.deleteCoupon" class="uppercase bg-red-600 text-white btn-secondary xs w-36">
+                Obriši kupon
+            </button>
+        </div>
+        <div v-else class="flex items-center gap-2">
             <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" class="w-full" variant="outline" />
             <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
         </div>

@@ -1,6 +1,7 @@
 import { ref, onMounted, computed, watch } from 'vue'
 import { type IProduct } from '@/types/product'
 import { defineStore } from 'pinia'
+import { type ICoupon } from '@/types/coupon'
 
 interface CartProduct extends IProduct {
     variationId?: number
@@ -17,6 +18,8 @@ export const useCartStore = defineStore('cart_product', () => {
     const route = useRoute()
     let cart_products = ref<CartProduct[]>([])
     let orderQuantity = ref<number>(1)
+
+    let coupon = ref<ICoupon | null>(null)
 
     const addCartProduct = (
         payload: CartProduct,
@@ -157,6 +160,14 @@ export const useCartStore = defineStore('cart_product', () => {
                     cartTotal.quantity += orderQuantity
                 }
 
+                if (coupon.value) {
+                    if (coupon.value.type === 'percentage') {
+                        cartTotal.total = cartTotal.total * (1 - coupon.value.discount / 100)
+                    } else {
+                        cartTotal.total = cartTotal.total - coupon.value.discount
+                    }
+                }
+
                 return cartTotal
             },
             {
@@ -166,8 +177,26 @@ export const useCartStore = defineStore('cart_product', () => {
         )
     })
 
+    const initializeCoupon = () => {
+        const couponData = localStorage.getItem('coupon')
+        if (couponData) {
+            coupon.value = JSON.parse(couponData)
+        }
+    }
+
+    const addCoupon = (useCoupon: ICoupon) => {
+        coupon.value = useCoupon
+        localStorage.setItem('coupon', JSON.stringify(coupon.value))
+    }
+
+    const deleteCoupon = () => {
+        coupon.value = null
+        localStorage.setItem('coupon', JSON.stringify(coupon.value))
+    }
+
     onMounted(() => {
         initializeCartProducts()
+        initializeCoupon()
     })
 
     watch(
@@ -185,6 +214,9 @@ export const useCartStore = defineStore('cart_product', () => {
         clear_cart,
         initialOrderQuantity,
         totalPriceQuantity,
+        coupon,
+        addCoupon,
+        deleteCoupon,
         orderQuantity,
         increment,
         decrement,

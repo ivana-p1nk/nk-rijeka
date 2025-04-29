@@ -13,11 +13,26 @@ const toast = useToast()
 const cartStore = useCartStore()
 
 const applyCoupon = (coupon: string) => {
-    toast.add({
-        title: 'Test kupon',
-        description: coupon,
-        timeout: 1000,
-    })
+    api.post('/check-coupon', { coupon })
+        .then(({ data }) => {
+            if (data.status != 'error') {
+                cartStore.addCoupon(data)
+
+                toast.add({
+                    title: 'Kupon uspješno primljen!',
+                    color: 'green',
+                    timeout: 3000,
+                })
+            }
+        })
+        .catch((err) => {
+            toast.add({
+                title: 'Error',
+                description: err.response.data.message,
+                color: 'red',
+                timeout: 3000,
+            })
+        })
 }
 
 const loadingForm = ref<boolean>(false)
