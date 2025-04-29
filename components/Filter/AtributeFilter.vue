@@ -61,19 +61,17 @@
       '200€+',
     ];
 
-    const matchedRanges = new Set<string>();
+    const isInRange = (price: number, range: string): boolean => {
+      if (range === '200€+') return price >= 200;
 
-    allPrices.forEach(price => {
-      if (price >= 0 && price < 15) matchedRanges.add('0-15€');
-      else if (price >= 15 && price < 30) matchedRanges.add('15-30€');
-      else if (price >= 30 && price < 50) matchedRanges.add('30-50€');
-      else if (price >= 50 && price < 100) matchedRanges.add('50-100€');
-      else if (price >= 100 && price < 150) matchedRanges.add('100-150€');
-      else if (price >= 150 && price < 200) matchedRanges.add('150-200€');
-      else if (price >= 200) matchedRanges.add('200€+');
-    });
+      const [min, max] = range.split('-').map(v => parseFloat(v));
 
-    return Array.from(matchedRanges);
+      return price >= min && price < max;
+    };
+
+    return ranges.filter(range =>
+      allPrices.some(price => isInRange(price!, range))
+    );
   });
     
 
