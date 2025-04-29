@@ -28,6 +28,13 @@ const fetchOrders = async () => {
 
 onMounted(fetchOrders)
 
+const statusColors = {
+    processing: 'amber',
+    shipped: 'blue',
+    delivered: 'lime',
+    cancelled: 'red',
+}
+
 const logoutUser = async () => {
     await logout()
 }
@@ -83,14 +90,34 @@ const logoutUser = async () => {
                 </p>
             </div>
 
-            <UCard>
-                <template #header>
-                    <h4 class="text-xl font-semibold text-left text-background">Ukupni broj narudžbi</h4>
-                </template>
-                <p class="font-bold text-background">
-                    {{ orders.length }}
-                </p>
-            </UCard>
+            <div class="flex flex-wrap gap-10">
+                <UCard>
+                    <template #header>
+                        <h4 class="text-xl font-semibold text-left text-background">Ukupni broj narudžbi</h4>
+                    </template>
+                    <p class="font-bold text-background">
+                        {{ orders.length }}
+                    </p>
+                </UCard>
+
+                <UCard>
+                    <template #header>
+                        <h4 class="text-xl font-semibold text-left text-background">Narudžbe u procesu</h4>
+                    </template>
+                    <p class="font-bold text-background">
+                        {{ orders.filter((order) => order.status === 'processing').length }}
+                    </p>
+                </UCard>
+
+                <UCard>
+                    <template #header>
+                        <h4 class="text-xl font-semibold text-left text-background">Završene narudžbe</h4>
+                    </template>
+                    <p class="font-bold text-background">
+                        {{ orders.filter((order) => order.status === 'delivered').length }}
+                    </p>
+                </UCard>
+            </div>
         </div>
     </section>
 </template>
