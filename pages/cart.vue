@@ -112,37 +112,35 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         total: cartStore.totalPriceQuantity.total.toFixed(2),
     }
 
-    console.log(params)
+    api.post('/create-orders', { ...params })
+        .then(({ data }) => {
+            if (data.status != 'error') {
+                toast.add({
+                    title: 'Narudžba uspješno kreirana!',
+                    color: 'green',
+                    timeout: 2000,
+                })
+                cartStore.clear_cart()
+                navigateTo(`/thank-you`)
+            } else {
+                toast.add({
+                    title: 'greška, javite se korisničkoj podršci.',
+                    color: 'red',
+                    timeout: 3000,
+                })
+            }
 
-    /*
-	api.post("/create-orders", { ...params }).then(({ data }) => {
-		if (data.status != 'error') {
-			toast.add({
-				title: 'Narudžba uspješno kreirana!',
-				color: 'green',
-				timeout: 2000,
-			})
-			cartStore.clear_cart();
-			navigateTo(`/`);
-		} else {
-			toast.add({
-				title: 'greška, javite se korisničkoj podršci.',
-				color: 'red',
-				timeout: 3000,
-			})
-		}
+            loadingForm.value = false
+        })
+        .catch((err) => {
+            toast.add({
+                title: 'greška',
+                color: 'red',
+                timeout: 3000,
+            })
 
-		loadingForm.value = false;
-	}).catch(err => {
-		toast.add({
-			title: 'greška',
-			color: 'red',
-			timeout: 3000,
-		})
-
-		loadingForm.value = false;
-	})
-    */
+            loadingForm.value = false
+        })
 }
 </script>
 
