@@ -117,6 +117,15 @@ const logoutUser = async () => {
                         {{ orders.filter((order) => order.status === 'delivered').length }}
                     </p>
                 </UCard>
+
+                <UCard>
+                    <template #header>
+                        <h4 class="text-xl font-semibold text-left text-background">Otkazane narudžbe</h4>
+                    </template>
+                    <p class="font-bold text-background">
+                        {{ orders.filter((order) => order.status === 'cancelled').length }}
+                    </p>
+                </UCard>
             </div>
         </div>
     </section>
