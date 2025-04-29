@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useCartStore } from '~/composables/useCart'
 const cartStore = useCartStore()
+
+import type { IUser } from '~/types/user'
+const user = useSanctumUser() as Ref<IUser | null>
+const isLoggedIn = computed(() => !!user.value)
 </script>
 
 <template>
@@ -37,27 +41,50 @@ const cartStore = useCartStore()
                         <p class="font-roboto text-body3 text-gray-900">
                             <span class="font-bold">IME:</span>
                             {{ item.textInput }}
+                            -
+                            {{ item.textInputAddonPrice?.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p class="font-roboto text-body3 text-gray-900">
                             <span class="font-bold">BROJ:</span>
                             {{ item.numberInput }}
+                            -
+                            {{ item.numberInputAddonPrice?.toFixed(2).replace('.', ',') }} €
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Prikaz cijene s popustom, ako postoji -->
-            <div v-if="item.price_discount > 0">
-                <span class="text-lg font-bold text-red-500">
-                    {{ item.price_discount.toFixed(2).replace('.', ',') }} €{{ ' ' }}
-                </span>
-                <span class="font-normal text-white line-through text-md">
-                    {{ item.price.toFixed(2).replace('.', ',') }} €
-                </span>
-            </div>
-            <span v-else class="mb-4 text-lg font-bold text-green-600">
-                {{ item.price.toFixed(2).replace('.', ',') }} €
-            </span>
+            <p class="font-bold">
+                <template v-if="isLoggedIn && user?.role === 'member'">
+                    <span v-if="item.discountPrice">
+                        <span class="line-through text-blue-900 mr-2">
+                            {{ item.price.toFixed(2).replace('.', ',') }}
+                            €
+                        </span>
+                        <span class="text-blue-300"> {{ item.discountPrice.toFixed(2).replace('.', ',') }} € </span>
+                    </span>
+                    <div v-else class="flex flex-col">
+                        <span class="line-through text-blue-900">
+                            {{ item.price.toFixed(2).replace('.', ',') }}
+                            €
+                        </span>
+                        <span class="text-blue-500">
+                            {{ item.member_price.toFixed(2).replace('.', ',') }}
+                            €
+                        </span>
+                    </div>
+                </template>
+                <template v-else>
+                    <span v-if="item.discountPrice" class="flex flex-col">
+                        <span class="line-through text-blue-900">
+                            {{ item.price.toFixed(2).replace('.', ',') }}
+                            €
+                        </span>
+                        <span class="text-blue-300"> {{ item.discountPrice.toFixed(2).replace('.', ',') }} € </span>
+                    </span>
+                    <span v-else class="text-blue-900"> {{ item.price.toFixed(2).replace('.', ',') }}€ </span>
+                </template>
+            </p>
 
             <!-- KOLIČINA -->
             <div class="flex items-center space-x-2">
@@ -79,7 +106,9 @@ const cartStore = useCartStore()
             </div>
 
             <!-- UKUPNO -->
-            <div>{{ (item.orderQuantity * item.price).toFixed(2).replace('.', ',') }} €</div>
+            <div v-if="item.orderQuantity && item.totalPrice">
+                {{ (item.orderQuantity * item.totalPrice).toFixed(2).replace('.', ',') }} €
+            </div>
 
             <!-- DELETE -->
             <div>
