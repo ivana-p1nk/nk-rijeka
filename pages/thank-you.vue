@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+    middleware: 'checkout-guard',
+})
+
 import type { IProduct } from '~/types/product'
 const config = useRuntimeConfig()
 
