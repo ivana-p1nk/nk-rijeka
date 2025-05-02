@@ -40,7 +40,7 @@
 <template>
 
     <div class="px-4 bg-top bg-no-repeat bg-auto pt-72 pb-74 bg-home1 bg-players">
-        <div class="max-w-[1120px] mx-auto relative z-[1] px-2">
+        <div class="container mx-auto xl:max-w-[1120px] relative z-[1] xl:px-2 px-5">
             <div class="w-1/2">
                 <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>
@@ -90,27 +90,58 @@
             <Carousel :products="products" />
         </div>
 
-        <div class="relative mx-3 my-40 md:container md:mx-auto px-5">
-            <div class="bg-dark-blue-gradient2 p-20 rounded-2xl  max-w-[920px]">
+        <!--PERSONALIZIRAJ dekstop -->
+        <div class="relative mx-3 my-40 md:container md:mx-auto px-5 hidden md:block">
+            <div class="bg-dark-blue-gradient2 p-20 rounded-2xl xl:max-w-[980px] w-full">
                 <h1 class="mb-2 font-bold uppercase font-saira text-h2-display text-blue-50">PERSONALIZIRAJ <br>SVOJ DRES</h1>
                 <p class="font-normal text-white font-roboto text-body1 mb-7">Tvoj dres, tvoja pravila. Personaliziraj svoj <br>omiljeni dres i učini ga jedinstvenim.</p>
                 <NuxtLink to="/" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
             </div>
-            <img class="absolute top-[-20%] right-0" src="~/assets/images/dresovi.png" alt="Dresovi" />
+            <img class="absolute right-0 w-[45%] top-[12%] lg:w-[53%] lg:top-[-3%] xl:w-auto xl:top-[-20%]" src="~/assets/images/dresovi.png" alt="Dresovi" />
+        </div>
+        
+        <!--PERSONALIZIRAJ mobile -->
+        <div class="relative mx-3 mb-20 mt-36 block md:hidden">
+            <div class="mx-5 bg-dark-blue-gradient2 p-20 rounded-2xl flex flex-col items-center">
+                <img class="-mt-36 w-full mb-8" src="~/assets/images/dresovi.png" alt="Dresovi" />
+                <h1 class="mb-2 font-bold uppercase font-saira text-h2-display text-blue-50 text-center">PERSONALIZIRAJ <br>SVOJ DRES</h1>
+                <p class="font-normal text-white font-roboto text-body1 mb-7 text-center">Tvoj dres, tvoja pravila. Personaliziraj svoj omiljeni dres i učini ga jedinstvenim.</p>
+                <NuxtLink to="/" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
+            </div>
         </div>
     
 
+        <!-- NOVO U PONUDI -->
         <div class="container pb-6 mx-auto px-5">
-            <div class="flex flex-row items-center justify-between">
-                <div class="flex flex-row gap-9">
-                    <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">NOVO U PONUDI</h1>
-                    <p class="font-normal text-blue-900 font-roboto text-body1">Naš se asortiman stalno proširuje novim <br>atraktivnim artiklima, ovo su samo neki od njih.</p>
+            <div class="flex flex-col md:flex-row justify-between gap-4">
+                <div class="flex flex-col gap-2 md:flex-row md:gap-9">
+                    <div class="flex flex-row justify-between items-center">
+                        <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">
+                        NOVO U PONUDI
+                        </h1>
+                        <NuxtLink
+                        to="/products"
+                        class="uppercase btn-secondary xs h-fit md:hidden"
+                        >
+                        Pogledaj sve
+                        </NuxtLink>
+                    </div>
+                    <p class="font-normal text-blue-900 font-roboto text-body1">
+                        Naš se asortiman stalno proširuje novim <br />
+                        atraktivnim artiklima, ovo su samo neki od njih.
+                    </p>
                 </div>
-                <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
-            </div>          
-            
+                <NuxtLink
+                to="/products"
+                class="uppercase btn-secondary xs h-fit hidden md:block self-center"
+                >
+                Pogledaj sve
+                </NuxtLink>
+            </div>
             <Carousel :products="products" />
         </div>
+
+
     </div>
 
     <div class="mx-5 my-20 md:container md:mx-auto px-5">
@@ -118,7 +149,7 @@
             <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
             <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
         </div>
-        <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-4">
+        <div class="grid grid-cols-1 gap-4 mt-4 lg:grid-cols-4 md:grid-cols-2">
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[400px]">
                 <span class="absolute z-10 font-saira -rotate-90 top-7 left-5 text-[#D9F1FD] font-bold text-5xl">
                     29
@@ -226,6 +257,19 @@
         right: 9%;
         top: 20%;
         z-index: 0;
+    }
+
+    @media (max-width:2000px){
+        .bg-players::after {
+            right: 0%;
+        }
+    }
+
+    @media (max-width:1200px){
+        .bg-players::after {
+            content: url('/assets/images/players-mobile.png');
+            top: 0%;
+        }
     }
 
 </style>
