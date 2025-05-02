@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useCategoryProducts } from '@/composables/useCategoryProducts';
+import { useRoute, createError } from '#imports'
 
-const { catslug } = useRoute().params;
+const route = useRoute()
+const catslug = route.params.catslug as string
 
 const {
   category,
@@ -13,7 +15,14 @@ const {
   sort,
 } = useCategoryProducts(catslug);
 
-onMounted(fetchAll);
+await fetchAll()
+
+if (!category.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Kategorija nije pronađena',
+  })
+}
 </script>
 
 <template>

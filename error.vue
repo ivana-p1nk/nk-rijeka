@@ -37,14 +37,7 @@ const goBack = () => {
 
 
 <style scoped>
-  .bg-goal {
-    background-image: url('/assets/images/backgrounds/bg-goal.jpg');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: contain;
-  }
 
   .visina {max-height:60vh;}
-
 
 </style>

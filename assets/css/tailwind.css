@@ -563,5 +563,15 @@ li::marker {
     background-size: contain;
 }
 
+.bg-goal {
+    background-image: url('/assets/images/backgrounds/bg-goal.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+  }
+
+@media(max-width:767px){
+    .bg-igraci, .bg-goal {background-size: auto;}
+}
 
 

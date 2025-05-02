@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useCategoryProducts } from '@/composables/useCategoryProducts';
+import { useRoute, createError } from '#imports'
+
 
 const { catslug, slug } = useRoute().params;
 const {
@@ -12,9 +14,16 @@ const {
   loadingParentCat,
   fetchAll,
   sort
-} = useCategoryProducts(catslug, slug);
+} = useCategoryProducts(catslug as string, slug as string);
 
-onMounted(fetchAll);
+await fetchAll()
+
+if (!category.value || !parentCategory.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Kategorija nije pronađena',
+  })
+}
 </script>
 
 <template>
