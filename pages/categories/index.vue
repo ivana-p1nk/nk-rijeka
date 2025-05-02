@@ -23,9 +23,18 @@
 </script>
 
 <template>
-	<div class="container px-20 pt-40 mx-auto">
-		<h1 class="font-semibold text-black">Kategorije</h1>
-		<ul class="text-blue-400 underline">
+	<div class="bg-igraci">
+    <div class="container mx-auto con-height pb-5 px-5">
+		<p class="font-normal text-blue-900 font-roboto text-body2 ">
+			<NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink> 
+			<span>Kategorije</span>
+        </p>
+		
+		<p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira border-b border-1 border-gray-200">
+        SVE KATEGORIJE
+        </p>
+
+		<ul class="text-blue-400 underline pt-10">
 			<li v-for="category in categories" :key="category.id">
 				<NuxtLink :to="`/categories/${encodeURIComponent(category.slug!)}`">{{ category.title }}</NuxtLink>
 				<ul v-if="category.sub_categories && category.sub_categories.length">
@@ -38,4 +47,6 @@
 			</li>
 		</ul>
 	</div>
+</div>
+
 </template>

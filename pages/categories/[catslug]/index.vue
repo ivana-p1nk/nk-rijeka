@@ -27,7 +27,7 @@ if (!category.value) {
 
 <template>
   <div class="bg-igraci">
-    <div class="container mx-auto pt-52 pb-5 px-5" v-if="!loadingCat && category">
+    <div class="container mx-auto con-height pb-5 px-5" v-if="!loadingCat && category">
       <CategoryPage
         :category="category"
         :products="products"

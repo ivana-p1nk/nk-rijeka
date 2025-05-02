@@ -29,7 +29,7 @@ if (!category.value || !parentCategory.value) {
 <template>
   <div class="bg-igraci">
     <div
-      class="container mx-auto pt-52 pb-5 px-5"
+      class="container mx-auto con-height pb-5 px-5"
       v-if="!loadingCat && !loadingParentCat && category && parentCategory"
     >
       <CategoryPage
@@ -45,3 +45,4 @@ if (!category.value || !parentCategory.value) {
     </div>
   </div>
 </template>
+

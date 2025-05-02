@@ -31,7 +31,7 @@ const subcategories = computed(() => {
 
 <template>
   <div class="pb-16 mb-8 border-b border-1 border-gray-200">
-    <div class="pb-16 mb-8 border-b border-1 border-gray-200">
+    <div class="pb-10 lg:pb-16 mb-8 border-b border-1 border-gray-200">
         <p class="font-normal text-blue-900 font-roboto text-body2">
         <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
         <template v-if="parentCategory">
@@ -42,7 +42,7 @@ const subcategories = computed(() => {
         <span>{{ category.title }}</span>
         </p>
 
-        <p class="pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
+        <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
         {{ category.title }}
         </p>
 
@@ -90,7 +90,7 @@ const subcategories = computed(() => {
         <option value="Cijena: Opadajuće">Poredaj po cijeni: od najviše do najniže</option>
       </USelect>
     </div>
-      <div v-if="filteredProducts.length > 0" class="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-4 pt-8">
+      <div v-if="filteredProducts.length > 0" class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8">
         <ProductCard
           v-for="(product, index) in filteredProducts"
           :key="index"

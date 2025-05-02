@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { IProduct } from '~/types/product'
+import type { ICategory } from '~/types/category'
 import { useCartStore } from '~/composables/useCart'
 import Gallery from './Gallery.vue'
 import { SidebarPersonalize } from '#components'
@@ -89,7 +90,7 @@ const twitterShare = computed(
 
 <template>
     <div class="container mx-auto px-5 pt-32 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 lg:gap-10 pt-5 lg:pt-32">
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit rounded-lg">
                 <div class="flex flex-row items-center justify-between">
@@ -118,7 +119,7 @@ const twitterShare = computed(
             </div>
 
             <!-- DRUGI STUPAC: Product Details-->
-            <div class="px-7 pb-7">
+            <div class="lg:px-7 lg:pb-7 px-0 pt-10 lg:pt-0">
                 <p class="font-normal text-blue-900 font-roboto text-body2">
                     <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
                     <span class="uppercase">Breadcrumbs</span>
@@ -340,9 +341,9 @@ const twitterShare = computed(
                     </p>
                 </div>
 
-                <div>
+                <div class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start">
                     <p class="font-bold text-gray-900 font-saira text-h6-normal">Podijeli</p>
-                    <ul class="inline-flex gap-2 mt-2">
+                    <ul class="inline-flex gap-2 md:mt-2">
                         <li>
                             <a class="circle-page" :href="facebookShare" target="_blank" rel="noopener">
                                 <Icon name="brandico:facebook" class="text-white icon-small" />
