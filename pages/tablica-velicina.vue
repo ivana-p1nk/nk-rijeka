@@ -37,9 +37,9 @@
                 :key="section.key"
                 @click="activeSection = section.key"
                 :class="[
-                    'px-4 py-3 cursor-pointer font-saira font-semibold text-sm text-blue-900',
+                    'px-6 py-3 cursor-pointer font-saira font-semibold text-sm text-blue-900',
                     activeSection === section.key ? 'bg-blue-50' : 'hover:bg-blue-50',
-                    index !== sections.length - 1 ? 'border-b border-blue-100' : ''
+                    index !== sections.length - 1 ? 'border-b border-blue-100 ' : ''
                 ]"
                 >
                 {{ section.label }}

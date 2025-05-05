@@ -90,7 +90,7 @@ const twitterShare = computed(
 
 <template>
     <div class="container mx-auto px-5 pt-32 pb-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 lg:gap-10 pt-5 lg:pt-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 lg:pt-32">
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit rounded-lg">
                 <div class="flex flex-row items-center justify-between">

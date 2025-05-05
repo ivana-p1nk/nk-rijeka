@@ -259,17 +259,5 @@
         z-index: 0;
     }
 
-    @media (max-width:2000px){
-        .bg-players::after {
-            right: 0%;
-        }
-    }
-
-    @media (max-width:1200px){
-        .bg-players::after {
-            content: url('/assets/images/players-mobile.png');
-            top: 0%;
-        }
-    }
 
 </style>
