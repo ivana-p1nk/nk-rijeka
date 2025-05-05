@@ -45,9 +45,14 @@ onMounted(() => {
 
 watch(
     [sort, () => route.query.search, page],
-    ([newSort], [oldSort]) => {
-        if (newSort !== oldSort) {
-            page.value = 1
+    async ([newSort, newSearch], [oldSort, oldSearch]) => {
+        if (newSort !== oldSort || newSearch !== oldSearch) {
+            if (page.value !== 1) {
+                page.value = 1
+            } else {
+                await nextTick()
+                fetchData()
+            }
             return
         }
 
