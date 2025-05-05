@@ -174,7 +174,7 @@
                         </p>
                     </div>
                     <div>
-                        <NuxtLink to="/cart" class="btn-primary large uppercase block text-center"
+                        <NuxtLink to="/cart" @click="show = false" class="btn-primary large uppercase block text-center"
                             >Pregledaj košaricu i naruči</NuxtLink
                         >
                     </div>
