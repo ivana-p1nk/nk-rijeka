@@ -45,8 +45,8 @@ onMounted(() => {
 
 watch(
     [sort, () => route.query.search, page],
-    ([newSort, newSearch, newPage], [oldSort, oldSearch, oldPage]) => {
-        if (newSort !== oldSort || newSearch !== oldSearch) {
+    ([newSort], [oldSort]) => {
+        if (newSort !== oldSort) {
             page.value = 1
             return
         }
