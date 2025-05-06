@@ -39,14 +39,15 @@
 
 <template>
 
-    <div class="px-4 bg-top bg-no-repeat bg-auto pt-72 pb-74 bg-home1 bg-players">
+    <div class="px-4 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
         <div class="container mx-auto xl:max-w-[1120px] relative z-[1] xl:px-2 px-5">
-            <div class="w-1/2">
+            <div class="w-full lg:w-1/2">
+                <img src="~/assets/images/players-mobile.png" class="block lg:hidden pb-5">
                 <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                 <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br>ponovno donosi svježinu i inovaciju našim dresovima.</p>
                 <NuxtLink to="#" class="uppercase btn-primary large">Kupi sad</NuxtLink>
             </div>
-            <div class="relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-3 pt-52">
+            <div class="relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-3 pt-20 lg:pt-52">
                 <NuxtLink
                     to="#"
                     class="group relative bg-dresovi bg-cover bg-center rounded-lg h-80 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
@@ -259,5 +260,24 @@
         z-index: 0;
     }
 
+    @media(max-width:2140px){
+        .bg-players::after {right: 0%;}
+    }
+
+    @media(max-width:1650px){
+        .bg-players::after {content: url('/assets/images/players-laptop.png');}
+    }
+
+    @media(max-width:1100px){
+        .bg-players::after {
+            content: url('/assets/images/players-tablet.png');
+            top:27%;
+        }
+    }
+
+    @media(max-width:1024px){
+        .bg-players::after {display: none;}
+        .bg-home1 { background-size: contain;}
+    }
 
 </style>
