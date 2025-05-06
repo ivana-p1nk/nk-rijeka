@@ -8,6 +8,7 @@ export interface IProduct {
     quantity: number
     description: string
     gallery: string[]
+    sku?: string
     type_product: string
     category: {
         id: number
@@ -22,6 +23,7 @@ export interface IProduct {
         member_price: number
         minimum_quantity: number
         gallery?: string[]
+        sku?: string
     }[]
     orderQuantity?: number
     related_products?: {
@@ -33,6 +35,7 @@ export interface IProduct {
         quantity: number
         description: string
         gallery: string[]
+        sku?: string
         type_product: string
         category: {
             id: number
@@ -47,6 +50,7 @@ export interface IProduct {
             member_price: number
             minimum_quantity: number
             gallery?: string[]
+            sku?: string
         }[]
     }[]
 }
