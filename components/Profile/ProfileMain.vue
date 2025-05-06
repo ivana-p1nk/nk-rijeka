@@ -58,22 +58,13 @@ const logoutUser = async () => {
                     <h4 v-if="user" class="text-xl font-semibold text-left text-background">{{ user.name ?? '' }}!</h4>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <a
-                        href="https://nk-rijeka.hr/klub/clanstvo/"
-                        target="_blank"
-                        class="inline-block uppercase btn-secondary py-1 px-4"
-                    >
-                        Učlani se
-                    </a>
-
-                    <button
-                        class="px-5 py-1 text-white transition bg-red-500 rounded-md hover:bg-red-600"
-                        @click="logoutUser"
-                    >
-                        Odjavi se
-                    </button>
-                </div>
+                <a
+                    href="https://nk-rijeka.hr/klub/clanstvo/"
+                    target="_blank"
+                    class="inline-block uppercase btn-secondary py-1 px-4"
+                >
+                    Učlani se
+                </a>
             </div>
 
             <div>
