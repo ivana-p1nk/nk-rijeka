@@ -208,6 +208,7 @@ const twitterShare = computed(
                         </div>
 
                         <!-- veličina -->
+                        
                         <div class="pt-7">
                             <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
 
@@ -232,6 +233,7 @@ const twitterShare = computed(
                             </NuxtLink>
                         </div>
                     </div>
+              
 
                     <div class="flex flex-row gap-4 mt-7 pb-7">
                         <!--količina-->
