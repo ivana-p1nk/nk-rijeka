@@ -9,17 +9,25 @@ const props = defineProps<{
     filteredProducts: IProduct[]
     activeFilters: Record<string, string>
     sort: string
+    page: number
+    totalPages: number
 }>()
 
 const emit = defineEmits<{
     (e: 'update:activeFilters', value: Record<string, string>): void
     (e: 'update:sort', value: string): void
+    (e: 'update:page', value: number): void
 }>()
 
 const sort = ref(props.sort)
+const page = ref(props.page)
 
 watch(sort, (value) => {
     emit('update:sort', value)
+})
+
+watch(page, (value) => {
+    emit('update:page', value)
 })
 
 const route = useRoute()
@@ -95,6 +103,7 @@ const subcategories = computed(() => {
                     class="border border-gray-300 px-3 py-2 rounded text-sm"
                 />
             </div>
+
             <div
                 v-if="filteredProducts.length > 0"
                 class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8"
@@ -108,6 +117,40 @@ const subcategories = computed(() => {
             </div>
             <div v-else class="pb-12 text-body2 text-neutralBlue-950">
                 Nažalost, trenutno nema dostupnih proizvoda u ovoj kategoriji.
+            </div>
+
+            <!-- PAGINACIJA -->
+            <div
+                class="flex justify-center mt-10 gap-1 pt-8 border-t border-neutralBlue-200"
+                v-if="props.totalPages > 1"
+            >
+                <button
+                    @click="page--"
+                    :disabled="page <= 1"
+                    class="px-3 py-3 bg-white rounded-lg transition-colors duration-300 flex items-center shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-gray-900 hover:bg-blue-800 hover:text-white"
+                >
+                    <Icon name="material-symbols:chevron-left" class="transition-colors duration-300 text-current" />
+                </button>
+
+                <div class="flex items-center gap-1">
+                    <button
+                        v-for="i in props.totalPages"
+                        :key="i"
+                        @click="page = i"
+                        class="px-4 py-3 rounded-lg shadow-sm text-button3 font-bold transition-colors duration-300"
+                        :class="page === i ? 'bg-blue-800 text-white' : 'bg-white text-gray-900 hover:bg-blue-800 hover:text-white'"
+                    >
+                        {{ i }}
+                    </button>
+                </div>
+
+                <button
+                    @click="page++"
+                    :disabled="page >= props.totalPages"
+                    class="px-3 py-3 bg-white rounded-lg transition-colors duration-300 flex items-center shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-gray-900 hover:bg-blue-800 hover:text-white"
+                >
+                    <Icon name="material-symbols:chevron-right" class="transition-colors duration-300 text-current" />
+                </button>
             </div>
         </div>
     </div>

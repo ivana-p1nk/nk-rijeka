@@ -101,7 +101,7 @@ const handleClickOutside = (event: MouseEvent) => {
                                     @click.prevent="setActive('akcije')"
                                     class="flex items-center gap-2 group"
                                 >
-                                    <span :class="activetab === 'akcije' ? 'text-blue-500' : ''">AKCIJE</span>
+                                    <span :class="activetab === 'akcije' ? 'text-blue-500' : ''">OUTLET</span>
                                     <Icon
                                         :name="activetab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'"
                                         :class="[activetab === 'akcije' ? 'text-blue-500' : 'text-white', 'icon-link']"
