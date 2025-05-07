@@ -1,6 +1,6 @@
 <template>
     <div class="bg-igraci">
-        <div class="container mx-auto pt-52 pb-5 px-5">
+        <div class="container mx-auto con-height pb-5 px-5">
 
             <h1 class="font-saira font-medium text-h1-normal text-gray-900 pb-6 md:pb-20">
                 KONTAKT
