@@ -293,10 +293,10 @@
                                     <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Jakne</NuxtLink></li>
                                     <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Lopte</NuxtLink></li>
                                 </template>
-                                <!-- Nove hudice -->
+                                <!-- hudice -->
                                 <li>
                                     <NuxtLink to="#" @click.prevent="setSubActive('novehudice')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
-                                        <span :class="subActive === 'novehudice' ? 'text-blue-500' : ''">NOVE HOODICE</span>
+                                        <span :class="subActive === 'novehudice' ? 'text-blue-500' : ''">HOODICE</span>
                                         <Icon :name="subActive === 'novehudice' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
                                     </NuxtLink>
                                 </li>
@@ -350,7 +350,7 @@
                             <!-- AKCIJE -->
                             <li>
                                 <NuxtLink to="#" @click.prevent="setActive('akcije')" class="flex items-center justify-between gap-2 mobile-nav group">
-                                    <span :class="activeTab === 'akcije' ? 'text-blue-500' : ''">AKCIJE</span>
+                                    <span :class="activeTab === 'akcije' ? 'text-blue-500' : ''">OUTLET</span>
                                     <Icon :name="activeTab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
                                 </NuxtLink>
                             </li>
