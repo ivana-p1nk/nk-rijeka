@@ -53,9 +53,9 @@
                                     {{ item.title }}
                                 </p>
                                 <div class="flex flex-col gap-1">
-                                    <p class="font-roboto text-body3 text-gray-900">
+                                    <p v-if="item.sku != null" class="font-roboto text-body3 text-gray-900">
                                         <span class="font-bold">MODEL:</span>
-                                        TEST
+                                        {{ item.sku }}
                                     </p>
                                     <p
                                         v-if="item.variationId && item.variations"

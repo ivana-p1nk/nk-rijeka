@@ -1,62 +1,64 @@
 <script setup lang="ts">
-    useSeoMeta({ title: "Moj profil" });
-  
-    definePageMeta({
-        title: 'Moj profil',
-        middleware: 'sanctum:auth',
-    })
+useSeoMeta({ title: 'Moj profil' })
 
-    import { z } from 'zod';
-    import type { FormSubmitEvent } from '#ui/types';
+definePageMeta({
+    title: 'Moj profil',
+    middleware: 'sanctum:auth',
+})
 
-    const { api } = useAxios(true);
-    type Schema = z.output<typeof schema>
+import { z } from 'zod'
+import type { FormSubmitEvent } from '#ui/types'
 
-    useSeoMeta({
-        title: 'Zaboravljena lozinka',
-    });
+const { api } = useAxios(true)
+type Schema = z.output<typeof schema>
 
-    const schema = z.object({
-		email: z.string({ message: 'Ovo polje je obavezno!' }).email('Invalid email'),
-	})
+useSeoMeta({
+    title: 'Zaboravljena lozinka',
+})
 
-	const state = reactive({
-		email: undefined,
-	})
+const schema = z.object({
+    email: z.string({ message: 'Ovo polje je obavezno!' }).email('Invalid email'),
+})
 
-    const errors = ref('');
-	const loading = ref(false);
-    const message = ref('');
+const state = reactive({
+    email: undefined,
+})
 
-	async function onSubmit (event: FormSubmitEvent<Schema>) {
-        loading.value = true;
+const errors = ref('')
+const loading = ref(false)
+const message = ref('')
 
-        errors.value = '';
-        message.value = '';
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+    loading.value = true
 
-		api.post("/forgot-password", event.data).then(({data}) => {
-            message.value = data.status;
-            loading.value = false;
-		}).catch(err => {
-			loading.value = false;
-            errors.value = err.response.data.errors.email[0];
-		})
-	}
+    errors.value = ''
+    message.value = ''
+
+    api.post('/forgot-password', event.data)
+        .then(({ data }) => {
+            message.value = data.status
+            loading.value = false
+        })
+        .catch((err) => {
+            loading.value = false
+            errors.value = err.response.data.errors.email[0]
+        })
+}
 </script>
 
 <template>
-	<section class="py-40">
-		<div class="container mx-auto">
-			<div class="relative mx-10">
-				<div class="flex flex-wrap">
-					<div class="w-full mb-8 lg:w-1/3 lg:mb-0">
-						<div class="lg:mr-10">
-							<ProfileNav activeTab="nav-password" />
-						</div>
-					</div>
+    <section class="py-40">
+        <div class="container mx-auto">
+            <div class="relative mx-10">
+                <div class="flex flex-wrap">
+                    <div class="w-full mb-8 lg:w-1/3 lg:mb-0">
+                        <div class="lg:mr-10">
+                            <ProfileNav activeTab="nav-password" />
+                        </div>
+                    </div>
 
-					<div class="w-full px-10 py-10 bg-white rounded lg:w-2/3 custom-shadow">
-						<div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
+                    <div class="w-full px-10 py-10 bg-white rounded lg:w-2/3 custom-shadow">
+                        <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
                             <h2 class="text-4xl font-bold leading-9 tracking-tight text-center">Resetiranje lozinke</h2>
                         </div>
 
@@ -69,13 +71,17 @@
 
                             <p class="text-green" v-if="message != ''">{{ message }}</p>
 
-                            <UButton :disabled="loading" type="submit" class="disabled:bg-red-500 disabled:text-white">
+                            <UButton
+                                :disabled="loading"
+                                type="submit"
+                                class="disabled:bg-red-500 disabled:text-white btn btn-primary !bg-blue-600"
+                            >
                                 Pošalji email za resetiranje lozinke
                             </UButton>
                         </UForm>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>

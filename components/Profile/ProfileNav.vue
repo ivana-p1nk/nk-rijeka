@@ -3,44 +3,58 @@ const props = defineProps({
     activeTab: String,
 })
 
+const { logout } = useSanctumAuth()
+
 const emit = defineEmits(['update:activeTab'])
+
+const logoutUser = async () => {
+    await logout()
+}
 </script>
 
 <template>
     <nav>
-        <div class="flex flex-col space-y-4" role="tablist">
+        <div class="flex flex-col" role="tablist">
             <NuxtLink
-                class="flex items-center p-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-600"
-                :class="{ 'active ring-4': activeTab === 'nav-profile' }"
+                class="flex items-center p-3 text-[#012436] font-medium bg-white rounded-tl-xl rounded-tr-xl focus:outline-none"
+                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-profile' }"
                 to="/profile"
             >
-                <span class="mr-2"><i class="fa-regular fa-user-pen"></i></span>
+                <UIcon name="i-heroicons-home" class="size-5 mr-2" />
                 Moj profil
             </NuxtLink>
             <NuxtLink
-                class="flex items-center p-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-600"
-                :class="{ 'active ring-4': activeTab === 'nav-address' }"
+                class="flex items-center p-3 text-[#012436] font-medium bg-white focus:outline-none"
+                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-address' }"
                 to="/profile/address"
             >
-                <span class="mr-2"><i class="fa-light fa-location-dot"></i></span>
+                <UIcon name="i-heroicons-map-pin" class="size-5 mr-2" />
                 Adresa
             </NuxtLink>
             <NuxtLink
-                class="flex items-center p-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-600"
-                :class="{ 'active ring-4': activeTab === 'nav-order' }"
+                class="flex items-center p-3 text-[#012436] font-medium bg-white focus:outline-none"
+                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-order' }"
                 to="/profile/orders"
             >
-                <span class="mr-2"><i class="fa-light fa-clipboard-list-check"></i></span>
+                <UIcon name="i-heroicons-clipboard-document-list" class="size-5 mr-2" />
                 Narudžbe
             </NuxtLink>
             <NuxtLink
-                class="flex items-center p-3 text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-600"
-                :class="{ 'active ring-4': activeTab === 'nav-password' }"
+                class="flex items-center p-3 text-[#012436] font-medium bg-white focus:outline-none"
+                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-password' }"
                 to="/profile/change-password"
             >
-                <span class="mr-2"><i class="fa-regular fa-lock"></i></span>
+                <UIcon name="i-heroicons-lock-closed" class="size-5 mr-2" />
                 Promijeni lozinku
             </NuxtLink>
+
+            <button
+                class="flex items-center p-3 mt-10 text-[#012436] rounded-xl hover:bg-[#D9F1FD] font-medium bg-white focus:outline-none"
+                @click="logoutUser"
+            >
+                <UIcon name="i-heroicons-arrow-right-on-rectangle" class="size-5 mr-2" />
+                Odjavi se
+            </button>
         </div>
     </nav>
 </template>

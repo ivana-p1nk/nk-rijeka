@@ -28,7 +28,9 @@ const isLoggedIn = computed(() => !!user.value)
                 <div>
                     <p class="font-bold font-saira text-h6-normal pb-3">{{ item.title }}</p>
 
-                    <p class="text-sm text-blue-900"><span class="font-bold">ŠIFRA:</span> TEST</p>
+                    <p v-if="item.sku != null" class="text-sm text-blue-900">
+                        <span class="font-bold">ŠIFRA:</span> {{ item.sku }}
+                    </p>
 
                     <p v-if="item.variationName" class="text-sm text-blue-900">
                         <span class="font-bold">VELIČINA:</span> {{ item.variationName }}

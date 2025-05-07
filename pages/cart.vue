@@ -2,12 +2,12 @@
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 import { useCartStore } from '~/composables/useCart'
-
+import type { IUser } from '~/types/user'
 useSeoMeta({
     title: 'Košarica',
 })
 
-const user = useSanctumUser()
+const user = useSanctumUser() as Ref<IUser | null>
 const { api } = useAxios()
 const toast = useToast()
 const cartStore = useCartStore()
@@ -90,15 +90,15 @@ const schema = z
 type Schema = z.output<typeof schema>
 
 const state = reactive({
-    firstName: undefined,
-    lastName: undefined,
-    company: undefined,
-    country: undefined,
-    city: undefined,
-    zipCode: undefined,
-    address: undefined,
-    phone: undefined,
-    email: undefined,
+    firstName: user.value?.name?.split(' ')[0] || '',
+    lastName: user.value?.name?.split(' ')[1] || '',
+    company: user.value?.address?.company || '',
+    country: user.value?.address?.state || '',
+    city: user.value?.address?.city || '',
+    zipCode: user.value?.address?.zip || '',
+    address: user.value?.address?.address || '',
+    phone: user.value?.address?.phone || '',
+    email: user.value?.email || '',
     orderNote: undefined,
 
     anotherAddress: false,

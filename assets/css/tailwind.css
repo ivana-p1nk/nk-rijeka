@@ -66,8 +66,6 @@
     font-style: normal;
 }
 
-
-
 /*Headings font: Body font: Roboto Condensedd*/
 
 @font-face {
@@ -133,15 +131,13 @@
     font-style: normal;
 }
 
-
-
 body {
     @apply bg-blue-00 font-roboto;
 }
 
 ::selection {
     color: white !important;
-    background-color: #1AA6F180 !important;
+    background-color: #1aa6f180 !important;
 }
 
 @layer components {
@@ -188,13 +184,13 @@ body {
         @apply bg-blue-800;
     }
 
-
     .btn-primary:disabled {
         @apply bg-neutralBlue-300 cursor-not-allowed pointer-events-none;
     }
 
-
-    .btn-secondary, .btn-nofocus, .btn-variations {
+    .btn-secondary,
+    .btn-nofocus,
+    .btn-variations {
         @apply font-saira bg-white font-bold text-gray-900 rounded-[6px] border-[1.5px] border-solid border-blue-300;
         transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border-color 0.8s ease-in-out;
     }
@@ -203,29 +199,31 @@ body {
         @apply bg-blue-800 hover:bg-blue-800 text-white border-blue-800;
     }
 
-    .btn-secondary:hover,.btn-nofocus:hover {
+    .btn-secondary:hover,
+    .btn-nofocus:hover {
         @apply bg-blue-50;
     }
 
-    .btn-secondary:focus, .btn-secondary:active, .btn-nofocus:active, .btn-secondary.active  {
+    .btn-secondary:focus,
+    .btn-secondary:active,
+    .btn-nofocus:active,
+    .btn-secondary.active {
         @apply text-white bg-blue-800 border-blue-800;
     }
 
-    .btn-secondary:disabled, .btn-nofocus:disabled {
+    .btn-secondary:disabled,
+    .btn-nofocus:disabled {
         @apply text-white bg-neutralBlue-300 border-neutralBlue-300 cursor-not-allowed pointer-events-none;
     }
-
 
     .btn-secondary-focus {
         @apply font-saira font-bold bg-blue-800 border-blue-800 text-white rounded-[6px] border-[1.5px] border-solid;
     }
 
-
     .btn-text {
         @apply font-saira font-bold text-blue-300 py-[4px] px-[8px] border-[2px] rounded-[8px] border-solid border-transparent;
         transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
-
 
     .btn-text:hover {
         @apply text-blue-700;
@@ -233,7 +231,6 @@ body {
 
     .btn-text:focus {
         @apply text-blue-300 border-blue-500 rounded-[8px];
-
     }
 
     .btn-text:disabled {
@@ -243,8 +240,6 @@ body {
     .btn-text-focus {
         @apply text-blue-300 border-[2px] border-solid border-blue-500 rounded-[8px] font-roboto font-bold py-[4px] px-[8px];
     }
-
-
 
     .btn-icon-primary {
         @apply flex items-center justify-center bg-blue-600 cursor-pointer;
@@ -265,10 +260,8 @@ body {
 
     .btn-icon-primary-focus {
         @apply flex items-center justify-center transition-all duration-200 ease-in-out bg-blue-300 bg-blue-600 outline-none cursor-pointer ring-2 ring-blue-500 ring-offset-2 ring-offset-white;
-        ;
         transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
-
 
     .btn-icon-secondary {
         @apply flex items-center justify-center bg-white cursor-pointer  border-blue-500 border-[1px];
@@ -291,7 +284,6 @@ body {
         @apply flex items-center justify-center bg-white cursor-pointer border-blue-500 border-[1px] outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white transition-all duration-200 ease-in-out;
         transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
-
 
     .circle-xl {
         @apply rounded-full w-[52px] h-[52px];
@@ -345,11 +337,9 @@ body {
         @apply w-[17px] h-[17px];
     }
 
-
     .icon-large {
         @apply w-5 h-5;
     }
-
 
     .icon-medium {
         @apply w-4 h-4;
@@ -363,10 +353,8 @@ body {
         @apply w-3 h-3;
     }
 
-
-
     .custom-blue {
-        color: #3F819E;
+        color: #3f819e;
     }
 
     .circle-footer {
@@ -385,8 +373,6 @@ body {
         @apply font-normal text-white font-roboto text-body2;
     }
 
-
-
     /* slike before*/
 
     .iskaznice::before {
@@ -395,33 +381,28 @@ body {
         left: -220px;
     }
 
-    @media (max-width:1280px) {
+    @media (max-width: 1280px) {
         .iskaznice::before {
             @apply content-[url(/assets/images/iskaznica.png)] absolute;
             top: -20%;
             left: 27%;
         }
-
     }
 
-    @media (max-width:640px) {
+    @media (max-width: 640px) {
         .iskaznice::before {
             @apply content-[url(/assets/images/iskaznica.png)] absolute;
             top: -27%;
             left: 22%;
         }
-
     }
 
-
-    @media (max-width:430px) {
+    @media (max-width: 430px) {
         .iskaznice::before {
             @apply content-[url(/assets/images/iskaznica.png)] absolute;
             left: 0%;
         }
-
     }
-
 
     .frame-p {
         @apply pl-5 pr-5;
@@ -446,7 +427,6 @@ body {
     .link-color {
         @apply transition-colors duration-200 hover:text-blue-700;
     }
-
 
     .icon-link {
         @apply transition-colors duration-200 group-hover:text-blue-500 hover:text-blue-500;
@@ -484,7 +464,6 @@ body {
         @apply w-[42px] h-[42px] flex justify-center py-3 px-5;
     }
 
-
     .account-frame-items {
         @apply px-4 text-sm font-medium text-white uppercase dark:text-white font-saira;
     }
@@ -497,12 +476,11 @@ body {
         @apply text-white dark:hover:text-white dark:text-white dark:hover:bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent;
     }
 
-
     .mobile-nav {
         @apply font-medium tracking-wider uppercase font-saira text-nav-heading link-bijeli;
     }
 
-        /* ulaz */
+    /* ulaz */
     .reveal-enter-active {
         @apply transition-all duration-500 ease-out delay-200;
     }
@@ -531,21 +509,20 @@ body {
     .notification-banner {
         @apply w-fit bg-white shadow-lg rounded-lg p-3 relative flex items-center justify-between gap-3;
     }
-
 }
 
 .swiper-initialized {
     padding-bottom: 3rem;
-  }
-  
+}
+
 .swiper-pagination-bullet-active {
     background-color: #013958 !important;
-  }
-  
+}
+
 .swiper-pagination-bullet {
-    background-color: #CED7DE;
+    background-color: #ced7de;
     opacity: 1;
-  }
+}
 
 li::marker {
     color: #000000;
@@ -568,13 +545,15 @@ li::marker {
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
-  }
-
-@media(max-width:767px){
-    .bg-igraci, .bg-goal {background-size: auto;}
 }
 
+@media (max-width: 767px) {
+    .bg-igraci,
+    .bg-goal {
+        background-size: auto;
+    }
+}
 
 .con-height {
     @apply pt-36 lg:pt-52;
-  }
+}

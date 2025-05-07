@@ -213,7 +213,7 @@ const twitterShare = computed(
                 </div>
 
                 <div class="border-b border-neutralBlue-100">
-                    <div v-if="product.variations && product.variations.length">
+                    <div v-if="product.variations && product.variations.length && product.personalization_enable">
                         <div>
                             <!-- Personaliziraj -->
                             <SidebarPersonalize
@@ -341,7 +341,9 @@ const twitterShare = computed(
                     </p>
                 </div>
 
-                <div class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start">
+                <div
+                    class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start"
+                >
                     <p class="font-bold text-gray-900 font-saira text-h6-normal">Podijeli</p>
                     <ul class="inline-flex gap-2 md:mt-2">
                         <li>
