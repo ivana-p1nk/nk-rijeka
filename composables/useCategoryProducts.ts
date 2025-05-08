@@ -21,7 +21,7 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
 
     const page = ref(1)
     const totalProducts = ref(0)
-    const perPage = 10
+    const perPage = 12
     const totalPages = computed(() => Math.ceil(totalProducts.value / perPage))
 
     const categoriy = ref<number[]>([])

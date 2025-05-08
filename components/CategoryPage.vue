@@ -10,6 +10,7 @@ const props = defineProps<{
     sort: string
     page: number
     totalPages: number
+    totalProducts: number
 }>()
 
 const emit = defineEmits<{
@@ -89,7 +90,7 @@ const subcategories = computed(() => {
         <!-- Proizvodi -->
         <div class="col-span-1 products md:col-span-4 mt-8">
             <div class="flex flex-row justify-between">
-                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda</p>
+                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ totalProducts }}</p>
 
                 <USelect
                     v-model="sort"

@@ -5,7 +5,7 @@ import { useRoute, createError } from '#imports'
 const route = useRoute()
 const catslug = route.params.catslug as string
 
-const { category, products, activeFilters, loadingCat, fetchAll, sort, page, totalPages } = useCategoryProducts(catslug)
+const { category, products, activeFilters, loadingCat, fetchAll, sort, page, totalPages, totalProducts } = useCategoryProducts(catslug)
 
 await fetchAll()
 
@@ -28,6 +28,7 @@ if (!category.value) {
                 @update:activeFilters="activeFilters = $event" 
                 :page="page"
                 :totalPages="totalPages"
+                :totalProducts="totalProducts"
                 @update:sort="sort = $event" 
                 @update:page="page = $event" 
             />
