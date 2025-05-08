@@ -19,15 +19,14 @@ const emit = defineEmits<{
     (e: 'update:page', value: number): void
 }>()
 
-const sort = ref(props.sort)
-const page = ref(props.page)
-
-watch(sort, (value) => {
-    emit('update:sort', value)
+const sort = computed({
+  get: () => props.sort,
+  set: (value) => emit('update:sort', value),
 })
 
-watch(page, (value) => {
-    emit('update:page', value)
+const page = computed({
+  get: () => props.page,
+  set: (value) => emit('update:page', value),
 })
 
 const route = useRoute()

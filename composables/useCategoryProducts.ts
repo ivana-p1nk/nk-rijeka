@@ -107,19 +107,20 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         fetchProducts()
     }
 
-    watch([sort, categoriy], () => {
-        page.value = 1
+    const updateSort = async (value: string) => {
+        sort.value = value;
+        page.value = 1;
         fetchProducts()
-    })
-
-    watch(page, () => {
+    }
+    const updatePage = async (value: number) => {
+        page.value = value;
         fetchProducts()
-    })
-
-    watch(activeFilters, () => {
-        page.value = 1
+    }
+    const updateFilters = async (value: Record<string, string>) => {
+        activeFilters.value = value;
+        page.value = 1;
         fetchProducts()
-    })
+    }
 
     return {
         category,
@@ -136,5 +137,8 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         loadingParentCat,
         loadingProduct,
         fetchAll,
+        updateSort,
+        updatePage,
+        updateFilters,
     }
 }
