@@ -13,7 +13,10 @@
   import { computed } from 'vue';
   import type { IProduct } from '~/types/product';
 
-  const props = defineProps<{products: IProduct[];}>();
+  const props = defineProps<{
+    products: IProduct[];
+    filters: Record<string, string>
+  }>();
     
   const emit = defineEmits<{
     (e: 'update:filters', value: Record<FilterKey, string>): void;

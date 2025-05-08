@@ -6,7 +6,6 @@ const props = defineProps<{
     category: ICategory
     parentCategory?: ICategory
     products: IProduct[]
-    filteredProducts: IProduct[]
     activeFilters: Record<string, string>
     sort: string
     page: number
@@ -90,7 +89,7 @@ const subcategories = computed(() => {
         <!-- Proizvodi -->
         <div class="col-span-1 products md:col-span-4 mt-8">
             <div class="flex flex-row justify-between">
-                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ filteredProducts.length }} proizvoda</p>
+                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda</p>
 
                 <USelect
                     v-model="sort"
@@ -105,11 +104,11 @@ const subcategories = computed(() => {
             </div>
 
             <div
-                v-if="filteredProducts.length > 0"
+                v-if="products.length > 0"
                 class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8"
             >
                 <ProductCard
-                    v-for="(product, index) in filteredProducts"
+                    v-for="(product, index) in products"
                     :key="index"
                     :product="product"
                     class="w-full"
