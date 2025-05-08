@@ -3,7 +3,7 @@
     <USelect  class="w-full sm:w-48"
       v-model="filters[filter.key as FilterKey]"
       :options="filter.options"
-      :placeholder="filter.label"
+
       :ui="selectUI"
     />
   </div>
@@ -55,17 +55,17 @@
     if (allPrices.length === 0) return [];
 
     const ranges = [
-      '0-15€',
-      '15-30€',
-      '30-50€',
-      '50-100€',
-      '100-150€',
-      '150-200€',
-      '200€+',
+      '0-15',
+      '15-30',
+      '30-50',
+      '50-100',
+      '100-150',
+      '150-200',
+      '200+',
     ];
 
     const isInRange = (price: number, range: string): boolean => {
-      if (range === '200€+') return price >= 200;
+      if (range === '200+') return price >= 200;
 
       const [min, max] = range.split('-').map(v => parseFloat(v));
 
@@ -86,7 +86,10 @@
       configs.push({
         key: 'size',
         label: 'Veličina',
-        options: availableVariations.value
+        options: [
+          { label: 'Veličina', value: '' },
+          ...availableVariations.value
+        ]
       });
     }
 
@@ -94,20 +97,31 @@
       {
         key: 'gender',
         label: 'Spol',
-        options: ['Muškarci', 'Žene']
+        options: [
+          { label: 'Spol', value: '' },
+          { label: 'Muškarci', value: 'muskarci' },
+          { label: 'Žene', value: 'zene' }
+        ]
       },
       {
         key: 'age',
         label: 'Dob',
-        options: ['Odrasli', 'Djeca']
+        options: [
+          { label: 'Dob', value: '' },
+          { label: 'Odrasli', value: 'odrasli' },
+          { label: 'Djeca', value: 'djeca' }
+        ]
       }
     );
 
-    if (availablePriceRanges.value.length > 0) { 
+    if (availablePriceRanges.value.length > 0) {
       configs.push({
         key: 'price',
         label: 'Cijena',
-        options: availablePriceRanges.value
+        options: [
+          { label: 'Cijena', value: '' },
+          ...availablePriceRanges.value.map(range => ({ label: `${range}€`, value: range }))
+        ]
       });
     }
 
