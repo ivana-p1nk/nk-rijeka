@@ -71,13 +71,19 @@ useHead({
 <template>
     <div class="bg-igraci">
         <div class="container mx-auto con-height pb-5 px-5">
+            <p class="font-normal text-blue-900 font-roboto text-body2 pb-1">
+                <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+                <span>Proizvodi</span>
+            </p>
             <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">SVI PROIZVODI</p>
             <div v-if="products.length > 0">
                 <div
                     class="flex flex-col items-start justify-between gap-4 pb-12 border-t border-gray-200 sm:gap-0 sm:flex-row sm:items-center pt-9"
                 >
+                
                     <p class="font-normal font-roboto text-body2 text-neutralBlue-950">
-                        Prikazujemo {{ products?.length || 0 }} proizvoda
+                        <!--Prikazujemo {{ products?.length || 0 }} proizvoda-->
+                        Prikazujemo {{ total }} proizvoda
                     </p>
 
                     <USelect

@@ -1,7 +1,10 @@
 <template>
     <div class="bg-igraci">
         <div class="container mx-auto con-height pb-5 px-5">
-
+            <p class="font-normal text-blue-900 font-roboto text-body2 pb-1">
+                <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+                <span>Kontakt</span>
+            </p>
             <h1 class="font-saira font-medium text-h1-normal text-gray-900 pb-6 md:pb-20">
                 KONTAKT
             </h1>
