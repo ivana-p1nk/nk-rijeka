@@ -42,7 +42,12 @@ onMounted(() => {
 <template>
     <div class="bg-igraci">
         <div class="container px-5 pb-12 mx-auto pt-52">
-            <h1 class="pb-6 font-medium text-gray-900 font-saira text-h1-normal">Favoriti</h1>
+            <p class="font-normal text-blue-900 font-roboto text-body2 pb-1">
+                <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+                <span>Favoriti</span>
+            </p>
+
+            <h1 class="pb-10 font-medium text-gray-900 font-saira text-h1-normal">Favoriti ({{ favoriteStore.favorite_products.length }})</h1>
 
             <div
                 v-if="favoriteStore.favorite_products.length > 0"
@@ -53,7 +58,7 @@ onMounted(() => {
                 </div>
             </div>
 
-            <div v-else class="text-center py-10 text-blue-900 font-saira font-medium text-lg">
+            <div v-else class="text-center py-10 text-blue-900 text-lg">
                 Nijedan proizvod nije dodan na listu želja.
             </div>
 
