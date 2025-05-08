@@ -16,6 +16,7 @@ const fetchResults = async () => {
   try {
     const { data } = await useFetch<{ data: IProduct[] }>(`${config.public.url}/search`, {
       method: 'POST',
+      credentials: 'include',
       body: {
         search: searchTerm.value,
       },
