@@ -95,23 +95,15 @@ const twitterShare = computed(
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit rounded-lg">
                 <div class="flex flex-row items-center justify-between">
                     <div v-if="useFavoritesStore().isFavorite(props.product)">
-                        <Icon
-                            @click="useFavoritesStore().removeFavoriteProduct(props.product)"
-                            name="material-symbols:favorite"
-                            class="text-blue-500 icon-xl"
-                        />
+                        <Icon @click="useFavoritesStore().removeFavoriteProduct(props.product)"
+                            name="material-symbols:favorite" class="text-blue-500 icon-xl" />
                     </div>
                     <div v-else>
-                        <Icon
-                            @click="useFavoritesStore().addFavoriteProduct(props.product)"
-                            name="material-symbols:favorite-outline"
-                            class="text-gray-900 icon-xl"
-                        />
+                        <Icon @click="useFavoritesStore().addFavoriteProduct(props.product)"
+                            name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" />
                     </div>
-                    <p
-                        id="tag"
-                        class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius"
-                    >
+                    <p id="tag"
+                        class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">
                         NOVO
                     </p>
                 </div>
@@ -160,8 +152,7 @@ const twitterShare = computed(
                                 {{ selectedVariation.price_discount.toFixed(2).replace('.', ',') }} €
                             </p>
                             <p
-                                class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1"
-                            >
+                                class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
                                 REDOVNA CIJENA
                             </p>
                         </div>
@@ -171,8 +162,7 @@ const twitterShare = computed(
                                     {{ selectedVariation.price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1"
-                                >
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
                                     REDOVNA CIJENA
                                 </p>
                             </div>
@@ -181,8 +171,7 @@ const twitterShare = computed(
                                     {{ selectedVariation.member_price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1"
-                                >
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
                                     CIJENA ZA ČLANOVE
                                 </p>
                             </div>
@@ -195,8 +184,7 @@ const twitterShare = computed(
                             {{ product.price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1"
-                        >
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
                             REDOVNA CIJENA
                         </p>
                     </div>
@@ -205,8 +193,7 @@ const twitterShare = computed(
                             {{ product.member_price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1"
-                        >
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
                             CIJENA ZA ČLANOVE
                         </p>
                     </div>
@@ -216,109 +203,79 @@ const twitterShare = computed(
                     <div v-if="product.variations && product.variations.length">
                         <div v-if="product.personalization_enable">
                             <!-- Personaliziraj -->
-                            <SidebarPersonalize
-                                :product="product"
-                                :selectedVariationId="selectedVariationId"
-                                @update-selected-variation="updateSelectedVariation"
-                            />
+                            <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
+                                @update-selected-variation="updateSelectedVariation" />
                         </div>
 
                         <!-- veličina -->
-                        
+
                         <div class="pt-7">
                             <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
 
                             <div class="flex flex-wrap flex-row gap-1 py-3">
-                                <button
-                                    v-for="variation in product.variations"
-                                    :key="variation.id"
-                                    :class="[
-                                        'btn-variations',
-                                        'xl',
-                                        'btn-size',
-                                        'w-fit',
-                                        {
-                                            'active-variation': selectedVariationId === variation.id,
-                                            'hover:bg-blue-50': selectedVariationId !== variation.id,
-                                        },
-                                    ]"
-                                    @click="updateSelectedVariation(variation.id)"
-                                >
+                                <button v-for="variation in product.variations" :key="variation.id" :class="[
+                                    'btn-variations',
+                                    'xl',
+                                    'btn-size',
+                                    'w-fit',
+                                    {
+                                        'active-variation': selectedVariationId === variation.id,
+                                        'hover:bg-blue-50': selectedVariationId !== variation.id,
+                                    },
+                                ]" @click="updateSelectedVariation(variation.id)">
                                     {{ variation.packaging }}
                                 </button>
                             </div>
 
-                            <NuxtLink
-                                to="/tablica-velicina"
-                                class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi"
-                            >
+                            <NuxtLink to="/tablica-velicina"
+                                class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi">
                                 Pogledajte tablicu veličina
                             </NuxtLink>
                         </div>
                     </div>
-              
+
 
                     <div class="flex flex-row gap-4 mt-7 pb-7">
                         <!--količina-->
 
-                        <div
-                            v-if="product.variations && product.variations.length"
-                            class="flex flex-row items-center gap-1"
-                        >
+                        <div v-if="product.variations && product.variations.length"
+                            class="flex flex-row items-center gap-1">
                             <button
                                 class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)"
-                            >
+                                @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)">
                                 <UIcon name="heroicons:minus" />
                             </button>
-                            <input
-                                class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                type="text"
-                                :min="selectedVariation?.minimum_quantity || 1"
-                                :value="cartStore.orderQuantity"
-                                disabled
-                            />
+                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                type="text" :min="selectedVariation?.minimum_quantity || 1"
+                                :value="cartStore.orderQuantity" disabled />
                             <button
                                 class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.increment()"
-                            >
+                                @click="cartStore.increment()">
                                 <UIcon name="heroicons:plus" />
                             </button>
                         </div>
                         <div v-else class="flex flex-row items-center gap-1">
                             <button
                                 class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.decrement(product.minimum_quantity || 1)"
-                            >
+                                @click="cartStore.decrement(product.minimum_quantity || 1)">
                                 <UIcon name="heroicons:minus" />
                             </button>
-                            <input
-                                class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                type="text"
-                                :min="product.minimum_quantity"
-                                :value="cartStore.orderQuantity"
-                                disabled
-                            />
+                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                type="text" :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
                             <button
                                 class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.increment()"
-                            >
+                                @click="cartStore.increment()">
                                 <UIcon name="heroicons:plus" />
                             </button>
                         </div>
 
-                        <UButton
-                            @click="addToCart"
-                            size="lg"
-                            variant="solid"
-                            :ui="{
-                                base: 'text-white font-saira font-semibold',
-                                variant: {
-                                    solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
-                                },
-                            }"
-                            class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
-                        >
+                        <UButton @click="addToCart" size="lg" variant="solid" :ui="{
+                            base: 'text-white font-saira font-semibold',
+                            variant: {
+                                solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
+                            },
+                        }"
+                            class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold">
                             Dodaj u košaricu
                             <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
                         </UButton>
@@ -327,8 +284,7 @@ const twitterShare = computed(
 
                 <div class="pt-7">
                     <p class="pb-3 text-gray-900 font-roboto fontnormal text-body2">
-                        <span class="font-bold"> Šifra: </span
-                        ><!--{{ product.sku }}-->
+                        <span class="font-bold"> Šifra: </span><!--{{ product.sku }}-->
                     </p>
                     <p class="text-gray-900 font-roboto fontnormal text-body2">
                         <span class="font-bold"> Kategorija: </span>{{ product.category.title }}
@@ -344,8 +300,7 @@ const twitterShare = computed(
                 </div>
 
                 <div
-                    class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start"
-                >
+                    class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start">
                     <p class="font-bold text-gray-900 font-saira text-h6-normal">Podijeli</p>
                     <ul class="inline-flex gap-2 md:mt-2">
                         <li>
