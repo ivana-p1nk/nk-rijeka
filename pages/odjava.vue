@@ -1,10 +1,13 @@
 <script setup lang="ts">
-    const { logout } = useSanctumAuth();
+import { useCartStore } from '~/composables/useCart'
 
-    // Simulacija ulogiranog korisnika
-    const logoutUser = async () => {
-        await logout()
-    }
+const { logout } = useSanctumAuth();
+const cartStore = useCartStore()
 
-    onMounted(logoutUser);
+const logoutUser = async () => {
+    cartStore.setUserRole(null)
+    await logout()
+}
+
+onMounted(logoutUser);
 </script>

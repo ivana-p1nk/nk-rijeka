@@ -6,10 +6,9 @@
     const { id } = useRoute().params
     const uri = `${config.public.url}/products/${id}`
 
-    //fetch the product
-    const { data: product, error } = await useFetch<IProduct>(uri) 
-
-   
+    const { data: product, error } = await useFetch<IProduct>(uri, {
+        key: `product-${id}`
+    })
 </script>
 
 <template>

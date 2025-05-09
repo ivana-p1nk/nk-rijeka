@@ -1,64 +1,75 @@
 <script setup lang="ts">
-import type { IProduct } from '~/types/product'
+    import type { IProduct } from '~/types/product'
 
-const route = useRoute()
-const config = useRuntimeConfig()
+    const { api } = useAxios()
+    const route = useRoute()
 
-const searchTerm = computed(() => route.query.q?.toString() || '')
-const products = ref<IProduct[]>([])
-const loading = ref(false)
+    const searchTerm = computed(() => route.query.q?.toString() || '')
+    const products = ref<IProduct[]>([])
+    const loading = ref(false)
 
-const fetchResults = async () => {
-  if (!searchTerm.value) return
+    const page = ref(1);
+	const totalProducts = ref(0);
+	const perPage = 12;
+    const totalPages = computed(() => Math.ceil(totalProducts.value / perPage))
 
-  loading.value = true
+    const fetchResults = async () => {
+        if (!searchTerm.value) return
 
-  try {
-    const { data } = await useFetch<{ data: IProduct[] }>(`${config.public.url}/search`, {
-      method: 'POST',
-      credentials: 'include',
-      body: {
-        search: searchTerm.value,
-      },
+        loading.value = true
+
+        try {
+            api.post('/search', {
+                'search': searchTerm.value
+            }).then(({ data }) => {
+                loading.value = false
+
+                products.value = data.data || [];
+                totalProducts.value = data.total || 0;
+            }).catch((err) => {
+                loading.value = false
+                console.error('Greška pri pretrazi:', err)
+                products.value = []
+            });
+        } catch (err) {
+            console.error('Greška pri pretrazi:', err)
+            products.value = []
+        } finally {
+            loading.value = false
+        }
+    }
+
+    onMounted(fetchResults)
+
+    watch(() => route.query.q, fetchResults)
+
+    useHead({
+        title: `Rezultati za: ${searchTerm.value}`,
     })
-
-    products.value = data.value?.data || []
-  } catch (err) {
-    console.error('Greška pri pretrazi:', err)
-    products.value = []
-  } finally {
-    loading.value = false
-  }
-}
-
-onMounted(fetchResults)
-
-watch(() => route.query.q, fetchResults)
-
-useHead({
-  title: `Rezultati za: ${searchTerm.value}`,
-})
 </script>
 
 <template>
     <div class="bg-igraci">
-      <div class="container mx-auto con-height pb-5 px-5">
+        <div class="container mx-auto con-height pb-5 px-5">
  
-    <p class="text-blue-900 font-roboto text-body2 mb-1">
-      <NuxtLink class="text-blue-400" to="/">Početna</NuxtLink> / Pretraga
-    </p>
-    <h1 class="text-h1-normal font-medium text-blue-900 font-saira mb-12">
-      Pretraživali ste: {{ searchTerm }}
-    </h1>
+            <p class="text-blue-900 font-roboto text-body2 mb-1">
+                <NuxtLink class="text-blue-400" to="/">Početna</NuxtLink> / Pretraga
+            </p>
+            <h1 class="text-h1-normal font-medium text-blue-900 font-saira mb-12">
+                Pretraživali ste: {{ searchTerm }}
+            </h1>
 
-    <div v-if="loading">Učitavanje rezultata...</div>
-    <div v-else-if="products.length === 0" class="text-neutral-600">Nema rezultata za "{{ searchTerm }}"</div>
+            <div v-if="loading">
+                Učitavanje rezultata...
+            </div>
+            <div v-else-if="products.length === 0" class="text-neutral-600">
+                Nema rezultata za "{{ searchTerm }}"
+            </div>
+            <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+                <ProductCard v-for="product in products" :key="product.id" :product="product" />
+            </div>
 
-    <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
-      <ProductCard v-for="product in products" :key="product.id" :product="product" />
-    </div>
-
-    <div class="container pt-8 mx-auto border-t border-neutralBlue-100">
+            <div class="container pt-8 mx-auto border-t border-neutralBlue-100">
                 <div class="flex flex-col items-center gap-1 pb-10">
                     <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
                     <p class="font-normal text-blue-900 font-roboto text-body1">
@@ -68,6 +79,6 @@ useHead({
 
                 <Carousel :products="products" class="pt-6" />
             </div>
-  </div>
-</div>
+        </div>
+    </div>
 </template>

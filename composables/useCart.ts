@@ -18,8 +18,50 @@ export const useCartStore = defineStore('cart_product', () => {
     const route = useRoute()
     let cart_products = ref<CartProduct[]>([])
     let orderQuantity = ref<number>(1)
+    const userRole = ref<string | null>(null)
 
     let coupon = ref<ICoupon | null>(null)
+
+    const setUserRole = (role: string | null) => {
+        userRole.value = role
+        updatePricesBasedOnRole()
+    }
+
+    const updatePricesBasedOnRole = () => {
+        cart_products.value = cart_products.value.map((item) => {
+            let basePrice = item.price
+            let discountPrice = item.price_discount
+            let memberPrice = item.member_price
+
+            const selectedVariation = item.variations?.find((v) => v.id === item.variationId)
+            if (selectedVariation) {
+                basePrice = selectedVariation.price
+                discountPrice = selectedVariation.price_discount
+                memberPrice = selectedVariation.member_price
+            }
+
+            let newPrice = basePrice
+
+            if (userRole.value === 'member' && memberPrice) {
+                newPrice = memberPrice
+            }
+
+            if (discountPrice) {
+                newPrice = discountPrice
+            }
+
+            if (item.personalizationPrice) {
+                newPrice += item.personalizationPrice
+            }
+
+            return {
+                ...item,
+                totalPrice: newPrice,
+            }
+        })
+
+        localStorage.setItem('cart_products', JSON.stringify(cart_products.value))
+    }
 
     const addCartProduct = (
         payload: CartProduct,
@@ -220,5 +262,6 @@ export const useCartStore = defineStore('cart_product', () => {
         increment,
         decrement,
         setInitialOrderQuantity,
+        setUserRole,
     }
 })

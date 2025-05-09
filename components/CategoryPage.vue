@@ -10,6 +10,7 @@ const props = defineProps<{
     sort: string
     page: number
     totalPages: number
+    totalProducts: number
 }>()
 
 const emit = defineEmits<{
@@ -18,15 +19,14 @@ const emit = defineEmits<{
     (e: 'update:page', value: number): void
 }>()
 
-const sort = ref(props.sort)
-const page = ref(props.page)
-
-watch(sort, (value) => {
-    emit('update:sort', value)
+const sort = computed({
+  get: () => props.sort,
+  set: (value) => emit('update:sort', value),
 })
 
-watch(page, (value) => {
-    emit('update:page', value)
+const page = computed({
+  get: () => props.page,
+  set: (value) => emit('update:page', value),
 })
 
 const route = useRoute()
@@ -89,7 +89,7 @@ const subcategories = computed(() => {
         <!-- Proizvodi -->
         <div class="col-span-1 products md:col-span-4 mt-8">
             <div class="flex flex-row justify-between">
-                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda</p>
+                <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ totalProducts }}</p>
 
                 <USelect
                     v-model="sort"
