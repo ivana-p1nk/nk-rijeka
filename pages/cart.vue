@@ -130,13 +130,8 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
     api.post('/create-orders', { ...params })
         .then(({ data }) => {
             if (data.status != 'error') {
-                toast.add({
-                    title: 'Narudžba uspješno kreirana!',
-                    color: 'green',
-                    timeout: 2000,
-                })
                 cartStore.clear_cart()
-                navigateTo(`/thank-you`)
+                window.location.href = `http://nkrijeka-app.test/pay/${data.order_id}`
             } else {
                 toast.add({
                     title: 'greška, javite se korisničkoj podršci.',
@@ -183,13 +178,8 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                 </div>
             </div>
             <div class="col-span-5">
-                <CartTotal
-                    @useCoupon="applyCoupon"
-                    :submitForm="submitForm"
-                    :term="updateTerms"
-                    :termMessage="termValidationMessage"
-                    :loadingForm="loadingForm"
-                />
+                <CartTotal @useCoupon="applyCoupon" :submitForm="submitForm" :term="updateTerms"
+                    :termMessage="termValidationMessage" :loadingForm="loadingForm" />
             </div>
         </div>
         <div v-else class="flex flex-col justify-center items-center py-20">
