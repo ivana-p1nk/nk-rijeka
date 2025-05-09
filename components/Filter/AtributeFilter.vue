@@ -42,62 +42,53 @@ const availableVariations = computed(() => {
 });
 
 const availablePriceRanges = computed(() => {
-  const ranges = ['0-15', '15-30', '30-50', '50-100', '100-150', '150-200', '200+'];
+  const ranges = [
+    { label: '0-15€', value: '0-15' },
+    { label: '15-30€', value: '15-30' },
+    { label: '30-50€', value: '30-50' },
+    { label: '50-100€', value: '50-100' },
+    { label: '100-150€', value: '100-150' },
+    { label: '150-200€', value: '150-200' },
+    { label: '200+€', value: '200-1000' }
+  ];
 
-  return ranges.map(range => ({
-    label: `${range}€`,
-    value: range
-  }));
+  return [{ label: 'Cijena', value: '' }, ...ranges];
 });
 
 /*Konfiguracija USelect komponente*/
-const filterConfigs = computed(() => {
-  const configs = [];
-
-  if (availableVariations.value.length > 0) {
-    configs.push({
-      key: 'size',
-      label: 'Veličina',
-      options: [
-        { label: 'Veličina', value: '' },
-        ...availableVariations.value
-      ]
-    });
+const filterConfigs = computed(() => [
+  {
+    key: 'size',
+    label: 'Veličina',
+    options: [
+      { label: 'Veličina', value: '' },
+      ...availableVariations.value.map(v => ({ label: v, value: v }))
+    ]
+  },
+  {
+    key: 'gender',
+    label: 'Spol',
+    options: [
+      { label: 'Spol', value: '' },
+      { label: 'Muškarci', value: 'muskarci' },
+      { label: 'Žene', value: 'zene' }
+    ]
+  },
+  {
+    key: 'age',
+    label: 'Dob',
+    options: [
+      { label: 'Dob', value: '' },
+      { label: 'Odrasli', value: 'odrasli' },
+      { label: 'Djeca', value: 'djeca' }
+    ]
+  },
+  {
+    key: 'price',
+    label: 'Cijena',
+    options: availablePriceRanges.value
   }
-
-  configs.push(
-    {
-      key: 'gender',
-      label: 'Spol',
-      options: [
-        { label: 'Spol', value: '' },
-        { label: 'Muškarci', value: 'muskarci' },
-        { label: 'Žene', value: 'zene' }
-      ]
-    },
-    {
-      key: 'age',
-      label: 'Dob',
-      options: [
-        { label: 'Dob', value: '' },
-        { label: 'Odrasli', value: 'odrasli' },
-        { label: 'Djeca', value: 'djeca' }
-      ]
-    }
-  );
-
-  if (availablePriceRanges.value.length > 0) {
-    configs.push({
-      key: 'price',
-      label: 'Cijena',
-      options: [
-        { label: 'Cijena', value: '' },
-        ...availablePriceRanges.value
-      ]
-    });
-  }
-  return configs;
-});
+]);
 
 const selectUI = {
   color: {
