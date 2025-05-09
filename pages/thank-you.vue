@@ -1,8 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-    middleware: 'checkout-guard',
-})
-
 import type { IProduct } from '~/types/product'
 const config = useRuntimeConfig()
 
@@ -32,7 +28,7 @@ onMounted(() => {
 
 <template>
     <div class="flex flex-col items-center justify-center pt-40">
-        <h1 class="font-medium text-blue-900 font-saira text-h1-normal">Zahvljaujemo!</h1>
+        <h1 class="font-medium text-blue-900 font-saira text-h1-normal">Zahvaljujemo!</h1>
         <p class="font-normal text-gray-900 font-roboto text-body1 py-7">
             Vaša narudžba je uspješno zaprimljena! Dobiti ćete potvrdu na vašu mail adresu.
         </p>
