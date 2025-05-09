@@ -35,48 +35,24 @@
     emit('update:filters', { ...filters });
   }, { deep: true });
     
-  const products = computed(() => props.products);
+  const allProducts = computed(() => props.products);
     
-  /*VELIČINA*/
   const availableVariations = computed(() => {
-    const allVariations = products.value
-      .flatMap(p => p.variations || [])
-      .map(v => v.packaging);
+  const allVariations = allProducts.value
+    .flatMap(p => p.variations || [])
+    .map(v => v.packaging);
 
-      return Array.from(new Set(allVariations));
+    return Array.from(new Set(allVariations));
   });
-
-  /*CIJENA*/
+ 
   const availablePriceRanges = computed(() => {
-    const allPrices = products.value
-      .map(p => p.price)
-      .filter(price => price !== undefined && price !== null);
+    const ranges = ['0-15', '15-30', '30-50', '50-100', '100-150', '150-200', '200+'];
 
-    if (allPrices.length === 0) return [];
-
-    const ranges = [
-      '0-15',
-      '15-30',
-      '30-50',
-      '50-100',
-      '100-150',
-      '150-200',
-      '200+',
-    ];
-
-    const isInRange = (price: number, range: string): boolean => {
-      if (range === '200+') return price >= 200;
-
-      const [min, max] = range.split('-').map(v => parseFloat(v));
-
-      return price >= min && price < max;
-    };
-
-    return ranges.filter(range =>
-      allPrices.some(price => isInRange(price!, range))
-    );
+    return ranges.map(range => ({
+      label: `${range}€`,
+      value: range
+    }));
   });
-    
 
   /*Konfiguracija USelect komponente*/
   const filterConfigs = computed(() => {
@@ -115,16 +91,15 @@
     );
 
     if (availablePriceRanges.value.length > 0) {
-      configs.push({
-        key: 'price',
-        label: 'Cijena',
-        options: [
-          { label: 'Cijena', value: '' },
-          ...availablePriceRanges.value.map(range => ({ label: `${range}€`, value: range }))
-        ]
-      });
-    }
-
+  configs.push({
+    key: 'price',
+    label: 'Cijena',
+    options: [
+      { label: 'Cijena', value: '' },
+      ...availablePriceRanges.value
+    ]
+  });
+}
     return configs;
   });
 
