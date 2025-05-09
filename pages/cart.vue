@@ -111,6 +111,8 @@ const state = reactive({
 
 const submitForm = () => formRef.value?.submit()
 
+const config = useRuntimeConfig()
+
 async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
     termValidationMessage.value = ''
     if (!terms.value) {
@@ -131,7 +133,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         .then(({ data }) => {
             if (data.status != 'error') {
                 cartStore.clear_cart()
-                window.location.href = `http://nkrijeka-app.test/pay/${data.order_id}`
+                window.location.href = `${config.public.url}/pay/${data.order_id}`
             } else {
                 toast.add({
                     title: 'greška, javite se korisničkoj podršci.',
