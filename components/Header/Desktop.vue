@@ -7,7 +7,14 @@ import { useFavoritesStore } from '~/composables/favorites'
 const cartStore = useCartStore()
 const favoriteStore = useFavoritesStore()
 
-const setActive = (tab: string) => setActiveTab(tab)
+const setActive = (tab: string) => {
+  if (activetab.value === tab) {
+    openMenu.value = !openMenu.value
+  } else {
+    activetab.value = tab
+    openMenu.value = true
+  }
+}
 
 const dropdownWrapper = ref<HTMLElement | null>(null)
 
@@ -38,7 +45,7 @@ const handleClickOutside = (event: MouseEvent) => {
                     <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo" /></NuxtLink>
 
                     <!--navigacija-->
-                    <div ref="dropdownWrapper">
+                    <div ref="dropdownWrapper" class="flex justify-between w-full items-center">
                         <ul class="flex gap-10">
                             <li class="heading">
                                 <NuxtLink
@@ -109,11 +116,11 @@ const handleClickOutside = (event: MouseEvent) => {
                                 </NuxtLink>
                             </li>
                         </ul>
-                    </div>
+                    
 
                     <div class="flex flex-row gap-7">
                         <div class="flex items-center gap-4">
-                            <NuxtLink to="#" class="flex">
+                            <NuxtLink to="#" class="flex" @click.prevent="setActiveTab('search')">
                                 <Icon name="akar-icons:search" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
                             <NuxtLink to="/favorites" class="relative flex">
@@ -135,6 +142,7 @@ const handleClickOutside = (event: MouseEvent) => {
                         <!--ikona košarice-->
                         <SidebarCartList />
                     </div>
+                </div>
                 </div>
 
                 <HeaderDesktopDropDown />

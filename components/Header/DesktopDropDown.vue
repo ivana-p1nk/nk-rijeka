@@ -18,6 +18,18 @@
             dropdownHeight.value = '0px';
         }
     });
+
+    /*search dropdown*/
+    const router = useRouter()
+    const searchTerm = ref('')
+
+    const submitSearch = () => {
+        if (searchTerm.value.trim()) {
+            router.push({ path: '/search', query: { q: searchTerm.value.trim() } })
+            openMenu.value = false
+            activetab.value = ''
+        }
+    }
 </script>
 
 
@@ -141,6 +153,19 @@
                         <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija">JOMA</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo">Ostalo</NuxtLink></li>
                     </ul>
+                </div>
+            </Transition>
+
+            <Transition name="reveal">
+                <div v-if="activetab === 'search' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex justify-center w-full">
+                    <form @submit.prevent="submitSearch" class="relative w-full max-w-md">
+                        <input 
+                          v-model="searchTerm" 
+                          type="text" 
+                          placeholder="Pretraži proizvode..." 
+                          class="w-full px-4 py-2 border rounded-md text-sm shadow-sm text-black"
+                        />
+                    </form>
                 </div>
             </Transition>
         </div>
