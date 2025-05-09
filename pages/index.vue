@@ -241,17 +241,8 @@
         </div>
 
     <div>
-        <form @submit.prevent="submitSearch" class="relative w-full max-w-md">
-            <input
-            v-model="searchTerm"
-            type="text"
-            placeholder="Pretraži proizvode..."
-            class="w-full px-4 py-2 border rounded-md text-sm shadow-sm"
-            />
-        </form>
-    </div>
-    
-    </div>
+</div>
+</div>
 
 </template>
 
