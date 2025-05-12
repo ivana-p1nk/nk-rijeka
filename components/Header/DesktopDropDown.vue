@@ -30,6 +30,9 @@
             activetab.value = ''
         }
     }
+    
+    const isInputActive = ref(false)
+
 </script>
 
 
@@ -37,10 +40,10 @@
     <div
         ref="dropdownRef"
         :style="{ height: dropdownHeight }"
-        class="overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
+        class="dropdown-content overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
     >
         <!-- Dropdown sekcija za navigaciju -->
-        <div class="max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
+        <div class="w-full max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
@@ -156,18 +159,44 @@
                 </div>
             </Transition>
 
+            <!--SERACH DROPDOWN-->
             <Transition name="reveal">
-                <div v-if="activetab === 'search' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex justify-center w-full">
-                    <form @submit.prevent="submitSearch" class="relative w-full max-w-md">
-                        <input 
-                          v-model="searchTerm" 
-                          type="text" 
-                          placeholder="Pretraži proizvode..." 
-                          class="w-full px-4 py-2 border rounded-md text-sm shadow-sm text-black"
-                        />
+                <div v-if="activetab === 'search' && openMenu" :key="activetab" ref="activeTabContentRef">
+                    <form @submit.prevent="submitSearch">
+                        <div class="relative max-w-[580px] mx-auto mt-2">
+                            <Icon name="akar-icons:search" class="absolute left-3 top-1/2 -translate-y-1/2 text-white text-base pointer-events-none"/>
+                            <input
+                                v-model="searchTerm"
+                                type="text"
+                                placeholder="Pretraži"
+                                class="w-full pl-10 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-sm text-customColors-400 placeholder-customColors-400 opacity-0 animate-fade-in focus:outline-none focus:ring-0"
+                                @focus="isInputActive = true"
+                                @blur="isInputActive = false"
+                            />
+                            <Icon v-if="searchTerm" name="akar-icons:cross" class="absolute right-3 top-1/2 -translate-y-1/2 text-white text-base cursor-pointer" @click.stop="searchTerm = ''"/>
+                        </div>
                     </form>
+                    <hr class="bg-blue-800 h-[1.4px] w-[300%] -ml-[100%] relative border-0 my-6" />
+                    <div class="max-w-full mx-auto mt-2 text-sm text-customColors-400 text-center font-light">
+                        Pritisni Enter za prikaz rezultata pretrage
+                    </div>
                 </div>
             </Transition>
+            
         </div>
     </div>
 </template>
+
+
+<style scoped>
+    .input-fade-enter-active {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .input-fade-leave-active {
+        animation: fadeOut 0.2s ease-in forwards;
+    }
+    
+
+
+</style>
