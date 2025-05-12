@@ -23,6 +23,7 @@ export interface IProduct {
         price_discount?: number
         member_price: number
         minimum_quantity: number
+        quantity: number
         gallery?: string[]
         sku?: string
         personalization_enable: boolean
