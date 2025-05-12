@@ -157,7 +157,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-    <div class="py-20 px-4 mt-20 container mx-auto xl:max-w-[1120px]">
+    <div class="py-20 px-4 mt-20 container mx-auto">
         <h1 class="mb-10 font-medium text-blue-900 font-saira text-h1-normal">Košarica</h1>
 
         <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
