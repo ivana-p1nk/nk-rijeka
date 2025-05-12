@@ -9,7 +9,11 @@
 		loading.value = true;
 
 		try {
-			const { data: productData } = await useFetch(`${config.public.url}/products`);
+			const { data: productData } = await useFetch(`${config.public.url}/products`, {
+                params: {
+                    categories: 33
+                }
+            });
 
 			// @ts-ignore
 			products.value = productData.value.data || [];
