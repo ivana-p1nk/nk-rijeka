@@ -81,10 +81,7 @@ useHead({
                     class="flex flex-col items-start justify-between gap-4 pb-12 border-t border-gray-200 sm:gap-0 sm:flex-row sm:items-center pt-9"
                 >
                 
-                    <p class="font-normal font-roboto text-body2 text-neutralBlue-950">
-                        <!--Prikazujemo {{ products?.length || 0 }} proizvoda-->
-                        Prikazujemo {{ total }} proizvoda
-                    </p>
+                <p class="font-normal font-roboto text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ total }}</p>
 
                     <USelect
                         v-model="sort"
@@ -108,11 +105,12 @@ useHead({
                     />
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10">
+                <div class="-mx-3 sm:mx-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-10">
                     <div v-for="p in products" :key="p.id">
                         <ProductCard :product="p" />
                     </div>
                 </div>
+
 
                 <!-- PAGINACIJA -->
                 <div class="flex justify-center mt-10 gap-1 pt-8 border-t border-neutralBlue-200" v-if="totalPages > 1">

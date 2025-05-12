@@ -552,8 +552,23 @@ li::marker {
     .bg-goal {
         background-size: auto;
     }
+
+    
 }
 
 .con-height {
     @apply pt-36 lg:pt-52;
 }
+
+
+@media (max-width: 639px) {
+   
+}
+
+@media (max-width: 767px) {
+  .card {
+        @apply h-fit;
+    }
+}
+
+
