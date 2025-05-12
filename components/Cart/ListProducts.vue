@@ -8,7 +8,7 @@ const isLoggedIn = computed(() => !!user.value)
 </script>
 
 <template>
-    <div v-if="cartStore.cart_products.length > 0" class="px-12 py-10 bg-white shadow-lg rounded-2xl">
+    <div v-if="cartStore.cart_products.length > 0" class="md:px-12 md:py-10 py-5 px-3 bg-white shadow-lg rounded-2xl">
         <div class="grid grid-cols-[2fr_1fr_1fr_1fr_40px] gap-4 pb-2 mb-4 font-semibold text-gray-700 border-b">
             <div>PROIZVOD</div>
             <div>CIJENA</div>
@@ -24,9 +24,9 @@ const isLoggedIn = computed(() => !!user.value)
         >
             <!-- PROIZVOD -->
             <div class="flex items-center gap-3">
-                <img :src="item.gallery[0]" class="object-contain w-16 h-16" />
+                <img :src="item.gallery[0]" class="object-contain hidden md:block w-16 h-16" />
                 <div>
-                    <p class="font-bold font-saira text-h6-normal pb-3">{{ item.title }}</p>
+                    <p class="font-bold font-saira text-base md:text-h6-normal pb-3">{{ item.title }}</p>
 
                     <p v-if="item.sku != null" class="text-sm text-blue-900">
                         <span class="font-bold">ŠIFRA:</span> {{ item.sku }}
@@ -89,9 +89,9 @@ const isLoggedIn = computed(() => !!user.value)
             </p>
 
             <!-- KOLIČINA -->
-            <div class="flex items-center space-x-2">
-                <div class="flex items-center p-1 space-x-1 rounded-lg bg-slate-100">
-                    <button class="px-3 py-1 rounded" @click="cartStore.quantityDecrement(item, item.variationId)">
+            <div class="flex items-center space-x-1 md:space-x-2">
+                <div class="flex items-center p-0 md:p-1 space-x-1 rounded-lg bg-slate-100">
+                    <button class="px-1 md:px-3 flex items-center py-1 rounded" @click="cartStore.quantityDecrement(item, item.variationId)">
                         <UIcon name="heroicons:minus" />
                     </button>
                     <input
@@ -101,7 +101,7 @@ const isLoggedIn = computed(() => !!user.value)
                         :v-model="item.orderQuantity"
                         disabled
                     />
-                    <button class="px-3 py-1 rounded" @click="cartStore.addCartProduct(item, item.variationId)">
+                    <button class="px-1 md:px-3 flex items-center py-1 rounded" @click="cartStore.addCartProduct(item, item.variationId)">
                         <UIcon name="heroicons:plus" />
                     </button>
                 </div>
@@ -109,7 +109,7 @@ const isLoggedIn = computed(() => !!user.value)
 
             <!-- UKUPNO -->
             <div v-if="item.orderQuantity && item.totalPrice">
-                {{ (item.orderQuantity * item.totalPrice).toFixed(2).replace('.', ',') }} €
+                {{ (item.orderQuantity * item.totalPrice).toFixed(2).replace('.', ',') }}€
             </div>
 
             <!-- DELETE -->

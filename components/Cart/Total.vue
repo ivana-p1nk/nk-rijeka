@@ -15,7 +15,7 @@ const emit = defineEmits(['useCoupon'])
 </script>
 
 <template>
-    <div class="p-10 rounded-lg bg-[#D9F1FD]">
+    <div class="md:p-10 p-5 rounded-lg bg-[#D9F1FD]">
         <p class="text-xl font-bold">VAŠA NARUDŽBA</p>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
