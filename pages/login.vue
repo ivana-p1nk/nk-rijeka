@@ -2,6 +2,7 @@
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 import { useCartStore } from '~/composables/useCart'
+import type { IUser } from '~/types/user'
 
 type Schema = z.output<typeof schema>
 
@@ -38,7 +39,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     try {
         await login(state)
 
-        if (user.value.role == 'member') {
+        if (user.value?.role == 'member') {
             cartStore.setUserRole('member');
         } else {
             cartStore.setUserRole(null)
