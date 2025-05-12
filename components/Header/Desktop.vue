@@ -27,7 +27,12 @@ onBeforeUnmount(() => {
 })
 
 const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownWrapper.value && !dropdownWrapper.value.contains(event.target as Node)) {
+    const target = event.target as Node
+
+    const isClickInsideDropdown = dropdownWrapper.value?.contains(target)
+        || document.querySelector('.dropdown-content')?.contains(target)
+
+    if (!isClickInsideDropdown) {
         openMenu.value = false
         activetab.value = ''
     }
@@ -41,11 +46,11 @@ const handleClickOutside = (event: MouseEvent) => {
             class="hidden lg:block container mx-auto bg-customColors-100 rounded-[40px] z-1 mt-11 fixed top-0 left-0 right-0 z-50"
         >
             <nav>
-                <div class="p-5 flex-between rounded-[40px] bg-header-gradient">
+                <div ref="dropdownWrapper" class="p-5 flex-between rounded-[40px] bg-header-gradient">
                     <NuxtLink to="/" class="ml-3"><img src="/assets/images/logos/logo.svg" alt="Logo" /></NuxtLink>
 
                     <!--navigacija-->
-                    <div ref="dropdownWrapper" class="flex justify-between w-full items-center">
+                    <div>
                         <ul class="flex gap-10">
                             <li class="heading">
                                 <NuxtLink
@@ -116,12 +121,15 @@ const handleClickOutside = (event: MouseEvent) => {
                                 </NuxtLink>
                             </li>
                         </ul>
-                    
+                    </div>
 
                     <div class="flex flex-row gap-7">
                         <div class="flex items-center gap-4">
                             <NuxtLink to="#" class="flex" @click.prevent="setActiveTab('search')">
-                                <Icon name="akar-icons:search" class="p-0 m-0 text-white icon-extra link-bijeli" />
+                                <Icon
+                                    :name="activetab === 'search' && openMenu ? 'akar-icons:cross' : 'akar-icons:search'"
+                                    class="p-0 m-0 text-white icon-extra link-bijeli"
+                                />
                             </NuxtLink>
                             <NuxtLink to="/favorites" class="relative flex">
                                 <UChip
@@ -135,14 +143,14 @@ const handleClickOutside = (event: MouseEvent) => {
                                 />
                                 <Icon name="heroicons:heart" class="p-0 m-0 text-white icon-extra link-bijeli" />
                             </NuxtLink>
-
+                            
                             <HeaderAccountDropdown />
                         </div>
 
                         <!--ikona košarice-->
                         <SidebarCartList />
                     </div>
-                </div>
+                    
                 </div>
 
                 <HeaderDesktopDropDown />

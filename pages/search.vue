@@ -62,7 +62,7 @@
             <div v-if="loading">
                 Učitavanje rezultata...
             </div>
-            <div v-else-if="products.length === 0" class="text-neutral-600">
+            <div v-else-if="products.length === 0" class="text-neutral-600 pb-12 ml-2">
                 Nema rezultata za "{{ searchTerm }}"
             </div>
             <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">

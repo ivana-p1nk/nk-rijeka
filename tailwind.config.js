@@ -91,6 +91,7 @@ export default {
           '100': '#172A53',
           '200': '#004C75',
           '300': '#D2D6DB',
+          '400': '#FCFCFC',
         },
         blue: {
           '00': '#F3FBFF',
@@ -138,8 +139,20 @@ export default {
         'pos-0': '0% 0%',
         'pos-100': '100% 100%',
       },
-
-
+      animation: {
+            'fade-in': 'fadeIn 0.4s ease-out forwards',
+            'fade-out': 'fadeOut 0.2 ease-in forwards',
+          },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
     },
   },
   plugins: [],

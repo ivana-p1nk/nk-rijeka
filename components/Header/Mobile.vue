@@ -6,6 +6,7 @@
 
     const activeTab = ref('') ;
     const subActive = ref(''); 
+    const searchTerm = ref('');
     const isHamburgerOpen = ref(false);
 
     const toggleHamburger = () => {
@@ -90,7 +91,7 @@
                 if (!activeDropdownRefSearch.value) return;
 
                 const el = activeDropdownRefSearch.value;
-                const newHeight = (el.scrollHeight + 10) + 'px';
+                const newHeight = (el.scrollHeight + 15) + 'px';
                 dropdownHeightSearch.value = newHeight;
             }, 10);
         } else {
@@ -112,6 +113,17 @@
             if(isHamburgerOpenSearch) isHamburgerOpenSearch.value = false;
         }
     };
+
+
+    const router = useRouter()
+
+    const submitSearch = () => {
+    if (searchTerm.value.trim()) {
+        router.push({ path: '/search', query: { q: searchTerm.value.trim() } })
+        isHamburgerOpenSearch.value = false
+        searchTerm.value = ''
+    }
+    }
 </script>
 
 <template>
@@ -135,8 +147,12 @@
 
 
                         <div @click="toggleHamburgerSearch" class="flex">
-                            <Icon name="akar-icons:search" class="text-white link-bijeli size-4" />
+                            <Icon
+                                :name="isHamburgerOpenSearch ? 'akar-icons:cross' : 'akar-icons:search'"
+                                class="text-white link-bijeli size-4"
+                            />
                         </div>
+
                     </div>
 
                     <NuxtLink to="/" class="ml-3"><img class="h-auto w-28" src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
@@ -157,13 +173,35 @@
                     class="overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
                 >
                     <div ref="activeDropdownRefSearch" class="border-t border-customColors-200">
-                        <div class="p-4">
-                            <UInput 
-                                icon="i-heroicons-magnifying-glass-20-solid" 
-                                :trailing="true" 
-                                placeholder="Pretraži proizvode..." 
-                                class="overflow-hidden rounded-3xl"
+                        <div class="relative w-full px-4 py-4">
+                            <!-- Search ikona -->
+                            <Icon
+                                name="akar-icons:search"
+                                class="absolute left-8 top-1/2 -translate-y-1/2 text-white text-base pointer-events-none"
                             />
+
+                            <!-- Input -->
+                            <input
+                                v-model="searchTerm"
+                                type="text"
+                                placeholder="Pretraži proizvode..."
+                                class="w-full pl-12 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-sm text-customColors-400 placeholder-customColors-400 focus:outline-none focus:ring-0"
+                                @keyup.enter="submitSearch"
+                            />
+
+                            <!-- X za čišćenje -->
+                            <Icon
+                                v-if="searchTerm"
+                                name="akar-icons:cross"
+                                class="absolute right-8 top-1/2 -translate-y-1/2 text-white text-base cursor-pointer"
+                                @click.stop="searchTerm = ''"
+                            />
+                        </div>
+                        <hr class="bg-blue-800 h-[1.4px] w-full relative border-0" />
+                        
+                        <!-- Info poruka -->
+                        <div class="max-w-full mx-auto mt-4 px-4 py-2 text-sm text-customColors-400 text-center font-light">
+                            Pritisni Enter za prikaz rezultata pretrage
                         </div>
                     </div>
                 </div>
