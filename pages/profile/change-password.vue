@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import type { IUser } from '~/types/user'
+import { z } from 'zod'
+import type { FormSubmitEvent } from '#ui/types'
+
 useSeoMeta({ title: 'Moj profil' })
 
 definePageMeta({
@@ -6,11 +10,11 @@ definePageMeta({
     middleware: 'sanctum:auth',
 })
 
-import { z } from 'zod'
-import type { FormSubmitEvent } from '#ui/types'
 
-const { api } = useAxios(true)
+const { api } = useAxios()
 type Schema = z.output<typeof schema>
+const user = useSanctumUser() as Ref<IUser | null>
+const toast = useToast()
 
 useSeoMeta({
     title: 'Zaboravljena lozinka',
@@ -21,27 +25,31 @@ const schema = z.object({
 })
 
 const state = reactive({
-    email: undefined,
+    email: user.value?.email,
 })
 
-const errors = ref('')
 const loading = ref(false)
-const message = ref('')
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
     loading.value = true
 
-    errors.value = ''
-    message.value = ''
-
     api.post('/forgot-password', event.data)
         .then(({ data }) => {
-            message.value = data.status
             loading.value = false
+            toast.add({
+                title: 'Uspješno Vam je poslan email!',
+                color: 'green',
+                timeout: 3000,
+            })
         })
         .catch((err) => {
             loading.value = false
-            errors.value = err.response.data.errors.email[0]
+            toast.add({
+                title: 'Error',
+                description: 'Greška',
+                color: 'red',
+                timeout: 3000,
+            })
         })
 }
 </script>
@@ -63,13 +71,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                         </div>
 
                         <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-                            <div class="text-red-500" v-if="errors">{{ errors }}</div>
-
                             <UFormGroup label="Email" name="email">
                                 <UInput v-model="state.email" />
                             </UFormGroup>
-
-                            <p class="text-green" v-if="message != ''">{{ message }}</p>
 
                             <UButton
                                 :disabled="loading"

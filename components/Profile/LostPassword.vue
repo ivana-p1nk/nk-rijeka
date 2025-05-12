@@ -1,44 +1,49 @@
 <script setup lang="ts">
-import { z } from "zod";
-import type { FormSubmitEvent } from "#ui/types";
+    import { z } from "zod";
+    import type { FormSubmitEvent } from "#ui/types";
 
-const { api } = useAxios(true);
-type Schema = z.output<typeof schema>;
+    const { api } = useAxios();
+    type Schema = z.output<typeof schema>;
+    const toast = useToast()
 
-useSeoMeta({
-    title: "Zaboravljena lozinka",
-});
+    useSeoMeta({
+        title: "Zaboravljena lozinka",
+    });
 
-const schema = z.object({
-    email: z
-        .string({ message: "Ovo polje je obavezno!" })
-        .email("Invalid email"),
-});
+    const schema = z.object({
+        email: z
+            .string({ message: "Ovo polje je obavezno!" })
+            .email("Invalid email"),
+    });
 
-const state = reactive({
-    email: undefined,
-});
+    const state = reactive({
+        email: undefined,
+    });
 
-const errors = ref("");
-const loading = ref(false);
-const message = ref("");
+    const loading = ref(false);
 
-async function onSubmit(event: FormSubmitEvent<Schema>) {
-    loading.value = true;
+    async function onSubmit(event: FormSubmitEvent<Schema>) {
+        loading.value = true;
 
-    errors.value = "";
-    message.value = "";
-
-    api.post("/forgot-password", event.data)
-        .then(({ data }) => {
-            message.value = data.status;
-            loading.value = false;
-        })
-        .catch((err) => {
-            loading.value = false;
-            errors.value = err.response.data.errors.email[0];
-        });
-}
+        api.post("/forgot-password", event.data)
+            .then(({ data }) => {
+                loading.value = false;
+                toast.add({
+                    title: 'Uspješno Vam je poslan email!',
+                    color: 'green',
+                    timeout: 3000,
+                })
+            })
+            .catch((err) => {
+                loading.value = false;
+                toast.add({
+                    title: 'Error',
+                    description: 'Greška',
+                    color: 'red',
+                    timeout: 3000,
+                })
+            });
+    }
 </script>
 
 <template>
@@ -60,13 +65,9 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                 class="space-y-4"
                 @submit="onSubmit"
             >
-                <div class="text-red-500" v-if="errors">{{ errors }}</div>
-
                 <UFormGroup label="Email" name="email">
                     <UInput v-model="state.email" />
                 </UFormGroup>
-
-                <p class="text-green" v-if="message != ''">{{ message }}</p>
 
                 <UButton
                     :disabled="loading"

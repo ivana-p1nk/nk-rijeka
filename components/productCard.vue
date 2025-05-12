@@ -91,8 +91,12 @@ const addToCart = () => {
                     {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 
+                <div v-if="product.quantity == 0" class="bg-red-500 text-white rounded-md py-2">
+                    RASPRODANO
+                </div>
+
                 <UButton
-                    v-if="product.variations?.length < 1"
+                    v-if="product.variations?.length < 1 && product.quantity > 0"
                     @click="addToCart"
                     size="lg"
                     variant="solid"

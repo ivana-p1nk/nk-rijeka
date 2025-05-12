@@ -199,7 +199,10 @@ const twitterShare = computed(
                     </div>
                 </div>
 
-                <div class="border-b border-neutralBlue-100">
+                <div v-if="product.quantity == 0" class="bg-red-500 text-white rounded-md py-2 px-5 w-fit">
+                    RASPRODANO
+                </div>
+                <div v-else class="border-b border-neutralBlue-100">
                     <div v-if="product.variations && product.variations.length">
                         <div v-if="product.personalization_enable">
                             <!-- Personaliziraj -->
