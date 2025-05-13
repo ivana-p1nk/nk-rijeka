@@ -115,7 +115,9 @@ const goToPreviousPage = () => {
         </div>
 
         <div class="pb-12 mx-auto">
-            <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            <NuxtLink to="/">
+                <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            </NuxtLink>
             <h2 class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center">
                 Kreiraj račun
             </h2>
