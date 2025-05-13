@@ -188,7 +188,17 @@ const twitterShare = computed(
                             REDOVNA CIJENA
                         </p>
                     </div>
-                    <div class="flex flex-row gap-3">
+
+                    <div v-if="product.price_discount" class="flex flex-row gap-3">
+                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">
+                            {{ product.price_discount.toFixed(2).replace('.', ',') }} €
+                        </p>
+                        <p
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
+                            AKCIJSKA CIJENA
+                        </p>
+                    </div>
+                    <div v-else class="flex flex-row gap-3">
                         <p class="font-semibold text-blue-300 font-saira text-h4-normal">
                             {{ product.member_price.toFixed(2).replace('.', ',') }} €
                         </p>

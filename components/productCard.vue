@@ -66,24 +66,32 @@ const addToCart = () => {
                     {{ product.price.toFixed(2).replace('.', ',') }} €
                 </p>
                 <span class="font-bold text-blue-900 font-saira text-h6-normal">|</span>
-                <p class="font-bold text-blue-500 font-saira text-h6-normal">
-                    {{ product.member_price.toFixed(2).replace('.', ',') }} €
-                </p>
-                <UPopover
-                    :popper="{ placement: 'top-start' }"
-                    :ui="{ ring: 'ring-0', background: 'dark:bg-blue-50 bg-blue-50' }"
-                >
-                    <UButton
-                        trailing-icon="mynaui:info-hexagon"
-                        class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
-                    />
 
-                    <template #panel>
-                        <div class="px-3 py-2">
-                            <p class="font-bold text-gray-900 font-roboto text-body4">Cijena za članove</p>
-                        </div>
-                    </template>
-                </UPopover>
+                <div v-if="product.price_discount">
+                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                        {{ product.price_discount.toFixed(2).replace('.', ',') }} €
+                    </p>
+                </div>
+                <div v-else class="flex flex-row justify-center gap-2">
+                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                        {{ product.member_price.toFixed(2).replace('.', ',') }} €
+                    </p>
+                    <UPopover
+                        :popper="{ placement: 'top-start' }"
+                        :ui="{ ring: 'ring-0', background: 'dark:bg-blue-50 bg-blue-50' }"
+                    >
+                        <UButton
+                            trailing-icon="mynaui:info-hexagon"
+                            class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
+                        />
+    
+                        <template #panel>
+                            <div class="px-3 py-2">
+                                <p class="font-bold text-gray-900 font-roboto text-body4">Cijena za članove</p>
+                            </div>
+                        </template>
+                    </UPopover>
+                </div>
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
