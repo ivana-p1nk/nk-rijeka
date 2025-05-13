@@ -377,7 +377,7 @@
                             </li>
                             <template v-if="activeTab === 'pokloni'">
                                 <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Školski asortiman</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Dom</NuxtLink></li>
                                 <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Privjesci</NuxtLink></li>
                                 <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Zastave</NuxtLink></li>
                                 <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Čestitke</NuxtLink></li>
