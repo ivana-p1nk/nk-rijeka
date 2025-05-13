@@ -141,8 +141,9 @@
         
         <!--PERSONALIZIRAJ mobile -->
         <div class="relative mx-3 mb-20 mt-36 block md:hidden">
-            <div class="mx-5 bg-dark-blue-gradient2 py-20 px-0 sm:px-20 rounded-2xl flex flex-col items-center">
-                <img class="-mt-36 w-full mb-8" src="~/assets/images/dresovi.png" alt="Dresovi" />
+            <img class="-mt-20 w-full -mb-72 block sm:hidden" src="~/assets/images/dresovi.png" alt="Dresovi" />
+            <div class="mx-5 bg-dark-blue-gradient2 pb-10 sm:pb-20 pt-80 sm:pt-10 px-0 sm:px-20 rounded-2xl flex flex-col items-center">
+                <img class="-mt-36 w-full mb-8 hidden sm:block" src="~/assets/images/dresovi.png" alt="Dresovi" />
                 <h1 class="mb-2 font-bold uppercase font-saira text-h2-display text-blue-50 text-center">PERSONALIZIRAJ <br>SVOJ DRES</h1>
                 <p class="font-normal text-white font-roboto text-body1 mb-7 text-center px-5 sm:px-0">Tvoj dres, tvoja pravila. Personaliziraj svoj omiljeni dres i učini ga jedinstvenim.</p>
                 <NuxtLink to="/" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
