@@ -68,11 +68,29 @@ onMounted(() => {
             </div>
 
             <div class="container pt-8 mx-auto border-t border-neutralBlue-100">
-                <div class="flex flex-col items-center gap-1 pb-10">
-                    <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
-                    <p class="font-normal text-blue-900 font-roboto text-body1">
-                        Počasti se novim dresom, odabri atraktivan <br />poklon, ne propusti promotivne cijene...
-                    </p>
+                <div class="flex flex-col md:flex-row justify-between gap-4">
+                    <div class="flex flex-col gap-2 md:flex-row md:gap-9">
+                        <div class="flex flex-row justify-between items-center">
+                            <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">
+                            BESTSELLERI
+                            </h1>
+                            <NuxtLink
+                            to="/categories/bestselleri"
+                            class="uppercase btn-secondary xs h-fit md:hidden"
+                            >
+                            Pogledaj sve
+                            </NuxtLink>
+                        </div>
+                        <p class="font-normal text-blue-900 font-roboto text-body1">
+                            Počasti se novim dresom, odabri atraktivan <br>poklon, ne propusti promotivne cijene...
+                        </p>
+                    </div>
+                    <NuxtLink
+                        to="/categories/bestselleri"
+                        class="uppercase btn-secondary xs h-fit hidden md:block self-center"
+                        >
+                        Pogledaj sve
+                    </NuxtLink>
                 </div>
 
                 <div v-if="loadingBestsellers" class="text-center text-gray-500">Učitavanje bestsellera...</div>
