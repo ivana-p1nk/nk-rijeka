@@ -58,6 +58,14 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     <section class="py-40">
         <div class="container mx-auto">
             <div class="relative mx-10">
+                <p class="font-normal text-blue-900 font-roboto text-body2 pb-1 pt-10">
+					<NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+					<span>Moj račun</span>
+				</p>
+				<h1 class="font-saira font-medium text-h1-normal text-gray-900 pb-6 md:pb-10">
+					Moj račun
+				</h1>
+                
                 <div class="flex flex-wrap">
                     <div class="w-full mb-8 lg:w-1/3 lg:mb-0">
                         <div class="lg:mr-10">
@@ -70,16 +78,18 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                             <h2 class="text-4xl font-bold leading-9 tracking-tight text-center">Resetiranje lozinke</h2>
                         </div>
 
-                        <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-                            <UFormGroup label="Email" name="email">
-                                <UInput v-model="state.email" />
+                        <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl mx-auto" @submit="onSubmit">
+                            <UFormGroup label="Email" name="email" :ui="{
+                                label: {
+                                    base: 'text-[#111827] font-roboto font-normal text-sm',
+                                },
+                            }">
+                                <UInput v-model="state.email" variant="outline" size="lg" />
                             </UFormGroup>
 
-                            <UButton
-                                :disabled="loading"
-                                type="submit"
-                                class="disabled:bg-red-500 disabled:text-white btn btn-primary !bg-blue-600"
-                            >
+                            <UButton :disabled="loading" :loading="loading" type="submit" block size="lg" :ui="{
+                                base: '!font-saira !bg-blue-600 uppercase !font-bold !text-white !rounded-[6px]',
+                            }">
                                 Pošalji email za resetiranje lozinke
                             </UButton>
                         </UForm>

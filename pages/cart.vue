@@ -133,7 +133,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         .then(({ data }) => {
             if (data.status != 'error') {
                 cartStore.clear_cart()
-                window.location.href = `${config.public.baseUrl}pay/${data.order_id}`
+                window.location.href = `${config.public.baseUrl}/pay/${data.order_id}`
             } else {
                 toast.add({
                     title: 'greška, javite se korisničkoj podršci.',
