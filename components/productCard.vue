@@ -91,7 +91,7 @@ const addToCart = () => {
                     {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 
-                <div v-if="product.quantity == 0" class="bg-red-500 text-white rounded-md py-2">
+                <div v-if="product.quantity == 0" class="bg-red-500 font-saira font-semibold text-white  rounded-md py-2">
                     RASPRODANO
                 </div>
 
