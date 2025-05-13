@@ -133,7 +133,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         .then(({ data }) => {
             if (data.status != 'error') {
                 cartStore.clear_cart()
-                window.location.href = `${config.public.baseUrl}pay/${data.order_id}`
+                window.location.href = `${config.public.baseUrl}/pay/${data.order_id}`
             } else {
                 toast.add({
                     title: 'greška, javite se korisničkoj podršci.',
@@ -157,19 +157,19 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-    <div class="py-20 mx-10 mt-20 xl:mx-auto max-w-7xl">
+    <div class="py-20 px-4 mt-20 container mx-auto">
         <h1 class="mb-10 font-medium text-blue-900 font-saira text-h1-normal">Košarica</h1>
 
         <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
             <div class="col-span-12">
                 <h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
             </div>
-            <div class="col-span-7 h-fit">
+            <div class="col-span-12 md:col-span-7 h-fit">
                 <CartListProducts />
 
                 <h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Adresa za naplatu</h2>
 
-                <div class="px-12 py-10 bg-white shadow-lg rounded-2xl">
+                <div class="md:px-12 md:py-10 py-5 px-3 bg-white shadow-lg rounded-2xl">
                     <h2 class="text-xl font-bold text-blue-900 font-saira">Podaci o kupcu</h2>
 
                     <div class="w-full pt-4">
@@ -179,7 +179,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                     </div>
                 </div>
             </div>
-            <div class="col-span-5">
+            <div class="col-span-12 md:col-span-5">
                 <CartTotal @useCoupon="applyCoupon" :submitForm="submitForm" :term="updateTerms"
                     :termMessage="termValidationMessage" :loadingForm="loadingForm" />
             </div>

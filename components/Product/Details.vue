@@ -199,10 +199,7 @@ const twitterShare = computed(
                     </div>
                 </div>
 
-                <div v-if="product.quantity == 0" class="bg-red-500 text-white rounded-md py-2 px-5 w-fit">
-                    RASPRODANO
-                </div>
-                <div v-else class="border-b border-neutralBlue-100">
+                <div class="border-b border-neutralBlue-100">
                     <div v-if="product.variations && product.variations.length">
                         <div v-if="product.personalization_enable">
                             <!-- Personaliziraj -->
@@ -238,50 +235,84 @@ const twitterShare = computed(
                     </div>
 
 
-                    <div class="flex flex-row gap-4 mt-7 pb-7">
+                    <div class="mt-7 pb-7">
                         <!--količina-->
 
-                        <div v-if="product.variations && product.variations.length"
-                            class="flex flex-row items-center gap-1">
-                            <button
-                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)">
-                                <UIcon name="heroicons:minus" />
-                            </button>
-                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                type="text" :min="selectedVariation?.minimum_quantity || 1"
-                                :value="cartStore.orderQuantity" disabled />
-                            <button
-                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.increment()">
-                                <UIcon name="heroicons:plus" />
-                            </button>
-                        </div>
-                        <div v-else class="flex flex-row items-center gap-1">
-                            <button
-                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.decrement(product.minimum_quantity || 1)">
-                                <UIcon name="heroicons:minus" />
-                            </button>
-                            <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                type="text" :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
-                            <button
-                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                @click="cartStore.increment()">
-                                <UIcon name="heroicons:plus" />
-                            </button>
-                        </div>
+                        <div v-if="product.variations && product.variations.length">
+                            <div v-if="selectedVariation?.quantity == 0" class="bg-red-500 text-white rounded-md py-2 px-5 w-fit">
+                                RASPRODANO
+                            </div>
+                            <div v-else class="flex items-center gap-4">
+                                <div class="flex items-center gap-1">
+                                    <button
+                                        class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                        @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)">
+                                        <UIcon name="heroicons:minus" />
+                                    </button>
+                                    <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                        type="text" :min="selectedVariation?.minimum_quantity || 1"
+                                        :value="cartStore.orderQuantity" disabled />
+                                    <button
+                                        class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                        @click="cartStore.increment()">
+                                        <UIcon name="heroicons:plus" />
+                                    </button>
+                                </div>
 
-                        <UButton @click="addToCart" size="lg" variant="solid" :ui="{
-                            base: 'text-white font-saira font-semibold',
-                            variant: {
-                                solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
-                            },
-                        }"
-                            class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold">
-                            Dodaj u košaricu
-                            <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
-                        </UButton>
+                                <UButton
+                                    @click="addToCart" 
+                                    size="lg" 
+                                    variant="solid" 
+                                    :ui="{
+                                        base: 'text-white font-saira font-semibold',
+                                        variant: {
+                                            solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
+                                        },
+                                    }"
+                                    class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
+                                >
+                                    Dodaj u košaricu
+                                    <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
+                                </UButton>
+                            </div>
+                        </div>
+                        <div v-else>
+                            <div v-if="product.quantity == 0" class="bg-red-500 text-white rounded-md py-2 px-5 w-fit">
+                                RASPRODANO
+                            </div>
+                            <div v-else class="flex items-center gap-4">
+                                <div class="flex items-center gap-1">
+                                    <button
+                                        class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                        @click="cartStore.decrement(product.minimum_quantity || 1)">
+                                        <UIcon name="heroicons:minus" />
+                                    </button>
+                                    <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                        type="text" :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
+                                    <button
+                                        class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                        @click="cartStore.increment()">
+                                        <UIcon name="heroicons:plus" />
+                                    </button>
+                                </div>
+                                
+                                <UButton
+                                    @click="addToCart" 
+                                    size="lg" 
+                                    variant="solid" 
+                                    :ui="{
+                                        base: 'text-white font-saira font-semibold',
+                                        variant: {
+                                            solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
+                                        },
+                                    }"
+                                    class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
+                                >
+                                    Dodaj u košaricu
+                                    <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
+                                </UButton>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

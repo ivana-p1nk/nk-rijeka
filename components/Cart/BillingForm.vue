@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import countriesJson from '@/assets/countries.json';
+
 defineProps<{
     form
 }>();
 
-const countries = ['United States', 'Canada', 'Mexico']
+const countries = countriesJson.map(c => ({
+  label: c.name,
+  value: c.value
+}));
 </script>
 
 <template>
@@ -25,7 +30,7 @@ const countries = ['United States', 'Canada', 'Mexico']
 
         <!-- Country/Region -->
         <UFormGroup label="Država" name="country" class="col-span-2">
-            <UInput v-model="form.country" placeholder="Croatia" />
+            <USelect v-model="form.country" :options="countries" placeholder="Odaberi državu" />
         </UFormGroup>
 
         <!-- City -->
@@ -65,7 +70,7 @@ const countries = ['United States', 'Canada', 'Mexico']
 
             <!-- Country/Region -->
             <UFormGroup label="Država" name="anotherCountry" class="col-span-2">
-                <UInput v-model="form.anotherCountry" placeholder="Croatia" />
+                <USelect v-model="form.anotherCountry" :options="countries" placeholder="Odaberi državu" />
             </UFormGroup>
 
             <!-- City -->

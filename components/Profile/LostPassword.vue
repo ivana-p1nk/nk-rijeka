@@ -65,18 +65,17 @@
                 class="space-y-4"
                 @submit="onSubmit"
             >
-                <UFormGroup label="Email" name="email">
-                    <UInput v-model="state.email" />
+                <UFormGroup label="Email" name="email" :ui="{
+                    label: {
+                        base: 'text-[#111827] font-roboto font-normal text-sm',
+                    },
+                }">
+                    <UInput v-model="state.email" variant="outline" size="lg" />
                 </UFormGroup>
 
-                <UButton
-                    :disabled="loading"
-                    type="submit"
-                    class="w-full large uppercase block text-center"
-                    :ui="{
-                        base: '!font-saira !bg-blue-600 !font-bold !text-white !rounded-[6px]',
-                    }"
-                >
+                <UButton :disabled="loading" :loading="loading" type="submit" block size="lg" :ui="{
+                    base: '!font-saira !bg-blue-600 uppercase !font-bold !text-white !rounded-[6px]',
+                }">
                     Pošalji email za resetiranje lozinke
                 </UButton>
             </UForm>

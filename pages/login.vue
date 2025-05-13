@@ -81,7 +81,9 @@ const goToPreviousPage = () => {
         </div>
 
         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
-            <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            <NuxtLink to="/">
+                <img src="/assets/images/grbrijeka.svg" alt="logo" class="w-20 h-20 mx-auto" />
+            </NuxtLink>
             <h2 class="text-5xl mt-8 font-medium uppercase font-saira leading-9 tracking-tight text-center">Prijava</h2>
 
             <p class="text-center pt-4">

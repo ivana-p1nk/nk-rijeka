@@ -34,7 +34,7 @@ const fetchOrders = async () => {
 onMounted(fetchOrders)
 
 const columns = [
-    { key: 'id', label: 'ID' },
+    { key: 'order_number', label: 'Narudžba' },
     { key: 'status', label: 'Status' },
     { key: 'total_price', label: 'Cijena' },
     { key: 'date', label: 'Datum' },
@@ -73,6 +73,14 @@ watch(orders, () => {
     <section class="py-40">
         <div class="container mx-auto">
             <div class="relative mx-10">
+                <p class="font-normal text-blue-900 font-roboto text-body2 pb-1 pt-10">
+					<NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
+					<span>Moj račun</span>
+				</p>
+				<h1 class="font-saira font-medium text-h1-normal text-gray-900 pb-6 md:pb-10">
+					Moj račun
+				</h1>
+                
                 <div class="flex flex-wrap">
                     <div class="w-full mb-8 lg:w-1/3 lg:mb-0">
                         <div class="lg:mr-10">
@@ -80,8 +88,8 @@ watch(orders, () => {
                         </div>
                     </div>
 
-                    <div class="w-full px-10 py-10 bg-white rounded lg:w-2/3 custom-shadow">
-                        <div>NARUDŽBE</div>
+                    <div class="w-full px-3 py-4 md:px-10 md:py-10 bg-white rounded lg:w-2/3 custom-shadow">
+                        <h1 class="text-2xl font-bold pb-10">NARUDŽBE</h1>
 
                         <div>
                             <div v-if="loading != true && orders.length === 0">

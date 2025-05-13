@@ -1,5 +1,6 @@
 export interface IOrder {
     id: string
+    order_number: number
     status: string
     total_price: number
     date: string
