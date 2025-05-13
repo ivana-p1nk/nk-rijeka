@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { ref, computed, toValue } from 'vue'
     import { useCartStore } from '~/composables/useCart';
+    import { closeTabMenu } from '~/composables/activeTabNavigation'
 
     const cartStore = useCartStore();
 
@@ -245,9 +246,9 @@
                                 </NuxtLink>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2024-2025">2024./2025.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2023-2024">2023./2024.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi">Starije sezone</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi" @click="closeTabMenu">Starije sezone</NuxtLink></li>
                             </template>
 
                             <!-- ODJEĆA -->

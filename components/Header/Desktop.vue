@@ -9,7 +9,8 @@ const favoriteStore = useFavoritesStore()
 
 const setActive = (tab: string) => {
   if (activetab.value === tab) {
-    openMenu.value = !openMenu.value
+    openMenu.value = false
+    activetab.value = '' 
   } else {
     activetab.value = tab
     openMenu.value = true

@@ -12,3 +12,8 @@ export const setActiveTab = (newTab: string) => {
     activetab.value = newTab;
     openMenu.value = true;
 };
+
+export const closeTabMenu = () => {
+  activetab.value = '';
+  openMenu.value = false;
+};
