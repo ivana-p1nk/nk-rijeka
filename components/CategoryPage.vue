@@ -88,24 +88,34 @@ const subcategories = computed(() => {
 
         <!-- Proizvodi -->
         <div class="col-span-1 products md:col-span-4 mt-8">
-            <div class="flex flex-row justify-between">
+            <div class="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
                 <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ totalProducts }}</p>
 
                 <USelect
-                    v-model="sort"
-                    :options="[
-                        { value: 'Najnoviji', label: 'Poredaj po najnovijem' },
-                        { value: 'popular', label: 'Poredaj po popularnosti' },
-                        { value: 'S nižom cijenom', label: 'Poredaj po cijeni: od najniže do najviše' },
-                        { value: 'S višom cijenom', label: 'Poredaj po cijeni: od najviše do najniže' },
-                    ]"
-                    class="border border-gray-300 px-3 py-2 rounded text-sm"
-                />
+                        v-model="sort"
+                        :options="[
+                            { value: 'Najnoviji', label: 'Poredaj po najnovijem' },
+                            { value: 'popular', label: 'Poredaj po popularnosti' },
+                            { value: 'S nižom cijenom', label: 'Poredaj po cijeni: od najniže do najviše' },
+                            { value: 'S višom cijenom', label: 'Poredaj po cijeni: od najviše do najniže' },
+                        ]"
+                        :ui="{
+                            color: {
+                                white: {
+                                    outline:
+                                        'shadow-none dark:shadow-none dark:text-gray-900 text-gray-900 dark:bg-white bg-white dark:focus:ring-blue-500 focus:ring-blue-500 dark:ring-neutralBlue-200 ring-neutralBlue-200 font-roboto font-normal text-body3',
+                                },
+                            },
+                            icon: {
+                                base: 'text-neutralBlue-600 dark:text-neutralBlue-600',
+                            },
+                        }"
+                    />
             </div>
 
             <div
                 v-if="products.length > 0"
-                class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-8"
+                class="pt-8 -mx-3 sm:mx-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-10"
             >
                 <ProductCard
                     v-for="(product, index) in products"
@@ -113,7 +123,9 @@ const subcategories = computed(() => {
                     :product="product"
                     class="w-full"
                 />
+
             </div>
+            
             <div v-else class="pb-12 text-body2 text-neutralBlue-950">
                 Nažalost, trenutno nema dostupnih proizvoda u ovoj kategoriji.
             </div>

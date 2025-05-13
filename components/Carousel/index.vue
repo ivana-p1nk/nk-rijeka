@@ -16,10 +16,10 @@
 <template>
     <div class="relative">
         <Swiper
-            :slidesPerView="1"
+            :slidesPerView="2"
             :breakpoints="{
                 640: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                 },
                 768: {
                     slidesPerView: 2,

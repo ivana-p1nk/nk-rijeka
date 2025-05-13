@@ -51,11 +51,13 @@ onMounted(() => {
 
             <div
                 v-if="favoriteStore.favorite_products.length > 0"
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-10 py-4 pb-10"
+                class="-mx-3 sm:mx-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-10 py-4 pb-10"
             >
                 <div v-for="item in favoriteStore.favorite_products" :key="`${item.id}`">
                     <ProductCard :product="item" />
                 </div>
+
+
             </div>
 
             <div v-else class="text-center py-10 text-blue-900 text-lg">
