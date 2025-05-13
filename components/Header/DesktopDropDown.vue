@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                     <div class="basis-1/4">
-                        <h5 class="pb-4 heading-subtitle">NOVE HOODICE</h5>
+                        <h5 class="pb-4 heading-subtitle">HOODICE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
                             <li class="heading-sub"><NuxtLink to="#">Muškarci</NuxtLink></li>
@@ -140,7 +140,7 @@
                 <div v-if="activetab === 'pokloni' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="pokloni">
                     <ul class="flex flex-col gap-3">
                         <li class="heading-sub"><NuxtLink to="#">Školski asortiman</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="#">Kućni asortiman</NuxtLink></li>
+                        <li class="heading-sub"><NuxtLink to="#">Dom</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Privjesci</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Zastave</NuxtLink></li>
                         <li class="heading-sub"><NuxtLink to="#">Čestitke</NuxtLink></li>
