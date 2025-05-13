@@ -19,7 +19,16 @@
                     </p>
                 </div>
                 <div class="w-full md:w-3/5 xl:w-3/4 relative">
-                    <img src="/assets/images/map1.jpg" class="h-full w-full object-cover rounded-bl-2xl rounded-br-2xl md:rounded-bl-none md:rounded-tr-2xl">
+                    <!-- Desktop slika -->
+                    <img 
+                    src="/assets/images/map1.jpg" 
+                    class="hidden md:block h-full w-full object-cover rounded-tr-2xl"
+                    />
+                    <!-- Mobile slika -->
+                    <img 
+                    src="/assets/images/map-1-mob.jpg" 
+                    class="block md:hidden h-full w-full object-cover rounded-bl-2xl rounded-br-2xl"
+                    />
                     <a href="https://www.google.com/maps/dir//Stadion+Rujevica+Rujevica+10+51000,+Rijeka+Hrvatska/@45.3478904,14.4022172,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x4764a6c6a45cd13f:0x698d0ad11598ac87!2m2!1d14.4022172!2d45.3478904?entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
                         target="_blank" class="uppercase btn-primary large absolute bottom-6 left-6">
                         <Icon name="majesticons:map-marker-area-line" class="mb-[-2px] mr-1" /> GOOGLE MAPS
@@ -74,7 +83,16 @@
                     <img src="/assets/images/fan-shop.jpg" alt="Fan Shop trgovina" class="">
                 </div>
                 <div class="w-full md:w-3/5 xl:w-3/4 relative">
-                    <img src="/assets/images/map2.jpg" class="w-full h-full object-cover rounded-bl-2xl rounded-br-2xl md:rounded-bl-none md:rounded-tr-2xl">
+                    <!-- Desktop slika -->
+                    <img 
+                    src="/assets/images/map2.jpg" 
+                    class="hidden md:block w-full h-full object-cover rounded-tr-2xl"
+                    />
+                    <!-- Mobile slika -->
+                    <img 
+                    src="/assets/images/map-2-mob.jpg" 
+                    class="block md:hidden w-full h-full object-cover rounded-bl-2xl rounded-br-2xl"
+                    />
                     <a href="https://www.google.hr/maps/place/Ul.+Pavla+Rittera+Vitezovi%C4%87a+1,+51000,+Rijeka/@45.3261946,14.4433704,17z/data=!3m1!4b1!4m6!3m5!1s0x4764a0e2c016ca2b:0x8122a0a3e427c9fa!8m2!3d45.3261946!4d14.4459453!16s%2Fg%2F11q2n8cd5g?hl=hr&entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
                         target="_blank" class="uppercase btn-primary large absolute bottom-6 left-6 z-10">
                         <Icon name="majesticons:map-marker-area-line" class="mb-[-2px] mr-1" /> GOOGLE MAPS

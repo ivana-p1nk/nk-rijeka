@@ -3,6 +3,9 @@ import type { IProduct } from '~/types/product'
 const config = useRuntimeConfig()
 import ProductCard from '@/components/productCard.vue'
 import { useFavoritesStore } from '~/composables/favorites'
+import { useProductsByCategory } from '~/composables/useProductsByCategory'
+
+const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
 
 const favoriteStore = useFavoritesStore()
 const products = ref<IProduct[]>([])
@@ -72,7 +75,8 @@ onMounted(() => {
                     </p>
                 </div>
 
-                <Carousel :products="products" class="pt-6" />
+                <div v-if="loadingBestsellers" class="text-center text-gray-500">Učitavanje bestsellera...</div>
+                <Carousel v-else :products="bestsellerProducts" class="pt-6" />
             </div>
         </div>
     </div>

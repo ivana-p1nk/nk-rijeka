@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import type { IProduct } from '~/types/product'
+    import { useProductsByCategory } from '~/composables/useProductsByCategory'
 
+    const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
     const { api } = useAxios()
     const route = useRoute()
 
@@ -46,6 +48,8 @@
     useHead({
         title: `Rezultati za: ${searchTerm.value}`,
     })
+
+   
 </script>
 
 <template>
@@ -78,7 +82,8 @@
                     </p>
                 </div>
 
-                <Carousel :products="products" class="pt-6" />
+                <div v-if="loadingBestsellers" class="text-center text-gray-500">Učitavanje bestsellera...</div>
+                <Carousel v-else :products="bestsellerProducts" class="pt-6" />
             </div>
         </div>
     </div>

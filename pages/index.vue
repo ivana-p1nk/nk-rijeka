@@ -1,45 +1,26 @@
 <script setup lang="ts">
-    import type { IProduct } from '~/types/product';
+    import { useProductsByCategory } from '~/composables/useProductsByCategory'
+
+    const { products: bestsellerProducts } = useProductsByCategory(33)
+    const { products: newProducts } = useProductsByCategory(34)
+
     const config = useRuntimeConfig();
 
-    const products = ref<IProduct[]>([]);
-	const loading = ref(false);
-
-	const fetchData = async () => {
-		loading.value = true;
-
-		try {
-			const { data: productData } = await useFetch(`${config.public.url}/products`, {
-                params: {
-                    categories: 33
-                }
-            });
-
-			// @ts-ignore
-			products.value = productData.value.data || [];
-		
-		} catch (error) {
-		loading.value = false;
-			console.error('Došlo je do greške pri učitavanju proizvoda:', error);
-		} finally {
-			loading.value = false;
-		}
-	};
-
     const carouselNew = ref()
+    const carouselBest = ref()
 
 	onMounted(() => {
-		fetchData();
+		const initCarousel = (carouselRef: any) => {
 
-        setInterval(() => {
-            if (!carouselNew.value) return
-            if (carouselNew.value.page === carouselNew.value.pages) {
-                return carouselNew.value.select(0)
-            }
-            carouselNew.value.next()
-        }, 3000)
+            setInterval(() => {
+                if (!carouselRef.value) return
+                if (carouselRef.value.page === carouselRef.value.pages) {
+                    return carouselRef.value.select(0)
+                }
+                carouselRef.value.next()
+            }, 3000)
+        }
 	});
-
 
     /*search*/
     const router = useRouter()
@@ -108,7 +89,7 @@
                         BESTSELLERI
                         </h1>
                         <NuxtLink
-                        to="/products"
+                        to="/categories/bestselleri"
                         class="uppercase btn-secondary xs h-fit md:hidden"
                         >
                         Pogledaj sve
@@ -119,14 +100,14 @@
                     </p>
                 </div>
                 <NuxtLink
-                to="/products"
+                to="/categories/bestselleri"
                 class="uppercase btn-secondary xs h-fit hidden md:block self-center"
                 >
                 Pogledaj sve
                 </NuxtLink>
             </div>
             
-            <Carousel :products="products" />
+            <Carousel :products="bestsellerProducts" ref="carouselBest"/>
         </div>
 
         <!--PERSONALIZIRAJ dekstop -->
@@ -160,7 +141,7 @@
                         NOVO U PONUDI
                         </h1>
                         <NuxtLink
-                        to="/products"
+                        to="/categories/novo-u-ponudi"
                         class="uppercase btn-secondary xs h-fit md:hidden"
                         >
                         Pogledaj sve
@@ -172,13 +153,13 @@
                     </p>
                 </div>
                 <NuxtLink
-                to="/products"
+                to="/categories/novo-u-ponudi"
                 class="uppercase btn-secondary xs h-fit hidden md:block self-center"
                 >
                 Pogledaj sve
                 </NuxtLink>
             </div>
-            <Carousel :products="products" />
+            <Carousel :products="newProducts"  ref="carouselNew"/>
         </div>
 
 
