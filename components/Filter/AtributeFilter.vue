@@ -31,15 +31,25 @@ watch(filters, () => {
   emit('update:filters', { ...filters });
 }, { deep: true });
 
-const allProducts = computed(() => props.products);
+import { ref, onMounted } from 'vue'
 
-const availableVariations = computed(() => {
-  const allVariations = allProducts.value
+const availableVariations = ref<string[]>([])
+
+onMounted(() => {
+  const allVariations = props.products
     .flatMap(p => p.variations || [])
-    .map(v => v.packaging);
+    .map(v => v.packaging)
+  availableVariations.value = Array.from(new Set(allVariations))
+})
 
-  return Array.from(new Set(allVariations));
-});
+watch(() => props.products, (newProducts) => {
+  if (availableVariations.value.length === 0 && newProducts.length > 0) {
+    const allVariations = newProducts
+      .flatMap(p => p.variations || [])
+      .map(v => v.packaging)
+    availableVariations.value = Array.from(new Set(allVariations))
+  }
+}, { immediate: true })
 
 const availablePriceRanges = computed(() => {
   const ranges = [
