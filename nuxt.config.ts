@@ -18,11 +18,10 @@ export default defineNuxtConfig({
         },
     },
 
-    /*
     devServer: {
         host: 'web.nkrijeka-app.test',
         port: 3000,
-    },*/
+    },
 
     runtimeConfig: {
         public: {
