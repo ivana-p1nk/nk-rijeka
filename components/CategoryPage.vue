@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ICategory } from '@/types/category'
 import type { IProduct } from '@/types/product'
-
+const { products: newProducts } = useProductsByCategory(34)
 const props = defineProps<{
     category: ICategory
     parentCategory?: ICategory
@@ -35,6 +35,8 @@ const { catslug, slug } = route.params
 const subcategories = computed(() => {
     return props.parentCategory?.sub_categories ?? props.category.sub_categories ?? []
 })
+
+
 </script>
 
 <template>
@@ -122,6 +124,7 @@ const subcategories = computed(() => {
                     :key="index"
                     :product="product"
                     class="w-full"
+                    :new-products="newProducts"
                 />
 
             </div>

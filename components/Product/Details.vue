@@ -5,10 +5,26 @@ import { useCartStore } from '~/composables/useCart'
 import Gallery from './Gallery.vue'
 import { SidebarPersonalize } from '#components'
 import { useRouter } from 'vue-router'
+import { useTagCategories } from '~/composables/useTagCategories'
+import type { IUser } from '~/types/user'
+
+const { tagProducts, tagCategoryMap } = useTagCategories()
 
 const props = defineProps<{ product: IProduct }>()
 
-import type { IUser } from '~/types/user'
+const productTags = computed(() => {
+  const tags: string[] = []
+
+  for (const [catId, tagLabel] of Object.entries(tagCategoryMap)) {
+    const isInCategory = tagProducts.value[catId as keyof typeof tagCategoryMap]
+      ?.some(p => p.id === props.product.id)
+
+    if (isInCategory) tags.push(tagLabel)
+  }
+
+  return tags
+})
+
 const user = useSanctumUser() as Ref<IUser | null>
 
 const router = useRouter()
@@ -102,10 +118,11 @@ const twitterShare = computed(
                         <Icon @click="useFavoritesStore().addFavoriteProduct(props.product)"
                             name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" />
                     </div>
-                    <p id="tag"
-                        class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">
-                        NOVO
-                    </p>
+                    <div class="flex gap-2" v-if="productTags.length">
+                        <p v-for="tag in productTags" :key="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">
+                            {{ tag }}
+                        </p>
+                    </div>
                 </div>
                 <Gallery :product="product" />
             </div>
