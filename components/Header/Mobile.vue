@@ -1,7 +1,6 @@
 <script setup lang="ts">
     import { ref, computed, toValue } from 'vue'
     import { useCartStore } from '~/composables/useCart';
-    import { closeTabMenu } from '~/composables/activeTabNavigation'
 
     const cartStore = useCartStore();
 
@@ -47,6 +46,14 @@
             dropdownHeight.value = '0px';
         }
     });
+
+
+    const closeTabMenu = () => {
+        isHamburgerOpen.value = false;
+        activeTab.value = '';
+        subActive.value = '';
+    };
+
 
     // ACCOUNT
     const isHamburgerOpenAccount = ref(false);
@@ -107,6 +114,7 @@
     onBeforeUnmount(() => {
         document.removeEventListener('click', handleClickOutside);
     });
+
     const handleClickOutside = (event: MouseEvent) => {
         if (dropdownWrapper.value && !dropdownWrapper.value.contains(event.target as Node)) {
             if(isHamburgerOpen) isHamburgerOpen.value = false;
@@ -267,9 +275,9 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'muskarci'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
                                 </template>
                                 <!-- Žene -->
                                 <li>
@@ -279,9 +287,9 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'zene'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
                                 </template>
                                 <!-- Djeca -->
                                 <li>
@@ -291,9 +299,9 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'djeca'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
                                 </template>
                                 <!-- Modni dodaci -->
                                 <li>
@@ -303,9 +311,9 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'dodaci'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Kape</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Šalovi</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Kape</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Šalovi</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
                                 </template>
                             </template>
 
@@ -326,11 +334,11 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'joma'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Hlače</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Trenerke</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Jakne</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Lopte</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hlače</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Majice</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Trenerke</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Jakne</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Lopte</NuxtLink></li>
                                 </template>
                                 <!-- hudice -->
                                 <li>
@@ -340,9 +348,9 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'novehudice'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Muškarci</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Žene</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Djeca</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Muškarci</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Žene</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Djeca</NuxtLink></li>
                                 </template>
                                 <!-- Forza fiume premium-->
                                 <li>
@@ -352,7 +360,7 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'forza'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="/categories/ff">Pogledaj kolekciju</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="/categories/ff" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
                                 </template>
 
                                 <!-- Zigman premium-->
@@ -363,7 +371,7 @@
                                     </NuxtLink>
                                 </li>
                                 <template v-if="subActive === 'zigman'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#">Pogledaj kolekciju</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
                                 </template>
                                 
 
@@ -377,12 +385,12 @@
                                 </NuxtLink>
                             </li>
                             <template v-if="activeTab === 'pokloni'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Školski asortiman</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Dom</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Privjesci</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Zastave</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Čestitke</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#">Ostalo</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Školski asortiman</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Dom</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Privjesci</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Zastave</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Čestitke</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
                             </template>
 
 
@@ -394,12 +402,12 @@
                                 </NuxtLink>
                             </li>
                             <template v-if="activeTab === 'akcije'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija">Dresovi</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija">JOMA</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo">Ostalo</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija" @click="closeTabMenu">Dresovi</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija" @click="closeTabMenu">JOMA</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
                             </template>
                         </ul>
-                        <NuxtLink to="/favorites" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">
+                        <NuxtLink to="/favorites" @click="closeTabMenu" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">
                             <span class="">FAVORITI</span>
                             <Icon name="line-md:heart" />
                         </NuxtLink>
