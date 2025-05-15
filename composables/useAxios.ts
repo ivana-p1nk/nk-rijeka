@@ -10,6 +10,7 @@ export default function useAxios() {
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
+            "Authorization": `Bearer ${config.public.token}`
         },
         withCredentials: true,
         withXSRFToken: true,
