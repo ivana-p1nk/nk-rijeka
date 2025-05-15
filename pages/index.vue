@@ -1,14 +1,15 @@
 <script setup lang="ts">
-    import { useProductsByCategory } from '~/composables/useProductsByCategory'
 
-    const { products: bestsellerProducts } = useProductsByCategory(33)
-    const { products: newProducts } = useProductsByCategory(34)
+import { useProductsByCategory } from '~/composables/useProductsByCategory'
 
-    const config = useRuntimeConfig();
+//Bestselleri (id 33)
+const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
+const carouselBest = ref()
 
-    const carouselNew = ref()
-    const carouselBest = ref()
+//Novo u ponudi (id 34)
+const { products: newProducts, loading: loadingNew } = useProductsByCategory(34)
 
+const carouselNew = ref()
 	onMounted(() => {
 		const initCarousel = (carouselRef: any) => {
 
@@ -107,7 +108,13 @@
                 </NuxtLink>
             </div>
             
-            <Carousel :products="bestsellerProducts" ref="carouselBest"/>
+
+            <div v-if="bestsellerProducts.length > 0">
+                    <Carousel :products="bestsellerProducts" class="pt-6" />
+            </div>
+            <div v-else class="text-center text-blue-900 font-roboto pt-12">
+                NEMA PROIZVODA U OVOJ KATEGORIJI
+            </div>
         </div>
 
         <!--PERSONALIZIRAJ dekstop -->
@@ -159,7 +166,12 @@
                 Pogledaj sve
                 </NuxtLink>
             </div>
-            <Carousel :products="newProducts"  ref="carouselNew"/>
+            <div v-if="newProducts.length > 0">
+                    <Carousel :products="newProducts" class="pt-6" />
+            </div>
+            <div v-else class="text-center text-blue-900 font-roboto pt-12">
+                NEMA PROIZVODA U OVOJ KATEGORIJI
+            </div>
         </div>
 
 
