@@ -11,6 +11,14 @@ const props = defineProps<{
   newProducts?: IProduct[] 
 }>();
 
+
+/*TAGOVI*/
+const { tagProducts, tagCategoryMap } = useTagCategories()
+const productTags = computed(() =>
+  getProductTags(props.product, tagProducts.value, tagCategoryMap)
+)
+
+
 const router = useRouter()
 const toast = useToast()
 const user = useSanctumUser() as Ref<IUser | null>
@@ -18,23 +26,6 @@ const user = useSanctumUser() as Ref<IUser | null>
 const favoriteStore = useFavoritesStore()
 
 const cartStore = useCartStore()
-
-
-/*TAGOVI*/
-const { tagProducts, tagCategoryMap } = useTagCategories()
-
-const productTags = computed(() => {
-  const tags: string[] = []
-
-  for (const [catId, tagLabel] of Object.entries(tagCategoryMap)) {
-    const isInCategory = tagProducts.value[catId as keyof typeof tagCategoryMap]
-      ?.some(p => p.id === props.product.id)
-
-    if (isInCategory) tags.push(tagLabel)
-  }
-
-  return tags
-})
 
 const addToCart = () => {
     cartStore.addCartProduct(props.product, undefined, false, user.value?.role ?? 'guest')
@@ -75,9 +66,16 @@ const addToCart = () => {
                         />
                     </div>
                    <div class="flex gap-2"> 
-                    <p v-for="tag in productTags" :key="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">
+                    <p
+                        v-for="tag in productTags"
+                        :key="tag"
+                        :class="[
+                            'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                            tag === 'AKCIJA' ? 'bg-red-500' : 'bg-blue-300'
+                        ]"
+                        >
                         {{ tag }}
-                    </p>
+                        </p>
                     </div>
                 </div>
 

@@ -116,7 +116,7 @@ const twitterShare = computed(
                         :key="tag"
                         :class="[
                             'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
-                            tag === '%' ? 'bg-red-500' : 'bg-blue-300'
+                            tag === 'AKCIJA' ? 'bg-red-500' : 'bg-blue-300'
                         ]"
                         >
                         {{ tag }}

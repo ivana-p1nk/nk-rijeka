@@ -60,7 +60,7 @@ export const getProductTags = (
   }
 
   if (product.price_discount && product.price_discount > 0) {
-    tags.push('%')
+    tags.push('AKCIJA')
   }
 
   return tags
