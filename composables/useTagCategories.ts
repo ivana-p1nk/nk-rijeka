@@ -13,13 +13,15 @@ const tagProducts = ref<Record<TagCategoryId, IProduct[]>>({
 })
 
 const loaded = ref(false)
+let fetchPromise: Promise<void> | null = null
 
-export const useTagCategories = () => {
+const fetchAllTags = async () => {
+  if (loaded.value) return
+  if (fetchPromise) return fetchPromise
+
   const config = useRuntimeConfig()
 
-  const fetchAllTags = async () => {
-    if (loaded.value) return
-
+  fetchPromise = (async () => {
     try {
       await Promise.all(
         Object.keys(tagCategoryMap).map(async (catId) => {
@@ -30,13 +32,16 @@ export const useTagCategories = () => {
           tagProducts.value[catId] = data.value?.data || []
         })
       )
-
       loaded.value = true
     } catch (err) {
       console.error('Greška pri učitavanju tag kategorija:', err)
     }
-  }
+  })()
 
+  return fetchPromise
+}
+
+export const useTagCategories = () => {
   onMounted(fetchAllTags)
 
   return {

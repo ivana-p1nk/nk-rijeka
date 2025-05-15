@@ -1,4 +1,5 @@
-import { ref } from 'vue'
+// ~/composables/useProductsByCategory.ts
+import { ref, onMounted } from 'vue'
 import type { IProduct } from '~/types/product'
 
 export const useProductsByCategory = (categoryId: number) => {

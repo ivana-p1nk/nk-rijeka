@@ -11,7 +11,6 @@ const props = defineProps<{
   newProducts?: IProduct[] 
 }>();
 
-
 /*TAGOVI*/
 const { tagProducts, tagCategoryMap } = useTagCategories()
 const productTags = computed(() =>

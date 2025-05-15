@@ -3,6 +3,7 @@
     import { useProductsByCategory } from '~/composables/useProductsByCategory'
 
     const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
+
     const { api } = useAxios()
     const route = useRoute()
 
@@ -101,7 +102,12 @@
                 </div>
 
                 <div v-if="loadingBestsellers" class="text-center text-gray-500">Učitavanje bestsellera...</div>
-                <Carousel v-else :products="bestsellerProducts" class="pt-6" />
+                <div v-if="bestsellerProducts.length > 0">
+                    <Carousel :products="bestsellerProducts" class="pt-6" />
+                </div>
+                <div v-else class="text-center text-blue-900 font-roboto pt-12">
+                    NEMA PROIZVODA U OVOJ KATEGORIJI
+                </div>
             </div>
         </div>
     </div>
