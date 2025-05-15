@@ -68,9 +68,10 @@ const logoutUser = async () => {
             </div>
 
             <div>
-                <div class="flex items-center gap-2 font-bold">
+                <div v-if="user?.role != 'admin'" class="flex items-center gap-2 font-bold">
                     <p>Status:</p>
-                    <p class="text-[#D93434] uppercase">Neaktivno članstvo</p>
+                    <p v-if="user?.role == 'customer'" class="text-[#D93434] uppercase">Neaktivno članstvo</p>
+                    <p v-else class="text-[#34d947] uppercase">Aktivno članstvo</p>
                 </div>
 
                 <hr class="my-4 border-gray-200 max-w-20" />
