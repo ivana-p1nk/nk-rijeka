@@ -8,22 +8,14 @@ import { useRouter } from 'vue-router'
 import { useTagCategories } from '~/composables/useTagCategories'
 import type { IUser } from '~/types/user'
 
-const { tagProducts, tagCategoryMap } = useTagCategories()
+
 
 const props = defineProps<{ product: IProduct }>()
 
-const productTags = computed(() => {
-  const tags: string[] = []
-
-  for (const [catId, tagLabel] of Object.entries(tagCategoryMap)) {
-    const isInCategory = tagProducts.value[catId as keyof typeof tagCategoryMap]
-      ?.some(p => p.id === props.product.id)
-
-    if (isInCategory) tags.push(tagLabel)
-  }
-
-  return tags
-})
+const { tagProducts, tagCategoryMap } = useTagCategories()
+const productTags = computed(() =>
+  getProductTags(props.product, tagProducts.value, tagCategoryMap)
+)
 
 const user = useSanctumUser() as Ref<IUser | null>
 
@@ -119,8 +111,15 @@ const twitterShare = computed(
                             name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" />
                     </div>
                     <div class="flex gap-2" v-if="productTags.length">
-                        <p v-for="tag in productTags" :key="tag" class="px-3 py-2 font-semibold text-white bg-blue-300 rounded-lg tags font-saira text-label1 radius">
-                            {{ tag }}
+                        <p
+                        v-for="tag in productTags"
+                        :key="tag"
+                        :class="[
+                            'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                            tag === 'AKCIJA' ? 'bg-red-500' : 'bg-blue-300'
+                        ]"
+                        >
+                        {{ tag }}
                         </p>
                     </div>
                 </div>

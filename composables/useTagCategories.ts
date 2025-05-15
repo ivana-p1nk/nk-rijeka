@@ -44,3 +44,24 @@ export const useTagCategories = () => {
     tagCategoryMap
   }
 }
+
+export const getProductTags = (
+  product: IProduct,
+  tagProductsMap: Record<number, IProduct[]>,
+  tagMap: Record<number, string>
+) => {
+  const tags: string[] = []
+
+  for (const [catId, tagLabel] of Object.entries(tagMap)) {
+    const isInCategory = tagProductsMap[+catId]
+      ?.some(p => p.id === product.id)
+
+    if (isInCategory) tags.push(tagLabel)
+  }
+
+  if (product.price_discount && product.price_discount > 0) {
+    tags.push('AKCIJA')
+  }
+
+  return tags
+}
