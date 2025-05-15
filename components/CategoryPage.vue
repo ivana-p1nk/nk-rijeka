@@ -97,7 +97,6 @@ const subcategories = computed(() => {
                         v-model="sort"
                         :options="[
                             { value: 'Najnoviji', label: 'Poredaj po najnovijem' },
-                            { value: 'popular', label: 'Poredaj po popularnosti' },
                             { value: 'S nižom cijenom', label: 'Poredaj po cijeni: od najniže do najviše' },
                             { value: 'S višom cijenom', label: 'Poredaj po cijeni: od najviše do najniže' },
                         ]"
