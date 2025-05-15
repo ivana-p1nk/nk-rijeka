@@ -19,7 +19,11 @@ const fetchOrders = async () => {
 
     try {
         // @ts-ignore
-        const { data: orderData, status } = await useFetch(`${config.public.url}/orders/${user.value.id}`)
+        const { data: orderData, status } = await useFetch(`${config.public.url}/orders/${user.value.id}`, {
+            headers: {
+                'Authorization': `Bearer ${config.public.token}`
+            }
+        })
 
         // @ts-ignore
         orders.value = orderData.value
