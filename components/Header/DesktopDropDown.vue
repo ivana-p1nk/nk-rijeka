@@ -96,7 +96,6 @@
                 </div>
             </Transition>
 
-
             <Transition name="reveal">
                 <div v-if="activetab === 'kolekcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex justify-between gap-4" id="kolekcije">
                     <div class="basis-1/4">
@@ -123,7 +122,7 @@
                         <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/ff" @click="closeTabMenu">Pogledaj kolekciju</a></li>
+                            <li class="heading-sub"><a href="/categories/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
@@ -153,11 +152,11 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'akcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><a href="/categories/outlet/dresovi-popusti-akcija" @click="closeTabMenu">Dresovi</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet/joma-popusti-akcija" @click="closeTabMenu">JOMA</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet/dodaci-ostalo" @click="closeTabMenu">Ostalo</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">Dresovi</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">JOMA</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
-                </div>
+                </div> 
             </Transition>
 
             <!--SERACH DROPDOWN-->

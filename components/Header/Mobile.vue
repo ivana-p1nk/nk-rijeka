@@ -147,12 +147,12 @@
                 <div class="flex-between py-[18px] px-5 items-center rounded-[40px] transition-all duration-300 ease-in-out bg-header-gradient" :class="isHamburgerOpen || isHamburgerOpenAccount || isHamburgerOpenSearch ? '!rounded-[24px]' : ''">
                     <div class="flex flex-row items-center gap-6">
                         <!-- Ikona za otvaranje hamburger menu -->
-                        <NuxtLink to="#" @click.prevent="toggleHamburger" class="flex items-center gap-2 group">
+                        <a href="#" @click.prevent="toggleHamburger" class="flex items-center gap-2 group">
                             <Icon 
                                 :name="isHamburgerOpen ? 'radix-icons:cross-2' : 'radix-icons:hamburger-menu'" 
                                 :class="[isHamburgerOpen ? 'text-white' : 'text-white', 'icon-link icon-xl']" 
                             />
-                        </NuxtLink>
+                        </a>
 
 
                         <div @click="toggleHamburgerSearch" class="flex">
@@ -164,7 +164,7 @@
 
                     </div>
 
-                    <NuxtLink to="/" class="ml-3"><img class="h-auto w-28" src="/assets/images/logos/logo.svg" alt="Logo"></NuxtLink>
+                    <a href="/" class="ml-3"><img class="h-auto w-28" src="/assets/images/logos/logo.svg" alt="Logo"></a>
                     
                     <div class="flex flex-row items-center gap-6">
                         <HeaderAccountDropdown class="hidden md:block" />
@@ -223,15 +223,15 @@
                 >
                     <div ref="activeDropdownRefAccount" class="border-t border-customColors-200">
                         <div class="p-4">
-                            <NuxtLink to="/login" class="block w-full text-center uppercase btn-primary large">
+                            <a href="/login" class="block w-full text-center uppercase btn-primary large">
                                 Prijavi se
-                            </NuxtLink>
+                            </a>
 
                             <div class="flex items-center justify-center gap-3 pt-4 mt-4 border-t border-blue-800"> 
                                 <p class="text-sm font-normal text-white font-roboto">Nemaš račun?</p> 
-                                <NuxtLink to="/register" class="font-bold underline uppercase link-plavi">
+                                <a href="/register" class="font-bold underline uppercase link-plavi">
                                     Registriraj se
-                                </NuxtLink>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -248,130 +248,130 @@
                         <ul class="flex flex-col gap-4" ref="activeDropdownRef">
                             <!-- DRESOVI -->
                             <li>
-                                <NuxtLink to="#" @click.prevent="setActive('dresovi')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                <a href="#" @click.prevent="setActive('dresovi')" class="flex items-center justify-between gap-2 mobile-nav group">
                                     <span :class="activeTab === 'dresovi' ? 'text-blue-500' : ''">DRESOVI</span>
                                     <Icon :name="activeTab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                </NuxtLink>
+                                </a>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/dresovi" @click="closeTabMenu">Starije sezone</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                             </template>
 
                             <!-- ODJEĆA -->
                             <li>
-                                <NuxtLink to="#" @click.prevent="setActive('odjeca')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                <a href="#" @click.prevent="setActive('odjeca')" class="flex items-center justify-between gap-2 mobile-nav group">
                                     <span :class="activeTab === 'odjeca' ? 'text-blue-500' : ''">ODJEĆA</span>
                                     <Icon :name="activeTab === 'odjeca' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                </NuxtLink>
+                                </a>
                             </li>
                             <template v-if="activeTab === 'odjeca'">
                                 <!-- Muškarci -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('muskarci')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('muskarci')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'muskarci' ? 'text-blue-500' : ''">MUŠKARCI</span>
                                         <Icon :name="subActive === 'muskarci' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'muskarci'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?gender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Žene -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('zene')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('zene')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'zene' ? 'text-blue-500' : ''">ŽENE</span>
                                         <Icon :name="subActive === 'zene' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'zene'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?gender=zene" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Djeca -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('djeca')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('djeca')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'djeca' ? 'text-blue-500' : ''">DJECA</span>
                                         <Icon :name="subActive === 'djeca' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'djeca'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?age=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?age=djeca" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Modni dodaci -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('dodaci')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('dodaci')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'dodaci' ? 'text-blue-500' : ''">MODNI DODACI</span>
                                         <Icon :name="subActive === 'dodaci' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'dodaci'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Kape</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Šalovi</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/kape" @click="closeTabMenu">Kape</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                             </template>
 
 
                             <!-- KOLEKCIJE -->
                             <li>
-                                <NuxtLink to="#" @click.prevent="setActive('kolekcije')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                <a href="#" @click.prevent="setActive('kolekcije')" class="flex items-center justify-between gap-2 mobile-nav group">
                                     <span :class="activeTab === 'kolekcije' ? 'text-blue-500' : ''">KOLEKCIJE</span>
                                     <Icon :name="activeTab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                </NuxtLink>
+                                </a>
                             </li>
                             <template v-if="activeTab === 'kolekcije'">
                                 <!-- Joma -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('joma')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('joma')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'joma' ? 'text-blue-500' : ''">JOMA</span>
                                         <Icon :name="subActive === 'joma' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'joma'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Hlače</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Majice</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Trenerke</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Jakne</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Lopte</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/joma/hlace" @click="closeTabMenu">Hlače</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/joma/majice" @click="closeTabMenu">Majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/joma/jakne" @click="closeTabMenu">Jakne</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/joma/lopte" @click="closeTabMenu">Lopte</a></li>
                                 </template>
                                 <!-- hudice -->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('novehudice')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('novehudice')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'novehudice' ? 'text-blue-500' : ''">HOODICE</span>
                                         <Icon :name="subActive === 'novehudice' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'novehudice'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Muškarci</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Žene</NuxtLink></li>
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Djeca</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Muškarci</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Žene</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Djeca</a></li>
                                 </template>
                                 <!-- Forza fiume premium-->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('forza')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('forza')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'forza' ? 'text-blue-500' : ''">FORZA FIUME PREMIUM</span>
                                         <Icon :name="subActive === 'forza' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'forza'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="/categories/ff" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                                 </template>
 
                                 <!-- Zigman premium-->
                                 <li>
-                                    <NuxtLink to="#" @click.prevent="setSubActive('zigman')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
+                                    <a href="#" @click.prevent="setSubActive('zigman')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
                                         <span :class="subActive === 'zigman' ? 'text-blue-500' : ''">ZIGMAN & HNK RIJEKA</span>
                                         <Icon :name="subActive === 'zigman' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </NuxtLink>
+                                    </a>
                                 </li>
                                 <template v-if="subActive === 'zigman'">
-                                    <li class="font-normal heading-sub pl-9"><NuxtLink to="#" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                                 </template>
                                 
 
@@ -379,38 +379,38 @@
 
                             <!-- POKLONI -->
                             <li>
-                                <NuxtLink to="#" @click.prevent="setActive('pokloni')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                <a href="#" @click.prevent="setActive('pokloni')" class="flex items-center justify-between gap-2 mobile-nav group">
                                     <span :class="activeTab === 'pokloni' ? 'text-blue-500' : ''">POKLONI</span>
                                     <Icon :name="activeTab === 'pokloni' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                </NuxtLink>
+                                </a>
                             </li>
                             <template v-if="activeTab === 'pokloni'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Školski asortiman</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Dom</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Privjesci</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Zastave</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Čestitke</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="#" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/skolski-asortiman" @click="closeTabMenu">Školski asortiman</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/dom" @click="closeTabMenu">Dom</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/privjesci" @click="closeTabMenu">Privjesci</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/zastave" @click="closeTabMenu">Zastave</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/cestitke" @click="closeTabMenu">Čestitke</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/pokloni/ostalo" @click="closeTabMenu">Ostalo</a></li>
                             </template>
 
 
                             <!-- AKCIJE -->
                             <li>
-                                <NuxtLink to="#" @click.prevent="setActive('akcije')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                <a href="#" @click.prevent="setActive('akcije')" class="flex items-center justify-between gap-2 mobile-nav group">
                                     <span :class="activeTab === 'akcije' ? 'text-blue-500' : ''">OUTLET</span>
                                     <Icon :name="activeTab === 'akcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                </NuxtLink>
+                                </a>
                             </li>
                             <template v-if="activeTab === 'akcije'">
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija" @click="closeTabMenu">Dresovi</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija" @click="closeTabMenu">JOMA</NuxtLink></li>
-                                <li class="pl-5 font-normal heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">Dresovi</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">JOMA</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">Ostalo</a></li>
                             </template>
                         </ul>
-                        <NuxtLink to="/favorites" @click="closeTabMenu" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">
+                        <a href="/favorites" @click="closeTabMenu" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">
                             <span class="">FAVORITI</span>
                             <Icon name="line-md:heart" />
-                        </NuxtLink>
+                        </a>
                     </div>
                 </div>
             </nav>
