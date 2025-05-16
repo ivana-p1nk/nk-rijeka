@@ -8,6 +8,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { IProduct } from '~/types/product';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
 
 const props = defineProps<{
   products: IProduct[];
@@ -28,6 +32,18 @@ const filters = reactive<Record<FilterKey, string>>({
 });
 
 watch(filters, () => {
+  const query = { ...route.query };
+
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value) {
+      query[key] = value;
+    } else {
+      delete query[key];
+    }
+  });
+
+  router.replace({ query });
+
   emit('update:filters', { ...filters });
 }, { deep: true });
 
