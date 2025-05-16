@@ -11,11 +11,18 @@ export interface IProduct {
     sku?: string
     type_product: string
     personalization_enable: boolean
-    category: {
+   category: {
+    id: number
+    title: string
+    slug: string
+    image: string | null
+    children?: {
         id: number
         title: string
-        image: string
-    }
+        slug: string
+        image: string | null
+    }[]
+    }[]
     variations?: {
         id: number
         packaging: string

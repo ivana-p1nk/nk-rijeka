@@ -7,7 +7,7 @@ import { SidebarPersonalize } from '#components'
 import { useRouter } from 'vue-router'
 import { useTagCategories } from '~/composables/useTagCategories'
 import type { IUser } from '~/types/user'
-
+import ProductBreadcrumbs from '@/components/Product/Breadcrumbs.vue'
 
 
 const props = defineProps<{ product: IProduct }>()
@@ -94,11 +94,13 @@ const twitterShare = computed(
             props.product.title
         )}`
 )
+
 </script>
 
 <template>
     <div class="container mx-auto px-5 pt-32 pb-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 lg:pt-32">
+
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit rounded-lg">
                 <div class="flex flex-row items-center justify-between">
@@ -128,26 +130,8 @@ const twitterShare = computed(
 
             <!-- DRUGI STUPAC: Product Details-->
             <div class="lg:px-7 lg:pb-7 px-0 pt-10 lg:pt-0">
-                <p class="font-normal text-blue-900 font-roboto text-body2">
-                    <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
-                    <span class="uppercase">Breadcrumbs</span>
-                </p>
-
-                <!--
-                <p class="font-normal text-blue-900 font-roboto text-body2">
-                <UBreadcrumb
-                    divider="/"
-                    :links="[
-                    { label: 'Početna', to: '/' },
-                    { 
-                        label: product.category?.title || 'No Category', 
-                        to: product.category?.slug ? `/categories/${encodeURIComponent(product.category.slug)}` : '/categories/no-category'
-                    },
-                    { label: product.title }
-                    ]"
-                />
-                </p>
-                -->
+                
+                <ProductBreadcrumbs :product="product" />
 
                 <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
 
@@ -158,6 +142,7 @@ const twitterShare = computed(
                     <p class="text-white font-montserrat" v-html="product.description"></p>
                 </div>
 
+                <!--CIJENA-->
                 <div v-if="product.variations && product.variations.length">
                     <div v-if="selectedVariation" class="flex flex-col gap-3 my-7 py-7 border-y border-neutralBlue-100">
                         <div v-if="selectedVariation.price_discount" class="flex flex-col gap-3">
@@ -235,15 +220,14 @@ const twitterShare = computed(
                 </div>
 
                 <div class="border-b border-neutralBlue-100">
+                    <!-- Personaliziraj -->
                     <div v-if="product.variations && product.variations.length">
                         <div v-if="product.personalization_enable">
-                            <!-- Personaliziraj -->
                             <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
                                 @update-selected-variation="updateSelectedVariation" />
                         </div>
 
-                        <!-- veličina -->
-
+                        <!-- Veličina -->
                         <div class="pt-7">
                             <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
 
@@ -271,8 +255,7 @@ const twitterShare = computed(
 
 
                     <div class="mt-7 pb-7">
-                        <!--količina-->
-
+                        <!--Količina-->
                         <div v-if="product.variations && product.variations.length">
                             <div v-if="selectedVariation?.quantity == 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
                                 RASPRODANO
@@ -352,12 +335,22 @@ const twitterShare = computed(
                     </div>
                 </div>
 
+                <!--OSTALO-->
                 <div class="pt-7">
                     <p class="pb-3 text-gray-900 font-roboto fontnormal text-body2">
-                        <span class="font-bold"> Šifra: </span><!--{{ product.sku }}-->
+                        <span class="font-bold"> Šifra: </span>{{ product.sku }}
                     </p>
-                    <p class="text-gray-900 font-roboto fontnormal text-body2">
-                        <span class="font-bold"> Kategorija: </span>{{ product.category.title }}
+                    <p class="text-gray-900 font-roboto fontnormal text-body2" v-if="product.category && product.category.length">
+                        <span class="font-bold"> Kategorije: </span>
+                        <span v-for="(cat, index) in product.category" :key="cat.id">
+                            <router-link
+                            :to="`/categories/${cat.slug}`"
+                            class=" link-color"
+                            >
+                            {{ cat.title }}
+                            </router-link>
+                            <span v-if="index < product.category.length - 1">, </span>
+                        </span>
                     </p>
                 </div>
 
