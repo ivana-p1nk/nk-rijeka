@@ -77,14 +77,22 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
     const fetchProducts = async () => {
         loadingProduct.value = true
 
+        const { slug } = useRoute().params;
+
         try {
-            const catIds = slug
-                ? category.value?.id
-                : category.value?.sub_categories?.map((c) => c.id).join(',') || category.value?.id
+            let catIds: number[] = []
+
+            if (slug && category.value?.sub_categories) {
+                const match = category.value.sub_categories.find((e) => e.slug === slug)
+                if (match) catIds = [match.id]
+            } else {
+                catIds = category.value?.sub_categories?.map((c) => c.id) ?? []
+                if (category.value?.id) catIds.unshift(category.value.id)
+            }
 
             const queryParams = {
                 ...activeFilters.value,
-                categories: categoriy.value.length > 0 ? categoriy.value : catIds,
+                categories: categoriy.value.length > 0 ? categoriy.value : catIds.join(','),
                 page: page.value,
                 sort: sort.value,
             }
