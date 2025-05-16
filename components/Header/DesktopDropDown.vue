@@ -48,12 +48,12 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
-                    <li class="heading-sub"><NuxtLink to="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</NuxtLink></li>
-                    <li class="heading-sub"><NuxtLink to="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</NuxtLink></li>
-                    <li class="heading-sub"><NuxtLink to="/categories/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</NuxtLink></li>
+                    <li class="heading-sub"><a href="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
+                    <li class="heading-sub"><a href="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a></li>
+                    <li class="heading-sub"><a href="/categories/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                     </ul>
                 </div>
-            </Transition>
+            </Transition> 
 
             <Transition name="reveal">
                 <div v-if="activetab === 'odjeca' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex justify-between gap-4" id="odjeca">
@@ -61,36 +61,36 @@
                         <h5 class="pb-4 heading-subtitle">MUŠKARCI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/t-shirt-i-polo-majice" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?gender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">ŽENE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/odjeca/hoodice?gender=zene" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/t-shirt-i-polo-majice" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?gender=zene" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">DJECA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/odjeca/hoodice" @click="closeTabMenu">Hoodice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/t-shirt-i-polo-majice" @click="closeTabMenu">T-shirt i polo majice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?age=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?age=djeca" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">MODNI DODACI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/odjeca/kape" @click="closeTabMenu">Kape</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/salovi" @click="closeTabMenu">Šalovi</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/odjeca/ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/kape" @click="closeTabMenu">Kape</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                 </div>
@@ -103,34 +103,34 @@
                         <h5 class="pb-4 heading-subtitle">JOMA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Hlače</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Majice</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Trenerke</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Jakne</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Lopte</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/joma/hlace" @click="closeTabMenu">Hlače</a></li>
+                            <li class="heading-sub"><a href="/categories/joma/majice" @click="closeTabMenu">Majice</a></li>
+                            <li class="heading-sub"><a href="/categories/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
+                            <li class="heading-sub"><a href="/categories/joma/jakne" @click="closeTabMenu">Jakne</a></li>
+                            <li class="heading-sub"><a href="/categories/joma/lopte" @click="closeTabMenu">Lopte</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">HOODICE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Muškarci</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Žene</NuxtLink></li>
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Djeca</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Muškarci</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Žene</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Djeca</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/categories/ff" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/ff" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">ZIGMAN & HNK RIJEKA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Pogledaj kolekciju</NuxtLink></li>
+                            <li class="heading-sub"><a href="/categories/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
                 </div>
@@ -140,12 +140,12 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'pokloni' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="pokloni">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Školski asortiman</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Dom</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Privjesci</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Zastave</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Čestitke</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/skolski-asortiman" @click="closeTabMenu">Školski asortiman</a></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/dom" @click="closeTabMenu">Dom</a></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/privjesci" @click="closeTabMenu">Privjesci</a></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/zastave" @click="closeTabMenu">Zastave</a></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/cestitke" @click="closeTabMenu">Čestitke</a></li>
+                        <li class="heading-sub"><a href="/categories/pokloni/ostalo" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
                 </div>
             </Transition>
@@ -153,9 +153,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'akcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/dresovi-popusti-akcija" @click="closeTabMenu">Dresovi</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/joma-popusti-akcija" @click="closeTabMenu">JOMA</NuxtLink></li>
-                        <li class="heading-sub"><NuxtLink to="/categories/popusti-akcija/dodaci-ostalo" @click="closeTabMenu">Ostalo</NuxtLink></li>
+                        <li class="heading-sub"><a href="/categories/outlet/dresovi-popusti-akcija" @click="closeTabMenu">Dresovi</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet/joma-popusti-akcija" @click="closeTabMenu">JOMA</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet/dodaci-ostalo" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
                 </div>
             </Transition>
