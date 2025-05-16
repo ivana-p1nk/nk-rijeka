@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ICategory } from '@/types/category'
 import type { IProduct } from '@/types/product'
-const { products: newProducts } = useProductsByCategory(34)
+
 const props = defineProps<{
     category: ICategory
     parentCategory?: ICategory
@@ -123,7 +123,6 @@ const subcategories = computed(() => {
                     :key="index"
                     :product="product"
                     class="w-full"
-                    :new-products="newProducts"
                 />
 
             </div>
