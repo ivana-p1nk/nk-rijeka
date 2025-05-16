@@ -77,9 +77,15 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
     const fetchProducts = async () => {
         loadingProduct.value = true
 
-        const { slug } = useRoute().params;
-
         try {
+            const route = useRoute()
+            const { slug } = route.params
+            const queryFilters = route.query
+
+            if(queryFilters) {
+                activeFilters.value = queryFilters as Record<string, string>;
+            }
+
             let catIds: number[] = []
 
             if (slug && category.value?.sub_categories) {
