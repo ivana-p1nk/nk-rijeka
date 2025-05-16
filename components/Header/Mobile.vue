@@ -402,9 +402,9 @@
                                 </a>
                             </li>
                             <template v-if="activeTab === 'akcije'">
-                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">Dresovi</a></li>
-                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">JOMA</a></li>
-                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet" @click="closeTabMenu">Ostalo</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet?a=dresovi" @click="closeTabMenu">Dresovi</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet?a=joma" @click="closeTabMenu">JOMA</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/categories/outlet?a=ostalo" @click="closeTabMenu">Ostalo</a></li>
                             </template>
                         </ul>
                         <a href="/favorites" @click="closeTabMenu" class="flex items-center justify-between px-6 pt-2 mt-2 -mx-6 border-t mobile-nav border-customColors-200">

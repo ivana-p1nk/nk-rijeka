@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ICategory } from '@/types/category'
 import type { IProduct } from '@/types/product'
+import Pagination from '@/components/Pagination.vue'
 
 const props = defineProps<{
     category: ICategory
@@ -132,38 +133,7 @@ const subcategories = computed(() => {
             </div>
 
             <!-- PAGINACIJA -->
-            <div
-                class="flex justify-center mt-10 gap-1 pt-8 border-t border-neutralBlue-200"
-                v-if="props.totalPages > 1"
-            >
-                <button
-                    @click="page--"
-                    :disabled="page <= 1"
-                    class="px-3 py-3 bg-white rounded-lg transition-colors duration-300 flex items-center shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-gray-900 hover:bg-blue-800 hover:text-white"
-                >
-                    <Icon name="material-symbols:chevron-left" class="transition-colors duration-300 text-current" />
-                </button>
-
-                <div class="flex items-center gap-1">
-                    <button
-                        v-for="i in props.totalPages"
-                        :key="i"
-                        @click="page = i"
-                        class="px-4 py-3 rounded-lg shadow-sm text-button3 font-bold transition-colors duration-300"
-                        :class="page === i ? 'bg-blue-800 text-white' : 'bg-white text-gray-900 hover:bg-blue-800 hover:text-white'"
-                    >
-                        {{ i }}
-                    </button>
-                </div>
-
-                <button
-                    @click="page++"
-                    :disabled="page >= props.totalPages"
-                    class="px-3 py-3 bg-white rounded-lg transition-colors duration-300 flex items-center shadow-sm disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-gray-900 hover:bg-blue-800 hover:text-white"
-                >
-                    <Icon name="material-symbols:chevron-right" class="transition-colors duration-300 text-current" />
-                </button>
-            </div>
+            <Pagination v-model="page" :totalPages="props.totalPages" />
         </div>
     </div>
 </template>

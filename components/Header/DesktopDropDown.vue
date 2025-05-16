@@ -152,9 +152,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'akcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">Dresovi</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">JOMA</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet/" @click="closeTabMenu">Ostalo</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet?a=dresovi" @click="closeTabMenu">Dresovi</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet?a=joma" @click="closeTabMenu">JOMA</a></li>
+                        <li class="heading-sub"><a href="/categories/outlet?a=ostalo" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
                 </div> 
             </Transition>
