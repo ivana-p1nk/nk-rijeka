@@ -194,7 +194,7 @@
                                 v-model="searchTerm"
                                 type="text"
                                 placeholder="Pretraži"
-                                class="w-full pl-12 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-sm text-customColors-400 placeholder-customColors-400 focus:outline-none focus:ring-0"
+                                class="w-full pl-12 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-base text-customColors-400 placeholder-customColors-400 focus:outline-none focus:ring-0"
                                 @keyup.enter="submitSearch"
                             />
 
