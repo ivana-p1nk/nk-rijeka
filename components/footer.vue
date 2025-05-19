@@ -5,7 +5,7 @@
 
             <!--postani član -->
             <div
-                class="iskaznice relative mx-auto max-w-[830px] p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl  max-xl:max-w-[700px]">
+                class="iskaznice relative mx-auto max-w-[830px] p-6 sm:p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl  max-xl:max-w-[700px]">
                 <div
                     class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center">
                     <div class="col-span-1">
@@ -37,12 +37,13 @@
 
             <!-- footer meni  -->
             <div
-                class="mx-auto max-w-[1480px] grid grid-cols-1 text-center sm:text-left sm:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-6">
+                class="mx-auto max-w-[1480px] grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
                 <!-- Logo element -->
                 <div
                     class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5">
-                    <img class="w-full max-w-[108px]" src="~/assets/images/logos/hnk-rijeka-grb.svg"
-                        alt="HNK Rijeka Grb" />
+                    <a href="https://nk-rijeka.hr/" target="blank">
+                        <img class="w-full max-w-[108px]" src="~/assets/images/logos/hnk-rijeka-grb.svg" alt="HNK Rijeka Grb" />
+                    </a>
                 </div>
 
                 <!-- Društvene mreže -->
@@ -119,12 +120,7 @@
                 </div>
 
                 <!-- Newsletter -->
-                <div>
-                    <h6 class="pt-3 footer-title sm:pt-0">Newsletter</h6>
-                    <p class="footer-text">
-                        Doznaj prvi sve vijesti i promocije u svom inboxu
-                    </p>
-                </div>
+                
             </div>
 
             <!--cards-->
