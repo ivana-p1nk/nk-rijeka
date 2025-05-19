@@ -82,18 +82,18 @@ const addToCart = () => {
             </div>
 
             <div class="flex flex-row justify-center gap-2 pt-6">
-                <p class="font-bold text-blue-900 font-saira text-h6-normal">
+                <p class="font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal">
                     {{ product.price.toFixed(2).replace('.', ',') }} €
                 </p>
-                <span class="font-bold text-blue-900 font-saira text-h6-normal">|</span>
+                <span class="font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal">|</span>
 
                 <div v-if="product.price_discount">
-                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                    <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                     </p>
                 </div>
                 <div v-else class="flex flex-row justify-center gap-2">
-                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                    <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.member_price.toFixed(2).replace('.', ',') }} €
                     </p>
                     <UPopover
@@ -115,11 +115,11 @@ const addToCart = () => {
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
-                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary large active:bg-blue-800">
+                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary large active:bg-blue-800 sm:text-[15px] text-[10px]">
                     {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 
-                <div v-if="product.quantity == 0" class="bg-red-500 font-saira font-semibold text-white  rounded-md py-2">
+                <div v-if="product.quantity == 0" class="bg-red-500 font-saira font-semibold text-white rounded-md py-2 sm:text-[15px] text-[10px]">
                     RASPRODANO
                 </div>
 
@@ -134,7 +134,7 @@ const addToCart = () => {
                             solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
                         },
                     }"
-                    class="text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
+                    class="sm:text-[15px] text-[10px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
                 >
                     DODAJ U KOŠARICU
                 </UButton>
