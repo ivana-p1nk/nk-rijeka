@@ -82,7 +82,12 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
             const { slug } = route.params
             const queryFilters = route.query
 
-            const filters = filtersOverride ?? activeFilters.value;
+            let filters = filtersOverride ?? activeFilters.value;
+
+            if(Object.keys(activeFilters.value).length === 0 && Object.keys(queryFilters).length > 0) {
+                filters = queryFilters as Record<string, string>
+                activeFilters.value = queryFilters as Record<string, string>
+            }
 
             let catIds: number[] = []
 
