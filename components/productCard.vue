@@ -82,18 +82,18 @@ const addToCart = () => {
             </div>
 
             <div class="flex flex-row justify-center gap-2 pt-6">
-                <p class="font-bold text-blue-900 font-saira text-h6-normal">
+                <p class="font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal">
                     {{ product.price.toFixed(2).replace('.', ',') }} €
                 </p>
-                <span class="font-bold text-blue-900 font-saira text-h6-normal">|</span>
+                <span class="font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal">|</span>
 
                 <div v-if="product.price_discount">
-                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                    <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                     </p>
                 </div>
                 <div v-else class="flex flex-row justify-center gap-2">
-                    <p class="font-bold text-blue-500 font-saira text-h6-normal">
+                    <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.member_price.toFixed(2).replace('.', ',') }} €
                     </p>
                     <UPopover
