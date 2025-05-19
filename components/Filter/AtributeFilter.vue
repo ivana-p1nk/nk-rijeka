@@ -24,11 +24,13 @@ const emit = defineEmits<{
 
 type FilterKey = 'size' | 'gender' | 'age' | 'price';
 
+const initialFilters = route.query as Partial<Record<FilterKey, string>>;
+
 const filters = reactive<Record<FilterKey, string>>({
-  size: '',
-  gender: '',
-  age: '',
-  price: ''
+  size: initialFilters.size ?? '',
+  gender: initialFilters.gender ?? '',
+  age: initialFilters.age ?? '',
+  price: initialFilters.price ?? ''
 });
 
 watch(filters, () => {

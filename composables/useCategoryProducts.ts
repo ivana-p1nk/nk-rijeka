@@ -116,6 +116,14 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         }
     }
 
+    const route = useRoute()
+
+    watch(() => route.query, () => {
+        activeFilters.value = route.query as Record<string, string>
+        page.value = 1
+        fetchProducts()
+    }, { deep: true })
+
     const fetchAll = async () => {
         await Promise.all([fetchCategory(), fetchParentCategory()])
         fetchProducts()

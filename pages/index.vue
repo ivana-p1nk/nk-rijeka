@@ -44,36 +44,36 @@ const carouselNew = ref()
                 <div class="px-5 sm:px-0">
                     <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                     <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br class="hidden sm:block" /> ponovno donosi svježinu i inovaciju našim dresovima.</p>
-                    <NuxtLink to="#" class="uppercase btn-primary large">Kupi sad</NuxtLink>
+                    <a href="/categories/dresovi/2024-2025" class="uppercase btn-primary large">Kupi sad</a>
                 </div>
             </div>
             <div class="relative z-10 grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-3 pt-12 lg:pt-52 px-5 sm:px-0">
-                <NuxtLink
-                    to="#"
+                <a
+                    href="/categories/dresovi/2024-2025"
                     class="group relative bg-dresovi bg-cover bg-center rounded-lg  h-72 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
                 > 
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"></div>   
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal">DRESOVI</p>
                     <h2 class="relative font-bold text-white font-saira text-h3-normal">2024./25.</h2>
-                </NuxtLink>
+                </a>
             
-                <NuxtLink
-                    to="#"
+                <a
+                    href="/categories/odjeca/hoodice/"
                     class="group relative bg-odjeca bg-cover bg-center rounded-lg h-80 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
                 >
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"></div>
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal">ODJEĆA</p>
                     <h2 class="relative font-bold text-white font-saira text-h3-normal">NOVE HUDICE</h2>
-                </NuxtLink>
+                </a>
             
-                <NuxtLink
-                    to="#"
+                <a
+                    href="/categories/pokloni/skolski-asortiman"
                     class="group relative bg-pokloni bg-cover bg-center rounded-lg h-80 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
                 >  
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"></div>
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal">POKLONI</p>
                     <h2 class="relative font-bold text-white font-saira text-h3-normal">ŠKOLSKI ASORTIMAN</h2>
-                </NuxtLink>
+                </a>
             </div>
         </div>
     </div>
@@ -180,7 +180,7 @@ const carouselNew = ref()
     <div class="mx-1 sm:mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
-            <NuxtLink to="/products" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
+            <NuxtLink to="/categories/dresovi/" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
             <div class="group relative rounded-2xl overflow-hidden bg-[linear-gradient(13.73deg,_#012436_15.68%,_#006296_54.1%,_#0083C9_85.54%)] shadow-xl h-[200px] sm:h-[400px]">
