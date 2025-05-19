@@ -46,7 +46,7 @@ const addToCart = () => {
 <template>
     <div class="relative transition-all duration-500 frame group hover:-translate-y-3">
         <div
-            class="card flex flex-col justify-between text-center relative transition-shadow duration-500 group-hover:shadow-[0px_10px_15px_0px_#0000001A]"
+            class="card overflow-hidden flex flex-col justify-between text-center relative transition-shadow duration-500 group-hover:shadow-[0px_10px_15px_0px_#0000001A]"
         >
             <div>
                 <div class="flex flex-row items-center justify-between">
@@ -92,21 +92,42 @@ const addToCart = () => {
                         {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                     </p>
                 </div>
-                <div v-else class="flex flex-row justify-center gap-2">
+                <div v-else class="flex items-center justify-center gap-1 sm:gap-2">
                     <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.member_price.toFixed(2).replace('.', ',') }} €
                     </p>
+
                     <UPopover
-                        :popper="{ placement: 'top-start' }"
-                        :ui="{ ring: 'ring-0', background: 'dark:bg-blue-50 bg-blue-50' }"
+                    :popper="{
+                        placement: 'top',
+                        strategy: 'absolute',
+                        modifiers: [
+                        {
+                            name: 'preventOverflow',
+                            options: {
+                            boundary: 'clippingParents',
+                            },
+                        },
+                        {
+                            name: 'offset',
+                            options: {
+                            offset: [0, 6],
+                            },
+                        },
+                        ],
+                    }"
+                    :ui="{
+                        ring: 'ring-0',
+                        background: 'dark:bg-blue-50 bg-blue-50',
+                        container: 'z-50 w-[110px]', // ← direktno kontrolira širinu!
+                    }"
                     >
                         <UButton
-                            trailing-icon="mynaui:info-hexagon"
-                            class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
+                        trailing-icon="mynaui:info-hexagon"
+                        class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
                         />
-    
                         <template #panel>
-                            <div class="px-3 py-2">
+                            <div class="px-3 py-2 text-center">
                                 <p class="font-bold text-gray-900 font-roboto text-body4">Cijena za članove</p>
                             </div>
                         </template>
