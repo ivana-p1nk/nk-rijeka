@@ -157,8 +157,16 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-    <div class="py-20 px-4 mt-20 container mx-auto">
-        <h1 class="mb-10 font-medium text-blue-900 font-saira text-h1-normal">Košarica</h1>
+    <div class="bg-igraci">
+      <div class="container mx-auto con-height pb-5 px-5">
+          <!-- Breadcrumb -->
+          <p class="font-normal text-blue-900 font-roboto text-body2">
+            <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
+            <span>Košarica</span>
+          </p>
+          <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
+            Košarica
+          </p>
 
         <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
             <div class="col-span-12">
@@ -189,5 +197,6 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
             <p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
             <NuxtLink to="/products" class="btn-primary large mt-10">Nastavi s kupnjom</NuxtLink>
         </div>
+      </div>
     </div>
 </template>
