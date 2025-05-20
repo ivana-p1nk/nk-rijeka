@@ -29,7 +29,7 @@ const isLoggedIn = computed(() => !!user.value)
                     <p class="font-bold font-saira text-base md:text-h6-normal pb-3">{{ item.title }}</p>
 
                     <p v-if="item.sku != null" class="text-sm text-blue-900">
-                        <span class="font-bold">ŠIFRA:</span> {{ item.sku }}
+                        <span class="font-bold">MODEL:</span> {{ item.sku }}
                     </p>
 
                     <p v-if="item.variationName" class="text-sm text-blue-900">
@@ -90,18 +90,18 @@ const isLoggedIn = computed(() => !!user.value)
 
             <!-- KOLIČINA -->
             <div class="flex items-center space-x-1 md:space-x-2">
-                <div class="flex items-center p-0 md:p-1 space-x-1 rounded-lg bg-slate-100">
-                    <button class="px-1 md:px-3 flex items-center py-1 rounded" @click="cartStore.quantityDecrement(item, item.variationId)">
+                <div class="flex items-center p-0 md:p-1 space-x-1 rounded-lg">
+                    <button class="btn-icon-secondary square-medium rounded-md border-[1.5px]" @click="cartStore.quantityDecrement(item, item.variationId)">
                         <UIcon name="heroicons:minus" />
                     </button>
                     <input
-                        class="w-5 text-center"
+                        class="w-9 text-center bg-white border-blue-500 border-[1.5px] square-medium rounded-lg"
                         type="text"
                         :value="item.orderQuantity"
                         :v-model="item.orderQuantity"
                         disabled
                     />
-                    <button class="px-1 md:px-3 flex items-center py-1 rounded" @click="cartStore.addCartProduct(item, item.variationId)">
+                    <button class="btn-icon-secondary square-medium rounded-md border-[1.5px]" @click="cartStore.addCartProduct(item, item.variationId)">
                         <UIcon name="heroicons:plus" />
                     </button>
                 </div>
@@ -113,10 +113,10 @@ const isLoggedIn = computed(() => !!user.value)
             </div>
 
             <!-- DELETE -->
-            <div>
+            <div class="btn-icon-secondary circle-medium">
                 <UIcon
                     name="heroicons:trash"
-                    class="h-6 ml-3 cursor-pointer w-7"
+                    class="h-4 cursor-pointer w-4 text-red-600"
                     @click="cartStore.removeCartProduct(item, item.variationId)"
                 />
             </div>
