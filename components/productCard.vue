@@ -40,7 +40,6 @@ const addToCart = () => {
     })
 }
 
-
 </script>
 
 <template>
@@ -92,7 +91,7 @@ const addToCart = () => {
                         {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                     </p>
                 </div>
-                <div v-else class="flex items-center justify-center gap-1 sm:gap-2">
+                <div v-else class="flex items-center justify-center gap-1 sm:gap-2 mt-[-2px]">
                     <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.member_price.toFixed(2).replace('.', ',') }} €
                     </p>

@@ -34,7 +34,8 @@ const emit = defineEmits(['useCoupon'])
             </button>
         </div>
         <div v-else class="flex items-center gap-2">
-            <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" class="w-full" variant="outline" />
+            <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" variant="outline"  class="w-full focus:ring-blue-500"
+  color="gray" />
             <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
         </div>
 
@@ -75,3 +76,10 @@ const emit = defineEmits(['useCoupon'])
         </UButton>
     </div>
 </template>
+
+
+<style scoped>
+:deep(.form-input:focus) {
+  --tw-ring-color: #009FF5; 
+}
+</style>

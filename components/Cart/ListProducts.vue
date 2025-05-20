@@ -8,7 +8,7 @@ const isLoggedIn = computed(() => !!user.value)
 </script>
 
 <template>
-    <div v-if="cartStore.cart_products.length > 0" class="md:px-12 md:py-10 py-5 px-3 bg-white shadow-lg rounded-2xl">
+    <div v-if="cartStore.cart_products.length > 0" class="md:px-12 md:py-10 py-5 px-3 bg-white rounded-2xl">
         <div class="grid grid-cols-[2fr_1fr_1fr_1fr_40px] gap-4 pb-2 mb-4 font-semibold text-gray-700 border-b">
             <div>PROIZVOD</div>
             <div>CIJENA</div>

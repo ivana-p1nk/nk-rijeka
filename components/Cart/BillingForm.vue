@@ -90,9 +90,30 @@ const countries = countriesJson.map(c => ({
         </div>
 
         <!-- Order Notes -->
-        <UFormGroup label="Order Notes (optional)" name="orderNote" class="col-span-2">
+        <UFormGroup label="Napomena uz narudžbu (neobavezno)" name="orderNote" class="col-span-2">
             <UTextarea v-model="form.orderNote"
-                placeholder="Notes about your order, e.g. special instructions for delivery." />
+                placeholder="Napomene o vašoj narudžbi, npr. posebne upute za dostavu." />
         </UFormGroup>
     </div>
 </template>
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5;
+        --tw-border-color: #009FF5; 
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+
+</style>

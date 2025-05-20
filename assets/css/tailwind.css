@@ -140,6 +140,8 @@ body {
     background-color: #1aa6f180 !important;
 }
 
+
+
 @layer components {
     .btn {
         @apply px-3 py-2 text-sm text-white bg-blue-200 rounded-md font-roboto;
