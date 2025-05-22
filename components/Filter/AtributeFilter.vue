@@ -22,14 +22,13 @@ const emit = defineEmits<{
   (e: 'update:filters', value: Record<FilterKey, string>): void;
 }>();
 
-type FilterKey = 'size' | 'gender' | 'age' | 'price';
+type FilterKey = 'size' | 'ageGender' | 'price';
 
 const initialFilters = route.query as Partial<Record<FilterKey, string>>;
 
 const filters = reactive<Record<FilterKey, string>>({
   size: initialFilters.size ?? '',
-  gender: initialFilters.gender ?? '',
-  age: initialFilters.age ?? '',
+  ageGender: initialFilters.ageGender ?? '',
   price: initialFilters.price ?? ''
 });
 
@@ -94,21 +93,13 @@ const filterConfigs = computed(() => [
     ]
   },
   {
-    key: 'gender',
-    label: 'Spol',
+    key: 'ageGender',
+    label: 'Spol i dob',
     options: [
-      { label: 'Spol', value: '' },
+      { label: 'Spol i dob', value: '' },
       { label: 'Muškarci', value: 'muskarci' },
-      { label: 'Žene', value: 'zene' }
-    ]
-  },
-  {
-    key: 'age',
-    label: 'Dob',
-    options: [
-      { label: 'Dob', value: '' },
-      { label: 'Odrasli', value: 'odrasli' },
-      { label: 'Djeca', value: 'djeca' }
+      { label: 'Žene', value: 'zene' },
+      { label: 'Djeca', value: 'djeca' },
     ]
   },
   {

@@ -61,27 +61,27 @@
                         <h5 class="pb-4 heading-subtitle">MUŠKARCI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?gender=muskarci" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">ŽENE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?gender=zene" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">DJECA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?age=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?age=djeca" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
@@ -113,9 +113,9 @@
                         <h5 class="pb-4 heading-subtitle">HOODICE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Muškarci</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Žene</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Djeca</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a></li>
+                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
