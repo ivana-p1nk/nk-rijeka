@@ -93,44 +93,49 @@
 
                 <div class="flex flex-row justify-between">
                     <!-- količina -->
-                    <div class="flex flex-row items-center gap-1">
-                        <button
-                            class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                            @click="cartStore.decrement(product.minimum_quantity || 1)"
-                        >
-                            <UIcon name="heroicons:minus" />
-                        </button>
-                        <input
-                            class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                            type="text"
-                            :min="product.minimum_quantity"
-                            :value="cartStore.orderQuantity"
-                            disabled
-                        />
-                        <button
-                            class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                            @click="cartStore.increment()"
-                        >
-                            <UIcon name="heroicons:plus" />
-                        </button>
+                    <div v-if="selectedVariation && selectedVariation.quantity === 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                        RASPRODANO
                     </div>
+                    <template v-else>
+                        <div class="flex flex-row items-center gap-1">
+                            <button
+                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                @click="cartStore.decrement(product.minimum_quantity || 1)"
+                            >
+                                <UIcon name="heroicons:minus" />
+                            </button>
+                            <input
+                                class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                type="text"
+                                :min="product.minimum_quantity"
+                                :value="cartStore.orderQuantity"
+                                disabled
+                            />
+                            <button
+                                class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
+                                @click="cartStore.increment()"
+                            >
+                                <UIcon name="heroicons:plus" />
+                            </button>
+                        </div>
 
-                    <!-- košarica -->
-                    <UButton
-                        @click="addToCart"
-                        size="lg"
-                        variant="solid"
-                        :ui="{
-                            base: 'text-white font-saira font-semibold',
-                            variant: {
-                                solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
-                            },
-                        }"
-                        class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
-                    >
-                        Dodaj u košaricu
-                        <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
-                    </UButton>
+                        <!-- košarica -->
+                        <UButton
+                            @click="addToCart"
+                            size="lg"
+                            variant="solid"
+                            :ui="{
+                                base: 'text-white font-saira font-semibold',
+                                variant: {
+                                    solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
+                                },
+                            }"
+                            class="px-5 uppercase text-[15px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
+                        >
+                            Dodaj u košaricu
+                            <Icon name="streamline:shopping-cart-1" class="text-white icon-medium" />
+                        </UButton>
+                    </template>
                 </div>
             </div>
         </Offcanvas>
@@ -174,6 +179,10 @@ watch(numberInput, (val) => {
 const props = defineProps<{ product: IProduct; selectedVariationId: number | null }>()
 const emit = defineEmits(['update-selected-variation'])
 const cartStore = useCartStore()
+
+const selectedVariation = computed(() =>
+    props.product.variations?.find(v => v.id === selectedVariationId.value) || null
+)
 
 const show = ref(false)
 const selectedVariationId = computed({
