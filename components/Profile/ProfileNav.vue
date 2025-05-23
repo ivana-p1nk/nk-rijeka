@@ -20,31 +20,31 @@ const logoutUser = async () => {
     <nav>
         <div class="flex flex-col" role="tablist">
             <NuxtLink
-                class="flex items-center p-3 text-[#012436] font-medium bg-white rounded-tl-xl rounded-tr-xl uppercase focus:outline-none"
-                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-profile' }" to="/profile">
-                <UIcon name="i-heroicons-home" class="size-5 mr-2 text-[#009FF5]" />
-                NADZORNA PLOČA
+                class="flex items-center p-3 text-blue-900 font-medium bg-white rounded-tl-xl rounded-tr-xl uppercase focus:outline-none"
+                :class="{ 'active !bg-blue-50': activeTab === 'nav-profile' }" to="/profile">
+                <UIcon name="tdesign:user-circle" class="size-5 mr-2 text-blue-500" />
+                PROFIL
             </NuxtLink>
-            <NuxtLink class="flex items-center p-3 text-[#012436] font-medium bg-white uppercase focus:outline-none"
-                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-address' }" to="/profile/address">
-                <UIcon name="i-heroicons-map-pin" class="size-5 mr-2 text-[#009FF5]" />
+            <NuxtLink class="flex items-center p-3 text-blue-900 font-medium bg-white uppercase focus:outline-none"
+                :class="{ 'active !bg-blue-50': activeTab === 'nav-address' }" to="/profile/address">
+                <UIcon name="i-heroicons-map-pin" class="size-5 mr-2 text-blue-500" />
                 Adresa
             </NuxtLink>
-            <NuxtLink class="flex items-center p-3 text-[#012436] font-medium bg-white uppercase focus:outline-none"
-                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-order' }" to="/profile/orders">
-                <UIcon name="i-heroicons-clipboard-document-list" class="size-5 mr-2 text-[#009FF5]" />
+            <NuxtLink class="flex items-center p-3 text-blue-900 font-medium bg-white uppercase focus:outline-none"
+                :class="{ 'active !bg-blue-50': activeTab === 'nav-order' }" to="/profile/orders">
+                <UIcon name="streamline:ticket-1" class="size-5 mr-2 text-blue-500" />
                 Narudžbe
             </NuxtLink>
-            <NuxtLink class="flex items-center p-3 text-[#012436] font-medium bg-white uppercase focus:outline-none"
-                :class="{ 'active !bg-[#D9F1FD]': activeTab === 'nav-password' }" to="/profile/change-password">
-                <UIcon name="i-heroicons-lock-closed" class="size-5 mr-2 text-[#009FF5]" />
+            <NuxtLink class="flex items-center p-3 text-blue-900 font-medium bg-white uppercase focus:outline-none"
+                :class="{ 'active !bg-blue-50': activeTab === 'nav-password' }" to="/profile/change-password">
+                <UIcon name="i-heroicons-lock-closed" class="size-5 mr-2 text-blue-500" />
                 Promijeni lozinku
             </NuxtLink>
 
             <button
-                class="flex items-center p-3 mt-10 text-[#012436] rounded-xl hover:bg-[#D9F1FD] font-medium bg-white uppercase focus:outline-none"
+                class="flex items-center p-3 mt-10 text-blue-900 rounded-xl hover:bg-[#D9F1FD] font-medium bg-white uppercase focus:outline-none"
                 @click="logoutUser">
-                <UIcon name="i-heroicons-arrow-right-on-rectangle" class="size-5 mr-2 text-[#009FF5]" />
+                <UIcon name="uiw:login" class="size-5 mr-2 text-blue-500" />
                 Odjavi se
             </button>
         </div>

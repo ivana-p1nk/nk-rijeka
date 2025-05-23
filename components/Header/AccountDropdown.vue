@@ -18,7 +18,7 @@
 					class: 'account-frame-items',
 				}],
 				[{
-					label: 'Detalji profila',
+					label: 'Profil',
 					to: '/profile',
 					icon: 'tdesign:user-circle',
 					class: 'account-frame-items',
