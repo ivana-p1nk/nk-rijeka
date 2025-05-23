@@ -40,7 +40,7 @@ const carouselNew = ref()
     <div class="px-0 sm:px-5 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
         <div class="container mx-auto xl:max-w-[1120px] relative z-[1] px-0 sm:px-5 xl:px-2">
             <div class="w-full lg:w-1/2">
-                <img src="~/assets/images/players-mobile.png" class="block lg:hidden pb-5">
+                <img src="~/assets/images/players-home.png" class="block lg:hidden pb-5">
                 <div class="px-5 sm:px-0">
                     <h1 class="font-bold font-saira text-h1-display text-neutralBlue-950">POGLEDAJ NOVE DRESOVE</h1>
                     <p class="mt-2 mb-6 font-normal text-gray-900 font-roboto text-body1">Prepoznatljiv dizajnerski potpis Juraja Zigmana <br class="hidden sm:block" /> ponovno donosi svježinu i inovaciju našim dresovima.</p>
@@ -291,7 +291,7 @@ const carouselNew = ref()
         position: absolute;
         content: url('/assets/images/players-home.png');
         right: 9%;
-        top: 20%;
+        top: 12%;
         z-index: 0;
     }
 
@@ -300,12 +300,13 @@ const carouselNew = ref()
     }
 
     @media(max-width:1650px){
-        .bg-players::after {content: url('/assets/images/players-laptop.png');}
+        .bg-players::after {
+             content: url('/assets/images/players-laptop.png');
+        }
     }
 
     @media(max-width:1100px){
         .bg-players::after {
-            content: url('/assets/images/players-tablet.png');
             top:27%;
         }
     }
