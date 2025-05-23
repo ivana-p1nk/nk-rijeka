@@ -90,11 +90,7 @@ const subcategories = computed(() => {
                         @update:filters="emit('update:activeFilters', $event)"
                     />
 
-                    <FilterMobile
-                    :filters="activeFilters"
-                    :products="products"
-                    @update:filters="emit('update:activeFilters', $event)"
-                    />
+                    
                 </div>
             </div>
         </div>
