@@ -146,42 +146,42 @@ const twitterShare = computed(
                 <div v-if="product.variations && product.variations.length">
                     <div v-if="selectedVariation" class="flex flex-col gap-3 my-7 py-7 border-y border-neutralBlue-100">
                         <div v-if="selectedVariation.price_discount" class="flex flex-col gap-3">
-                            <div class="flex flex-row gap-3">
-                                <p class="font-semibold text-blue-900 font-saira text-h4-normal">
+                            <div class="flex flex-row border-[1.4px] border-blue-900 rounded-lg w-fit">
+                                <p class="font-semibold text-blue-900 font-saira text-h5-normal px-4 py-2">
                                     {{ selectedVariation.price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
                                     REDOVNA CIJENA
                                 </p>
                             </div>
 
-                            <div v-if="selectedVariation.price_discount" class="flex flex-row gap-3">
-                                <p class="font-semibold text-blue-300 font-saira text-h4-normal">
+                            <div v-if="selectedVariation.price_discount" class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                                <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                                     {{ selectedVariation.price_discount.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
                                     AKCIJSKA CIJENA
                                 </p>
                             </div>
                         </div>
                         <div v-else class="flex flex-col gap-3">
-                            <div class="flex flex-row gap-3">
-                                <p class="font-semibold text-blue-900 font-saira text-h4-normal">
+                            <div class="flex flex-row border-[1.4px] border-blue-900 rounded-lg w-fit">
+                                <p class="font-semibold text-blue-900 font-saira text-h5-normal px-4 py-2">
                                     {{ selectedVariation.price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
                                     REDOVNA CIJENA
                                 </p>
                             </div>
-                            <div class="flex flex-row gap-3">
-                                <p class="font-semibold text-blue-300 font-saira text-h4-normal">
+                            <div class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                                <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                                     {{ selectedVariation.member_price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
                                     CIJENA ZA ČLANOVE
                                 </p>
                             </div>
@@ -189,31 +189,31 @@ const twitterShare = computed(
                     </div>
                 </div>
                 <div v-else class="flex flex-col gap-3 my-7 py-7 border-y border-neutralBlue-100">
-                    <div class="flex flex-row gap-3">
-                        <p class="font-semibold text-blue-900 font-saira text-h4-normal">
+                    <div class="flex flex-row border-[1.4px] border-blue-900 rounded-lg w-fit">
+                        <p class="font-semibold text-blue-900 font-saira text-h5-normal px-4 py-2">
                             {{ product.price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-lg font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
                             REDOVNA CIJENA
                         </p>
                     </div>
 
-                    <div v-if="product.price_discount" class="flex flex-row gap-3">
-                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">
+                    <div v-if="product.price_discount" class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                        <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                             {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
                             AKCIJSKA CIJENA
                         </p>
                     </div>
-                    <div v-else class="flex flex-row gap-3">
-                        <p class="font-semibold text-blue-300 font-saira text-h4-normal">
+                    <div v-else class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                        <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                             {{ product.member_price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-lg font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
                             CIJENA ZA ČLANOVE
                         </p>
                     </div>
