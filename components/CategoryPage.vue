@@ -57,8 +57,12 @@ const subcategories = computed(() => {
                 <span>{{ category.title }}</span>
             </p>
 
-            <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
+            <p class="pt-1 text-h1-normal font-medium uppercase text-blue-900 font-saira">
                 {{ category.title }}
+            </p>
+            <!-- OPIS KATEGORIJE -->
+            <p class="max-w-xl pb-8 text-body2 text-gray-900">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             <!-- Subkategorije -->
