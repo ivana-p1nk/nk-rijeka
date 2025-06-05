@@ -105,14 +105,28 @@ const isLoggedIn = computed(() => !!user.value)
                 </div>
 
                 <div class="text-sm font-semibold">
-                    <p>{{ item.orderQuantity }} x
-                        {{
-                        (isLoggedIn && user?.role === 'member' && item.member_price)
-                            ? item.member_price.toFixed(2).replace('.', ',')
-                            : (item.discountPrice || item.price).toFixed(2).replace('.', ',')
-                        }} €
+                    <p>
+                        {{ item.orderQuantity }} x
+                        <template v-if="isLoggedIn && user?.role === 'member'">
+                        <span v-if="item.discountPrice">
+                            <span class="line-through text-blue-900 mr-2">{{ item.price.toFixed(2).replace('.', ',') }} €</span>
+                            <span class="text-blue-300">{{ item.discountPrice.toFixed(2).replace('.', ',') }} €</span>
+                        </span>
+                        <span v-else>
+                            <span class="line-through text-blue-900">{{ item.price.toFixed(2).replace('.', ',') }} €</span>
+                            <span class="text-blue-500">{{ item.member_price.toFixed(2).replace('.', ',') }} €</span>
+                        </span>
+                        </template>
+                        <template v-else>
+                        <span v-if="item.discountPrice">
+                            <span class="line-through text-blue-900 mr-2">{{ item.price.toFixed(2).replace('.', ',') }} €</span>
+                            <span class="text-blue-300">{{ item.discountPrice.toFixed(2).replace('.', ',') }} €</span>
+                        </span>
+                        <span v-else class="text-blue-900">{{ item.price.toFixed(2).replace('.', ',') }}€</span>
+                        </template>
                     </p>
                 </div>
+
 
                 <div class="flex items-center gap-2">
                     <button class="btn-icon-secondary square-medium rounded-md border-[1.5px]" @click="cartStore.quantityDecrement(item, item.variationId)">
