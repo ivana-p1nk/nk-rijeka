@@ -62,7 +62,7 @@ const subcategories = computed(() => {
             </p>
             <!-- OPIS KATEGORIJE -->
             <p class="max-w-xl pb-8 text-body2 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                TEST Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             <!-- Subkategorije -->
