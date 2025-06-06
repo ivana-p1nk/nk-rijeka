@@ -56,6 +56,7 @@
             <h3 class="uppercase text-4xl font-bold leading-9 tracking-tight text-center">
                 Resetiranje lozinke
             </h3>
+            <p class="text-body1 pt-3 text-center">Na email će vam biti poslan link za restiranje lozinke.</p>
         </div>
 
         <UContainer :ui="{ constrained: 'mx-auto w-full sm:max-w-lg' }">
