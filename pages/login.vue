@@ -122,7 +122,7 @@ const goToPreviousPage = () => {
                 <UButton :disabled="loading" :loading="loading" type="submit" block size="lg" :ui="{
                     base: '!font-saira !bg-blue-600 uppercase !font-bold !text-white !rounded-[6px]',
                 }">
-                    Prijavi se
+                    Prijavi se 
                 </UButton>
 
                 <div>
