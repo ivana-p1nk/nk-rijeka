@@ -122,23 +122,23 @@ const goToPreviousPage = () => {
                 Račun kreiran
             </h2>
 
-            <p class="text-center pt-4">
-                Pridruži se zajednici navijača i ljubitelja HNK Rijeka
-
-                <span class="block">
-                    Već imaš račun?
-                    <NuxtLink to="/login" class="font-bold underline uppercase link-plavi"> PRIJAVI SE </NuxtLink>
-                </span>
-            </p>
         </div>
 
-        <div>
-            <img src="/assets/images/racun-kreiran.jpg">
-            <p class="text-body2 font-bold text-blue-900 py-4">Kako bi završili registraciju vašeg računa aktivirajte link koji je poslan na vašu email adresu.</p>
-            <p class="text-body3 text-blue-900 pb-4">Lozinku i email adresu možete promjeniti u postavkama računa.</p>
-            <hr>
-            <p class="text-body3 text-bold text-blue-500 py-4">Hvala Vam na podršci kluba</p>
-            <NuxtLink to="/login" class="">Prijavi se</NuxtLink>
+        <div class="text-center max-w-[376px] mx-auto">
+            <img src="/assets/images/racun-kreiran.jpg" class="w-full rounded-md">
+            <p class="px-5 text-body2 font-bold text-blue-900 py-4">Kako bi završili registraciju vašeg računa aktivirajte link koji je poslan na vašu email adresu.</p>
+            <p class="px-5 text-body3 text-blue-900 pb-4">Lozinku i email adresu možete promjeniti u postavkama računa</p>
+            <hr class="border-t-[1.4px] border-gray-200" />
+            <p class="px-5 text-body3 font-bold text-blue-500 py-4">Hvala Vam na podršci kluba</p>
+            <NuxtLink
+                to="/login"
+                class="block w-full px-5 py-3 uppercase text-white font-bold font-saira bg-blue-600 hover:bg-blue-700 rounded-[6px] text-center transition-colors duration-200 ease-in-out"
+                >
+                Prijavi se
+            </NuxtLink>
+
+
+
         </div>
 
             
