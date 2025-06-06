@@ -53,7 +53,7 @@
         class="container justify-center pt-20 pb-32"
     >
         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
-            <h2 class="text-2xl font-bold leading-9 tracking-tight text-left">
+            <h2 class="text-2xl font-bold leading-9 tracking-tight text-center">
                 Resetiranje lozinke
             </h2>
         </div>
