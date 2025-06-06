@@ -136,17 +136,10 @@ const goToPreviousPage = () => {
                 >
                 Prijavi se
             </NuxtLink>
-
-
-
         </div>
-
-            
-
-                
+         
     </section>
 
-    <UNotifications />
 </template>
 
 
