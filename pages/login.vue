@@ -100,7 +100,7 @@ const goToPreviousPage = () => {
                     },
                 }">
                     <UInput v-model="state.email" :name="state.email" placeholder="Korisničko ime" variant="outline"
-                        size="lg" :ui="{ base: 'focus:ring-[#009FF5] focus:border-[#009FF5] border border-gray-300 text-sm rounded-md'}" />
+                        size="lg" />
                 </UFormGroup>
 
                 <UFormGroup label="Lozinka" required name="password" :ui="{
@@ -109,7 +109,7 @@ const goToPreviousPage = () => {
                     },
                 }">
                     <UInput v-model="state.password" :name="state.password" placeholder="Lozinka" size="lg"
-                        :type="typePass" :ui="{ icon: { trailing: { pointer: '' } },  base: 'focus:ring-[#009FF5] focus:border-[#009FF5] border border-gray-300 text-sm rounded-md' }">
+                        :type="typePass" :ui="{ icon: { trailing: { pointer: '' } } }">
                         <template #trailing>
                             <UButton v-show="typePass == 'password' && state.password !== undefined" color="gray"
                                 variant="link" icon="i-heroicons-eye" :padded="false" @click="showPassword" />
@@ -137,3 +137,24 @@ const goToPreviousPage = () => {
     <UNotifications />
 </template>
 
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>

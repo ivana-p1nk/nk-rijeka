@@ -178,7 +178,6 @@ const updateAddress = async () => {
     :deep(textarea:focus-visible) {
         --tw-ring-color: #009FF5 !important;
         --tw-border-color: #009FF5 !important;
-        box-shadow: 0 0 0 1px #009FF5 !important;
         border-color: #009FF5 !important;
     }
 
