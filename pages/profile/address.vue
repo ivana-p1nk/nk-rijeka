@@ -167,3 +167,26 @@ const updateAddress = async () => {
     </div>
   </section>
 </template>
+
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        box-shadow: 0 0 0 1px #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>
