@@ -2,7 +2,6 @@
 import type { ICategory } from '@/types/category'
 import type { IProduct } from '@/types/product'
 import Pagination from '@/components/Pagination.vue'
-import FilterMobile from '~/components/Sidebar/FilterMobile.vue'
 import { ref } from 'vue'
 
 const mobileFilterOpen = ref(false)

@@ -63,7 +63,7 @@
     </USlideover>
 
     <!-- Desktop prikaz filtera -->
-    <div class="hidden md:flex gap-4 flex-wrap">
+    <div class="hidden md:flex gap-2 flex-wrap">
       <div v-for="filter in filterConfigs" :key="filter.key" class="w-full sm:w-48">
         <USelect
           v-model="filters[filter.key as FilterKey]"

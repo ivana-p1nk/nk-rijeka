@@ -42,7 +42,7 @@ const logoutUser = async () => {
             </NuxtLink>
 
             <button
-                class="flex items-center p-3 mt-10 text-blue-900 rounded-xl hover:bg-[#D9F1FD] font-medium bg-white uppercase focus:outline-none"
+                class="flex font-saira items-center p-3 mt-10 text-blue-900 rounded-xl hover:bg-[#D9F1FD] font-medium bg-white uppercase focus:outline-none"
                 @click="logoutUser">
                 <UIcon name="uiw:login" class="size-5 mr-2 text-blue-500" />
                 Odjavi se
