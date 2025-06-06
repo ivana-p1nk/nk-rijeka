@@ -56,6 +56,7 @@
             <h2 class="text-2xl font-bold leading-9 tracking-tight text-left">
                 Resetiranje lozinke
             </h2>
+            <h1>resretiranje lozinke</h1>
         </div>
 
         <UContainer :ui="{ constrained: 'mx-auto w-full sm:max-w-lg' }">
