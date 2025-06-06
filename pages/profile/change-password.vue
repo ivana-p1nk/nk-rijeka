@@ -79,7 +79,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                             <p class="text-body1 pt-3">Na email će vam biti poslan link za restiranje lozinke.</p>
                         </div>
  
-                        <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl mx-auto" @submit="onSubmit">
+                        <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl" @submit="onSubmit">
                             <UFormGroup label="Email" name="email" :ui="{
                                 label: {
                                     base: 'text-[#111827] font-roboto font-normal text-sm',
