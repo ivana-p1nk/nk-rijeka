@@ -76,6 +76,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                     <div class="w-full px-10 py-10 bg-white rounded lg:w-2/3 custom-shadow">
                         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
                             <h2 class="text-2xl font-bold uppercase">Resetiranje lozinke</h2>
+                            <p>Na email će vam biti poslan link za restiranje lozinke.</p>
                         </div>
  
                         <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl mx-auto" @submit="onSubmit">
