@@ -11,10 +11,15 @@ const props = defineProps<{
   newProducts?: IProduct[] 
 }>();
 
+const selectedVariation = computed(() =>
+  props.product.variations?.[0] ?? null
+)
+
 /*TAGOVI*/
 const { tagProducts, tagCategoryMap } = useTagCategories()
+
 const productTags = computed(() =>
-  getProductTags(props.product, tagProducts.value, tagCategoryMap)
+  getProductTags(props.product, tagProducts.value, tagCategoryMap, selectedVariation.value)
 )
 
 

@@ -50,23 +50,38 @@ export const useTagCategories = () => {
   }
 }
 
+
+type IProductVariation = NonNullable<IProduct['variations']>[number]
+
 export const getProductTags = (
   product: IProduct,
-  tagProductsMap: Record<number, IProduct[]>,
-  tagMap: Record<number, string>
-) => {
+  tagProductsMap: Record<number, IProduct[]> | undefined,
+  tagMap: Record<number, string>,
+  selectedVariation: IProductVariation | null
+): string[] => {
   const tags: string[] = []
 
-  for (const [catId, tagLabel] of Object.entries(tagMap)) {
-    const isInCategory = tagProductsMap[+catId]
-      ?.some(p => p.id === product.id)
+  if (!tagProductsMap) return tags
 
-    if (isInCategory) tags.push(tagLabel)
+  for (const catIdStr in tagMap) {
+    const catId = Number(catIdStr)
+    const tagLabel = tagMap[catId]
+    const isInCategory = tagProductsMap[catId]?.some(p => p.id === product.id)
+
+    if (isInCategory) {
+      tags.push(tagLabel)
+    }
   }
 
-  if (product.price_discount && product.price_discount > 0) {
+  const hasDiscount =
+    (selectedVariation?.price_discount && selectedVariation.price_discount > 0) ||
+    (product.price_discount && product.price_discount > 0)
+
+  if (hasDiscount) {
     tags.push('AKCIJA')
   }
 
   return tags
 }
+
+

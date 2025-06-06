@@ -14,7 +14,7 @@ const props = defineProps<{ product: IProduct }>()
 
 const { tagProducts, tagCategoryMap } = useTagCategories()
 const productTags = computed(() =>
-  getProductTags(props.product, tagProducts.value, tagCategoryMap)
+  getProductTags(props.product, tagProducts.value, tagCategoryMap, selectedVariation.value)
 )
 
 const user = useSanctumUser() as Ref<IUser | null>
