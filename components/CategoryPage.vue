@@ -65,7 +65,7 @@ const subcategories = computed(() => {
             </p>
 
             <!-- Subkategorije -->
-            <div class="flex flex-col lg:flex-row flex-wrap gap-5 md:gap-3">
+            <div class="flex flex-col justify-between lg:flex-row flex-wrap gap-5 md:gap-3">
                 <div class="w-full lg:w-auto flex flex-wrap gap-2">
                     <div v-if="subcategories.length" class="flex flex-wrap gap-2">
                         <div v-for="(item, index) in subcategories" :key="index">
@@ -84,11 +84,9 @@ const subcategories = computed(() => {
                 </div>
 
                 <hr class="block md:hidden border-t-[1.35px] border-gray-200" />
+
                 <!-- FILTERS -->
-                <div
-                    class="w-full lg:flex-1 flex flex-row sm:flex-row flex-wrap gap-2 justify-start lg:justify-end items-start"
-                >
-               
+                <div class="grid grid-cols-2 gap-2 items-start md:flex md:flex-row md:items-start md:justify-start lg:justify-end">
 
                     <FilterAtributeFilter
                         :products="products"
@@ -96,7 +94,7 @@ const subcategories = computed(() => {
                         @update:filters="emit('update:activeFilters', $event)"
                     />
 
-                     <!-- SORT ON MOBILE - SIDEBAR -->
+                    <!-- SORT ON MOBILE - SIDEBAR -->
                     <FilterSortFilter
                         v-if="products.length > 0"
                         :products="products"

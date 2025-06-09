@@ -3,7 +3,7 @@
     <!-- Dugme za otvaranje sort sidebar-a na mobilnim uređajima -->
     <button
     @click="isSidebarOpen = true"
-    class="group flex flex-row items-center gap-2 uppercase filter-width w-full transition-colors duration-300 md:hidden btn-secondary"
+    class="group flex flex-row justify-center items-center gap-2 uppercase filter-width w-full transition-colors duration-300 md:hidden btn-secondary"
     >
         Poredaj po
         <Icon name="streamline:interface-page-controller-scroll-up-down-move-scroll-vertical" 
@@ -98,3 +98,4 @@ const slideOverUI = {
   content: 'fixed top-0 right-0 z-50 w-96 max-w-full h-full bg-white shadow-xl flex flex-col focus:outline-none',
 }
 </script>
+
