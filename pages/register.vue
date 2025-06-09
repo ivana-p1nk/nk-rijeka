@@ -78,7 +78,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
                     title: 'Uspešno ste se registrirali',
                     timeout: 2500,
                 })
-                navigateTo('/login')
+                navigateTo('/succes-registration')
             }
         })
         .catch((err) => {
