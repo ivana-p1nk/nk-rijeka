@@ -4,7 +4,7 @@
     <button
       @click="isSidebarOpen = true"
       :class="[
-       'group flex flex-row items-center gap-2 uppercase medium w-fit transition-colors duration-300 md:hidden',
+       'group flex flex-row items-center gap-2 uppercase filter-width w-full  transition-colors duration-300 md:hidden',
        isSidebarOpen ? 'btn-secondary-focus' : 'btn-secondary',
       ]"
     >

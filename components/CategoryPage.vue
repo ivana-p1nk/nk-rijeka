@@ -45,7 +45,7 @@ const subcategories = computed(() => {
 
 <template>
     <div class="pb-16 mb-8 border-b border-1 border-gray-200">
-        <div class="pb-10 lg:pb-16 mb-8 border-b border-1 border-gray-200">
+        <div class="pb-0 md:pb-10 lg:pb-16 mb-8 border-b-0 md:border-b border-1 border-gray-200">
             <p class="font-normal text-blue-900 font-roboto text-body2">
                 <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
                 <template v-if="parentCategory">
@@ -83,17 +83,29 @@ const subcategories = computed(() => {
                     </div>
                 </div>
 
-                <!-- Filteri -->
+                <hr class="block md:hidden border-t-[1.35px] border-gray-200" />
+                <!-- FILTERS -->
                 <div
-                    class="w-full lg:flex-1 flex flex-col sm:flex-row flex-wrap gap-2 justify-start lg:justify-end items-start"
+                    class="w-full lg:flex-1 flex flex-row sm:flex-row flex-wrap gap-2 justify-start lg:justify-end items-start"
                 >
+               
+
                     <FilterAtributeFilter
                         :products="products"
                         :filters="activeFilters"
                         @update:filters="emit('update:activeFilters', $event)"
                     />
 
-                    
+                     <!-- SORT ON MOBILE - SIDEBAR -->
+                    <FilterSortFilter
+                        v-if="products.length > 0"
+                        :products="products"
+                        :filters="activeFilters"
+                        @update:filters="emit('update:activeFilters', $event)"
+                        class="block md:hidden"
+                        v-model="sort"
+                    />
+
                 </div>
             </div>
         </div>
@@ -103,8 +115,10 @@ const subcategories = computed(() => {
             <div class="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
                 <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ totalProducts }}</p>
 
+                <!-- SORT DESKTOP-->
                 <USelect
                         v-model="sort"
+                        class="hidden md:block"
                         :options="[
                             { value: 'Najnoviji', label: 'Poredaj po najnovijem' },
                             { value: 'S nižom cijenom', label: 'Poredaj po cijeni: od najniže do najviše' },
