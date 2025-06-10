@@ -8,7 +8,7 @@ import { useRouter } from 'vue-router'
 import { useTagCategories } from '~/composables/useTagCategories'
 import type { IUser } from '~/types/user'
 import ProductBreadcrumbs from '@/components/Product/Breadcrumbs.vue'
-
+import OutOfStockNotification from '@/components/Product/OutOfStockNotification.vue'
 
 const props = defineProps<{ product: IProduct }>()
 
@@ -257,8 +257,12 @@ const twitterShare = computed(
                     <div class="mt-7 pb-7">
                         <!--Količina-->
                         <div v-if="product.variations && product.variations.length">
-                            <div v-if="selectedVariation?.quantity == 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
-                                RASPRODANO
+                            
+                            <div v-if="selectedVariation?.quantity == 0">
+                                <div class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                                    RASPRODANO
+                                </div>
+                                <OutOfStockNotification />
                             </div>
                             <div v-else class="flex items-center gap-4">
                                 <div class="flex items-center gap-1">
@@ -295,9 +299,13 @@ const twitterShare = computed(
                             </div>
                         </div>
                         <div v-else>
-                            <div v-if="product.quantity == 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
-                                RASPRODANO
+                            <div v-if="product.quantity == 0">
+                                <div class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                                    RASPRODANO
+                                </div>
+                                <OutOfStockNotification />
                             </div>
+
                            
                             <div v-else class="flex items-center gap-4">
                                 <div class="flex items-center gap-1">
