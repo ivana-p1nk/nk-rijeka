@@ -41,6 +41,11 @@ const subcategories = computed(() => {
 })
 
 
+const plainDescription = computed(() => {
+  if (!props.category.description) return ''
+  return props.category.description.replace(/<[^>]*>/g, '') // uklanja sve HTML tagove
+})
+
 </script>
 
 <template>
@@ -60,12 +65,12 @@ const subcategories = computed(() => {
                 {{ category.title }}
             </p>
             <!-- OPIS KATEGORIJE -->
-            <p class="max-w-xl pb-8 text-body2 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p v-if="plainDescription" class="max-w-xl pb-8 text-body2 text-gray-900">
+                {{ plainDescription }}
             </p>
 
             <!-- Subkategorije -->
-            <div class="flex flex-col justify-between lg:flex-row flex-wrap gap-5 md:gap-3">
+            <div class="flex flex-col justify-between lg:flex-row flex-wrap gap-5 md:gap-3 pt-2">
                 <div class="w-full lg:w-auto flex flex-wrap gap-2">
                     <div v-if="subcategories.length" class="flex flex-wrap gap-2">
                         <div v-for="(item, index) in subcategories" :key="index">
