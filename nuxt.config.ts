@@ -7,7 +7,7 @@ export default defineNuxtConfig({
             title: 'NK Rijeka',
             meta: [{ name: 'description', content: 'Test' }],
             link: [
-                { rel: 'icon', type: 'image/svg+xml', href: '/Favicon.svg' }
+                { rel: 'icon', type: 'image/x-icon', href: '/Favicon.ico' }
             ],
         },
     },
