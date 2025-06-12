@@ -37,7 +37,7 @@
 
             <!-- footer meni  -->
             <div
-                class="mx-auto max-w-[1480px] grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+                class="mx-auto container grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
                 <!-- Logo element -->
                 <div
                     class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5">
@@ -47,8 +47,8 @@
                 </div>
 
                 <!-- Društvene mreže -->
-                <div>
-                    <h6 class="pt-3 footer-title sm:pt-0">Društvene mreže</h6>
+                <div class="pl-10 sm:pl-0">
+                    <h6 class="pt-3 footer-title md:pt-0">Društvene mreže</h6>
                     <p class="mb-4 footer-text">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
                     <ul class="inline-flex gap-2">
                         <li>
