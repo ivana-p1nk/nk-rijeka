@@ -74,7 +74,7 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         return query.toString()
     }
 
-    const fetchProducts = async () => {
+    const fetchProducts = async (filtersOverride?: Record<string, string>) => {
         loadingProduct.value = true
 
         try {
@@ -82,8 +82,11 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
             const { slug } = route.params
             const queryFilters = route.query
 
-            if(queryFilters) {
-                activeFilters.value = queryFilters as Record<string, string>;
+            let filters = filtersOverride ?? activeFilters.value;
+
+            if(Object.keys(activeFilters.value).length === 0 && Object.keys(queryFilters).length > 0) {
+                filters = queryFilters as Record<string, string>
+                activeFilters.value = queryFilters as Record<string, string>
             }
 
             let catIds: number[] = []
@@ -97,7 +100,8 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
             }
 
             const queryParams = {
-                ...activeFilters.value,
+                ...filters,
+                a: queryFilters.a,
                 categories: categoriy.value.length > 0 ? categoriy.value : catIds.join(','),
                 page: page.value,
                 sort: sort.value,
@@ -141,7 +145,7 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
     const updateFilters = async (value: Record<string, string>) => {
         activeFilters.value = value;
         page.value = 1;
-        fetchProducts()
+        fetchProducts(value)
     }
 
     return {

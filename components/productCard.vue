@@ -40,7 +40,7 @@ const addToCart = () => {
         description: `Kliknite ovdje za pregled košarice`,
         color: 'green',
         click: () => {
-            router.push('/cart')
+            router.push('/initiate-checkout/')
         },
     })
 }
@@ -140,7 +140,7 @@ const addToCart = () => {
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
-                <NuxtLink :to="`/products/${product.id}`" class="font-semibold btn-primary large active:bg-blue-800 sm:text-[15px] text-[10px]">
+                <NuxtLink :to="`/p/${product.id}/`" class="font-semibold btn-primary large active:bg-blue-800 sm:text-[15px] text-[10px]">
                     {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 

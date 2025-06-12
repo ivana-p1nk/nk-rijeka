@@ -264,7 +264,7 @@ const addToCart = () => {
         description: `Kliknite ovdje za pregled košarice`,
         color: 'green',
         click: () => {
-            router.push('/cart')
+            router.push('/initiate-checkout/')
         },
     })
 }

@@ -54,7 +54,7 @@ const plainDescription = computed(() => {
             <p class="font-normal text-blue-900 font-roboto text-body2">
                 <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
                 <template v-if="parentCategory">
-                    <NuxtLink class="text-blue-400 link-color" :to="`/categories/${catslug}`">
+                    <NuxtLink class="text-blue-400 link-color" :to="`/c/${catslug}`">
                         {{ parentCategory.title }} /
                     </NuxtLink>
                 </template>
@@ -76,7 +76,7 @@ const plainDescription = computed(() => {
                         <div v-for="(item, index) in subcategories" :key="index">
                             <NuxtLink
                                 v-if="item.slug"
-                                :to="`/categories/${catslug}/${item.slug}`"
+                                :to="`/c/${catslug}/${item.slug}`"
                                 :class="[
                                     'btn-secondary uppercase small px-5 inline-block',
                                     { active: slug === item.slug },

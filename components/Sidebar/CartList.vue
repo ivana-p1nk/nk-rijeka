@@ -43,7 +43,7 @@
                     <div v-for="(item, index) in cartStore.cart_products" :key="index" class="border-b pb-4">
                         <div class="grid gap-3" style="grid-template-columns: 96px 1fr 38px">
                             <!-- PRVI STUPAC: Slika proizvoda-->
-                            <NuxtLink :to="`/products/${item.id}`" @click="show = false">
+                            <NuxtLink :to="`/p/${item.id}`" @click="show = false">
                                 <img :src="item.gallery[0]" class="object-contain w-24 h-24" />
                             </NuxtLink>
 
@@ -176,7 +176,7 @@
                         </p>
                     </div>
                     <div>
-                        <NuxtLink to="/cart" @click="show = false" class="btn-primary large uppercase block text-center"
+                        <NuxtLink to="/initiate-checkout/" @click="show = false" class="btn-primary large uppercase block text-center"
                             >Pregledaj košaricu i naruči</NuxtLink
                         >
                     </div>

@@ -37,13 +37,13 @@ onMounted(fetchCategories);
 
 			<ul class="text-blue-400 underline pt-10">
 				<li v-for="category in categories" :key="category.id">
-					<NuxtLink :to="`/categories/${encodeURIComponent(category.slug!)}`">
+					<NuxtLink :to="`/c/${encodeURIComponent(category.slug!)}/`">
 						{{ category.title }} ({{ category.total_products_count }})
 					</NuxtLink>
 					<ul v-if="category.sub_categories && category.sub_categories.length">
 						<li v-for="subcategory in category.sub_categories" :key="subcategory.id" class="ml-4">
 							<NuxtLink
-								:to="`/categories/${encodeURIComponent(category.slug!)}/${encodeURIComponent(subcategory.slug!)}`">
+								:to="`/c/${encodeURIComponent(category.slug!)}/${encodeURIComponent(subcategory.slug!)}/`">
 								{{ subcategory.title }}
 							</NuxtLink>
 						</li>

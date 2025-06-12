@@ -48,9 +48,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
-                    <li class="heading-sub"><a href="/categories/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
-                    <li class="heading-sub"><a href="/categories/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a></li>
-                    <li class="heading-sub"><a href="/categories/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
+                    <li class="heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
+                    <li class="heading-sub"><a href="/c/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a></li>
+                    <li class="heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                     </ul>
                 </div>
             </Transition> 
@@ -61,36 +61,36 @@
                         <h5 class="pb-4 heading-subtitle">MUŠKARCI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">ŽENE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">DJECA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">MODNI DODACI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/kape" @click="closeTabMenu">Kape</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a></li>
                         </ul>
                     </div>
                 </div>
@@ -102,34 +102,34 @@
                         <h5 class="pb-4 heading-subtitle">JOMA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/joma/hlace" @click="closeTabMenu">Hlače</a></li>
-                            <li class="heading-sub"><a href="/categories/joma/majice" @click="closeTabMenu">Majice</a></li>
-                            <li class="heading-sub"><a href="/categories/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
-                            <li class="heading-sub"><a href="/categories/joma/jakne" @click="closeTabMenu">Jakne</a></li>
-                            <li class="heading-sub"><a href="/categories/joma/lopte" @click="closeTabMenu">Lopte</a></li>
+                            <li class="heading-sub"><a href="/c/joma/hlace" @click="closeTabMenu">Hlače</a></li>
+                            <li class="heading-sub"><a href="/c/joma/majice" @click="closeTabMenu">Majice</a></li>
+                            <li class="heading-sub"><a href="/c/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
+                            <li class="heading-sub"><a href="/c/joma/jakne" @click="closeTabMenu">Jakne</a></li>
+                            <li class="heading-sub"><a href="/c/joma/lopte" @click="closeTabMenu">Lopte</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">HOODICE</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a></li>
-                            <li class="heading-sub"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
+                            <li class="heading-sub"><a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
                     <div class="basis-1/4">
                         <h5 class="pb-4 heading-subtitle">ZIGMAN & HNK RIJEKA</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/categories/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a></li>
+                            <li class="heading-sub"><a href="/c/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
                 </div>
@@ -139,12 +139,12 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'pokloni' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="pokloni">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><a href="/categories/pokloni/skolski-asortiman" @click="closeTabMenu">Školski asortiman</a></li>
-                        <li class="heading-sub"><a href="/categories/pokloni/dom" @click="closeTabMenu">Dom</a></li>
-                        <li class="heading-sub"><a href="/categories/pokloni/privjesci" @click="closeTabMenu">Privjesci</a></li>
-                        <li class="heading-sub"><a href="/categories/pokloni/zastave" @click="closeTabMenu">Zastave</a></li>
-                        <li class="heading-sub"><a href="/categories/pokloni/cestitke" @click="closeTabMenu">Čestitke</a></li>
-                        <li class="heading-sub"><a href="/categories/pokloni/ostalo" @click="closeTabMenu">Ostalo</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/skolski-asortiman" @click="closeTabMenu">Školski asortiman</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/dom" @click="closeTabMenu">Dom</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/privjesci" @click="closeTabMenu">Privjesci</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/zastave" @click="closeTabMenu">Zastave</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/cestitke" @click="closeTabMenu">Čestitke</a></li>
+                        <li class="heading-sub"><a href="/c/pokloni/ostalo" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
                 </div>
             </Transition>
@@ -152,9 +152,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'akcije' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="akcije">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><a href="/categories/outlet?a=dresovi" @click="closeTabMenu">Dresovi</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet?a=joma" @click="closeTabMenu">JOMA</a></li>
-                        <li class="heading-sub"><a href="/categories/outlet?a=ostalo" @click="closeTabMenu">Ostalo</a></li>
+                        <li class="heading-sub"><a href="/c/outlet?a=dresovi" @click="closeTabMenu">Dresovi</a></li>
+                        <li class="heading-sub"><a href="/c/outlet?a=joma" @click="closeTabMenu">JOMA</a></li>
+                        <li class="heading-sub"><a href="/c/outlet?a=ostalo" @click="closeTabMenu">Ostalo</a></li>
                     </ul>
                 </div> 
             </Transition>
