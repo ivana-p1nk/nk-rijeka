@@ -5,6 +5,8 @@ import { useRoute, createError } from '#imports'
 const route = useRoute()
 const catslug = route.params.catslug as string
 
+console.log(catslug)
+
 const { 
     category, 
     products, 

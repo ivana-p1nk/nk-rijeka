@@ -40,13 +40,13 @@ const breadcrumbsItems = computed(() => {
 
   if (parentCategory && subCategory) {
     return [
-      { label: parentCategory.title, slug: `/categories/${parentCategory.slug}` },
-      { label: subCategory.title, slug: `/categories/${subCategory.slug}` },
+      { label: parentCategory.title, slug: `/c/${parentCategory.slug}` },
+      { label: subCategory.title, slug: `/c/${subCategory.slug}` },
       { label: props.product.title, slug: null }
     ]
   } else if (categories.length) {
     return [
-      { label: categories[0].title, slug: `/categories/${categories[0].slug}` },
+      { label: categories[0].title, slug: `/c/${categories[0].slug}` },
       { label: props.product.title, slug: null }
     ]
   } else {

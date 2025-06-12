@@ -52,7 +52,7 @@ const addToCart = () => {
         description: `Kliknite ovdje za pregled košarice`,
         color: 'green',
         click: () => {
-            router.push('/cart')
+            router.push('/initiate-checkout/')
         },
     })
 }
@@ -352,7 +352,7 @@ const twitterShare = computed(
                         <span class="font-bold"> Kategorije: </span>
                         <span v-for="(cat, index) in product.category" :key="cat.id">
                             <router-link
-                            :to="`/categories/${cat.slug}`"
+                            :to="`/c/${cat.slug}`"
                             class=" link-color"
                             >
                             {{ cat.title }}

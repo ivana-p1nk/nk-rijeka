@@ -57,7 +57,7 @@ onMounted(() => {
                             BESTSELLERI
                             </h1>
                             <NuxtLink
-                            to="/categories/bestselleri"
+                            to="/c/bestselleri"
                             class="uppercase btn-secondary xs h-fit md:hidden"
                             >
                             Pogledaj sve
@@ -68,7 +68,7 @@ onMounted(() => {
                         </p>
                     </div>
                     <NuxtLink
-                        to="/categories/bestselleri"
+                        to="/c/bestselleri"
                         class="uppercase btn-secondary xs h-fit hidden md:block self-center"
                         >
                         Pogledaj sve
