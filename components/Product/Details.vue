@@ -33,6 +33,10 @@ const selectedVariation = computed(() => {
     return props.product.variations?.find((variation) => variation.id === selectedVariationId.value) || null
 })
 
+const isInCategory2 = computed(() => {
+    return props.product.category?.some((cat) => cat.id === 2)
+})
+
 const addToCart = () => {
     if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
         alert('Molimo odaberite veličinu prije dodavanja u košaricu.')
@@ -222,7 +226,7 @@ const twitterShare = computed(
                 <div class="border-b border-neutralBlue-100">
                     <!-- Personaliziraj -->
                     <div v-if="product.variations && product.variations.length">
-                        <div v-if="product.personalization_enable">
+                        <div v-if="product.personalization_enable && isInCategory2">
                             <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
                                 @update-selected-variation="updateSelectedVariation" />
                         </div>
