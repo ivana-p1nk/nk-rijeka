@@ -16,7 +16,7 @@ const emit = defineEmits(['useCoupon'])
 
 <template>
     <div class="md:p-10 p-5 rounded-lg bg-[#D9F1FD]">
-        <p class="text-xl font-bold">VAŠA NARUDŽBA</p>
+        <p class="text-h6-desktop font-saira font-bold">VAŠA NARUDŽBA</p>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
 
@@ -34,7 +34,8 @@ const emit = defineEmits(['useCoupon'])
             </button>
         </div>
         <div v-else class="flex items-center gap-2">
-            <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" class="w-full" variant="outline" />
+            <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" variant="outline"  class="w-full focus:ring-blue-500"
+  color="gray" />
             <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
         </div>
 
@@ -52,13 +53,14 @@ const emit = defineEmits(['useCoupon'])
             druge svrhe opisane u našoj <a href="#" class="text-blue-500 underline">pravilima privatnosti</a>.
         </p>
 
-        <UCheckbox v-on:change="term" name="terms" class="mt-4">
+        <UCheckbox v-on:change="term" id="gdpr" name="terms" class="mt-4"  color="blue">
             <template #label>
-                <span class="italic">
-                    Prihvaćam i slažem se sa 
-                    <a href="#" class="text-blue-500 underline">uvjetima prodaje i pravilima primatnosti</a>
+                <p class="font-normal">
+                    Prihvaćam i slažem se sa
+                    <NuxtLink to="/opci-uvjeti" class="link-plavi body4 underline font-semibold">uvjetima prodaje</NuxtLink> i
+                    <NuxtLink to="/zastita-podataka" class="link-plavi body4 underline font-semibold">pravilima privatnosti</NuxtLink>
                     <span class="text-red-500"> *</span>
-                </span>
+                </p>
             </template>
         </UCheckbox>
 
@@ -75,3 +77,10 @@ const emit = defineEmits(['useCoupon'])
         </UButton>
     </div>
 </template>
+
+
+<style scoped>
+:deep(.form-input:focus) {
+  --tw-ring-color: #009FF5; 
+}
+</style>

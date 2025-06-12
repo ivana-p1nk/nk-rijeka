@@ -53,9 +53,10 @@
         class="container justify-center pt-20 pb-32"
     >
         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
-            <h2 class="text-4xl font-bold leading-9 tracking-tight text-center">
+            <h3 class="uppercase text-4xl font-bold leading-9 tracking-tight text-center">
                 Resetiranje lozinke
-            </h2>
+            </h3>
+            <p class="text-body1 pt-3 text-center">Na email će vam biti poslan link za restiranje lozinke.</p>
         </div>
 
         <UContainer :ui="{ constrained: 'mx-auto w-full sm:max-w-lg' }">
@@ -82,3 +83,25 @@
         </UContainer>
     </section>
 </template>
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        box-shadow: 0 0 0 1px #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>

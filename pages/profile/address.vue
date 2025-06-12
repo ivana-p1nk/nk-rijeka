@@ -76,7 +76,8 @@ const updateAddress = async () => {
           </div>
 
           <div class="w-full px-3 py-4 md:px-10 md:py-10 bg-white rounded lg:w-2/3 custom-shadow">
-            <h1 class="text-2xl font-bold pb-10">ADRESA</h1>
+            <h1 class="text-2xl font-bold">ADRESA</h1>
+            <p class="text-body1 pt-3 pb-10">Uredite podatke za naplatu.</p>
 
             <UForm @submit.prevent="updateAddress" class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <UFormGroup label="Ime" name="firstName" :ui="{
@@ -167,3 +168,25 @@ const updateAddress = async () => {
     </div>
   </section>
 </template>
+
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>

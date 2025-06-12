@@ -122,7 +122,7 @@ const goToPreviousPage = () => {
                 <UButton :disabled="loading" :loading="loading" type="submit" block size="lg" :ui="{
                     base: '!font-saira !bg-blue-600 uppercase !font-bold !text-white !rounded-[6px]',
                 }">
-                    Prijavi se
+                    Prijavi se 
                 </UButton>
 
                 <div>
@@ -136,3 +136,25 @@ const goToPreviousPage = () => {
 
     <UNotifications />
 </template>
+
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>

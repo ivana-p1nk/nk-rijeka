@@ -157,8 +157,16 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-    <div class="py-20 px-4 mt-20 container mx-auto">
-        <h1 class="mb-10 font-medium text-blue-900 font-saira text-h1-normal">Košarica</h1>
+    <div class="bg-igraci">
+      <div class="container mx-auto con-height pb-5 px-5">
+          <!-- Breadcrumb -->
+          <p class="font-normal text-blue-900 font-roboto text-body2">
+            <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
+            <span>Košarica</span>
+          </p>
+          <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
+            Košarica
+          </p>
 
         <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
             <div class="col-span-12">
@@ -169,7 +177,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 
                 <h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Adresa za naplatu</h2>
 
-                <div class="md:px-12 md:py-10 py-5 px-3 bg-white shadow-lg rounded-2xl">
+                <div class="md:px-12 md:py-10 py-5 px-3 bg-white rounded-2xl">
                     <h2 class="text-xl font-bold text-blue-900 font-saira">Podaci o kupcu</h2>
 
                     <div class="w-full pt-4">
@@ -185,9 +193,10 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
             </div>
         </div>
         <div v-else class="flex flex-col justify-center items-center py-20">
-            <h1 class="text-2xl font-bold text-blue-900 font-saira">Košarica je prazna</h1>
+            <h1 class="text-2xl font-medium uppercase text-blue-900 font-saira mb-4">Košarica je prazna</h1>
             <p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
-            <NuxtLink to="/products" class="btn-primary large mt-10">Nastavi s kupnjom</NuxtLink>
+            <NuxtLink to="/products" class="font-semibold btn-primary large uppercase active:bg-blue-800 mt-5">Nastavi s kupnjom</NuxtLink>
         </div>
+      </div>
     </div>
 </template>

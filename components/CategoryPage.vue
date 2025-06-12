@@ -2,6 +2,9 @@
 import type { ICategory } from '@/types/category'
 import type { IProduct } from '@/types/product'
 import Pagination from '@/components/Pagination.vue'
+import { ref } from 'vue'
+
+const mobileFilterOpen = ref(false)
 
 const props = defineProps<{
     category: ICategory
@@ -38,11 +41,16 @@ const subcategories = computed(() => {
 })
 
 
+const plainDescription = computed(() => {
+  if (!props.category.description) return ''
+  return props.category.description.replace(/<[^>]*>/g, '') // uklanja sve HTML tagove
+})
+
 </script>
 
 <template>
     <div class="pb-16 mb-8 border-b border-1 border-gray-200">
-        <div class="pb-10 lg:pb-16 mb-8 border-b border-1 border-gray-200">
+        <div class="pb-0 md:pb-10 lg:pb-16 mb-8 border-b-0 md:border-b border-1 border-gray-200">
             <p class="font-normal text-blue-900 font-roboto text-body2">
                 <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
                 <template v-if="parentCategory">
@@ -53,12 +61,16 @@ const subcategories = computed(() => {
                 <span>{{ category.title }}</span>
             </p>
 
-            <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
+            <p class="pt-1 text-h1-normal font-medium uppercase text-blue-900 font-saira">
                 {{ category.title }}
+            </p>
+            <!-- OPIS KATEGORIJE -->
+            <p v-if="plainDescription" class="max-w-xl pb-8 text-body2 text-gray-900">
+                {{ plainDescription }}
             </p>
 
             <!-- Subkategorije -->
-            <div class="flex flex-col lg:flex-row flex-wrap gap-5 md:gap-3">
+            <div class="flex flex-col justify-between lg:flex-row flex-wrap gap-5 md:gap-3 pt-2">
                 <div class="w-full lg:w-auto flex flex-wrap gap-2">
                     <div v-if="subcategories.length" class="flex flex-wrap gap-2">
                         <div v-for="(item, index) in subcategories" :key="index">
@@ -76,15 +88,27 @@ const subcategories = computed(() => {
                     </div>
                 </div>
 
-                <!-- Filteri -->
-                <div
-                    class="w-full lg:flex-1 flex flex-col sm:flex-row flex-wrap gap-2 justify-start lg:justify-end items-start"
-                >
+                <hr class="block md:hidden border-t-[1.35px] border-gray-200" />
+
+                <!-- FILTERS -->
+                <div class="grid grid-cols-2 gap-2 items-start md:flex md:flex-row md:items-start md:justify-start lg:justify-end">
+
                     <FilterAtributeFilter
                         :products="products"
                         :filters="activeFilters"
                         @update:filters="emit('update:activeFilters', $event)"
                     />
+
+                    <!-- SORT ON MOBILE - SIDEBAR -->
+                    <FilterSortFilter
+                        v-if="products.length > 0"
+                        :products="products"
+                        :filters="activeFilters"
+                        @update:filters="emit('update:activeFilters', $event)"
+                        class="block md:hidden"
+                        v-model="sort"
+                    />
+
                 </div>
             </div>
         </div>
@@ -94,8 +118,10 @@ const subcategories = computed(() => {
             <div class="flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
                 <p class="text-body2 text-neutralBlue-950">Prikazujemo {{ products.length }} proizvoda od {{ totalProducts }}</p>
 
+                <!-- SORT DESKTOP-->
                 <USelect
                         v-model="sort"
+                        class="hidden md:block"
                         :options="[
                             { value: 'Najnoviji', label: 'Poredaj po najnovijem' },
                             { value: 'S nižom cijenom', label: 'Poredaj po cijeni: od najniže do najviše' },

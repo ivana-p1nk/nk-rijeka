@@ -194,7 +194,7 @@
                                 v-model="searchTerm"
                                 type="text"
                                 placeholder="Pretraži"
-                                class="w-full pl-12 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-sm text-customColors-400 placeholder-customColors-400 focus:outline-none focus:ring-0"
+                                class="w-full pl-12 pr-10 py-2 bg-transparent font-light border-[1.4px] border-blue-800 rounded-2xl text-base text-customColors-400 placeholder-customColors-400 focus:outline-none focus:ring-0"
                                 @keyup.enter="submitSearch"
                             />
 
@@ -275,9 +275,9 @@
                                     </a>
                                 </li>
                                 <template v-if="subActive === 'muskarci'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Hoodice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?gender=muskarci" @click="closeTabMenu">Ostalo</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Žene -->
                                 <li>
@@ -287,9 +287,9 @@
                                     </a>
                                 </li>
                                 <template v-if="subActive === 'zene'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Hoodice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?gender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?gender=zene" @click="closeTabMenu">Ostalo</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Djeca -->
                                 <li>
@@ -299,9 +299,9 @@
                                     </a>
                                 </li>
                                 <template v-if="subActive === 'djeca'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Hoodice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?age=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?age=djeca" @click="closeTabMenu">Ostalo</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Modni dodaci -->
                                 <li>
@@ -348,9 +348,9 @@
                                     </a>
                                 </li>
                                 <template v-if="subActive === 'novehudice'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=muskarci" @click="closeTabMenu">Muškarci</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?gender=zene" @click="closeTabMenu">Žene</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?age=djeca" @click="closeTabMenu">Djeca</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/categories/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a></li>
                                 </template>
                                 <!-- Forza fiume premium-->
                                 <li>

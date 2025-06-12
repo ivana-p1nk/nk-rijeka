@@ -75,10 +75,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 
                     <div class="w-full px-10 py-10 bg-white rounded lg:w-2/3 custom-shadow">
                         <div class="pb-12 sm:mx-auto sm:w-full sm:max-w-7xl">
-                            <h2 class="text-4xl font-bold leading-9 tracking-tight text-center">Resetiranje lozinke</h2>
+                            <h2 class="text-2xl font-bold uppercase">Resetiranje lozinke</h2>
+                            <p class="text-body1 pt-3">Na email će vam biti poslan link za restiranje lozinke.</p>
                         </div>
-
-                        <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl mx-auto" @submit="onSubmit">
+ 
+                        <UForm :schema="schema" :state="state" class="space-y-4 max-w-xl" @submit="onSubmit">
                             <UFormGroup label="Email" name="email" :ui="{
                                 label: {
                                     base: 'text-[#111827] font-roboto font-normal text-sm',
@@ -99,3 +100,24 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
         </div>
     </section>
 </template>
+
+<style scoped>
+    :deep(.form-input:focus),
+    :deep(.form-input:focus-visible),
+    :deep(.form-select:focus),
+    :deep(.form-select:focus-visible),
+    :deep(textarea:focus),
+    :deep(textarea:focus-visible) {
+        --tw-ring-color: #009FF5 !important;
+        --tw-border-color: #009FF5 !important;
+        border-color: #009FF5 !important;
+    }
+
+    :deep(.form-input),
+    :deep(.form-select),
+    :deep(textarea) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 42px;
+    }
+</style>
