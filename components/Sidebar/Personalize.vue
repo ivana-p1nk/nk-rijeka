@@ -28,25 +28,10 @@
                 </div>
 
                 <div>
-                    <!-- Input za slova -->
-                    <div class="mt-4">
-                        <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
-                        <input
-                            id="textInput"
-                            v-model="textInput"
-                            type="text"
-                            maxlength="12"
-                            pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
-                            class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-                            placeholder="Maksimalno 12 znakova"
-                        />
-                        <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-                            {{ textInputPrice.toFixed(2).replace('.', ',') }} €
-                        </p>
-                    </div>
-
-                    <!-- Input za brojeve -->
-                    <div>
+                    <!-- Ako su samo hlačice -->
+                    <div v-if="onlyNumberInput">
+                        <!-- Input za brojeve -->
+                         <div class="mt-4">
                         <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
                         <input
                             id="numberInput"
@@ -60,7 +45,45 @@
                         <p class="text-xs text-blue-900 text-right mt-1 mr-2">
                             {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
                         </p>
+                        </div>
                     </div>
+
+                    <!-- Inače prikaži oba -->
+                    <div v-else>
+                        <!-- Input za slova -->
+                        <div class="mt-4">
+                            <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
+                            <input
+                                id="textInput"
+                                v-model="textInput"
+                                type="text"
+                                maxlength="12"
+                                pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
+                                class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+                                placeholder="Maksimalno 12 znakova"
+                            />
+                            <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                                {{ textInputPrice.toFixed(2).replace('.', ',') }} €
+                            </p>
+                        </div>
+                        <!-- Input za brojeve -->
+                        <div>
+                            <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
+                            <input
+                                id="numberInput"
+                                v-model="numberInput"
+                                type="text"
+                                maxlength="2"
+                                pattern="[0-9]*"
+                                class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+                                placeholder="Maksimalno 2 znaka"
+                            />
+                            <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                                {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Veličine -->
@@ -161,6 +184,11 @@ const numberInput = ref('')
 const textInputPrice = ref(0)
 const numberInputPrice = ref(0)
 
+const onlyNumberInput = computed(() => {
+    const title = props.product?.title?.toLowerCase() || ''
+    return title.includes('hlačice')
+})
+
 watch(textInput, (val) => {
     textInputPrice.value = val.trim() ? 5.3 : 0
 })
@@ -195,7 +223,10 @@ const updateVariation = (id: number) => {
 }
 
 const addToCart = () => {
-    if (!/^[A-Za-zČĆŽŠĐčćžšđ ]{1,12}$/.test(textInput.value)) {
+    const title = props.product?.title?.toLowerCase() || ''
+    const isOnlyNumber = title.includes('hlačice')
+
+    if (!isOnlyNumber && !/^[A-Za-zČĆŽŠĐčćžšđ ]{1,12}$/.test(textInput.value)) {
         alert('Molim vas unesite samo slova - bez brojeva i posebnih znakova!')
         return
     }

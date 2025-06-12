@@ -69,11 +69,13 @@
                                         <p class="font-roboto text-body3 text-blue-600">
                                             <span class="font-bold"> PERSONALIZIRANO </span>
                                         </p>
-                                        <p class="font-roboto text-body3 text-gray-900">
+                                        <p
+                                            v-if="item.textInput && item.textInputAddonPrice && item.textInputAddonPrice > 0"
+                                            class="font-roboto text-body3 text-gray-900"
+                                        >
                                             <span class="font-bold">IME:</span>
-                                            {{ item.textInput }}
-                                            -
-                                            {{ item.textInputAddonPrice?.toFixed(2).replace('.', ',') }} €
+                                            {{ item.textInput }} -
+                                            {{ item.textInputAddonPrice.toFixed(2).replace('.', ',') }} €
                                         </p>
                                         <p class="font-roboto text-body3 text-gray-900">
                                             <span class="font-bold">BROJ:</span>
