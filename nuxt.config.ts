@@ -7,7 +7,7 @@ export default defineNuxtConfig({
             title: 'NK Rijeka',
             meta: [{ name: 'description', content: 'Test' }],
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: '/Favicon.ico' }
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
             ],
         },
     },
@@ -22,17 +22,18 @@ export default defineNuxtConfig({
         },
     },
     
-/*
+
     devServer: {
         host: 'web.nkrijeka-app.test',
         port: 3000,
     },
-*/
+
     runtimeConfig: {
         public: {
             baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
             url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
             siteUrl: 'https://newshop.shop.nk-rijeka.hr/',
+            token: process.env.TOKEN || '',
         },
     },
 

@@ -266,7 +266,7 @@ const twitterShare = computed(
                                 <div class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
                                     RASPRODANO
                                 </div>
-                                <OutOfStockNotification />
+                                <OutOfStockNotification :productId="product.id" :variationId="selectedVariationId" />
                             </div>
                             <div v-else class="flex items-center gap-4">
                                 <div class="flex items-center gap-1">

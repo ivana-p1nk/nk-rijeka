@@ -35,9 +35,12 @@
 <script setup>
     import { ref } from 'vue'
 
+    const { api } = useAxios()
+    const toast = useToast()
+
     const props = defineProps({
-    productId: Number,
-    variationId: Number,
+        productId: Number,
+        variationId: Number,
     })
 
     const email = ref('')
@@ -45,45 +48,37 @@
     const successMessage = ref('')
 
     const submitForm = () => {
-    if (!accepted.value) {
-        alert('Molimo prihvatite politiku privatnosti.')
-        return
-    }
+        if (!accepted.value) {
+            toast.add({
+                title: 'Molimo prihvatite politiku privatnosti.',
+                color: 'red',
+                timeout: 3000,
+            })
+            return
+        }
 
-    // Simulacija slanja
-    setTimeout(() => {
-        successMessage.value = 'Hvala! Obavijestit ćemo vas kada proizvod ponovno bude dostupan.'
-        email.value = ''
-        accepted.value = false
-    }, 500)
-    }
-
-    /*
-    const submitForm = async () => {
-    if (!accepted.value) {
-        alert('Molimo prihvatite politiku privatnosti.')
-        return
-    }
-
-    try {
-        await fetch('https://httpbin.org/post', {
-            method: 'POST',
-            headers: { 
-            'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify({
+        try {
+            api.post('/notify-product-in-stock', {
                 email: email.value,
-                productId: props.productId,
-                variationId: props.variationId || null,
-            }),
-        })
-
-        successMessage.value = 'Hvala! Obavijestit ćemo vas kada proizvod ponovno bude dostupan.'
-        email.value = ''
-        accepted.value = false
+                product_id: props.productId,
+                variation_id: props.variationId || null,
+            })
+            .then(({ data }) => {
+                successMessage.value = 'Hvala! Obavijestit ćemo vas kada proizvod ponovno bude dostupan.'
+                email.value = ''
+                accepted.value = false
+            })
+            .catch((error) => {
+                toast.add({
+                    title: 'Došlo je do greške. Pokušajte ponovno kasnije.',
+                    color: 'red',
+                    timeout: 3000,
+                })
+            })
         } catch (error) {
-            alert('Došlo je do greške. Pokušajte ponovno kasnije.')
+            toast.add({
+                title: 'Došlo je do greške. Pokušajte ponovno kasnije.',
+            })
         }
     }
-    */
 </script>
