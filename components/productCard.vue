@@ -4,7 +4,7 @@ import type { IProduct } from '~/types/product'
 import { useRouter } from 'vue-router'
 import type { IUser } from '~/types/user'
 import { useFavoritesStore } from '~/composables/favorites'
-import { useTagCategories } from '~/composables/useTagCategories'
+
 
 const props = defineProps<{
   product: IProduct
@@ -15,14 +15,7 @@ const selectedVariation = computed(() =>
   props.product.variations?.[0] ?? null
 )
 
-/*TAGOVI*/
-const { tagProducts, tagCategoryMap } = useTagCategories()
-
-const productTags = computed(() =>
-  getProductTags(props.product, tagProducts.value, tagCategoryMap, selectedVariation.value)
-)
-
-
+const productTags = useProductTags(props.product)
 const router = useRouter()
 const toast = useToast()
 const user = useSanctumUser() as Ref<IUser | null>
@@ -68,17 +61,17 @@ const addToCart = () => {
                             class="text-gray-900 icon-xl"
                         />
                     </div>
-                   <div class="flex gap-2"> 
+                   <div class="flex gap-2">
                     <p
                         v-for="tag in productTags"
-                        :key="tag"
+                        :key="tag.label"
                         :class="[
-                            'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
-                            tag === 'AKCIJA' ? 'bg-red-500' : 'bg-blue-300'
+                        'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                        tag.color
                         ]"
-                        >
-                        {{ tag }}
-                        </p>
+                    >
+                        {{ tag.label }}
+                    </p>
                     </div>
                 </div>
 
