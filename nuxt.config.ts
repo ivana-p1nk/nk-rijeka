@@ -33,7 +33,7 @@ export default defineNuxtConfig({
             baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
             url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
             siteUrl: 'https://newshop.shop.nk-rijeka.hr/',
-            token: process.env.TOKEN || '',
+            token: process.env.TOKEN || 'qwertyuiopasdfghjklzxcvbnm123456',
         },
     },
 
