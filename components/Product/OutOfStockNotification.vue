@@ -26,9 +26,6 @@
         <NuxtLink to="/zastita-podataka" class="link-plavi body4 underline font-semibold">pravilima privatnosti</NuxtLink>.
       </label>
     </div>
-    <p v-if="successMessage" class="mt-4 text-green-600 text-body3 font-semibold">
-        {{ successMessage }}
-    </p>
   </div>
 </template>
 
@@ -45,7 +42,6 @@
 
     const email = ref('')
     const accepted = ref(false)
-    const successMessage = ref('')
 
     const submitForm = () => {
         if (!accepted.value) {
@@ -64,7 +60,11 @@
                 variation_id: props.variationId || null,
             })
             .then(({ data }) => {
-                successMessage.value = 'Hvala! Obavijestit ćemo vas kada proizvod ponovno bude dostupan.'
+                 toast.add({
+                      title: 'Hvala! Obavijestit ćemo vas kada proizvod ponovno bude dostupan.',
+                      color: 'green',
+                      timeout: 3000,
+                  })
                 email.value = ''
                 accepted.value = false
             })
