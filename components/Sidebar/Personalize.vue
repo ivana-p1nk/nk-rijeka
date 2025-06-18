@@ -10,7 +10,7 @@
         >
             PERSONALIZIRAJ
             <Icon
-                name="streamline:shopping-cart-1"
+                name="material-symbols:kid-star-outline"
                 :class="[
                     'icon-large transition-colors duration-300 group-active:text-white',
                     show ? 'text-white' : 'text-gray-900',
