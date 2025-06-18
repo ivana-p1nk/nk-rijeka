@@ -158,45 +158,54 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 
 <template>
     <div class="bg-igraci">
-      <div class="container mx-auto con-height pb-5 px-5">
-          <!-- Breadcrumb -->
-          <p class="font-normal text-blue-900 font-roboto text-body2">
-            <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
-            <span>Košarica</span>
-          </p>
-          <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">
-            Košarica
-          </p>
+        <div class="container mx-auto con-height pb-5 px-5">
+            <!-- Breadcrumb -->
+            <p class="font-normal text-blue-900 font-roboto text-body2">
+                <NuxtLink class="text-blue-400 link-color" to="/">Početna / </NuxtLink>
+                <span>Košarica</span>
+            </p>
+            <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">Košarica</p>
 
-        <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
-            <div class="col-span-12">
-                <h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
-            </div>
-            <div class="col-span-12 md:col-span-7 h-fit">
-                <CartListProducts />
+            <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
+                <div class="col-span-12">
+                    <h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
+                </div>
+                <div class="col-span-12 md:col-span-7 h-fit">
+                    <CartListProducts />
 
-                <h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Adresa za naplatu</h2>
+                    <h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Adresa za naplatu</h2>
 
-                <div class="md:px-12 md:py-10 py-5 px-3 bg-white rounded-2xl">
-                    <h2 class="text-xl font-bold text-blue-900 font-saira">Podaci o kupcu</h2>
+                    <div class="md:px-12 md:py-10 py-5 px-3 bg-white rounded-2xl">
+                        <h2 class="text-xl font-bold text-blue-900 font-saira">Podaci o kupcu</h2>
 
-                    <div class="w-full pt-4">
-                        <UForm ref="formRef" @submit="handleOnSubmit" :schema="schema" :state="state">
-                            <CartBillingForm :form="state" />
-                        </UForm>
+                        <div class="w-full pt-4">
+                            <UForm ref="formRef" @submit="handleOnSubmit" :schema="schema" :state="state">
+                                <CartBillingForm :form="state" />
+                            </UForm>
+                        </div>
                     </div>
                 </div>
+                <div class="col-span-12 md:col-span-5">
+                    <CartTotal
+                        @useCoupon="applyCoupon"
+                        :submitForm="submitForm"
+                        :term="updateTerms"
+                        :termMessage="termValidationMessage"
+                        :loadingForm="loadingForm"
+                    />
+                </div>
             </div>
-            <div class="col-span-12 md:col-span-5">
-                <CartTotal @useCoupon="applyCoupon" :submitForm="submitForm" :term="updateTerms"
-                    :termMessage="termValidationMessage" :loadingForm="loadingForm" />
+            <div v-else class="flex flex-col justify-center items-center py-20">
+                <h1 class="text-2xl font-medium uppercase text-blue-900 font-saira mb-4">Košarica je prazna</h1>
+                <p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
+                <a
+                    href="/products/"
+                    id="btn-continue-shopping"
+                    data-location="cart-empty-continue-shopping"
+                    class="font-semibold btn-primary large uppercase active:bg-blue-800 mt-5"
+                    >Nastavi s kupnjom</a
+                >
             </div>
         </div>
-        <div v-else class="flex flex-col justify-center items-center py-20">
-            <h1 class="text-2xl font-medium uppercase text-blue-900 font-saira mb-4">Košarica je prazna</h1>
-            <p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
-            <NuxtLink to="/products" class="font-semibold btn-primary large uppercase active:bg-blue-800 mt-5">Nastavi s kupnjom</NuxtLink>
-        </div>
-      </div>
     </div>
 </template>
