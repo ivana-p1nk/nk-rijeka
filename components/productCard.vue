@@ -5,15 +5,12 @@ import { useRouter } from 'vue-router'
 import type { IUser } from '~/types/user'
 import { useFavoritesStore } from '~/composables/favorites'
 
-
 const props = defineProps<{
-  product: IProduct
-  newProducts?: IProduct[] 
-}>();
+    product: IProduct
+    newProducts?: IProduct[]
+}>()
 
-const selectedVariation = computed(() =>
-  props.product.variations?.[0] ?? null
-)
+const selectedVariation = computed(() => props.product.variations?.[0] ?? null)
 
 const productTags = useProductTags(props.product)
 const router = useRouter()
@@ -37,7 +34,6 @@ const addToCart = () => {
         },
     })
 }
-
 </script>
 
 <template>
@@ -61,17 +57,17 @@ const addToCart = () => {
                             class="text-gray-900 icon-xl"
                         />
                     </div>
-                   <div class="flex gap-2">
-                    <p
-                        v-for="tag in productTags"
-                        :key="tag.label"
-                        :class="[
-                        'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
-                        tag.color
-                        ]"
-                    >
-                        {{ tag.label }}
-                    </p>
+                    <div class="flex gap-2">
+                        <p
+                            v-for="tag in productTags"
+                            :key="tag.label"
+                            :class="[
+                                'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                                tag.color,
+                            ]"
+                        >
+                            {{ tag.label }}
+                        </p>
                     </div>
                 </div>
 
@@ -95,33 +91,33 @@ const addToCart = () => {
                     </p>
 
                     <UPopover
-                    :popper="{
-                        placement: 'top',
-                        strategy: 'absolute',
-                        modifiers: [
-                        {
-                            name: 'preventOverflow',
-                            options: {
-                            boundary: 'clippingParents',
-                            },
-                        },
-                        {
-                            name: 'offset',
-                            options: {
-                            offset: [0, 6],
-                            },
-                        },
-                        ],
-                    }"
-                    :ui="{
-                        ring: 'ring-0',
-                        background: 'dark:bg-blue-50 bg-blue-50',
-                        container: 'z-50 w-[110px]', // ← direktno kontrolira širinu!
-                    }"
+                        :popper="{
+                            placement: 'top',
+                            strategy: 'absolute',
+                            modifiers: [
+                                {
+                                    name: 'preventOverflow',
+                                    options: {
+                                        boundary: 'clippingParents',
+                                    },
+                                },
+                                {
+                                    name: 'offset',
+                                    options: {
+                                        offset: [0, 6],
+                                    },
+                                },
+                            ],
+                        }"
+                        :ui="{
+                            ring: 'ring-0',
+                            background: 'dark:bg-blue-50 bg-blue-50',
+                            container: 'z-50 w-[110px]', // ← direktno kontrolira širinu!
+                        }"
                     >
                         <UButton
-                        trailing-icon="mynaui:info-hexagon"
-                        class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
+                            trailing-icon="mynaui:info-hexagon"
+                            class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
                         />
                         <template #panel>
                             <div class="px-3 py-2 text-center">
@@ -133,11 +129,17 @@ const addToCart = () => {
             </div>
 
             <div class="transition-opacity duration-300 opacity-0 middle group-hover:opacity-100">
-                <NuxtLink :to="`/p/${product.id}/`" class="font-semibold btn-primary large active:bg-blue-800 sm:text-[15px] text-[10px]">
+                <NuxtLink
+                    :to="`/p/${product.id}/`"
+                    class="font-semibold btn-primary large active:bg-blue-800 sm:text-[15px] text-[10px]"
+                >
                     {{ product.variations?.length > 0 ? 'ODABERI OPCIJE' : 'POGLEDAJ VIŠE' }}
                 </NuxtLink>
 
-                <div v-if="product.quantity == 0" class="bg-red-500 font-saira font-semibold text-white rounded-md py-2 sm:text-[15px] text-[10px]">
+                <div
+                    v-if="product.quantity == 0"
+                    class="bg-red-500 font-saira font-semibold text-white rounded-md py-2 sm:text-[15px] text-[10px]"
+                >
                     RASPRODANO
                 </div>
 
@@ -152,6 +154,8 @@ const addToCart = () => {
                             solid: 'bg-blue-600 hover:bg-blue-700 active:bg-800',
                         },
                     }"
+                    id="btn-add-to-cart"
+                    data-location="product-card-add-to-cart"
                     class="sm:text-[15px] text-[10px] flex justify-center focus:outline-none focus:ring-0 active:bg-blue-800 transition-colors duration-200 font-saira font-semibold"
                 >
                     DODAJ U KOŠARICU

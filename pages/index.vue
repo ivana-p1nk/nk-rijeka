@@ -43,7 +43,14 @@ const submitSearch = () => {
                         Prepoznatljiv dizajnerski potpis Juraja Zigmana <br class="hidden sm:block" />
                         ponovno donosi svježinu i inovaciju našim dresovima.
                     </p>
-                    <a href="/c/dresovi/2024-2025/" class="uppercase btn-primary large">Kupi sad</a>
+                    <a
+                        href="/c/dresovi/2024-2025/"
+                        id="btn-buy-now"
+                        data-location="home-banner"
+                        class="uppercase btn-primary large"
+                    >
+                        Kupi sad
+                    </a>
                 </div>
             </div>
             <div class="relative z-10 grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-3 pt-12 lg:pt-52 px-5 sm:px-0">
@@ -92,17 +99,27 @@ const submitSearch = () => {
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
                         <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">BESTSELLERI</h1>
-                        <NuxtLink to="/c/bestselleri" class="uppercase btn-secondary xs h-fit md:hidden">
+                        <a
+                            href="/c/bestselleri/"
+                            id="btn-mobile-view-all-bestsellers"
+                            data-location="home-mobile-bestsellers"
+                            class="uppercase btn-secondary xs h-fit md:hidden"
+                        >
                             Pogledaj sve
-                        </NuxtLink>
+                        </a>
                     </div>
                     <p class="font-normal text-blue-900 font-roboto text-body1">
                         Počasti se novim dresom, odabri atraktivan <br />poklon, ne propusti promotivne cijene...
                     </p>
                 </div>
-                <NuxtLink to="/c/bestselleri" class="uppercase btn-secondary xs h-fit hidden md:block self-center">
+                <a
+                    href="/c/bestselleri/"
+                    id="btn-desktop-view-all-bestsellers"
+                    data-location="home-desktop-bestsellers"
+                    class="uppercase btn-secondary xs h-fit hidden md:block self-center"
+                >
                     Pogledaj sve
-                </NuxtLink>
+                </a>
             </div>
 
             <div v-if="bestsellerProducts.length > 0">
@@ -152,18 +169,28 @@ const submitSearch = () => {
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
                         <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">NOVO U PONUDI</h1>
-                        <NuxtLink to="/c/novo-u-ponudi" class="uppercase btn-secondary xs h-fit md:hidden">
+                        <a
+                            href="/c/novo-u-ponudi/"
+                            id="btn-mobile-view-all-new-products"
+                            data-location="home-mobile-new-products"
+                            class="uppercase btn-secondary xs h-fit md:hidden"
+                        >
                             Pogledaj sve
-                        </NuxtLink>
+                        </a>
                     </div>
                     <p class="font-normal text-blue-900 font-roboto text-body1">
                         Naš se asortiman stalno proširuje novim <br />
                         atraktivnim artiklima, ovo su samo neki od njih.
                     </p>
                 </div>
-                <NuxtLink to="/c/novo-u-ponudi" class="uppercase btn-secondary xs h-fit hidden md:block self-center">
+                <a
+                    href="/c/novo-u-ponudi/"
+                    id="btn-desktop-view-all-new-products"
+                    data-location="home-desktop-new-products"
+                    class="uppercase btn-secondary xs h-fit hidden md:block self-center"
+                >
                     Pogledaj sve
-                </NuxtLink>
+                </a>
             </div>
             <div v-if="newProducts.length > 0">
                 <Carousel :products="newProducts" class="pt-6" />
@@ -175,7 +202,13 @@ const submitSearch = () => {
     <div class="mx-1 sm:mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
-            <NuxtLink to="/c/dresovi/" class="uppercase btn-secondary xs h-fit">Pogledaj sve</NuxtLink>
+            <a
+                href="/c/dresovi/"
+                id="btn-mobile-view-all-players"
+                data-location="home-mobile-view-all-players"
+                class="uppercase btn-secondary xs h-fit"
+                >Pogledaj sve</a
+            >
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
             <div

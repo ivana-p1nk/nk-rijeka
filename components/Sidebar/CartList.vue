@@ -70,7 +70,11 @@
                                             <span class="font-bold"> PERSONALIZIRANO </span>
                                         </p>
                                         <p
-                                            v-if="item.textInput && item.textInputAddonPrice && item.textInputAddonPrice > 0"
+                                            v-if="
+                                                item.textInput &&
+                                                item.textInputAddonPrice &&
+                                                item.textInputAddonPrice > 0
+                                            "
                                             class="font-roboto text-body3 text-gray-900"
                                         >
                                             <span class="font-bold">IME:</span>
@@ -176,8 +180,13 @@
                         </p>
                     </div>
                     <div>
-                        <NuxtLink to="/initiate-checkout/" @click="show = false" class="btn-primary large uppercase block text-center"
-                            >Pregledaj košaricu i naruči</NuxtLink
+                        <a
+                            href="/initiate-checkout/"
+                            id="btn-pregledaj-kosaricu-i-naruci"
+                            data-location="cart-list-view-cart"
+                            @click="show = false"
+                            class="btn-primary large uppercase block text-center"
+                            >Pregledaj košaricu i naruči</a
                         >
                     </div>
                 </div>

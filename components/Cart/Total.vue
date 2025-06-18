@@ -34,8 +34,14 @@ const emit = defineEmits(['useCoupon'])
             </button>
         </div>
         <div v-else class="flex items-center gap-2">
-            <UInput icon="cuida:ticket-outline" v-model="coupon" size="md" variant="outline"  class="w-full focus:ring-blue-500"
-  color="gray" />
+            <UInput
+                icon="cuida:ticket-outline"
+                v-model="coupon"
+                size="md"
+                variant="outline"
+                class="w-full focus:ring-blue-500"
+                color="gray"
+            />
             <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
         </div>
 
@@ -53,12 +59,17 @@ const emit = defineEmits(['useCoupon'])
             druge svrhe opisane u našoj <a href="#" class="text-blue-500 underline">pravilima privatnosti</a>.
         </p>
 
-        <UCheckbox v-on:change="term" id="gdpr" name="terms" class="mt-4"  color="blue">
+        <UCheckbox v-on:change="term" id="gdpr" name="terms" class="mt-4" color="blue">
             <template #label>
                 <p class="font-normal">
                     Prihvaćam i slažem se sa
-                    <NuxtLink to="/opci-uvjeti" class="link-plavi body4 underline font-semibold">uvjetima prodaje</NuxtLink> i
-                    <NuxtLink to="/zastita-podataka" class="link-plavi body4 underline font-semibold">pravilima privatnosti</NuxtLink>
+                    <NuxtLink to="/opci-uvjeti" class="link-plavi body4 underline font-semibold"
+                        >uvjetima prodaje</NuxtLink
+                    >
+                    i
+                    <NuxtLink to="/zastita-podataka" class="link-plavi body4 underline font-semibold"
+                        >pravilima privatnosti</NuxtLink
+                    >
                     <span class="text-red-500"> *</span>
                 </p>
             </template>
@@ -70,6 +81,8 @@ const emit = defineEmits(['useCoupon'])
             :disabled="loadingForm"
             :loading="loadingForm"
             @click="submitForm"
+            id="btn-order-and-pay"
+            data-location="cart-total-checkout"
             class="w-full px-5 py-3 mt-4 font-bold text-white uppercase rounded-lg"
             style="background: linear-gradient(79.46deg, #0083c9 3.18%, #58b6e7 107.55%)"
         >
@@ -78,9 +91,8 @@ const emit = defineEmits(['useCoupon'])
     </div>
 </template>
 
-
 <style scoped>
 :deep(.form-input:focus) {
-  --tw-ring-color: #009FF5; 
+    --tw-ring-color: #009ff5;
 }
 </style>
