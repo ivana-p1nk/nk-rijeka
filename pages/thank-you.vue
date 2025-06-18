@@ -2,6 +2,7 @@
 import type { IProduct } from '~/types/product'
 const config = useRuntimeConfig()
 import { useProductsByCategory } from '~/composables/useProductsByCategory'
+import confetti from 'canvas-confetti'
 
 const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
 const products = ref<IProduct[]>([])
@@ -26,16 +27,36 @@ const fetchData = async () => {
 const carouselNew = ref()
 
 onMounted(() => {
-    fetchData()
+  fetchData()
 
-    setInterval(() => {
-        if (!carouselNew.value) return
-        if (carouselNew.value.page === carouselNew.value.pages) {
-            return carouselNew.value.select(0)
-        }
-        carouselNew.value.next()
-    }, 3000)
+  const count = 200
+  const defaults = {
+   origin: { x: 0.5, y: 0.4 }
+  }
+
+  function fire(particleRatio: number, opts: confetti.Options) {
+    confetti({
+      ...defaults,
+      ...opts,
+      particleCount: Math.floor(count * particleRatio)
+    })
+  }
+
+  fire(0.25, { spread: 26, startVelocity: 55 })
+  fire(0.2, { spread: 60 })
+  fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 })
+  fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 })
+  fire(0.1, { spread: 120, startVelocity: 45 })
+
+  setInterval(() => {
+    if (!carouselNew.value) return
+    if (carouselNew.value.page === carouselNew.value.pages) {
+      return carouselNew.value.select(0)
+    }
+    carouselNew.value.next()
+  }, 3000)
 })
+
 </script>
 
 <template>
