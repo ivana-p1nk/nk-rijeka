@@ -94,35 +94,39 @@ const twitterShare = computed(
             props.product.title
         )}`
 )
-
 </script>
 
 <template>
     <div class="container mx-auto px-5 pt-32 pb-20">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-5 lg:pt-32">
-
             <!-- PRVI STUPAC: Product Gallery -->
             <div class="p-5 bg-white border border-neutralBlue-100 h-fit rounded-lg">
                 <div class="flex flex-row items-center justify-between">
                     <div v-if="useFavoritesStore().isFavorite(props.product)">
-                        <Icon @click="useFavoritesStore().removeFavoriteProduct(props.product)"
-                            name="material-symbols:favorite" class="text-blue-500 icon-xl" />
+                        <Icon
+                            @click="useFavoritesStore().removeFavoriteProduct(props.product)"
+                            name="material-symbols:favorite"
+                            class="text-blue-500 icon-xl"
+                        />
                     </div>
                     <div v-else>
-                        <Icon @click="useFavoritesStore().addFavoriteProduct(props.product)"
-                            name="material-symbols:favorite-outline" class="text-gray-900 icon-xl" />
+                        <Icon
+                            @click="useFavoritesStore().addFavoriteProduct(props.product)"
+                            name="material-symbols:favorite-outline"
+                            class="text-gray-900 icon-xl"
+                        />
                     </div>
                     <div class="flex gap-2" v-if="productTags.length">
-                    <p
-                        v-for="tag in productTags"
-                        :key="tag.label"
-                        :class="[
-                        'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
-                        tag.color
-                        ]"
-                    >
-                        {{ tag.label }}
-                    </p>
+                        <p
+                            v-for="tag in productTags"
+                            :key="tag.label"
+                            :class="[
+                                'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                                tag.color,
+                            ]"
+                        >
+                            {{ tag.label }}
+                        </p>
                     </div>
                 </div>
                 <Gallery :product="product" />
@@ -130,7 +134,6 @@ const twitterShare = computed(
 
             <!-- DRUGI STUPAC: Product Details-->
             <div class="lg:px-7 lg:pb-7 px-0 pt-10 lg:pt-0">
-                
                 <ProductBreadcrumbs :product="product" />
 
                 <h1 class="my-6 font-medium text-blue-900 font-saira text-h1-normal">{{ product.title }}</h1>
@@ -151,17 +154,22 @@ const twitterShare = computed(
                                     {{ selectedVariation.price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1"
+                                >
                                     REDOVNA CIJENA
                                 </p>
                             </div>
 
-                            <div v-if="selectedVariation.price_discount" class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                            <div
+                                v-if="selectedVariation.price_discount"
+                                class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit"
+                            >
                                 <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                                     {{ selectedVariation.price_discount.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1"
+                                >
                                     AKCIJSKA CIJENA
                                 </p>
                             </div>
@@ -172,7 +180,8 @@ const twitterShare = computed(
                                     {{ selectedVariation.price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1"
+                                >
                                     REDOVNA CIJENA
                                 </p>
                             </div>
@@ -181,7 +190,8 @@ const twitterShare = computed(
                                     {{ selectedVariation.member_price.toFixed(2).replace('.', ',') }} €
                                 </p>
                                 <p
-                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
+                                    class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1"
+                                >
                                     CIJENA ZA ČLANOVE
                                 </p>
                             </div>
@@ -194,17 +204,22 @@ const twitterShare = computed(
                             {{ product.price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-gray-900 rounded-r-md font-saira text-label1"
+                        >
                             REDOVNA CIJENA
                         </p>
                     </div>
 
-                    <div v-if="product.price_discount" class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit">
+                    <div
+                        v-if="product.price_discount"
+                        class="flex flex-row border-[1.4px] border-blue-300 rounded-lg w-fit"
+                    >
                         <p class="font-semibold text-blue-300 font-saira text-h5-normal px-4 py-2">
                             {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1"
+                        >
                             AKCIJSKA CIJENA
                         </p>
                     </div>
@@ -213,7 +228,8 @@ const twitterShare = computed(
                             {{ product.member_price.toFixed(2).replace('.', ',') }} €
                         </p>
                         <p
-                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1">
+                            class="flex items-center px-3 py-1 font-bold text-white uppercase bg-blue-300 rounded-r-md font-saira text-label1"
+                        >
                             CIJENA ZA ČLANOVE
                         </p>
                     </div>
@@ -223,8 +239,11 @@ const twitterShare = computed(
                     <!-- Personaliziraj -->
                     <div v-if="product.variations && product.variations.length">
                         <div v-if="product.personalization_enable && isInCategory2">
-                            <SidebarPersonalize :product="product" :selectedVariationId="selectedVariationId"
-                                @update-selected-variation="updateSelectedVariation" />
+                            <SidebarPersonalize
+                                :product="product"
+                                :selectedVariationId="selectedVariationId"
+                                @update-selected-variation="updateSelectedVariation"
+                            />
                         </div>
 
                         <!-- Veličina -->
@@ -232,34 +251,41 @@ const twitterShare = computed(
                             <p class="font-bold text-gray-900 font-saira text-h6-normal">Veličina</p>
 
                             <div class="flex flex-wrap flex-row gap-1 py-3">
-                                <button v-for="variation in product.variations" :key="variation.id" :class="[
-                                    'btn-variations',
-                                    'xl',
-                                    'btn-size',
-                                    'w-fit',
-                                    {
-                                        'active-variation': selectedVariationId === variation.id,
-                                        'hover:bg-blue-50': selectedVariationId !== variation.id,
-                                    },
-                                ]" @click="updateSelectedVariation(variation.id)">
+                                <button
+                                    v-for="variation in product.variations"
+                                    :key="variation.id"
+                                    :class="[
+                                        'btn-variations',
+                                        'xl',
+                                        'btn-size',
+                                        'w-fit',
+                                        {
+                                            'active-variation': selectedVariationId === variation.id,
+                                            'hover:bg-blue-50': selectedVariationId !== variation.id,
+                                        },
+                                    ]"
+                                    @click="updateSelectedVariation(variation.id)"
+                                >
                                     {{ variation.packaging }}
                                 </button>
                             </div>
 
-                            <NuxtLink to="/tablica-velicina"
-                                class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi">
+                            <NuxtLink
+                                to="/tablica-velicina"
+                                class="font-normal text-gray-900 underline font-roboto text-body2 link-plavi"
+                            >
                                 Pogledajte tablicu veličina
                             </NuxtLink>
                         </div>
                     </div>
 
-
                     <div class="mt-7 pb-7">
                         <!--Količina-->
                         <div v-if="product.variations && product.variations.length">
-                            
                             <div v-if="selectedVariation?.quantity == 0">
-                                <div class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                                <div
+                                    class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit"
+                                >
                                     RASPRODANO
                                 </div>
                                 <OutOfStockNotification :productId="product.id" :variationId="selectedVariationId" />
@@ -268,23 +294,29 @@ const twitterShare = computed(
                                 <div class="flex items-center gap-1">
                                     <button
                                         class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                        @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)">
+                                        @click="cartStore.decrement(selectedVariation?.minimum_quantity || 1)"
+                                    >
                                         <UIcon name="heroicons:minus" />
                                     </button>
-                                    <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                        type="text" :min="selectedVariation?.minimum_quantity || 1"
-                                        :value="cartStore.orderQuantity" disabled />
+                                    <input
+                                        class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                        type="text"
+                                        :min="selectedVariation?.minimum_quantity || 1"
+                                        :value="cartStore.orderQuantity"
+                                        disabled
+                                    />
                                     <button
                                         class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                        @click="cartStore.increment()">
+                                        @click="cartStore.increment()"
+                                    >
                                         <UIcon name="heroicons:plus" />
                                     </button>
                                 </div>
 
                                 <UButton
-                                    @click="addToCart" 
-                                    size="lg" 
-                                    variant="solid" 
+                                    @click="addToCart"
+                                    size="lg"
+                                    variant="solid"
                                     :ui="{
                                         base: 'text-white font-saira font-semibold',
                                         variant: {
@@ -300,33 +332,41 @@ const twitterShare = computed(
                         </div>
                         <div v-else>
                             <div v-if="product.quantity == 0">
-                                <div class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                                <div
+                                    class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit"
+                                >
                                     RASPRODANO
                                 </div>
-                                <OutOfStockNotification />
+                                <OutOfStockNotification :productId="product.id" />
                             </div>
 
-                           
                             <div v-else class="flex items-center gap-4">
                                 <div class="flex items-center gap-1">
                                     <button
                                         class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                        @click="cartStore.decrement(product.minimum_quantity || 1)">
+                                        @click="cartStore.decrement(product.minimum_quantity || 1)"
+                                    >
                                         <UIcon name="heroicons:minus" />
                                     </button>
-                                    <input class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
-                                        type="text" :min="product.minimum_quantity" :value="cartStore.orderQuantity" disabled />
+                                    <input
+                                        class="bg-white border-blue-300 border-[1.4px] square-large rounded-lg text-center"
+                                        type="text"
+                                        :min="product.minimum_quantity"
+                                        :value="cartStore.orderQuantity"
+                                        disabled
+                                    />
                                     <button
                                         class="btn-icon-secondary square-large rounded-md flex items-center justify-center border-[1.4px]"
-                                        @click="cartStore.increment()">
+                                        @click="cartStore.increment()"
+                                    >
                                         <UIcon name="heroicons:plus" />
                                     </button>
                                 </div>
-                                
+
                                 <UButton
-                                    @click="addToCart" 
-                                    size="lg" 
-                                    variant="solid" 
+                                    @click="addToCart"
+                                    size="lg"
+                                    variant="solid"
                                     :ui="{
                                         base: 'text-white font-saira font-semibold',
                                         variant: {
@@ -348,14 +388,14 @@ const twitterShare = computed(
                     <p class="pb-3 text-gray-900 font-roboto fontnormal text-body2">
                         <span class="font-bold"> Šifra: </span>{{ product.sku }}
                     </p>
-                    <p class="text-gray-900 font-roboto fontnormal text-body2" v-if="product.category && product.category.length">
+                    <p
+                        class="text-gray-900 font-roboto fontnormal text-body2"
+                        v-if="product.category && product.category.length"
+                    >
                         <span class="font-bold"> Kategorije: </span>
                         <span v-for="(cat, index) in product.category" :key="cat.id">
-                            <router-link
-                            :to="`/c/${cat.slug}`"
-                            class=" link-color"
-                            >
-                            {{ cat.title }}
+                            <router-link :to="`/c/${cat.slug}`" class="link-color">
+                                {{ cat.title }}
                             </router-link>
                             <span v-if="index < product.category.length - 1">, </span>
                         </span>
@@ -371,7 +411,8 @@ const twitterShare = computed(
                 </div>
 
                 <div
-                    class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start">
+                    class="flex md:flex-col flex-row justify-end md:justify-start md:gap-0 gap-3 md:items-left items-center md:items-start"
+                >
                     <p class="font-bold text-gray-900 font-saira text-h6-normal">Podijeli</p>
                     <ul class="inline-flex gap-2 md:mt-2">
                         <li>

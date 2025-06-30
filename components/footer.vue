@@ -1,48 +1,71 @@
 <template>
-    <div class="mx-auto bg-cover bg-top bg-[linear-gradient(180deg,rgba(0,25,38,0)_30%,rgba(0,25,38,0.4)_60%,rgba(0,25,38,1)_95%),url(/assets/images/backgrounds/Footer-bg-2.jpg)]">
-
+    <div
+        class="mx-auto bg-cover bg-top bg-[linear-gradient(180deg,rgba(0,25,38,0)_30%,rgba(0,25,38,0.4)_60%,rgba(0,25,38,1)_95%),url(/assets/images/backgrounds/Footer-bg-2.jpg)]"
+    >
         <div class="pt-32 frame-p">
-
             <!--postani član -->
             <div
-                class="iskaznice relative mx-auto max-w-[830px] p-6 sm:p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl  max-xl:max-w-[700px]">
+                class="iskaznice relative mx-auto max-w-[830px] p-6 sm:p-10 bg-[rgba(252,252,252,0.4)] rounded-2xl max-xl:max-w-[700px]"
+            >
                 <div
-                    class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center">
+                    class="grid justify-end grid-cols-[190px_358px_150px] gap-4 max-xl:flex max-xl:flex-col max-xl:items-center"
+                >
                     <div class="col-span-1">
-                        <h4 class="mb-2 font-semibold text-right text-blue-600 uppercase font-saira text-h4-normal max-xl:pt-14">
-                            Postani član</h4>
+                        <h4
+                            class="mb-2 font-semibold text-right text-blue-600 uppercase font-saira text-h4-normal max-xl:pt-14"
+                        >
+                            Postani član
+                        </h4>
                     </div>
 
                     <div class="col-span-1">
-                        <p class="font-normal text-blue-900 font-roboto text-body2 max-xl:text-center">Učlani se u
-                            klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na proizvode
-                            i usluge naših partnera.
+                        <p class="font-normal text-blue-900 font-roboto text-body2 max-xl:text-center">
+                            Učlani se u klub i ostvari popuste u našem WEB SHOPU i FAN SHOPU, na kupnju ulaznica te na
+                            proizvode i usluge naših partnera.
                         </p>
                     </div>
 
                     <div class="col-span-1">
-                        <NuxtLink to="/register" rel="noopener noreferrer"
-                            class="inline-block uppercase btn-secondary large">Registriraj se</NuxtLink>
+                        <a
+                            href="/register/"
+                            id="btn-register"
+                            data-location="footer-become-member"
+                            rel="noopener noreferrer"
+                            class="inline-block uppercase btn-secondary large"
+                            >Registriraj se</a
+                        >
                     </div>
                 </div>
             </div>
 
             <!--slogan -->
             <div
-                class="flex flex-col items-center content-center justify-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8">
-                <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8">
-                <a href="https://nk-rijeka.hr/" target="_blank" rel="noopener noreferrer"
-                    class="font-semibold font-saira text-h4-normal text-blue-50 link-bijeli">nk-rijeka.hr</a>
+                class="flex flex-col items-center content-center justify-center pb-28 pt-28 max-2xl:pt-8 max-2xl:pb-8 max-xl:pt-8 max-xl:pb-8"
+            >
+                <img src="/assets/images/Slogan.png" class="pb-4 sm:pb-8" />
+                <a
+                    href="https://nk-rijeka.hr/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-semibold font-saira text-h4-normal text-blue-50 link-bijeli"
+                    >nk-rijeka.hr</a
+                >
             </div>
 
             <!-- footer meni  -->
             <div
-                class="mx-auto container grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+                class="mx-auto container grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6"
+            >
                 <!-- Logo element -->
                 <div
-                    class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5">
+                    class="flex items-start justify-center pb-0 sm:col-span-full lg:col-span-full 2xl:col-span-1 sm:pb-5"
+                >
                     <a href="https://nk-rijeka.hr/" target="blank">
-                        <img class="w-full max-w-[108px]" src="~/assets/images/logos/hnk-rijeka-grb.svg" alt="HNK Rijeka Grb" />
+                        <img
+                            class="w-full max-w-[108px]"
+                            src="~/assets/images/logos/hnk-rijeka-grb.svg"
+                            alt="HNK Rijeka Grb"
+                        />
                     </a>
                 </div>
 
@@ -57,8 +80,11 @@
                             </a>
                         </li>
                         <li>
-                            <a class="circle-footer" href="https://www.youtube.com/user/hnkrijekasluzbeni"
-                                target="_blank">
+                            <a
+                                class="circle-footer"
+                                href="https://www.youtube.com/user/hnkrijekasluzbeni"
+                                target="_blank"
+                            >
                                 <Icon name="mdi:youtube" class="custom-blue" />
                             </a>
                         </li>
@@ -120,7 +146,6 @@
                 </div>
 
                 <!-- Newsletter -->
-                
             </div>
 
             <!--cards-->
@@ -136,19 +161,23 @@
                 <img class="pr-3" src="~/assets/images/logos/dina.png" alt="DinaCard Logo" />
                 <img class="pr-3" src="~/assets/images/logos/wspay.png" alt="WS Pay Logo" />
             </div>
-
         </div>
-        
 
         <div
-            class="flex flex-col-reverse items-center justify-between gap-5 p-6 mx-auto border-t border-blue-800 sm:flex-row sm:gap-0">
+            class="flex flex-col-reverse items-center justify-between gap-5 p-6 mx-auto border-t border-blue-800 sm:flex-row sm:gap-0"
+        >
             <div class="font-normal text-blue-400 text-roboto text-body4">
                 Copyright © {{ new Date().getFullYear() }} HNK Rijeka
             </div>
             <div class="font-normal text-blue-400 text-roboto text-body4">
                 Design and development by:
-                <a href="https://prospekt.hr" target="_blank" rel="noopener noreferrer"
-                    class="font-bold text-white hover:underline">Prospekt</a>
+                <a
+                    href="https://prospekt.hr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-bold text-white hover:underline"
+                    >Prospekt</a
+                >
             </div>
         </div>
     </div>
