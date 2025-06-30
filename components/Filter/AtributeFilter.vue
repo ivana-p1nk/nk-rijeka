@@ -186,7 +186,9 @@
         { label: 'Spol i dob', value: '' },
         { label: 'Muškarci', value: 'muskarci' },
         { label: 'Žene', value: 'zene' },
+        { label: 'Muškarci - Žene', value: 'muskarci-zene'},
         { label: 'Djeca', value: 'djeca' },
+       
       ]
     },
     {
