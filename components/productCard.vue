@@ -62,7 +62,7 @@ const addToCart = () => {
                             v-for="tag in productTags"
                             :key="tag.label"
                             :class="[
-                                'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                                'px-2 py-1 md:px-3 md:py-2 font-semibold text-white rounded-lg tags font-saira text-label2 md:text-label1 radius',
                                 tag.color,
                             ]"
                         >

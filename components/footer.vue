@@ -70,9 +70,9 @@
                 </div>
 
                 <!-- Društvene mreže -->
-                <div class="pl-10 sm:pl-0">
+                <div class="">
                     <h6 class="pt-3 footer-title md:pt-0">Društvene mreže</h6>
-                    <p class="mb-4 footer-text">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
+                    <p class="mb-4 footer-text mr-0 md:mr-8 lg:mr-10 custom-mr-between">Budi dio HNK Rijeka zajednice na društvenim mrežama</p>
                     <ul class="inline-flex gap-2">
                         <li>
                             <a class="circle-footer" href="https://www.facebook.com/nk.rijeka" target="_blank">
@@ -182,3 +182,12 @@
         </div>
     </div>
 </template>
+
+
+<style>
+@media (min-width: 640px) and (max-width: 767px) {
+  .custom-mr-between {
+    margin-right: 5rem; 
+  }
+}
+</style>
