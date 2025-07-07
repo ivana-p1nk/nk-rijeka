@@ -62,7 +62,7 @@ const addToCart = () => {
                             v-for="tag in productTags"
                             :key="tag.label"
                             :class="[
-                                'px-3 py-2 font-semibold text-white rounded-lg tags font-saira text-label1 radius',
+                                'px-2 py-1 md:px-3 md:py-2 font-semibold text-white rounded-lg tags font-saira text-label2 md:text-label1 radius',
                                 tag.color,
                             ]"
                         >
@@ -85,7 +85,7 @@ const addToCart = () => {
                         {{ product.price_discount.toFixed(2).replace('.', ',') }} €
                     </p>
                 </div>
-                <div v-else class="flex items-center justify-center gap-1 sm:gap-2 mt-[-2px]">
+                <div v-else class="flex items-center justify-center gap-1 sm:gap-2 mt-[-5px]">
                     <p class="font-bold text-blue-500 font-saira text-[15px] sm:text-h6-normal">
                         {{ product.member_price.toFixed(2).replace('.', ',') }} €
                     </p>
@@ -117,7 +117,7 @@ const addToCart = () => {
                     >
                         <UButton
                             trailing-icon="mynaui:info-hexagon"
-                            class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[2px]"
+                            class="bg-white shadow-none hover:bg-white text-blue-500 p-0 mt-[6px]"
                         />
                         <template #panel>
                             <div class="px-3 py-2 text-center">

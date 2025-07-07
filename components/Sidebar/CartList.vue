@@ -48,11 +48,11 @@
                             </NuxtLink>
 
                             <!-- DRUGI STUPAC: Detalji o proizvodu -->
-                            <div class="flex flex-col gap-4">
-                                <p class="font-saira font-bold text-h6-normal text-blue-900">
+                            <div class="flex flex-col">
+                                <p class="font-saira font-bold text-h6-normal text-blue-900 mb-3">
                                     {{ item.title }}
                                 </p>
-                                <div class="flex flex-col gap-1">
+                                <div class="flex flex-col">
                                     <p v-if="item.sku != null" class="font-roboto text-body3 text-gray-900">
                                         <span class="font-bold">MODEL:</span>
                                         {{ item.sku }}
@@ -132,7 +132,7 @@
                                     </p>
                                 </div>
                                 <!-- Količina -->
-                                <div class="flex items-center space-x-2">
+                                <div class="flex items-center space-x-2 mt-3">
                                     <div class="flex items-center p-1 space-x-1">
                                         <button
                                             class="btn-icon-secondary square-medium rounded-md border-[1.5px]"

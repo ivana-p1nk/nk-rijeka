@@ -61,8 +61,8 @@ const submitSearch = () => {
                     <div
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
-                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal">DRESOVI</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal">2024./25.</h2>
+                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">DRESOVI</p>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">2024./25.</h2>
                 </a>
 
                 <a
@@ -72,8 +72,8 @@ const submitSearch = () => {
                     <div
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
-                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal">ODJEĆA</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal">NOVE HUDICE</h2>
+                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">ODJEĆA</p>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">NOVE HUDICE</h2>
                 </a>
 
                 <a
@@ -83,8 +83,8 @@ const submitSearch = () => {
                     <div
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
-                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal">POKLONI</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal">ŠKOLSKI ASORTIMAN</h2>
+                    <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">POKLONI</p>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">ŠKOLSKI ASORTIMAN</h2>
                 </a>
             </div>
         </div>
