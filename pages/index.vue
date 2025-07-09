@@ -33,7 +33,7 @@ const submitSearch = () => {
 </script>
 
 <template>
-    <div class="px-0 sm:px-5 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
+    <div clas s="px-0 sm:px-5 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
         <div class="container mx-auto xl:max-w-[1120px] relative z-[1] px-0 sm:px-5 xl:px-2">
             <div class="w-full lg:w-1/2">
                 <img src="~/assets/images/players-home.png" class="block lg:hidden pb-5" />
@@ -147,7 +147,7 @@ const submitSearch = () => {
         </div>
 
         <!--PERSONALIZIRAJ mobile -->
-        <div class="relative mx-3 mb-20 mt-36 block md:hidden">
+        <div class="relative mb-20 mt-36 block md:hidden">
             <img class="-mt-20 w-full -mb-72 block sm:hidden" src="~/assets/images/dresovi.png" alt="Dresovi" />
             <div
                 class="mx-5 bg-dark-blue-gradient2 pb-10 sm:pb-20 pt-80 sm:pt-10 px-0 sm:px-20 rounded-2xl flex flex-col items-center"
@@ -199,16 +199,19 @@ const submitSearch = () => {
         </div>
     </div>
 
-    <div class="mx-1 sm:mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
+    <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
-            <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
+            <h1 class="w-1/2 md:w-auto font-bold text-blue-900 uppercase font-saira text-h2-normal">
+                kupi dresove igrača
+            </h1>
             <a
                 href="/c/dresovi/"
                 id="btn-mobile-view-all-players"
                 data-location="home-mobile-view-all-players"
-                class="uppercase btn-secondary xs h-fit"
-                >Pogledaj sve</a
+                class="h-fit uppercase btn-secondary xs md:w-auto ms-auto"
             >
+                Pogledaj sve
+            </a>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
             <div

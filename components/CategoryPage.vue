@@ -143,7 +143,7 @@ const plainDescription = computed(() => {
 
             <div
                 v-if="products.length > 0"
-                class="pt-8 -mx-3 sm:mx-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-10"
+                class="pt-8 px-3 sm:px-0 -mx-3 sm:mx-0 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 sm:gap-x-4 gap-y-10"
             >
                 <ProductCard
                     v-for="(product, index) in products"
