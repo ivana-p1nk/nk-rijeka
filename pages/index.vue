@@ -164,7 +164,7 @@ const submitSearch = () => {
         </div>
 
         <!-- NOVO U PONUDI -->
-        <div class="container pb-6 mx-auto px-2 sm:px-5">
+        <div class="container pb-6 mx-auto px-5 sm:px-5">
             <div class="flex flex-col md:flex-row justify-between gap-4">
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
