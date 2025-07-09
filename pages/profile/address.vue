@@ -61,7 +61,7 @@ const updateAddress = async () => {
 <template>
   <section class="py-40" v-if="user">
     <div class="container mx-auto">
-      <div class="relative mx-10">
+      <div class="relative mx-5">
         <p class="font-normal text-blue-900 font-roboto text-body2 pb-1 pt-10">
           <NuxtLink class="text-blue-400 link-color" to="/"> Početna / </NuxtLink>
           <span>Moj račun</span>
