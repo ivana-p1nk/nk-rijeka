@@ -94,7 +94,7 @@ const submitSearch = () => {
         <!-- Vertikalni divider -->
         <div class="relative w-px mx-auto my-20 bg-blue-700 h-14"></div>
 
-        <div class="container mx-auto px-2 sm:px-5">
+        <div class="container mx-auto px-5 sm:px-5">
             <div class="flex flex-col md:flex-row justify-between gap-4">
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
