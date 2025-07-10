@@ -33,7 +33,7 @@ const submitSearch = () => {
 </script>
 
 <template>
-    <div clas s="px-0 sm:px-5 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
+    <div class="px-0 sm:px-5 bg-top bg-no-repeat bg-auto pt-32 lg:pt-72 pb-74 bg-home1 bg-players">
         <div class="container mx-auto xl:max-w-[1120px] relative z-[1] px-0 sm:px-5 xl:px-2">
             <div class="w-full lg:w-1/2">
                 <img src="~/assets/images/players-home.png" class="block lg:hidden pb-5" />
@@ -53,6 +53,7 @@ const submitSearch = () => {
                     </a>
                 </div>
             </div>
+
             <div class="relative z-10 grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-3 pt-12 lg:pt-52 px-5 sm:px-0">
                 <a
                     href="/c/dresovi/2024-2025"
