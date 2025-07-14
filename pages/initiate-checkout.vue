@@ -199,7 +199,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                 <h1 class="text-2xl font-medium uppercase text-blue-900 font-saira mb-4">Košarica je prazna</h1>
                 <p class="text-gray-500">Dodaj proizvode u košaricu da bi nastavili s kupnjom</p>
                 <a
-                    href="/products/"
+                    href="/p/"
                     id="btn-continue-shopping"
                     data-location="cart-empty-continue-shopping"
                     class="font-semibold btn-primary large uppercase active:bg-blue-800 mt-5"
