@@ -37,6 +37,12 @@ const applyCoupon = (coupon: string) => {
 
 const loadingForm = ref<boolean>(false)
 
+const selectedPaymentMethod = ref('card')
+const paymentMethods = [
+  { label: 'Plaćanje pouzećem', value: 'cod', icon: 'heroicons:banknotes' },
+  { label: 'Kreditna ili debitna kartica', value: 'card', icon: 'heroicons:credit-card' },
+]
+
 const formRef = ref()
 const terms = ref(false)
 const termValidationMessage = ref('')
@@ -125,15 +131,22 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
     const params = {
         user: user.value != null ? user.value : null,
         data: event.data,
+        delivery: cartStore.selectedDeliveryOption,
+        priceOfDelivery: cartStore.paket24,
         items: cartStore.cart_products,
         total: cartStore.totalPriceQuantity.total.toFixed(2),
+        totalWithDelivery: cartStore.totalPriceWithDelivery.toFixed(2),
+        paymentMethod: selectedPaymentMethod.value,
     }
 
     api.post('/create-orders', { ...params })
         .then(({ data }) => {
             if (data.status != 'error') {
-                cartStore.clear_cart()
-                window.location.href = `${config.public.baseUrl}/pay/${data.order_id}`
+                if(params.paymentMethod == 'card') {
+                    window.location.href = `${config.public.baseUrl}/pay/${data.order_id}`
+                } else {
+                    navigateTo('/thank-you')
+                }
             } else {
                 toast.add({
                     title: 'greška, javite se korisničkoj podršci.',
@@ -146,7 +159,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         })
         .catch((err) => {
             toast.add({
-                title: 'greška',
+                title: 'greška, javite se korisničkoj podršci.',
                 color: 'red',
                 timeout: 3000,
             })
@@ -166,7 +179,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
             </p>
             <p class="pt-1 pb-8 text-h1-normal font-medium uppercase text-blue-900 font-saira">Košarica</p>
 
-            <div class="grid grid-cols-12 gap-4" v-if="cartStore.cart_products.length > 0">
+            <div v-if="cartStore.cart_products.length > 0" class="grid grid-cols-12 gap-4">
                 <div class="col-span-12">
                     <h2 class="font-medium text-blue-900 font-saira text-h2-normal">Trenutna narudžba</h2>
                 </div>
@@ -184,10 +197,40 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                             </UForm>
                         </div>
                     </div>
+
+                    <h2 class="pt-8 pb-4 font-medium text-blue-900 font-saira text-h2-normal">Vrsta plaćanja</h2>
+
+                    <div class="md:px-12 md:py-10 py-5 px-3 bg-white rounded-2xl">
+                        <!-- <h2 class="text-xl font-bold text-blue-900 font-saira">Kartično plaćanje</h2> -->
+
+                        <div class="w-full pt-4">
+                            <URadioGroup
+                                color="blue"
+                                v-model="selectedPaymentMethod"
+                                :options="paymentMethods"
+                                :ui="{ fieldset: 'w-full flex flex-col'}"
+                                :uiRadio="{
+                                    label: 'cursor-pointer py-3',
+                                    wrapper: 'px-2 rounded-md mb-2 items-center hover:bg-blue-100 border border-[#C2CDD6]',
+                                    inner: 'w-full',
+                                    form: 'cursor-pointer'
+                                }"
+                            >
+                                <template #label="{ option }">
+                                    <div class="flex items-center justify-between w-full">
+                                        <p class="text-[#6B7280]">{{ option.label }}</p>
+
+                                        <UIcon :name="option.icon" class="w-6 h-6 text-[#6B7280]" />
+                                    </div>
+                                </template>
+                            </URadioGroup>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-span-12 md:col-span-5">
                     <CartTotal
                         @useCoupon="applyCoupon"
+                        @selectedDelivery="cartStore.changeDelivery"
                         :submitForm="submitForm"
                         :term="updateTerms"
                         :termMessage="termValidationMessage"

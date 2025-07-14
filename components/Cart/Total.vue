@@ -11,12 +11,39 @@ defineProps<{
 const cartStore = useCartStore()
 
 const coupon = ref('')
-const emit = defineEmits(['useCoupon'])
+const emit = defineEmits(['useCoupon', 'selectedDelivery'])
+
+const options = [{
+  value: 'free',
+  label: 'Besplatna dostava iznad 50 €'
+}, {
+  value: 'paket24',
+  label: 'PAKET24 HRVATSKE POŠTE: ' + cartStore.paket24.toFixed(2).replace('.', ',') + ' €'
+}]
+
+const selected = computed({
+  get: () => cartStore.selectedDeliveryOption,
+  set: (value) => {
+    cartStore.changeDelivery(value)
+    emit('selectedDelivery', value)
+  }
+})
 </script>
 
 <template>
     <div class="md:p-10 p-5 rounded-lg bg-[#D9F1FD]">
-        <p class="text-h6-desktop font-saira font-bold">VAŠA NARUDŽBA</p>
+        <p class="text-2xl font-saira font-bold">VAŠA NARUDŽBA</p>
+
+        <div class="pt-2">
+            <p class="flex items-center justify-between text-xl font-normal">
+                <span>UKUPNO:</span>
+                <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</span>
+            </p>
+            <p class="flex items-center justify-between text-xl font-normal" v-if="cartStore.totalPriceQuantity.total <= 50">
+                <span>Dostava:</span>
+                <span>Besplatna dostava iznad 50 €</span>
+            </p>
+        </div>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
 
@@ -45,11 +72,35 @@ const emit = defineEmits(['useCoupon'])
             <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
         </div>
 
-        <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
+        <div v-if="cartStore.coupon">
+            <p class="text-green-500 pt-2">Kupon iskorišten</p>
 
-        <p class="flex items-center justify-between text-xl font-normal">
+            <div class="flex items-center justify-between gap-2 pt-2">
+                <span>Popust kupona: </span>
+                <span>
+                    -{{ cartStore.coupon.discount }}<span v-if="cartStore.coupon.type === 'percentage'">%</span><span v-else>€</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
+        
+        <p class="text-xl font-normal mb-2">Dostava:</p>
+
+        <div v-if="cartStore.totalPriceQuantity.total >= 50">
+            <URadioGroup 
+                color="blue"
+                v-model="selected" 
+                :options="options" 
+            />
+        </div>
+        <div v-else>
+            <span>PAKET24 HRVATSKE POŠTE: <strong>{{ cartStore.paket24.toFixed(2).replace('.', ',') }} €</strong></span>
+        </div>
+        
+        <p class="flex items-center justify-between text-xl font-normal mt-2">
             <span>Ukupno za plaćanje:</span>
-            <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</span>
+            <strong>{{ cartStore.totalPriceWithDelivery.toFixed(2).replace('.', ',') }} €</strong>
         </p>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
@@ -78,6 +129,7 @@ const emit = defineEmits(['useCoupon'])
         <p v-if="termMessage != ''" class="text-sm italic font-medium text-red-500">{{ termMessage }}</p>
 
         <UButton
+            block
             :disabled="loadingForm"
             :loading="loadingForm"
             @click="submitForm"

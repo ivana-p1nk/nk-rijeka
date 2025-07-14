@@ -20,12 +20,16 @@ export default defineNuxtConfig({
         },
     },
 
-    devtools: { enabled: true },
+    devtools: { enabled: false },
 
     vite: {
         server: {
             allowedHosts: ['web.nkrijeka-app.test'],
             strictPort: false,
+            watch: {
+                usePolling: true,
+                interval: 1000,
+            },
         },
     },
 
@@ -57,7 +61,7 @@ export default defineNuxtConfig({
         'nuxt-swiper',
         '@pinia/nuxt',
         'nuxt-auth-sanctum',
-        '@nuxt/devtools',
+        // '@nuxt/devtools',
     ],
 
     sanctum: {
