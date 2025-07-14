@@ -53,6 +53,7 @@ const submitSearch = () => {
                     </a>
                 </div>
             </div>
+
             <div class="relative z-10 grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-3 pt-12 lg:pt-52 px-5 sm:px-0">
                 <a
                     href="/c/dresovi/2024-2025"
@@ -94,7 +95,7 @@ const submitSearch = () => {
         <!-- Vertikalni divider -->
         <div class="relative w-px mx-auto my-20 bg-blue-700 h-14"></div>
 
-        <div class="container mx-auto px-2 sm:px-5">
+        <div class="container mx-auto px-5 sm:px-5">
             <div class="flex flex-col md:flex-row justify-between gap-4">
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
@@ -147,7 +148,7 @@ const submitSearch = () => {
         </div>
 
         <!--PERSONALIZIRAJ mobile -->
-        <div class="relative mx-3 mb-20 mt-36 block md:hidden">
+        <div class="relative mb-20 mt-36 block md:hidden">
             <img class="-mt-20 w-full -mb-72 block sm:hidden" src="~/assets/images/dresovi.png" alt="Dresovi" />
             <div
                 class="mx-5 bg-dark-blue-gradient2 pb-10 sm:pb-20 pt-80 sm:pt-10 px-0 sm:px-20 rounded-2xl flex flex-col items-center"
@@ -164,7 +165,7 @@ const submitSearch = () => {
         </div>
 
         <!-- NOVO U PONUDI -->
-        <div class="container pb-6 mx-auto px-2 sm:px-5">
+        <div class="container pb-6 mx-auto px-5 sm:px-5">
             <div class="flex flex-col md:flex-row justify-between gap-4">
                 <div class="flex flex-col gap-2 md:flex-row md:gap-9">
                     <div class="flex flex-row justify-between items-center">
@@ -199,16 +200,19 @@ const submitSearch = () => {
         </div>
     </div>
 
-    <div class="mx-1 sm:mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
+    <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
-            <h1 class="font-bold text-blue-900 uppercase font-saira text-h2-normal">kupi dresove igrača</h1>
+            <h1 class="w-1/2 md:w-auto font-bold text-blue-900 uppercase font-saira text-h2-normal">
+                kupi dresove igrača
+            </h1>
             <a
                 href="/c/dresovi/"
                 id="btn-mobile-view-all-players"
                 data-location="home-mobile-view-all-players"
-                class="uppercase btn-secondary xs h-fit"
-                >Pogledaj sve</a
+                class="h-fit uppercase btn-secondary xs md:w-auto ms-auto"
             >
+                Pogledaj sve
+            </a>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
             <div
