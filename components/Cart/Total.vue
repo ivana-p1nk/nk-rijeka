@@ -25,11 +25,11 @@ const emit = defineEmits(['useCoupon'])
                 icon="cuida:ticket-outline"
                 v-model="cartStore.coupon.code"
                 disabled
-                size="md"
+                size="xl"
                 class="w-full"
                 variant="outline"
             />
-            <button @click="cartStore.deleteCoupon" class="uppercase bg-red-600 text-white btn-secondary xs w-36">
+            <button @click="cartStore.deleteCoupon" class="uppercase bg-red-600 text-white btn-secondary large w-52">
                 Obriši kupon
             </button>
         </div>
@@ -37,12 +37,12 @@ const emit = defineEmits(['useCoupon'])
             <UInput
                 icon="cuida:ticket-outline"
                 v-model="coupon"
-                size="md"
+                size="xl"
                 variant="outline"
                 class="w-full focus:ring-blue-500"
                 color="gray"
             />
-            <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary xs w-36">Iskoristi kupon</button>
+            <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary large w-52">Iskoristi kupon</button>
         </div>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
@@ -56,7 +56,7 @@ const emit = defineEmits(['useCoupon'])
 
         <p>
             Vaši osobni podaci koristit će se za obradu vaše narudžbe, pružanja boljeg iskustva na web stranici i u
-            druge svrhe opisane u našoj <a href="#" class="text-blue-500 underline">pravilima privatnosti</a>.
+            druge svrhe opisane u našim <a href="#" class="link-plavi body4 underline font-semibold">pravilima privatnosti</a>.
         </p>
 
         <UCheckbox v-on:change="term" id="gdpr" name="terms" class="mt-4" color="blue">
@@ -95,4 +95,6 @@ const emit = defineEmits(['useCoupon'])
 :deep(.form-input:focus) {
     --tw-ring-color: #009ff5;
 }
+
+
 </style>
