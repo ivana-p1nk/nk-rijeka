@@ -12,7 +12,7 @@
             <Icon
                 name="material-symbols:kid-star-outline"
                 :class="[
-                    'icon-large transition-colors duration-300 group-active:text-white',
+                    'icon-large transition-colors duration-300 group-active:text-white mt-[-2px]',
                     show ? 'text-white' : 'text-gray-900',
                 ]"
             />
