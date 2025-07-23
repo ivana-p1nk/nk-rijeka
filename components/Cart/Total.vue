@@ -75,7 +75,9 @@ const selected = computed({
                 class="w-full focus:ring-blue-500"
                 color="gray"
             />
-            <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary large w-52">Iskoristi kupon</button>
+            <button @click="$emit('useCoupon', coupon)" class="uppercase btn-secondary large w-52">
+                Iskoristi kupon
+            </button>
         </div>
 
         <div v-if="cartStore.coupon">
@@ -112,7 +114,9 @@ const selected = computed({
 
         <p>
             Vaši osobni podaci koristit će se za obradu vaše narudžbe, pružanja boljeg iskustva na web stranici i u
-            druge svrhe opisane u našim <a href="#" class="link-plavi body4 underline font-semibold">pravilima privatnosti</a>.
+            druge svrhe opisane u našim <a href="#" class="link-plavi body4 underline font-semibold"
+                >pravilima privatnosti</a
+            >.
         </p>
 
         <UCheckbox v-on:change="term" id="gdpr" name="terms" class="mt-4" color="blue">
@@ -152,6 +156,4 @@ const selected = computed({
 :deep(.form-input:focus) {
     --tw-ring-color: #009ff5;
 }
-
-
 </style>
