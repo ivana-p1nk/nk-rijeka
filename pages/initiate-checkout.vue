@@ -39,8 +39,8 @@ const loadingForm = ref<boolean>(false)
 
 const selectedPaymentMethod = ref('card')
 const paymentMethods = [
-  { label: 'Plaćanje pouzećem', value: 'cod', icon: 'heroicons:banknotes' },
-  { label: 'Kreditna ili debitna kartica', value: 'card', icon: 'heroicons:credit-card' },
+    { label: 'Plaćanje pouzećem', value: 'cod', icon: 'heroicons:banknotes' },
+    { label: 'Kreditna ili debitna kartica', value: 'card', icon: 'heroicons:credit-card' },
 ]
 
 const formRef = ref()
@@ -88,7 +88,8 @@ const schema = z
             )
         },
         {
-            message: "Sva polja za dodatnu adresu su obavezna kada je uključena opcija 'Dostavi na drugu adresu'",
+            message:
+                "Država, grad, poštanski broj i adresa su obavezni podaci kada je uključena opcija 'Dostavi na drugu adresu'",
             path: ['anotherAddress'],
         }
     )
@@ -142,7 +143,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
     api.post('/create-orders', { ...params })
         .then(({ data }) => {
             if (data.status != 'error') {
-                if(params.paymentMethod == 'card') {
+                if (params.paymentMethod == 'card') {
                     window.location.href = `${config.public.baseUrl}/pay/${data.order_id}`
                 } else {
                     navigateTo('/thank-you')
@@ -208,12 +209,13 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                                 color="blue"
                                 v-model="selectedPaymentMethod"
                                 :options="paymentMethods"
-                                :ui="{ fieldset: 'w-full flex flex-col'}"
+                                :ui="{ fieldset: 'w-full flex flex-col' }"
                                 :uiRadio="{
                                     label: 'cursor-pointer py-3',
-                                    wrapper: 'px-2 rounded-md mb-2 items-center hover:bg-blue-100 border border-[#C2CDD6]',
+                                    wrapper:
+                                        'px-2 rounded-md mb-2 items-center hover:bg-blue-100 border border-[#C2CDD6]',
                                     inner: 'w-full',
-                                    form: 'cursor-pointer'
+                                    form: 'cursor-pointer',
                                 }"
                             >
                                 <template #label="{ option }">
