@@ -1,43 +1,33 @@
 <script setup lang="ts">
-const { logout } = useSanctumAuth()
 import type { IUser } from '~/types/user'
-import type { IOrder } from '~/types/order'
+// const { logout } = useSanctumAuth()
+// import type { IOrder } from '~/types/order'
 
-const config = useRuntimeConfig()
 const user = useSanctumUser() as Ref<IUser | null>
+// const config = useRuntimeConfig()
+// const { api } = useAxios()
 
-const loading = ref(true)
-const orders = ref<IOrder[]>([])
+// const loading = ref(true)
+// const orders = ref<IOrder[]>([])
 
-const fetchOrders = async () => {
-    loading.value = true
+// const fetchOrders = async () => {
+//     loading.value = true
 
-    try {
-        // @ts-ignore
-        const { data: orderData } = await useFetch(`${config.public.url}/orders/${user.value.id}`)
+//     try {
+//         // @ts-ignore
+//         const response = await api.get(`/orders/${user.value.id}`)
 
-        // @ts-ignore
-        orders.value = orderData.value
-    } catch (error) {
-        console.error(error)
-        orders.value = []
-    } finally {
-        loading.value = false
-    }
-}
+//         // @ts-ignore
+//         orders.value = response.data
+//     } catch (error) {
+//         console.error(error)
+//         orders.value = []
+//     } finally {
+//         loading.value = false
+//     }
+// }
 
-onMounted(fetchOrders)
-
-const statusColors = {
-    processing: 'amber',
-    shipped: 'blue',
-    delivered: 'lime',
-    cancelled: 'red',
-}
-
-const logoutUser = async () => {
-    await logout()
-}
+// onMounted(fetchOrders)
 </script>
 
 <template>
@@ -82,7 +72,7 @@ const logoutUser = async () => {
                 </p>
             </div>
 
-            <div class="flex flex-wrap gap-10">
+            <!-- <div class="flex flex-wrap gap-10">
                 <UCard>
                     <template #header>
                         <h4 class="text-xl font-semibold text-left text-background">Ukupni broj narudžbi</h4>
@@ -118,7 +108,7 @@ const logoutUser = async () => {
                         {{ orders.filter((order) => order.status === 'cancelled').length }}
                     </p>
                 </UCard>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
