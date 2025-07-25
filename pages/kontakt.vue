@@ -42,13 +42,21 @@
             </h1>
 
             <div class="flex md:flex-row flex-col py-7">
-                <div class="w-full md:w-2/5 xl:w-1/4 flex flex-row md:flex-col items-start gap-6 md:gap-0 bg-white p-6 md:p-12 rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none md:rounded-bl-2xl">
-                    <img src="/assets/images/logos/grb-rijeka.svg" alt="Grb NK Rijeka" class="max-w-[50px] md:mb-6 mb-0">
+                <div class="w-full md:w-2/5 xl:w-1/4 flex flex-col items-start gap-6 md:gap-0 bg-white p-6 md:p-12 rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none md:rounded-bl-2xl">
+                    <div class="flex flex-row items-center gap-4 mb-0 md:mb-6">
+                        <img src="/assets/images/logos/grb-rijeka.svg" alt="Grb NK Rijeka"
+                            class="h-auto w-auto max-w-[160px] md:max-w-[130px] xl:max-w-[160px]">
+                        <img src="/assets/images/logos/fan-shop-logo.svg" alt="Fan Shop logo"
+                            class="h-auto w-auto max-w-[160px] md:max-w-[150px] lg:max-w-[200px] 2xl:max-w-[200px] xl:max-w-[160px] object-contain">
+                    </div>
                     <div>
-                        <h5 class="font-saira font-semibold text-h5-normal text-blue-900 pb-6">Fan Shop Stadion HNK Rijeka – Istok i zapad</h5>
-                        <p class="font-roboto font-normal text-body2">
+                        <h5 class="font-saira font-semibold text-h5-normal text-blue-900 pb-6">Fan Shop Stadion HNK Rijeka – Istok i Zapad</h5>
+                        <p class="font-roboto font-normal text-body2 pb-3">
+                            <span class="font-semibold text-blue-600 text-body3">Adresa: </span><br>Rujevica 10
+                        </p>
+                        <p class="font-roboto font-normal text-body2 pb-3">
                             <span class="font-semibold text-blue-600 text-body3">Radno vrijeme: </span><br>
-                            Za dan domaće utakmice
+                            Na dan domaće utakmice
                         </p>
                     </div>
                 </div>
