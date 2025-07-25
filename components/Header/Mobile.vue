@@ -254,8 +254,8 @@
                                 </a>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
+                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2025-2026" @click="closeTabMenu">2025./2026.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
-                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                             </template>
 
