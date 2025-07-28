@@ -37,8 +37,14 @@ const route = useRoute()
 const { catslug, slug } = route.params
 
 const subcategories = computed(() => {
-    return props.parentCategory?.sub_categories ?? props.category.sub_categories ?? []
+  const subcats = props.parentCategory?.sub_categories ?? props.category.sub_categories ?? []
+
+  const slug = props.category.slug?.toLowerCase()
+  const shouldReverse = slug === 'pokloni' || slug === 'joma'
+
+  return shouldReverse ? subcats.slice().reverse() : subcats
 })
+
 
 
 const plainDescription = computed(() => {
