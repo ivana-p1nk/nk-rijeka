@@ -254,7 +254,7 @@
                                 </a>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
-                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2025-2026" @click="closeTabMenu">2025./2026.</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/20252026" @click="closeTabMenu">2025./2026.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                             </template>
@@ -313,7 +313,7 @@
                                 <template v-if="subActive === 'dodaci'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/pojasevi" @click="closeTabMenu">Pojasevi</a></li>
                                 </template>
                             </template>
 
@@ -361,17 +361,6 @@
                                 </li>
                                 <template v-if="subActive === 'forza'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
-                                </template>
-
-                                <!-- Zigman premium-->
-                                <li>
-                                    <a href="#" @click.prevent="setSubActive('zigman')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
-                                        <span :class="subActive === 'zigman' ? 'text-blue-500' : ''">ZIGMAN & HNK RIJEKA</span>
-                                        <Icon :name="subActive === 'zigman' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </a>
-                                </li>
-                                <template v-if="subActive === 'zigman'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                                 </template>
                                 
 
