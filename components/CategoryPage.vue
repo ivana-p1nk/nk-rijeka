@@ -33,17 +33,36 @@ const page = computed({
   set: (value) => emit('update:page', value),
 })
 
+/*raspored podkategorija*/
 const route = useRoute()
 const { catslug, slug } = route.params
 
 const subcategories = computed(() => {
   const subcats = props.parentCategory?.sub_categories ?? props.category.sub_categories ?? []
 
-  const slug = props.category.slug?.toLowerCase()
+  /*reverse*/
+  const slug = props.category.slug?.toLowerCase() || ''
   const shouldReverse = slug === 'pokloni' || slug === 'joma'
 
-  return shouldReverse ? subcats.slice().reverse() : subcats
+  let orderedSubcats = shouldReverse ? subcats.slice().reverse() : subcats
+
+  /*custom*/
+  if (slug === 'odjeca') {
+    const customOrder = ['hoodice', 't-shirt-i-polo-majice', 'ostalo-odjeca']
+
+    const inOrder = customOrder
+      .map(key => orderedSubcats.find(sc => sc.slug === key))
+      .filter((sc): sc is typeof orderedSubcats[number] => sc !== undefined)
+
+    const others = orderedSubcats.filter(sc => !customOrder.includes(sc.slug || ''))
+
+    orderedSubcats = [...inOrder, ...others]
+  }
+
+  return orderedSubcats
 })
+
+
 
 
 
