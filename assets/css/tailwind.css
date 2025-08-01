@@ -383,13 +383,13 @@ body {
     .iskaznice::before {
         @apply content-[url(/assets/images/iskaznice.png)] absolute;
         top: -45px;
-        left: -220px;
+        left: -240px;
     }
 
     @media (max-width: 1280px) {
         .iskaznice::before {
             @apply content-[url(/assets/images/iskaznica.png)] absolute;
-            top: -20%;
+            top: -25%;
             left: 27%;
         }
     }
@@ -397,7 +397,7 @@ body {
     @media (max-width: 640px) {
         .iskaznice::before {
             @apply content-[url(/assets/images/iskaznica.png)] absolute;
-            top: -27%;
+            top: -32%;
             left: 22%;
         }
     }

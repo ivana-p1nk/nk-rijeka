@@ -200,6 +200,7 @@ const submitSearch = () => {
         </div>
     </div>
 
+    <!--
     <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="w-1/2 md:w-auto font-bold text-blue-900 uppercase font-saira text-h2-normal">
@@ -231,14 +232,14 @@ const submitSearch = () => {
                     </span>
                 </div>
 
-                <!-- Default slika -->
+                [NAPOMENA] Default slika 
                 <img
                     src="~/assets/images/player.png"
                     alt="player"
                     class="absolute bottom-0 z-10 object-cover h-full transition-all duration-500 transform right-[-0.75rem] group-hover:translate-x-2 group-hover:opacity-0"
                 />
 
-                <!-- Hover slika -->
+                [NAPOMENA] hover slika 
                 <img
                     src="~/assets/images/player-bg.png"
                     alt="player-hover"
@@ -261,14 +262,14 @@ const submitSearch = () => {
                     </span>
                 </div>
 
-                <!-- Default slika -->
+               
                 <img
                     src="~/assets/images/player.png"
                     alt="player"
                     class="absolute bottom-0 z-10 object-cover h-full transition-all duration-500 transform right-[-0.75rem] group-hover:translate-x-2 group-hover:opacity-0"
                 />
 
-                <!-- Hover slika -->
+               
                 <img
                     src="~/assets/images/player-bg.png"
                     alt="player-hover"
@@ -291,14 +292,14 @@ const submitSearch = () => {
                     </span>
                 </div>
 
-                <!-- Default slika -->
+              
                 <img
                     src="~/assets/images/player.png"
                     alt="player"
                     class="absolute bottom-0 z-10 object-cover h-full transition-all duration-500 transform right-[-0.75rem] group-hover:translate-x-2 group-hover:opacity-0"
                 />
 
-                <!-- Hover slika -->
+             
                 <img
                     src="~/assets/images/player-bg.png"
                     alt="player-hover"
@@ -321,14 +322,14 @@ const submitSearch = () => {
                     </span>
                 </div>
 
-                <!-- Default slika -->
+                
                 <img
                     src="~/assets/images/player.png"
                     alt="player"
                     class="absolute bottom-0 z-10 object-cover h-full transition-all duration-500 transform right-[-0.75rem] group-hover:translate-x-2 group-hover:opacity-0"
                 />
 
-                <!-- Hover slika -->
+                
                 <img
                     src="~/assets/images/player-bg.png"
                     alt="player-hover"
@@ -339,6 +340,8 @@ const submitSearch = () => {
 
         <div></div>
     </div>
+-->
+
 </template>
 
 <style scoped>
@@ -365,7 +368,7 @@ const submitSearch = () => {
 .bg-players::after {
     position: absolute;
     content: url('/assets/images/players-home.png');
-    right: 9%;
+    right: 13%;
     top: 12%;
     z-index: 0;
 }
@@ -377,8 +380,10 @@ const submitSearch = () => {
 }
 
 @media (max-width: 1650px) {
-    .bg-players::after {
+        .bg-players::after {
         content: url('/assets/images/players-laptop.png');
+        top: 30%;
+        right: 10%;
     }
 }
 
