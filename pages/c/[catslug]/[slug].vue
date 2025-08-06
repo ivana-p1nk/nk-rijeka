@@ -5,15 +5,15 @@ import { useRoute, createError } from '#imports'
 const route = useRoute()
 const catslug = route.params.catslug as string
 
-const { 
-    category, 
-    products, 
-    activeFilters, 
-    loadingCat, 
-    sort, 
-    page, 
-    totalPages, 
-    totalProducts, 
+const {
+    category,
+    products,
+    activeFilters,
+    loadingCat,
+    sort,
+    page,
+    totalPages,
+    totalProducts,
     fetchAll,
     updateSort,
     updatePage,
@@ -33,17 +33,17 @@ if (!category.value) {
 <template>
     <div class="bg-igraci">
         <div class="container mx-auto con-height pb-5 px-5" v-if="!loadingCat && category">
-            <CategoryPage 
-                :category="category" 
+            <CategoryPage
+                :category="category"
                 :products="products"
-                :active-filters="activeFilters" 
-                :sort="sort" 
+                :active-filters="activeFilters"
+                :sort="sort"
                 :page="page"
                 :totalPages="totalPages"
                 :totalProducts="totalProducts"
-                @update:activeFilters="updateFilters($event)" 
-                @update:sort="updateSort($event)" 
-                @update:page="updatePage($event)" 
+                @update:activeFilters="updateFilters($event)"
+                @update:sort="updateSort($event)"
+                @update:page="updatePage($event)"
             />
         </div>
     </div>

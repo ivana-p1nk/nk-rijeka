@@ -218,6 +218,29 @@ export const useCartStore = defineStore('cart_product', () => {
         )
     })
 
+    // Delivery price
+    const selectedDeliveryOption = ref<'free' | 'paket24'>('free')
+    const free_delivery = 50;
+    const paket24 = ref<number>(6)
+    const totalPriceWithDelivery = computed(() => {
+        return totalPriceQuantity.value.total + deliveryPrice.value
+    })
+
+    const deliveryPrice = computed(() => {
+        const subtotal = totalPriceQuantity.value.total
+    
+        if (subtotal < free_delivery) {
+            selectedDeliveryOption.value = 'paket24' // force it if under 50 €
+            return paket24.value
+        }
+    
+        return selectedDeliveryOption.value === 'free' ? 0 : paket24.value
+    })
+
+    const changeDelivery = (delivery: 'free' | 'paket24') => {
+        selectedDeliveryOption.value = delivery
+    }
+
     const initializeCoupon = () => {
         const couponData = localStorage.getItem('coupon')
         if (couponData) {
@@ -247,6 +270,18 @@ export const useCartStore = defineStore('cart_product', () => {
         }
     )
 
+    watch(
+        () => totalPriceQuantity.value.total,
+        (newTotal) => {
+          if (newTotal < free_delivery) {
+            selectedDeliveryOption.value = 'paket24'
+          } else if (selectedDeliveryOption.value !== 'free') {
+            selectedDeliveryOption.value = 'free'
+          }
+        },
+        { immediate: true }
+      )
+
     return {
         addCartProduct,
         cart_products,
@@ -263,5 +298,10 @@ export const useCartStore = defineStore('cart_product', () => {
         decrement,
         setInitialOrderQuantity,
         setUserRole,
+        paket24,
+        deliveryPrice,
+        changeDelivery,
+        totalPriceWithDelivery,
+        selectedDeliveryOption
     }
 })

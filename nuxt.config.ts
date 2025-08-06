@@ -20,27 +20,29 @@ export default defineNuxtConfig({
         },
     },
 
-    devtools: { enabled: true },
+    devtools: { enabled: false },
 
     vite: {
         server: {
             allowedHosts: ['web.nkrijeka-app.test'],
             strictPort: false,
+            watch: {
+                usePolling: true,
+                interval: 1000,
+            },
         },
     },
 
-    /*
     devServer: {
         host: 'web.nkrijeka-app.test',
         port: 3000,
     },
-    */
 
     runtimeConfig: {
         public: {
-            baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
+            baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr',
             url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
-            siteUrl: 'https://newshop.shop.nk-rijeka.hr/',
+            siteUrl: 'https://newshop.shop.nk-rijeka.hr',
             token: process.env.TOKEN || 'qwertyuiopasdfghjklzxcvbnm123456',
         },
     },
@@ -59,7 +61,7 @@ export default defineNuxtConfig({
         'nuxt-swiper',
         '@pinia/nuxt',
         'nuxt-auth-sanctum',
-        '@nuxt/devtools',
+        // '@nuxt/devtools',
     ],
 
     sanctum: {

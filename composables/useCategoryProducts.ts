@@ -78,7 +78,6 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         loadingProduct.value = true
 
         try {
-            const route = useRoute()
             const { slug } = route.params
             const queryFilters = route.query
 
@@ -126,7 +125,12 @@ export function useCategoryProducts(catslug: string | string[], slug?: string | 
         activeFilters.value = route.query as Record<string, string>
         page.value = 1
         fetchProducts()
-    }, { deep: true })
+    })
+
+    watch(() => route.params.slug, () => {
+        page.value = 1
+        fetchProducts()
+    })
 
     const fetchAll = async () => {
         await Promise.all([fetchCategory(), fetchParentCategory()])

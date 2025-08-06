@@ -3,6 +3,7 @@ import type { IProduct } from '~/types/product'
 const config = useRuntimeConfig()
 import { useProductsByCategory } from '~/composables/useProductsByCategory'
 import confetti from 'canvas-confetti'
+const cartStore = useCartStore()
 
 const { products: bestsellerProducts, loading: loadingBestsellers } = useProductsByCategory(33)
 const products = ref<IProduct[]>([])
@@ -56,6 +57,8 @@ onMounted(() => {
         }
         carouselNew.value.next()
     }, 3000)
+
+    cartStore.clear_cart()
 })
 </script>
 
