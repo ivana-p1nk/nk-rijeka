@@ -52,7 +52,7 @@ const isInputActive = ref(false)
                     id="dresovi"
                 >
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub"><a href="/c/dresovi/20252026" @click="closeTabMenu">2025./2026.</a></li>
+                        <li class="heading-sub"><a href="/c/dresovi/2025-2026" @click="closeTabMenu">2025./2026.</a></li>
                         <li class="heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
                         <li class="heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                     </ul>
@@ -80,6 +80,9 @@ const isInputActive = ref(false)
                                 >
                             </li>
                             <li class="heading-sub">
+                                <a href="/c/odjeca/hlace-odjeca?ageGender=muskarci" @click="closeTabMenu">Hlače</a>
+                            </li>
+                            <li class="heading-sub">
                                 <a href="/c/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a>
                             </li>
                         </ul>
@@ -97,6 +100,9 @@ const isInputActive = ref(false)
                                 >
                             </li>
                             <li class="heading-sub">
+                                <a href="/c/odjeca/hlace-odjeca?ageGender=zene" @click="closeTabMenu">Hlače</a>
+                            </li>
+                            <li class="heading-sub">
                                 <a href="/c/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a>
                             </li>
                         </ul>
@@ -112,6 +118,9 @@ const isInputActive = ref(false)
                                 <a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu"
                                     >T-shirt i polo majice</a
                                 >
+                            </li>
+                            <li class="heading-sub">
+                                <a href="/c/odjeca/hlace-odjeca?ageGender=djeca" @click="closeTabMenu">Hlače</a>
                             </li>
                             <li class="heading-sub">
                                 <a href="/c/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a>

@@ -48,7 +48,7 @@ const subcategories = computed(() => {
 
   /*custom*/
   if (slug === 'odjeca') {
-    const customOrder = ['hoodice', 't-shirt-i-polo-majice', 'ostalo-odjeca']
+    const customOrder = ['hoodice', 't-shirt-i-polo-majice', 'hlace-odjeca',  'ostalo-odjeca']
 
     const inOrder = customOrder
       .map(key => orderedSubcats.find(sc => sc.slug === key))

@@ -47,7 +47,7 @@ const selected = computed({
                 v-if="cartStore.totalPriceQuantity.total <= 50"
             >
                 <span>Dostava:</span>
-                <span>Besplatna dostava iznad 50 €</span>
+                <span>Besplatna dostava iznad 50,00 €</span>
             </p>
         </div>
 

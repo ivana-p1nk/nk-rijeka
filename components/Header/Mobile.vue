@@ -254,7 +254,7 @@
                                 </a>
                             </li>
                             <template v-if="activeTab === 'dresovi'">
-                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/20252026" @click="closeTabMenu">2025./2026.</a></li>
+                                <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2025-2026" @click="closeTabMenu">2025./2026.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                             </template>
@@ -277,6 +277,7 @@
                                 <template v-if="subActive === 'muskarci'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Hoodice</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=muskarci" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hlace-odjeca?ageGender=muskarci" @click="closeTabMenu">Hlače</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca?ageGender=muskarci" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Žene -->
@@ -289,6 +290,7 @@
                                 <template v-if="subActive === 'zene'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hlace-odjeca?ageGender=zene" @click="closeTabMenu">Hlače</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Djeca -->
@@ -301,6 +303,7 @@
                                 <template v-if="subActive === 'djeca'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
+                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hlace-odjeca?ageGender=djeca" @click="closeTabMenu">Hlače</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Modni dodaci -->
