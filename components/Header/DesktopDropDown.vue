@@ -137,6 +137,16 @@
                             <li class="heading-sub"><a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
                         </ul>
                     </div>
+
+                    <div class="basis-1/4">
+                        <h5 class="pb-4 heading-subtitle">ZIGMAN & HNK RIJEKA</h5>
+                        <hr class="divider" />
+                        <ul class="flex flex-col gap-3 pt-4">
+                            <li class="heading-sub">
+                                <a href="/c/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a>
+                            </li>
+                        </ul>
+                    </div>
                    
                 </div>
             </Transition>
