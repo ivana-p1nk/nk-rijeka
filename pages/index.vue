@@ -382,7 +382,7 @@ const submitSearch = () => {
 @media (max-width: 1650px) {
         .bg-players::after {
         content: url('/assets/images/players-laptop.png');
-        top: 30%;
+        top: 25%;
         right: 10%;
     }
 }
