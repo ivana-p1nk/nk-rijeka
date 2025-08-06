@@ -200,7 +200,6 @@ const submitSearch = () => {
         </div>
     </div>
 
-    <!--
     <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="w-1/2 md:w-auto font-bold text-blue-900 uppercase font-saira text-h2-normal">
@@ -340,7 +339,7 @@ const submitSearch = () => {
 
         <div></div>
     </div>
--->
+
 
 </template>
 
