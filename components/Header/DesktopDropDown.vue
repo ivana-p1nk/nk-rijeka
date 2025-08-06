@@ -94,9 +94,15 @@
                         <h5 class="pb-4 heading-subtitle">MODNI DODACI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub"><a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a></li>
-                            <li class="heading-sub"><a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
-                            <li class="heading-sub"><a href="/c/odjeca/pojasevi" @click="closeTabMenu">Pojasevi</a></li>
+                            <li class="heading-sub">
+                                <a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a>
+                            </li>
+                            <li class="heading-sub">
+                                <a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a>
+                            </li>
+                            <li class="heading-sub">
+                                <a href="/c/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
