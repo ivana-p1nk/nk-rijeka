@@ -48,7 +48,7 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
-                    <li class="heading-sub">
+                        <li class="heading-sub">
                             <a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a>
                         </li>
                         <li class="heading-sub">
