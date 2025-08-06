@@ -85,7 +85,9 @@ const submitSearch = () => {
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">POKLONI</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">ŠKOLSKI ASORTIMAN</h2>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">
+                        ŠKOLSKI ASORTIMAN
+                    </h2>
                 </a>
             </div>
         </div>
@@ -200,8 +202,7 @@ const submitSearch = () => {
         </div>
     </div>
 
-    <!--
-    <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5">
+    <div class="mx-5 my-20 md:container md:mx-auto px-2 sm:px-5 hidden">
         <div class="flex flex-wrap items-center justify-between">
             <h1 class="w-1/2 md:w-auto font-bold text-blue-900 uppercase font-saira text-h2-normal">
                 kupi dresove igrača
@@ -337,7 +338,7 @@ const submitSearch = () => {
                 />
             </div>
         </div>
-    -->
+ 
         <div></div>
     </div>
 
