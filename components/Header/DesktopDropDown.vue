@@ -48,9 +48,15 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
-                    <li class="heading-sub"><a href="/c/dresovi/20252026" @click="closeTabMenu">2025./2026.</a></li>
-                    <li class="heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
-                    <li class="heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
+                    <li class="heading-sub">
+                            <a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a>
+                        </li>
+                        <li class="heading-sub">
+                            <a href="/c/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a>
+                        </li>
+                        <li class="heading-sub">
+                            <a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a>
+                        </li>
                     </ul>
                 </div>
             </Transition> 
