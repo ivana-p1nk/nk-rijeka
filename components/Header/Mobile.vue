@@ -290,7 +290,6 @@
                                 <template v-if="subActive === 'zene'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Hoodice</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=zene" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hlace-odjeca?ageGender=zene" @click="closeTabMenu">Hlače</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Djeca -->
@@ -303,7 +302,6 @@
                                 <template v-if="subActive === 'djeca'">
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Hoodice</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu">T-shirt i polo majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hlace-odjeca?ageGender=djeca" @click="closeTabMenu">Hlače</a></li>
                                     <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a></li>
                                 </template>
                                 <!-- Modni dodaci -->

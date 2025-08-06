@@ -100,9 +100,6 @@ const isInputActive = ref(false)
                                 >
                             </li>
                             <li class="heading-sub">
-                                <a href="/c/odjeca/hlace-odjeca?ageGender=zene" @click="closeTabMenu">Hlače</a>
-                            </li>
-                            <li class="heading-sub">
                                 <a href="/c/odjeca/ostalo-odjeca?ageGender=zene" @click="closeTabMenu">Ostalo</a>
                             </li>
                         </ul>
@@ -118,9 +115,6 @@ const isInputActive = ref(false)
                                 <a href="/c/odjeca/t-shirt-i-polo-majice?ageGender=djeca" @click="closeTabMenu"
                                     >T-shirt i polo majice</a
                                 >
-                            </li>
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/hlace-odjeca?ageGender=djeca" @click="closeTabMenu">Hlače</a>
                             </li>
                             <li class="heading-sub">
                                 <a href="/c/odjeca/ostalo-odjeca?ageGender=djeca" @click="closeTabMenu">Ostalo</a>
