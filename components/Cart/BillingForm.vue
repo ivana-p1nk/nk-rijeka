@@ -94,7 +94,6 @@ const countries = countriesJson.map(c => ({
             <UTextarea v-model="form.orderNote"
                 placeholder="Napomene o vašoj narudžbi, npr. posebne upute za dostavu." />
         </UFormGroup> -->
-        
     </div>
 </template>
 
