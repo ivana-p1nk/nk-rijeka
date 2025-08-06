@@ -144,32 +144,19 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 
             loadingForm.value = false
         })
-        /*
+        
         .catch((err) => {
+         const message = err.response?.data?.message || 'Došlo je do greške, pokušajte ponovno.'
             toast.add({
                 title: 'greška',
+                description: message, 
                 color: 'red',
                 timeout: 3000,
             })
 
             loadingForm.value = false
         })
-            */
-
-        .catch((err) => {
-        const message = err.response?.data?.message || 'Došlo je do greške, pokušajte ponovno.'
-
-        toast.add({
-            title: 'Greška',
-            description: message,  
-            color: 'red',
-            timeout: 5000,
-        })
-
-        loadingForm.value = false
-        })
-
-           
+              
 }
 </script>
 
