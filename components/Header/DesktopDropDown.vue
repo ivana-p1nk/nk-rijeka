@@ -48,15 +48,9 @@
             <Transition name="reveal">
                 <div v-if="activetab === 'dresovi' && openMenu" :key="activetab" ref="activeTabContentRef" class="flex gap-4" id="dresovi">
                     <ul class="flex flex-col gap-3">
-                        <li class="heading-sub">
-                            <a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a>
-                        </li>
-                        <li class="heading-sub">
-                            <a href="/c/dresovi/2023-2024" @click="closeTabMenu">2023./2024.</a>
-                        </li>
-                        <li class="heading-sub">
-                            <a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a>
-                        </li>
+                        <li class="heading-sub"><a href="/c/dresovi/20252026" @click="closeTabMenu">2025./2026.</a></li>
+                        <li class="heading-sub"><a href="/c/dresovi/2024-2025" @click="closeTabMenu">2024./2025.</a></li>
+                        <li class="heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                     </ul>
                 </div>
             </Transition> 
@@ -94,15 +88,9 @@
                         <h5 class="pb-4 heading-subtitle">MODNI DODACI</h5>
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a>
-                            </li>
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a>
-                            </li>
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/ostalo-odjeca" @click="closeTabMenu">Ostalo</a>
-                            </li>
+                            <li class="heading-sub"><a href="/c/odjeca/kape" @click="closeTabMenu">Kape</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/salovi" @click="closeTabMenu">Šalovi</a></li>
+                            <li class="heading-sub"><a href="/c/odjeca/pojasevi" @click="closeTabMenu">Pojasevi</a></li>    
                         </ul>
                     </div>
                 </div>
@@ -135,16 +123,6 @@
                         <hr class="divider">
                         <ul class="flex flex-col gap-3 pt-4">
                             <li class="heading-sub"><a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="basis-1/4">
-                        <h5 class="pb-4 heading-subtitle">ZIGMAN & HNK RIJEKA</h5>
-                        <hr class="divider" />
-                        <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub">
-                                <a href="/c/zigman-hnk-rijeka" @click="closeTabMenu">Pogledaj kolekciju</a>
-                            </li>
                         </ul>
                     </div>
                    
