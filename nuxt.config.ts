@@ -67,7 +67,7 @@ export default defineNuxtConfig({
     ],
 
     sanctum: {
-        baseUrl: process.env.BASE_URL,
+        baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rieka.hr',
         redirect: {
             onAuthOnly: '/login',
             onLogin: '/profile',
