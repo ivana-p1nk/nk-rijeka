@@ -22,21 +22,21 @@ export default defineNuxtConfig({
 
     devtools: { enabled: false },
 
-    // vite: {
-    //     server: {
-    //         allowedHosts: ['web.nkrijeka-app.test'],
-    //         strictPort: false,
-    //         watch: {
-    //             usePolling: true,
-    //             interval: 1000,
-    //         },
-    //     },
-    // },
+    vite: {
+        server: {
+            allowedHosts: ['web.nkrijeka-app.test'],
+            strictPort: false,
+            watch: {
+                usePolling: true,
+                interval: 1000,
+            },
+        },
+    },
 
-    // devServer: {
-    //     host: 'web.nkrijeka-app.test',
-    //     port: 3000,
-    // },
+    devServer: {
+        host: 'web.nkrijeka-app.test',
+        port: 3000,
+    },
 
     runtimeConfig: {
         public: {
@@ -44,6 +44,8 @@ export default defineNuxtConfig({
             url: process.env.API_URL,
             siteUrl: 'https://shop.nk-rijeka.hr',
             token: process.env.TOKEN,
+            maintenanceMode: process.env.MAINTENANCE_MODE,
+            maintenanceBypassToken: process.env.MAINTENANCE_BYPASS_TOKEN,
         },
     },
 
