@@ -40,8 +40,8 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-            baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rieka.hr',
-            url: process.env.API_URL || 'https://backend.shop.nk-rieka.hr/api/v1',
+            baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rijeka.hr',
+            url: process.env.API_URL || 'https://backend.shop.nk-rijeka.hr/api/v1',
             siteUrl: 'https://shop.nk-rijeka.hr',
             token: process.env.TOKEN || 'qwertyuiopasdfghjklzxcvbnm123456',
             maintenanceMode: process.env.MAINTENANCE_MODE || 'true',
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
     ],
 
     sanctum: {
-        baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rieka.hr',
+        baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rijeka.hr',
         redirect: {
             onAuthOnly: '/login',
             onLogin: '/profile',
