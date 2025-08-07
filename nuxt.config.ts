@@ -32,18 +32,20 @@ export default defineNuxtConfig({
             },
         },
     },
-/*
+
     devServer: {
         host: 'web.nkrijeka-app.test',
         port: 3000,
     },
-*/
+
     runtimeConfig: {
         public: {
-            baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr',
-            url: process.env.API_URL || 'https://backend.newshop.shop.nk-rijeka.hr/api/v1',
-            siteUrl: 'https://newshop.shop.nk-rijeka.hr',
+            baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rijeka.hr',
+            url: process.env.API_URL || 'https://backend.shop.nk-rijeka.hr/api/v1',
+            siteUrl: 'https://shop.nk-rijeka.hr',
             token: process.env.TOKEN || 'qwertyuiopasdfghjklzxcvbnm123456',
+            maintenanceMode: process.env.MAINTENANCE_MODE || 'true',
+            maintenanceBypassToken: process.env.MAINTENANCE_BYPASS_TOKEN || 'N2glgJ0v8I3YjGQX0Op2aB7WQV1EnBhrMa4P546spbGp3tK5GSOtlmaGXj7IhON9',
         },
     },
 
@@ -65,7 +67,7 @@ export default defineNuxtConfig({
     ],
 
     sanctum: {
-        baseUrl: process.env.BASE_URL || 'https://backend.newshop.shop.nk-rijeka.hr/',
+        baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rijeka.hr',
         redirect: {
             onAuthOnly: '/login',
             onLogin: '/profile',
