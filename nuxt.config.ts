@@ -40,12 +40,12 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         public: {
-            baseUrl: process.env.BASE_URL,
-            url: process.env.API_URL,
+            baseUrl: process.env.BASE_URL || 'https://backend.shop.nk-rieka.hr',
+            url: process.env.API_URL || 'https://backend.shop.nk-rieka.hr/api/v1',
             siteUrl: 'https://shop.nk-rijeka.hr',
-            token: process.env.TOKEN,
-            maintenanceMode: process.env.MAINTENANCE_MODE,
-            maintenanceBypassToken: process.env.MAINTENANCE_BYPASS_TOKEN,
+            token: process.env.TOKEN || 'qwertyuiopasdfghjklzxcvbnm123456',
+            maintenanceMode: process.env.MAINTENANCE_MODE || 'true',
+            maintenanceBypassToken: process.env.MAINTENANCE_BYPASS_TOKEN || 'N2glgJ0v8I3YjGQX0Op2aB7WQV1EnBhrMa4P546spbGp3tK5GSOtlmaGXj7IhON9',
         },
     },
 
