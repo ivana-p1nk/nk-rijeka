@@ -44,7 +44,7 @@ const submitSearch = () => {
                         ponovno donosi svježinu i inovaciju našim dresovima.
                     </p>
                     <a
-                        href="/c/dresovi/2024-2025/"
+                        href="/c/dresovi/2025-2026/"
                         id="btn-buy-now"
                         data-location="home-banner"
                         class="uppercase btn-primary large"
@@ -56,14 +56,14 @@ const submitSearch = () => {
 
             <div class="relative z-10 grid grid-cols-1 gap-2 sm:gap-6 lg:grid-cols-3 pt-12 lg:pt-52 px-5 sm:px-0">
                 <a
-                    href="/c/dresovi/2024-2025"
+                    href="/c/dresovi/2025-2026"
                     class="group relative bg-dresovi bg-cover bg-center rounded-lg h-72 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
                 >
                     <div
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">DRESOVI</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">2024./25.</h2>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">2025./26.</h2>
                 </a>
 
                 <a
