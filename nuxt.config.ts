@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: 'HNK Rijeka Web Shop — Official Fan Shop',
-            //meta: [{ name: 'description', content: 'Test' }],
+            meta: [{ name: 'description', content: 'Kupite službene dresove, odjeću i navijački asortiman HNK Rijeke. Brza dostava i sigurna kupnja za sve navijače.' }],
             link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
             script: [
                 {
