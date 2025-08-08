@@ -62,7 +62,7 @@ const schema = z
             .string({ required_error: 'Poštanski broj je obavezan podatak' })
             .min(1, 'Poštanski broj je obavezan podatak'),
         address: z.string({ required_error: 'Adresa je obavezan podatak' }).min(1, 'Adresa je obavezan podatak'),
-        phone: z.string({ required_error: 'Telefon je obavezan podatak' }),
+        phone: z.string({ required_error: 'Telefon je obavezan podatak' }).min(1, 'Telefon je obavezan podatak'),
         email: z.string({ required_error: 'Email je obavezan podatak' }).email('Pogrešna email adresa'),
         orderNote: z.string().optional(),
 
