@@ -112,7 +112,7 @@ const submitSearch = () => {
                         </a>
                     </div>
                     <p class="font-normal text-blue-900 font-roboto text-body1">
-                        Počasti se novim dresom, odabri atraktivan <br />poklon, ne propusti promotivne cijene...
+                        Počasti se novim dresom, odaberi atraktivan <br />poklon, ne propusti promotivne cijene...
                     </p>
                 </div>
                 <a
@@ -140,7 +140,7 @@ const submitSearch = () => {
                 <p class="font-normal text-white font-roboto text-body1 mb-7">
                     Tvoj dres, tvoja pravila. Personaliziraj svoj <br />omiljeni dres i učini ga jedinstvenim.
                 </p>
-                <NuxtLink to="/" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
+                <NuxtLink to="/c/2025-2026" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
             </div>
             <img
                 class="absolute right-0 w-[45%] top-[12%] lg:w-[53%] lg:top-[-3%] xl:w-auto xl:top-[-20%]"
@@ -162,7 +162,7 @@ const submitSearch = () => {
                 <p class="font-normal text-white font-roboto text-body1 mb-7 text-center px-5 sm:px-0">
                     Tvoj dres, tvoja pravila. Personaliziraj svoj omiljeni dres i učini ga jedinstvenim.
                 </p>
-                <NuxtLink to="/" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
+                <NuxtLink to="/c/2025-2026" class="uppercase btn-primary small">Naruči svoj dres</NuxtLink>
             </div>
         </div>
 

@@ -83,7 +83,7 @@ onMounted(() => {
                     </NuxtLink>
                 </div>
                 <p class="font-normal text-blue-900 font-roboto text-body1">
-                    Počasti se novim dresom, odabri atraktivan <br />poklon, ne propusti promotivne cijene...
+                    Počasti se novim dresom, odaberi atraktivan <br />poklon, ne propusti promotivne cijene...
                 </p>
             </div>
             <NuxtLink to="/c/bestselleri" class="uppercase btn-secondary xs h-fit hidden md:block self-center">
