@@ -67,14 +67,14 @@ const submitSearch = () => {
                 </a>
 
                 <a
-                    href="/c/odjeca/hoodice/"
-                    class="group relative bg-odjeca bg-cover bg-center rounded-lg h-80 lg:h-[522px] flex flex-col justify-end items-center p-7 transition-transform duration-300 ease-in-out hover:-translate-y-4"
+                    href="/c/forza-fiume-premium"
+                    class="group relative bg-odjeca bg-cover bg-center rounded-lg h-80 lg:h-[522px] flex flex-col justify-end items-center py-7 px-1 transition-transform duration-300 ease-in-out hover:-translate-y-4"
                 >
                     <div
                         class="absolute inset-0 bg-gradient-to-b from-transparent to-[#012436] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg"
                     ></div>
                     <p class="relative font-bold text-blue-300 font-saira text-h6-normal text-center">ODJEĆA</p>
-                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">NOVE HUDICE</h2>
+                    <h2 class="relative font-bold text-white font-saira text-h3-normal text-center">FORZA FIUME KOLEKCIJA</h2>
                 </a>
 
                 <a
@@ -350,7 +350,7 @@ const submitSearch = () => {
     background-image: url('/assets/images/bg-dresovi.png');
 }
 .bg-odjeca {
-    background-image: url('/assets/images/bg-hoodice.png');
+    background-image: url('/assets/images/bg-odjeca.png');
 }
 .bg-pokloni {
     background-image: url('/assets/images/bg-skolski-pribor.png');
