@@ -238,13 +238,23 @@ const twitterShare = computed(
                 <div class="border-b border-neutralBlue-100">
                     <!-- Personaliziraj -->
                     <div v-if="product.variations && product.variations.length">
-                        <div v-if="product.personalization_enable && isInCategory2">
-                            <SidebarPersonalize
-                                :product="product"
-                                :selectedVariationId="selectedVariationId"
-                                @update-selected-variation="updateSelectedVariation"
-                            />
-                        </div>
+                        <div
+    v-if="
+      product.personalization_enable &&
+      isInCategory2 &&
+      (
+        !!product.personalization_name ||
+        !!product.personalization_number ||
+        !!product.personalization_logo
+      )
+    "
+  >
+    <SidebarPersonalize
+      :product="product"
+      :selectedVariationId="selectedVariationId"
+      @update-selected-variation="updateSelectedVariation"
+    />
+  </div>
 
                         <!-- Veličina -->
                         <div class="pt-7">
