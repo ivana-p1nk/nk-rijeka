@@ -114,6 +114,28 @@ const state = reactive({
     anotherStreetAddress: undefined,
 })
 
+// helper: detektiraj Hrvatsku i slične zapise
+const isCroatia = computed(() => {
+    const c = (state.country || '').toLowerCase().trim()
+    if (!c) return false
+    // podržane varijante unosa
+    if (c.includes('hr')) return true
+    return ['hr'].includes(c)
+})
+
+// opcije za prikaz u radio grupi
+const paymentOptions = computed(() => {
+    return isCroatia.value ? paymentMethods : paymentMethods.filter((m) => m.value === 'card') // sakrij COD
+})
+
+watch(
+    () => state.country,
+    (val) => {
+        cartStore.setDestinationCountry(val || 'HR')
+    },
+    { immediate: true }
+)
+
 const submitForm = () => formRef.value?.submit()
 
 const config = useRuntimeConfig()
@@ -131,7 +153,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         user: user.value != null ? user.value : null,
         data: event.data,
         delivery: cartStore.selectedDeliveryOption,
-        priceOfDelivery: cartStore.paket24,
+        priceOfDelivery: cartStore.deliveryPrice,
         items: cartStore.cart_products,
         total: cartStore.totalPriceQuantity.total.toFixed(2),
         totalWithDelivery: cartStore.totalPriceWithDelivery.toFixed(2),
@@ -207,7 +229,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                             <URadioGroup
                                 color="blue"
                                 v-model="selectedPaymentMethod"
-                                :options="paymentMethods"
+                                :options="paymentOptions"
                                 :ui="{ fieldset: 'w-full flex flex-col' }"
                                 :uiRadio="{
                                     label: 'cursor-pointer py-3',
@@ -220,11 +242,15 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                                 <template #label="{ option }">
                                     <div class="flex items-center justify-between w-full">
                                         <p class="text-[#6B7280]">{{ option.label }}</p>
-
                                         <UIcon :name="option.icon" class="w-6 h-6 text-[#6B7280]" />
                                     </div>
                                 </template>
                             </URadioGroup>
+
+                            <!-- Neobavezno: kratka napomena korisniku -->
+                            <p v-if="!isCroatia" class="text-sm text-gray-500 mt-2">
+                                Plaćanje pouzećem dostupno je samo za narudžbe u Hrvatskoj.
+                            </p>
                         </div>
                     </div>
                 </div>
