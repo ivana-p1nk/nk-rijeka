@@ -586,5 +586,5 @@ li::marker {
 }
 
 button.cky-btn.cky-btn-customize{
-    @apply border-red-300!important;
+    border-color: rgb(249 156 158) !important;
 }
