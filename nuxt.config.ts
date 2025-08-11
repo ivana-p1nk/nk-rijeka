@@ -28,9 +28,9 @@ export default defineNuxtConfig({
             ],
             noscript: [
                 {
-                    hid: 'gtm-noscript',
                     innerHTML: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRVJ4LG9"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe>`
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+                        tagPosition: 'bodyOpen'
                 }
             ]
         },
