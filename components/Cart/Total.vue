@@ -13,16 +13,23 @@ const cartStore = useCartStore()
 const coupon = ref('')
 const emit = defineEmits(['useCoupon', 'selectedDelivery'])
 
-const options = [
+// helper za formatiranje
+const fmt = (n: number) => n.toFixed(2).replace('.', ',')
+
+// HR ili ne (po ISO kodu koji postavljaš u store)
+const isHR = computed(() => cartStore.destinationCountry === 'HR')
+
+// Opcije prikaza samo za HR (internacionalno nema odabira)
+const options = computed(() => [
     {
         value: 'free',
         label: 'Besplatna dostava iznad 50 €',
     },
     {
         value: 'paket24',
-        label: 'PAKET24 HRVATSKE POŠTE: ' + cartStore.paket24.toFixed(2).replace('.', ',') + ' €',
+        label: 'PAKET24 HRVATSKE POŠTE: ' + fmt(cartStore.paket24) + ' €',
     },
-]
+])
 
 const selected = computed({
     get: () => cartStore.selectedDeliveryOption,
@@ -40,14 +47,15 @@ const selected = computed({
         <div class="pt-2">
             <p class="flex items-center justify-between text-xl font-normal">
                 <span>UKUPNO:</span>
-                <span>{{ cartStore.totalPriceQuantity.total.toFixed(2).replace('.', ',') }} €</span>
+                <span>{{ fmt(cartStore.totalPriceQuantity.total) }} €</span>
             </p>
-            <p
-                class="flex items-center justify-between text-xl font-normal"
-                v-if="cartStore.totalPriceQuantity.total <= 50"
-            >
+
+            <p class="flex items-center justify-between text-xl font-normal">
                 <span>Dostava:</span>
-                <span>Besplatna dostava iznad 50,00 €</span>
+                <span>
+                    <template v-if="cartStore.deliveryPrice === 0">0,00 €</template>
+                    <template v-else>{{ fmt(cartStore.deliveryPrice) }} €</template>
+                </span>
             </p>
         </div>
 
@@ -94,20 +102,31 @@ const selected = computed({
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
 
-        <p class="text-xl font-normal mb-2">Dostava:</p>
-
-        <div v-if="cartStore.totalPriceQuantity.total >= 50">
-            <URadioGroup color="blue" v-model="selected" :options="options" />
+        <!-- HR: prikaz opcija (radio) kad je iznad 50 €, inače fiksni Paket24 + hint -->
+        <div v-if="isHR">
+            <div v-if="cartStore.totalPriceQuantity.total >= 50">
+                <URadioGroup color="blue" v-model="selected" :options="options" />
+            </div>
+            <div v-else>
+                <span
+                    >PAKET24 HRVATSKE POŠTE: <strong>{{ fmt(cartStore.paket24) }} €</strong></span
+                >
+            </div>
         </div>
+
+        <!-- Internacionalno: nema odabira, samo prikaži izračunatu cijenu ili "besplatna" -->
         <div v-else>
-            <span
-                >PAKET24 HRVATSKE POŠTE: <strong>{{ cartStore.paket24.toFixed(2).replace('.', ',') }} €</strong></span
-            >
+            <p class="mt-1">
+                <span v-if="cartStore.deliveryPrice === 0">Besplatna dostava</span>
+                <span v-else
+                    >Iznos dostave: <strong>{{ fmt(cartStore.deliveryPrice) }} €</strong></span
+                >
+            </p>
         </div>
 
-        <p class="flex items-center justify-between text-xl font-normal mt-2">
+        <p class="flex items-center justify-between text-xl font-normal mt-4">
             <span>Ukupno za plaćanje:</span>
-            <strong>{{ cartStore.totalPriceWithDelivery.toFixed(2).replace('.', ',') }} €</strong>
+            <strong>{{ fmt(cartStore.totalPriceWithDelivery) }} €</strong>
         </p>
 
         <div class="w-full h-[1px] bg-[#A9DCF7] my-4"></div>
@@ -130,7 +149,7 @@ const selected = computed({
                     <NuxtLink to="/zastita-podataka" class="link-plavi body4 underline font-semibold"
                         >pravilima privatnosti</NuxtLink
                     >
-                    <span class="text-red-500"> *</span>
+                    <span class="text-red-500">&nbsp;*</span>
                 </p>
             </template>
         </UCheckbox>
@@ -151,9 +170,3 @@ const selected = computed({
         </UButton>
     </div>
 </template>
-
-<style scoped>
-:deep(.form-input:focus) {
-    --tw-ring-color: #009ff5;
-}
-</style>

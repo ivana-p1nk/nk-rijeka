@@ -218,90 +218,157 @@ export const useCartStore = defineStore('cart_product', () => {
         )
     })
 
-    // Delivery price
-    const selectedDeliveryOption = ref<'free' | 'paket24'>('free')
-    const free_delivery = 50;
-    const paket24 = ref<number>(6)
-    const totalPriceWithDelivery = computed(() => {
-        return totalPriceQuantity.value.total + deliveryPrice.value
-    })
+    // ---------------------------
+  //  🇭🇷/🌍 DOSTAVA – NOVO (ISO)
+  // ---------------------------
 
-    const deliveryPrice = computed(() => {
-        const subtotal = totalPriceQuantity.value.total
-    
-        if (subtotal < free_delivery) {
-            selectedDeliveryOption.value = 'paket24' // force it if under 50 €
-            return paket24.value
-        }
-    
-        return selectedDeliveryOption.value === 'free' ? 0 : paket24.value
-    })
+  const destinationCountry = ref<string>('HR')
 
-    const changeDelivery = (delivery: 'free' | 'paket24') => {
-        selectedDeliveryOption.value = delivery
+  const setDestinationCountry = (iso2: string) => {
+    destinationCountry.value = (iso2 || '').toUpperCase()
+  }
+
+  const ISO_CROATIA = ['HR']
+
+  const ISO_EU = [
+    'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU',
+    'MT','NL','PL','PT','RO','SK','SI','ES','SE'
+  ]
+
+  const ISO_EUROPE_NON_EU = [
+    'AL','AD','BY','BA','IS','XK','LI','MD','MC','ME','MK','NO','SM','RS','CH','UA','GB','VA','GI'
+  ]
+
+  const ISO_US_CA = ['US', 'CA']
+
+  // Cjenik
+  const intlRates = {
+    eu:     { base: 40, freeFrom: 200 }, // EU (bez HR)
+    europe: { base: 45, freeFrom: 200 }, // ostale europske zemlje
+    usca:   { base: 50, freeFrom: 300 }, // SAD i Kanada
+    world:  { base: 60, freeFrom: 350 }, // ostatak svijeta
+  }
+
+  // Domaća (HR) pravila i opcije
+  const selectedDeliveryOption = ref<'free' | 'paket24'>('free')
+  const free_delivery_hr = 50
+  const paket24 = ref<number>(6)
+
+  const isCroatiaDest = computed(() => ISO_CROATIA.includes(destinationCountry.value))
+  const isEU = computed(() => ISO_EU.includes(destinationCountry.value) && !isCroatiaDest.value)
+  const isEuropeNonEU = computed(() => ISO_EUROPE_NON_EU.includes(destinationCountry.value))
+  const isUSCanada = computed(() => ISO_US_CA.includes(destinationCountry.value))
+
+  // Cijena dostave
+  const deliveryPrice = computed(() => {
+    const subtotal = totalPriceQuantity.value.total
+
+    // Hrvatska – zadržavamo postojeće opcije (free/paket24) i prag 50 €
+    if (isCroatiaDest.value) {
+      if (subtotal < free_delivery_hr) {
+        selectedDeliveryOption.value = 'paket24' // force ispod praga
+        return paket24.value
+      }
+      return selectedDeliveryOption.value === 'free' ? 0 : paket24.value
     }
 
-    const initializeCoupon = () => {
-        const couponData = localStorage.getItem('coupon')
-        if (couponData) {
-            coupon.value = JSON.parse(couponData)
-        }
+    // Međunarodno – automatski izračun
+    let base = 0
+    let freeFrom = 0
+
+    if (isEU.value) {
+      base = intlRates.eu.base
+      freeFrom = intlRates.eu.freeFrom
+    } else if (isEuropeNonEU.value) {
+      base = intlRates.europe.base
+      freeFrom = intlRates.europe.freeFrom
+    } else if (isUSCanada.value) {
+      base = intlRates.usca.base
+      freeFrom = intlRates.usca.freeFrom
+    } else {
+      base = intlRates.world.base
+      freeFrom = intlRates.world.freeFrom
     }
 
-    const addCoupon = (useCoupon: ICoupon) => {
-        coupon.value = useCoupon
-        localStorage.setItem('coupon', JSON.stringify(coupon.value))
+    return subtotal >= freeFrom ? 0 : base
+  })
+
+  const totalPriceWithDelivery = computed(() => {
+    return totalPriceQuantity.value.total + deliveryPrice.value
+  })
+
+  const changeDelivery = (delivery: 'free' | 'paket24') => {
+    // Odabir je smislen samo za HR
+    if (isCroatiaDest.value) selectedDeliveryOption.value = delivery
+  }
+
+  // Automatski toggle free/paket24 SAMO za HR
+  watch(
+    () => totalPriceQuantity.value.total,
+    (newTotal) => {
+      if (!isCroatiaDest.value) return
+      if (newTotal < free_delivery_hr) {
+        selectedDeliveryOption.value = 'paket24'
+      } else if (selectedDeliveryOption.value !== 'free') {
+        selectedDeliveryOption.value = 'free'
+      }
+    },
+    { immediate: true }
+  )
+
+  const initializeCoupon = () => {
+    const couponData = localStorage.getItem('coupon')
+    if (couponData) {
+      coupon.value = JSON.parse(couponData)
     }
+  }
 
-    const deleteCoupon = () => {
-        coupon.value = null
-        localStorage.setItem('coupon', JSON.stringify(coupon.value))
+  const addCoupon = (useCoupon: ICoupon) => {
+    coupon.value = useCoupon
+    localStorage.setItem('coupon', JSON.stringify(coupon.value))
+  }
+
+  const deleteCoupon = () => {
+    coupon.value = null
+    localStorage.setItem('coupon', JSON.stringify(coupon.value))
+  }
+
+  onMounted(() => {
+    initializeCartProducts()
+    initializeCoupon()
+  })
+
+  watch(
+    () => route.path,
+    () => {
+      orderQuantity.value = 1
     }
+  )
 
-    onMounted(() => {
-        initializeCartProducts()
-        initializeCoupon()
-    })
+  return {
+    addCartProduct,
+    cart_products,
+    quantityDecrement,
+    removeCartProduct,
+    clear_cart,
+    initialOrderQuantity,
+    totalPriceQuantity,
+    coupon,
+    addCoupon,
+    deleteCoupon,
+    orderQuantity,
+    increment,
+    decrement,
+    setInitialOrderQuantity,
+    setUserRole,
 
-    watch(
-        () => route.path,
-        () => {
-            orderQuantity.value = 1
-        }
-    )
-
-    watch(
-        () => totalPriceQuantity.value.total,
-        (newTotal) => {
-          if (newTotal < free_delivery) {
-            selectedDeliveryOption.value = 'paket24'
-          } else if (selectedDeliveryOption.value !== 'free') {
-            selectedDeliveryOption.value = 'free'
-          }
-        },
-        { immediate: true }
-      )
-
-    return {
-        addCartProduct,
-        cart_products,
-        quantityDecrement,
-        removeCartProduct,
-        clear_cart,
-        initialOrderQuantity,
-        totalPriceQuantity,
-        coupon,
-        addCoupon,
-        deleteCoupon,
-        orderQuantity,
-        increment,
-        decrement,
-        setInitialOrderQuantity,
-        setUserRole,
-        paket24,
-        deliveryPrice,
-        changeDelivery,
-        totalPriceWithDelivery,
-        selectedDeliveryOption
-    }
+    // NOVO – dostava
+    destinationCountry,
+    setDestinationCountry,
+    paket24,
+    deliveryPrice,
+    changeDelivery,
+    totalPriceWithDelivery,
+    selectedDeliveryOption,
+  }
 })
