@@ -576,3 +576,15 @@ li::marker {
         @apply h-fit;
     }
 }
+
+
+/*cookie banner*/
+.cky-consent-bar {
+    box-shadow: 0px 10px 15px 0px #0000001A;
+    border-width: 0 !important;
+    padding: 24px !important;
+}
+
+button.cky-btn.cky-btn-customize{
+    @apply border-red-300;
+}
