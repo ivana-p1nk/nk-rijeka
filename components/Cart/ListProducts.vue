@@ -33,14 +33,36 @@ const isLoggedIn = computed(() => !!user.value)
                     <p class="font-bold font-saira text-base lg:text-h6-normal pb-3">{{ item.title }}</p>
                     <p v-if="item.sku" class="text-sm text-blue-900"><span class="font-bold">MODEL:</span> {{ item.sku }}</p>
                     <p v-if="item.variationName" class="text-sm text-blue-900"><span class="font-bold">VELIČINA:</span> {{ item.variationName }}</p>
-                    <div v-if="item.textInput || item.numberInput" class="mt-2">
+                    <div v-if="item.textInput || item.numberInput || item.logoSelected" class="mt-2">
                     <p class="font-roboto text-body3 text-blue-600 font-bold">PERSONALIZIRANO</p>
-                    <p v-if="item.textInput?.trim() && Number(item.textInputAddonPrice) > 0" class="font-roboto text-body3 text-gray-900">
-                    <span class="font-bold">IME:</span>
-                    {{ item.textInput }} -
-                    {{ Number(item.textInputAddonPrice).toFixed(2).replace('.', ',') }} €
+                     <!-- IME -->
+                    <p
+                        v-if="item.textInput?.trim() && Number(item.textInputAddonPrice) > 0"
+                        class="font-roboto text-body3 text-gray-900"
+                    >
+                        <span class="font-bold">IME:</span>
+                        {{ item.textInput }} -
+                        {{ Number(item.textInputAddonPrice).toFixed(2).replace('.', ',') }} €
                     </p>
-                    <p class="font-roboto text-body3 text-gray-900"><span class="font-bold">BROJ:</span> {{ item.numberInput }} - {{ item.numberInputAddonPrice?.toFixed(2).replace('.', ',') }} €</p>
+
+                    <!-- BROJ -->
+                    <p
+                        v-if="item.numberInput && Number(item.numberInputAddonPrice) > 0"
+                        class="font-roboto text-body3 text-gray-900"
+                    >
+                        <span class="font-bold">BROJ:</span>
+                        {{ item.numberInput }} -
+                        {{ Number(item.numberInputAddonPrice).toFixed(2).replace('.', ',') }} €
+                    </p>
+
+                    <!-- LOGO -->
+                    <p
+                        v-if="item.logoSelected && Number(item.logoAddonPrice) > 0"
+                        class="font-roboto text-body3 text-gray-900"
+                    >
+                        <span class="font-bold">LOGO:</span>
+                        da - {{ Number(item.logoAddonPrice).toFixed(2).replace('.', ',') }} €
+                    </p>
                     </div>
                 </div>
             </div>

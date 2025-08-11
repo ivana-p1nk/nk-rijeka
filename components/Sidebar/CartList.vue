@@ -52,43 +52,38 @@
                                 <p class="font-saira font-bold text-h6-normal text-blue-900 mb-3">
                                     {{ item.title }}
                                 </p>
-                                <div class="flex flex-col">
-                                    <p v-if="item.sku != null" class="font-roboto text-body3 text-gray-900">
-                                        <span class="font-bold">MODEL:</span>
-                                        {{ item.sku }}
-                                    </p>
-                                    <p
-                                        v-if="item.variationId && item.variations"
-                                        class="font-roboto text-body3 text-gray-900"
-                                    >
-                                        <span class="font-bold">VELIČINA:</span>
-                                        {{ item.variations.find((v) => v.id === item.variationId)?.packaging }}
-                                    </p>
+                                <div v-if="item.textInput || item.numberInput || item.logoSelected">
+    <p class="font-roboto text-body3 text-blue-600">
+        <span class="font-bold"> PERSONALIZIRANO </span>
+    </p>
 
-                                    <div v-if="item.textInput || item.numberInput">
-                                        <p class="font-roboto text-body3 text-blue-600">
-                                            <span class="font-bold"> PERSONALIZIRANO </span>
-                                        </p>
-                                        <p
-                                            v-if="
-                                                item.textInput &&
-                                                item.textInputAddonPrice &&
-                                                item.textInputAddonPrice > 0
-                                            "
-                                            class="font-roboto text-body3 text-gray-900"
-                                        >
-                                            <span class="font-bold">IME:</span>
-                                            {{ item.textInput }} -
-                                            {{ item.textInputAddonPrice.toFixed(2).replace('.', ',') }} €
-                                        </p>
-                                        <p class="font-roboto text-body3 text-gray-900">
-                                            <span class="font-bold">BROJ:</span>
-                                            {{ item.numberInput }}
-                                            -
-                                            {{ item.numberInputAddonPrice?.toFixed(2).replace('.', ',') }} €
-                                        </p>
-                                    </div>
-                                </div>
+    <p
+        v-if="item.textInput && item.textInputAddonPrice && item.textInputAddonPrice > 0"
+        class="font-roboto text-body3 text-gray-900"
+    >
+        <span class="font-bold">IME:</span>
+        {{ item.textInput }} -
+        {{ item.textInputAddonPrice.toFixed(2).replace('.', ',') }} €
+    </p>
+
+    <p
+        v-if="item.numberInput && item.numberInputAddonPrice && item.numberInputAddonPrice > 0"
+        class="font-roboto text-body3 text-gray-900"
+    >
+        <span class="font-bold">BROJ:</span>
+        {{ item.numberInput }} -
+        {{ item.numberInputAddonPrice.toFixed(2).replace('.', ',') }} €
+    </p>
+
+    <p
+        v-if="item.logoSelected && item.logoAddonPrice && item.logoAddonPrice > 0"
+        class="font-roboto text-body3 text-gray-900"
+    >
+        <span class="font-bold">LOGO:</span>
+        da - {{ item.logoAddonPrice.toFixed(2).replace('.', ',') }} €
+    </p>
+</div>
+
                                 <!-- dvojna cijena -->
                                 <div>
                                     <p class="font-bold">

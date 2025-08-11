@@ -11,6 +11,9 @@ export interface IProduct {
     sku?: string
     type_product: string
     personalization_enable: boolean
+    personalization_name?: boolean
+    personalization_number?: boolean
+    personalization_logo?: boolean
     category: {
         id: number
         title: string
@@ -34,6 +37,9 @@ export interface IProduct {
         gallery?: string[]
         sku?: string
         personalization_enable: boolean
+        personalization_name?: boolean
+        personalization_number?: boolean
+        personalization_logo?: boolean
     }[]
     orderQuantity?: number
     related_products?: {

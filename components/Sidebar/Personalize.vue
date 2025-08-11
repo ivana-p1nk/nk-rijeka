@@ -25,12 +25,64 @@
 
                 <div v-if="product?.gallery?.length" class="bg-white rounded-lg p-3 border border-neutralBlue-100">
                     <img :src="product.gallery[0]" alt="Product Image" class="mx-auto rounded-lg max-w-full h-auto" />
-                </div>
+                </div> 
 
+                <!-- Input za ime -->
+<div v-if="product.personalization_name" class="mt-4 -mb-4">
+    <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
+    <input
+        id="textInput"
+        v-model="textInput"
+        type="text"
+        maxlength="12"
+        pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
+        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+        placeholder="Maksimalno 12 znakova"
+    />
+    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+        {{ textInputPrice.toFixed(2).replace('.', ',') }} €
+    </p>
+</div>
+
+<!-- Input za broj -->
+<div v-if="product.personalization_number" class="mt-4">
+    <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
+    <input
+        id="numberInput"
+        v-model="numberInput"
+        type="text"
+        maxlength="2"
+        pattern="[0-9]*"
+        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+        placeholder="Maksimalno 2 znaka"
+    />
+    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+        {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
+    </p>
+</div>
+
+
+<!-- Checkbox za logotip -->
+<div v-if="product.personalization_logo">
+    <p class="text-body3 text-blue-900 mb-1">Logo sponzora na rukavu</p>
+    <div class="flex items-center gap-2">
+        <input
+            id="logoCheckbox"
+            type="checkbox"
+            v-model="logoSelected"
+            class="w-5 h-5 border-blue-300 rounded-lg"
+        />
+        <label for="logoCheckbox" class="text-xs text-blue-900">Sponzor lige - Supersport</label>
+        <p class="text-xs text-blue-900 text-right ml-auto mr-2">
+            {{ logoPrice.toFixed(2).replace('.', ',') }} €
+        </p>
+    </div>
+</div>
+<!--
                 <div>
-                    <!-- Ako su samo hlačice -->
+                 
                     <div v-if="onlyNumberInput">
-                        <!-- Input za brojeve -->
+                      
                          <div class="mt-4">
                         <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
                         <input
@@ -48,9 +100,9 @@
                         </div>
                     </div>
 
-                    <!-- Inače prikaži oba -->
+                  
                     <div v-else>
-                        <!-- Input za slova -->
+                       
                         <div class="mt-4">
                             <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
                             <input
@@ -66,7 +118,7 @@
                                 {{ textInputPrice.toFixed(2).replace('.', ',') }} €
                             </p>
                         </div>
-                        <!-- Input za brojeve -->
+                       
                         <div>
                             <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
                             <input
@@ -85,7 +137,7 @@
                     </div>
 
                 </div>
-
+-->
                 <!-- Veličine -->
                 <div
                     v-if="product.variations && product.variations.length"
@@ -160,6 +212,7 @@
                         </UButton>
                     </template>
                 </div>
+                <p class="mt-5 text-xs text-blue-900">*Kod proizvoda s personalizacijom dostava traje par dana duže.</p>
             </div>
         </Offcanvas>
     </div>
@@ -184,9 +237,11 @@ const numberInput = ref('')
 const textInputPrice = ref(0)
 const numberInputPrice = ref(0)
 
-const onlyNumberInput = computed(() => {
-    const title = props.product?.title?.toLowerCase() || ''
-    return title.includes('hlačice')
+const logoSelected = ref(false)
+const logoPrice = ref(0)
+
+watch(logoSelected, (val) => {
+    logoPrice.value = val ? 5.3 : 0
 })
 
 watch(textInput, (val) => {
@@ -223,16 +278,14 @@ const updateVariation = (id: number) => {
 }
 
 const addToCart = () => {
-    const title = props.product?.title?.toLowerCase() || ''
-    const isOnlyNumber = title.includes('hlačice')
 
-    if (!isOnlyNumber && !/^[A-Za-zČĆŽŠĐčćžšđ ]{1,12}$/.test(textInput.value)) {
-        alert('Molim vas unesite samo slova - bez brojeva i posebnih znakova!')
+    if (props.product.personalization_name && /\d/.test(textInput.value)) {
+        alert('Molimo vas da u polje za ime unesite samo slova - bez brojeva!')
         return
     }
 
-    if (!/^[0-9]{1,2}$/.test(numberInput.value)) {
-        alert('Molim vas unesite samo broj - bez slova i posebnih znakova!')
+    if (props.product.personalization_number && /[^\d]/.test(numberInput.value)) {
+        alert('Molimo vas da u polje za broj unesite samo broj - bez slova!')
         return
     }
 
@@ -241,7 +294,7 @@ const addToCart = () => {
         return
     }
 
-    const totalPrice = textInputPrice.value + numberInputPrice.value
+    const totalPrice = textInputPrice.value + numberInputPrice.value + logoPrice.value
 
     const structureData = {
         ...props.product,
@@ -250,6 +303,8 @@ const addToCart = () => {
         personalizationPrice: totalPrice,
         textInputAddonPrice: textInputPrice.value,
         numberInputAddonPrice: numberInputPrice.value,
+        logoSelected: logoSelected.value,
+        logoAddonPrice: logoPrice.value,
     }
 
     cartStore.addCartProduct(structureData, selectedVariationId.value, true, user.value?.role ?? 'guest')
