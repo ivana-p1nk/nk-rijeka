@@ -50,7 +50,6 @@ const selected = computed({
                 <span>{{ fmt(cartStore.totalPriceQuantity.total) }} €</span>
             </p>
 
-            <!-- Uvijek pokaži konkretnu cijenu dostave iz store-a -->
             <p class="flex items-center justify-between text-xl font-normal">
                 <span>Dostava:</span>
                 <span>

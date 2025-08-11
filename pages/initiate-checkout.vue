@@ -247,7 +247,6 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                                 </template>
                             </URadioGroup>
 
-                            <!-- Neobavezno: kratka napomena korisniku -->
                             <p v-if="!isCroatia" class="text-sm text-gray-500 mt-2">
                                 Plaćanje pouzećem dostupno je samo za narudžbe u Hrvatskoj.
                             </p>

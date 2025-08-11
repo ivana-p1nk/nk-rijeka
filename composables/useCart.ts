@@ -222,14 +222,12 @@ export const useCartStore = defineStore('cart_product', () => {
   //  🇭🇷/🌍 DOSTAVA – NOVO (ISO)
   // ---------------------------
 
-  // (1) Odredišna država (ISO kod iz tvog JSON-a, npr. "HR", "DE", "US")
-  const destinationCountry = ref<string>('HR') // default HR dok forma ne postavi
+  const destinationCountry = ref<string>('HR')
 
   const setDestinationCountry = (iso2: string) => {
     destinationCountry.value = (iso2 || '').toUpperCase()
   }
 
-  // (2) Grupe zemalja po ISO kodovima
   const ISO_CROATIA = ['HR']
 
   const ISO_EU = [
@@ -243,26 +241,25 @@ export const useCartStore = defineStore('cart_product', () => {
 
   const ISO_US_CA = ['US', 'CA']
 
-  // (3) Cjenik
+  // Cjenik
   const intlRates = {
     eu:     { base: 40, freeFrom: 200 }, // EU (bez HR)
-    europe: { base: 45, freeFrom: 200 }, // ostale europske zemlje (non‑EU)
+    europe: { base: 45, freeFrom: 200 }, // ostale europske zemlje
     usca:   { base: 50, freeFrom: 300 }, // SAD i Kanada
     world:  { base: 60, freeFrom: 350 }, // ostatak svijeta
   }
 
-  // (4) Domaća (HR) pravila i opcije
+  // Domaća (HR) pravila i opcije
   const selectedDeliveryOption = ref<'free' | 'paket24'>('free')
   const free_delivery_hr = 50
   const paket24 = ref<number>(6)
 
-  // (5) Pomoćne detekcije
   const isCroatiaDest = computed(() => ISO_CROATIA.includes(destinationCountry.value))
   const isEU = computed(() => ISO_EU.includes(destinationCountry.value) && !isCroatiaDest.value)
   const isEuropeNonEU = computed(() => ISO_EUROPE_NON_EU.includes(destinationCountry.value))
   const isUSCanada = computed(() => ISO_US_CA.includes(destinationCountry.value))
 
-  // (6) Cijena dostave
+  // Cijena dostave
   const deliveryPrice = computed(() => {
     const subtotal = totalPriceQuantity.value.total
 
@@ -275,7 +272,7 @@ export const useCartStore = defineStore('cart_product', () => {
       return selectedDeliveryOption.value === 'free' ? 0 : paket24.value
     }
 
-    // Međunarodno – automatski izračun (nema ručnog odabira)
+    // Međunarodno – automatski izračun
     let base = 0
     let freeFrom = 0
 
@@ -318,8 +315,6 @@ export const useCartStore = defineStore('cart_product', () => {
     },
     { immediate: true }
   )
-
-    // ---------------------------
 
   const initializeCoupon = () => {
     const couponData = localStorage.getItem('coupon')
