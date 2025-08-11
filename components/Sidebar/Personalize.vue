@@ -28,116 +28,57 @@
                 </div> 
 
                 <!-- Input za ime -->
-<div v-if="product.personalization_name" class="mt-4 -mb-4">
-    <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
-    <input
-        id="textInput"
-        v-model="textInput"
-        type="text"
-        maxlength="12"
-        pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
-        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-        placeholder="Maksimalno 12 znakova"
-    />
-    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-        {{ textInputPrice.toFixed(2).replace('.', ',') }} €
-    </p>
-</div>
-
-<!-- Input za broj -->
-<div v-if="product.personalization_number" class="mt-4">
-    <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
-    <input
-        id="numberInput"
-        v-model="numberInput"
-        type="text"
-        maxlength="2"
-        pattern="[0-9]*"
-        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-        placeholder="Maksimalno 2 znaka"
-    />
-    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-        {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
-    </p>
-</div>
-
-
-<!-- Checkbox za logotip -->
-<div v-if="product.personalization_logo">
-    <p class="text-body3 text-blue-900 mb-1">Logo sponzora na rukavu</p>
-    <div class="flex items-center gap-2">
-        <input
-            id="logoCheckbox"
-            type="checkbox"
-            v-model="logoSelected"
-            class="w-5 h-5 border-blue-300 rounded-lg"
-        />
-        <label for="logoCheckbox" class="text-xs text-blue-900">Sponzor lige - Supersport</label>
-        <p class="text-xs text-blue-900 text-right ml-auto mr-2">
-            {{ logoPrice.toFixed(2).replace('.', ',') }} €
-        </p>
-    </div>
-</div>
-<!--
-                <div>
-                 
-                    <div v-if="onlyNumberInput">
-                      
-                         <div class="mt-4">
-                        <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
-                        <input
-                            id="numberInput"
-                            v-model="numberInput"
-                            type="text"
-                            maxlength="2"
-                            pattern="[0-9]*"
-                            class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-                            placeholder="Maksimalno 2 znaka"
-                        />
-                        <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-                            {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
-                        </p>
-                        </div>
-                    </div>
-
-                  
-                    <div v-else>
-                       
-                        <div class="mt-4">
-                            <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
-                            <input
-                                id="textInput"
-                                v-model="textInput"
-                                type="text"
-                                maxlength="12"
-                                pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
-                                class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-                                placeholder="Maksimalno 12 znakova"
-                            />
-                            <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-                                {{ textInputPrice.toFixed(2).replace('.', ',') }} €
-                            </p>
-                        </div>
-                       
-                        <div>
-                            <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
-                            <input
-                                id="numberInput"
-                                v-model="numberInput"
-                                type="text"
-                                maxlength="2"
-                                pattern="[0-9]*"
-                                class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
-                                placeholder="Maksimalno 2 znaka"
-                            />
-                            <p class="text-xs text-blue-900 text-right mt-1 mr-2">
-                                {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
-                            </p>
-                        </div>
-                    </div>
-
+                <div v-if="product.personalization_name" class="mt-4 -mb-4">
+                    <label for="textInput" class="block text-body3 text-blue-900 mb-1">Upiši ime</label>
+                    <input
+                        id="textInput"
+                        v-model="textInput"
+                        type="text"
+                        maxlength="12"
+                        pattern="[A-Za-zČĆŽŠĐčćžšđ ]*"
+                        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+                        placeholder="Maksimalno 12 znakova"
+                    />
+                    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                        {{ textInputPrice.toFixed(2).replace('.', ',') }} €
+                    </p>
                 </div>
--->
+
+                <!-- Input za broj -->
+                <div v-if="product.personalization_number" class="mt-4">
+                    <label for="numberInput" class="block text-body3 text-blue-900 mb-1">Upiši broj</label>
+                    <input
+                        id="numberInput"
+                        v-model="numberInput"
+                        type="text"
+                        maxlength="2"
+                        pattern="[0-9]*"
+                        class="input-style w-full border text-body3 border-neutralBlue-300 rounded-lg p-3 outline-none"
+                        placeholder="Maksimalno 2 znaka"
+                    />
+                    <p class="text-xs text-blue-900 text-right mt-1 mr-2">
+                        {{ numberInputPrice.toFixed(2).replace('.', ',') }} €
+                    </p>
+                </div>
+
+
+                <!-- Checkbox za logotip -->
+                <div v-if="product.personalization_logo">
+                    <p class="text-body3 text-blue-900 mb-1">Logo sponzora na rukavu</p>
+                    <div class="flex items-center gap-2">
+                        <input
+                            id="logoCheckbox"
+                            type="checkbox"
+                            v-model="logoSelected"
+                            class="w-5 h-5 border-blue-300 rounded-lg"
+                        />
+                        <label for="logoCheckbox" class="text-xs text-blue-900">Sponzor lige - Supersport</label>
+                        <p class="text-xs text-blue-900 text-right ml-auto mr-2">
+                            {{ logoPrice.toFixed(2).replace('.', ',') }} €
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Veličine -->
                 <div
                     v-if="product.variations && product.variations.length"
@@ -250,10 +191,12 @@ watch(textInput, (val) => {
 
 watch(numberInput, (val) => {
     const digits = val.trim()
+    const hasHlace = props.product.title?.toLowerCase().includes('hlačice')
+
     if (digits.length === 1) {
-        numberInputPrice.value = 5.3
+        numberInputPrice.value = hasHlace ? 2.65 : 5.3
     } else if (digits.length === 2) {
-        numberInputPrice.value = 10.6
+        numberInputPrice.value = hasHlace ? 5.3 : 10.6
     } else {
         numberInputPrice.value = 0
     }
