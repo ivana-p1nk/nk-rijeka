@@ -52,7 +52,7 @@ const handleClickOutside = (event: MouseEvent) => {
 
                     <!--navigacija-->
                     <div>
-                        <ul class="flex gap-10">
+                        <ul class="flex gap-5 xl:gap-10 ml-0 xl:ml-11">
                             <li class="heading">
                                 <NuxtLink
                                     to="#"
@@ -64,6 +64,14 @@ const handleClickOutside = (event: MouseEvent) => {
                                         :name="activetab === 'dresovi' ? 'mdi:chevron-up' : 'mdi:chevron-down'"
                                         :class="[activetab === 'dresovi' ? 'text-blue-500' : 'text-white', 'icon-link']"
                                     />
+                                </NuxtLink>
+                            </li>
+                            <li class="heading">
+                                <NuxtLink
+                                    to="/c/forza-fiume-premium"
+                                    class="flex items-center gap-2 group"
+                                >
+                                    <span>FORZA FIUME</span>
                                 </NuxtLink>
                             </li>
                             <li class="heading">
@@ -82,14 +90,14 @@ const handleClickOutside = (event: MouseEvent) => {
                             <li class="heading">
                                 <NuxtLink
                                     to="#"
-                                    @click.prevent="setActive('kolekcije')"
+                                    @click.prevent="setActive('joma')"
                                     class="flex items-center gap-2 group"
                                 >
-                                    <span :class="activetab === 'kolekcije' ? 'text-blue-500' : ''">KOLEKCIJE</span>
+                                    <span :class="activetab === 'joma' ? 'text-blue-500' : ''">JOMA</span>
                                     <Icon
-                                        :name="activetab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'"
+                                        :name="activetab === 'joma' ? 'mdi:chevron-up' : 'mdi:chevron-down'"
                                         :class="[
-                                            activetab === 'kolekcije' ? 'text-blue-500' : 'text-white',
+                                            activetab === 'joma' ? 'text-blue-500' : 'text-white',
                                             'icon-link',
                                         ]"
                                     />

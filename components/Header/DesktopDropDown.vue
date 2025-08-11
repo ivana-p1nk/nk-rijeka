@@ -42,7 +42,7 @@ const isInputActive = ref(false)
         class="dropdown-content overflow-hidden transition-all duration-300 ease-in-out will-change-[height]"
     >
         <!-- Dropdown sekcija za navigaciju -->
-        <div class="w-full max-w-[575px] mx-auto pt-7 pb-12 border-t border-customColors-200">
+        <div class="w-full max-w-[592px] xl:max-w-[638px] mx-auto pt-7 pb-12 border-t border-customColors-200">
             <Transition name="reveal">
                 <div
                     v-if="activetab === 'dresovi' && openMenu"
@@ -135,16 +135,14 @@ const isInputActive = ref(false)
 
             <Transition name="reveal">
                 <div
-                    v-if="activetab === 'kolekcije' && openMenu"
+                    v-if="activetab === 'joma' && openMenu"
                     :key="activetab"
                     ref="activeTabContentRef"
                     class="flex justify-between gap-4"
-                    id="kolekcije"
+                    id="joma"
                 >
                     <div class="basis-1/4">
-                        <h5 class="pb-4 heading-subtitle">JOMA</h5>
-                        <hr class="divider" />
-                        <ul class="flex flex-col gap-3 pt-4">
+                        <ul class="flex flex-col gap-3">
                             <li class="heading-sub">
                                 <a href="/c/joma/hlace" @click="closeTabMenu">Hlače</a>
                             </li>
@@ -162,33 +160,9 @@ const isInputActive = ref(false)
                             </li>
                         </ul>
                     </div>
-                    <div class="basis-1/4">
-                        <h5 class="pb-4 heading-subtitle">HOODICE</h5>
-                        <hr class="divider" />
-                        <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a>
-                            </li>
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a>
-                            </li>
-                            <li class="heading-sub">
-                                <a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="basis-1/4">
-                        <h5 class="pb-4 heading-subtitle">FORZA FIUME PREMIUM</h5>
-                        <hr class="divider" />
-                        <ul class="flex flex-col gap-3 pt-4">
-                            <li class="heading-sub">
-                                <a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a>
-                            </li>
-                        </ul>
-                    </div>
-                   
                 </div>
-            </Transition>
+            </Transition> 
+
 
             <Transition name="reveal">
                 <div

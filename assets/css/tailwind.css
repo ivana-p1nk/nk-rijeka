@@ -578,7 +578,7 @@ li::marker {
 }
 
 
-/*cookie banner*/
+/*cookie banner
 .cky-consent-bar {
     box-shadow: 0px 10px 15px 0px #0000001A;
     border-width: 0 !important;
@@ -586,5 +586,6 @@ li::marker {
 }
 
 button.cky-btn.cky-btn-customize{
-    border-color: rgb(249 156 158) !important;
-}
+    border-color: #58B6E7 !important;
+    border-radius: 8px;
+}*/

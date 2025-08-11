@@ -259,6 +259,9 @@
                                 <li class="pl-5 font-normal heading-sub"><a href="/c/dresovi/starije-sezone" @click="closeTabMenu">Starije sezone</a></li>
                             </template>
 
+                            <!-- FORZA FIUME -->
+                            <li class="font-normal heading-sub"><a href="/c/forza-fiume-premium">FORZA FIUME</a></li> 
+
                             <!-- ODJEĆA -->
                             <li>
                                 <a href="#" @click.prevent="setActive('odjeca')" class="flex items-center justify-between gap-2 mobile-nav group">
@@ -319,52 +322,19 @@
                             </template>
 
 
-                            <!-- KOLEKCIJE -->
+                            <!-- JOMA -->
                             <li>
-                                <a href="#" @click.prevent="setActive('kolekcije')" class="flex items-center justify-between gap-2 mobile-nav group">
-                                    <span :class="activeTab === 'kolekcije' ? 'text-blue-500' : ''">KOLEKCIJE</span>
-                                    <Icon :name="activeTab === 'kolekcije' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
+                                <a href="#" @click.prevent="setActive('joma')" class="flex items-center justify-between gap-2 mobile-nav group">
+                                    <span :class="activeTab === 'joma' ? 'text-blue-500' : ''">JOMA</span>
+                                    <Icon :name="activeTab === 'joma' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
                                 </a>
                             </li>
-                            <template v-if="activeTab === 'kolekcije'">
-                                <!-- Joma -->
-                                <li>
-                                    <a href="#" @click.prevent="setSubActive('joma')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
-                                        <span :class="subActive === 'joma' ? 'text-blue-500' : ''">JOMA</span>
-                                        <Icon :name="subActive === 'joma' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </a>
-                                </li>
-                                <template v-if="subActive === 'joma'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/joma/hlace" @click="closeTabMenu">Hlače</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/joma/majice" @click="closeTabMenu">Majice</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/joma/jakne" @click="closeTabMenu">Jakne</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/joma/lopte" @click="closeTabMenu">Lopte</a></li>
-                                </template>
-                                <!-- hudice -->
-                                <li>
-                                    <a href="#" @click.prevent="setSubActive('novehudice')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
-                                        <span :class="subActive === 'novehudice' ? 'text-blue-500' : ''">HOODICE</span>
-                                        <Icon :name="subActive === 'novehudice' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </a>
-                                </li>
-                                <template v-if="subActive === 'novehudice'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=muskarci" @click="closeTabMenu">Muškarci</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=zene" @click="closeTabMenu">Žene</a></li>
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/odjeca/hoodice?ageGender=djeca" @click="closeTabMenu">Djeca</a></li>
-                                </template>
-                                <!-- Forza fiume premium-->
-                                <li>
-                                    <a href="#" @click.prevent="setSubActive('forza')" class="flex items-center justify-between gap-2 pl-5 mobile-nav group">
-                                        <span :class="subActive === 'forza' ? 'text-blue-500' : ''">FORZA FIUME PREMIUM</span>
-                                        <Icon :name="subActive === 'forza' ? 'mdi:chevron-up' : 'mdi:chevron-down'" />
-                                    </a>
-                                </li>
-                                <template v-if="subActive === 'forza'">
-                                    <li class="font-normal heading-sub pl-9"><a href="/c/forza-fiume-premium" @click="closeTabMenu">Pogledaj kolekciju</a></li>
-                                </template>
-                                
-
+                            <template v-if="activeTab === 'joma'">
+                                    <li class="pl-5 font-normal heading-sub"><a href="/c/joma/hlace" @click="closeTabMenu">Hlače</a></li>
+                                    <li class="pl-5 font-normal heading-sub"><a href="/c/joma/majice" @click="closeTabMenu">Majice</a></li>
+                                    <li class="pl-5 font-normal heading-sub"><a href="/c/joma/trenerke" @click="closeTabMenu">Trenerke</a></li>
+                                    <li class="pl-5 font-normal heading-sub"><a href="/c/joma/jakne" @click="closeTabMenu">Jakne</a></li>
+                                    <li class="pl-5 font-normal heading-sub"><a href="/c/joma/lopte" @click="closeTabMenu">Lopte</a></li>
                             </template>
 
                             <!-- POKLONI -->
