@@ -123,15 +123,19 @@ const isCroatia = computed(() => {
     return ['hr'].includes(c)
 })
 
-// opcije za prikaz u radio grupi
 const paymentOptions = computed(() => {
-    return isCroatia.value ? paymentMethods : paymentMethods.filter((m) => m.value === 'card') // sakrij COD
+    // sakrij COD ako nije HR ili ako košarica sadrži personalizaciju
+    return !isCroatia.value || cartStore.cartHasPersonalization
+        ? paymentMethods.filter((m) => m.value === 'card')
+        : paymentMethods
 })
 
 watch(
-    () => state.country,
-    (val) => {
-        cartStore.setDestinationCountry(val || 'HR')
+    [() => state.country, () => cartStore.cartHasPersonalization],
+    () => {
+        if (!isCroatia.value || cartStore.cartHasPersonalization) {
+            selectedPaymentMethod.value = 'card'
+        }
     },
     { immediate: true }
 )
