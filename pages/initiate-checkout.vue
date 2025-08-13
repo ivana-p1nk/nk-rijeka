@@ -132,10 +132,12 @@ const paymentOptions = computed(() => {
 
 watch(
     [() => state.country, () => cartStore.cartHasPersonalization],
-    () => {
+    (val) => {
         if (!isCroatia.value || cartStore.cartHasPersonalization) {
             selectedPaymentMethod.value = 'card'
         }
+
+        cartStore.setDestinationCountry(val[0] || 'HR')
     },
     { immediate: true }
 )
