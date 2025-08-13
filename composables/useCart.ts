@@ -306,6 +306,8 @@ export const useCartStore = defineStore('cart_product', () => {
       freeFrom = intlRates.world.freeFrom
     }
 
+    console.log(subtotal, freeFrom, base)
+
     return subtotal >= freeFrom ? 0 : base
   })
 
