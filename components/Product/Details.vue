@@ -292,7 +292,7 @@ const twitterShare = computed(
                     <div class="mt-7 pb-7">
                         <!--Količina-->
                         <div v-if="product.variations && product.variations.length">
-                            <div v-if="selectedVariation?.quantity == 0">
+                            <div v-if="selectedVariation && selectedVariation.quantity <= 0">
                                 <div
                                     class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit"
                                 >
