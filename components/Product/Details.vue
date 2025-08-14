@@ -34,27 +34,47 @@ const isInCategory2 = computed(() => {
 })
 
 const addToCart = () => {
-    if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
-        alert('Molimo odaberite veličinu prije dodavanja u košaricu.')
-        return
+  if (props.product.variations && props.product.variations.length && selectedVariationId.value === null) {
+    alert('Molimo odaberite veličinu prije dodavanja u košaricu.')
+    return
+  }
+
+  const ok = cartStore.addCartProduct(
+    props.product,
+    selectedVariationId.value ?? undefined,
+    undefined,
+    user.value?.role ?? 'guest'
+  )
+
+  //store vraća false ako se prođe količina zalihe
+  if (ok === false) {
+    const stock = selectedVariation.value?.quantity ?? props.product.quantity ?? 0
+
+    const existing = cartStore.cart_products
+        .filter((p: any) => p.id === props.product.id && (p.variationId ?? null) === (selectedVariationId.value ?? null))
+        .reduce((s: number, p: any) => s + Number(p.orderQuantity ?? 0), 0)
+
+    let message = `Na zalihi je ${stock} kom.`
+
+    if (existing > 0) {
+        message += `\nU košarici već imaš ${existing}.`
     }
 
-    cartStore.addCartProduct(
-        props.product,
-        selectedVariationId.value ?? undefined,
-        undefined,
-        user.value?.role ?? 'guest'
-    )
+    message += `\nNe možeš dodati više.`
 
-    toast.add({
-        icon: 'solar:check-circle-broken',
-        title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
-        description: `Kliknite ovdje za pregled košarice`,
-        color: 'green',
-        click: () => {
-            router.push('/initiate-checkout/')
-        },
-    })
+    alert(message)
+    return
+    }
+
+  toast.add({
+    icon: 'solar:check-circle-broken',
+    title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
+    description: `Kliknite ovdje za pregled košarice`,
+    color: 'green',
+    click: () => {
+      router.push('/initiate-checkout/')
+    },
+  })
 }
 
 onMounted(() => {

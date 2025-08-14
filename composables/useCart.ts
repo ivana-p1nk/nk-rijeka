@@ -18,6 +18,23 @@ interface CartProduct extends IProduct {
 export const useCartStore = defineStore('cart_product', () => {
     const route = useRoute()
     let cart_products = ref<CartProduct[]>([])
+
+    // Provjera koliko komada proizvoda/varijacije je već u košarici
+    const getInCartQty = (productId: number, variationId?: number) => {
+      return cart_products.value
+        .filter(p => p.id === productId && (p.variationId ?? null) === (variationId ?? null))
+        .reduce((sum, p) => sum + Number(p.orderQuantity ?? 0), 0)
+    }
+
+    // Maksimalna zaliha za proizvod/varijaciju
+    const getMaxStock = (product: IProduct, variationId?: number) => {
+      if (typeof variationId === 'number') {
+        const v = product.variations?.find(v => v.id === variationId)
+        return typeof v?.quantity === 'number' ? v.quantity : Infinity
+      }
+      return typeof product.quantity === 'number' ? product.quantity : Infinity
+    }
+
     let orderQuantity = ref<number>(1)
     const userRole = ref<string | null>(null)
 
@@ -94,6 +111,16 @@ export const useCartStore = defineStore('cart_product', () => {
 
         if (isPersonalization) {
             productPrice = productPrice + (payload.personalizationPrice || 0)
+        }
+
+        // Provjera da ukupna količina u košarici ne pređe preko zalihe
+        const wanted = orderQuantity.value !== 1 ? orderQuantity.value : 1
+        const currentInCart = getInCartQty(payload.id, variationId)
+        const maxStock = getMaxStock(payload, variationId)
+
+        if (Number.isFinite(maxStock) && currentInCart + wanted > maxStock) {
+          // nema dodavanja preko zalihe
+          return false
         }
 
         const isExist = cart_products.value.some(

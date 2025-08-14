@@ -206,64 +206,87 @@ const props = defineProps<{ product: IProduct; selectedVariationId: number | nul
 const emit = defineEmits(['update-selected-variation'])
 const cartStore = useCartStore()
 
-const selectedVariation = computed(() =>
-    props.product.variations?.find(v => v.id === selectedVariationId.value) || null
-)
-
 const show = ref(false)
+
 const selectedVariationId = computed({
-    get: () => props.selectedVariationId,
-    set: (val) => emit('update-selected-variation', val),
+  get: () => props.selectedVariationId,
+  set: (val) => emit('update-selected-variation', val),
 })
+
+const selectedVariation = computed(() =>
+  props.product.variations?.find(v => v.id === selectedVariationId.value) || null
+)
 
 const updateVariation = (id: number) => {
     selectedVariationId.value = id
 }
 
 const addToCart = () => {
+  if (props.product.personalization_name && /\d/.test(textInput.value)) {
+    alert('Molimo vas da u polje za ime unesite samo slova - bez brojeva!')
+    return
+  }
 
-    if (props.product.personalization_name && /\d/.test(textInput.value)) {
-        alert('Molimo vas da u polje za ime unesite samo slova - bez brojeva!')
-        return
+  if (props.product.personalization_number && /[^\d]/.test(numberInput.value)) {
+    alert('Molimo vas da u polje za broj unesite samo broj - bez slova!')
+    return
+  }
+
+  if (!selectedVariationId.value) {
+    alert('Molimo odaberite veličinu prije dodavanja u košaricu.')
+    return
+  }
+
+  const totalPrice = textInputPrice.value + numberInputPrice.value + logoPrice.value
+
+  const structureData = {
+    ...props.product,
+    textInput: textInput.value,
+    numberInput: numberInput.value,
+    personalizationPrice: totalPrice,
+    textInputAddonPrice: textInputPrice.value,
+    numberInputAddonPrice: numberInputPrice.value,
+    logoSelected: logoSelected.value,
+    logoAddonPrice: logoPrice.value,
+  }
+
+  //store vraća false ako se prođe količina zalihe
+  const ok = cartStore.addCartProduct(
+    structureData,
+    selectedVariationId.value,
+    true,
+    user.value?.role ?? 'guest'
+  )
+
+  if (ok === false) {
+    const stock = selectedVariation.value?.quantity ?? props.product.quantity ?? 0
+
+    const existing = cartStore.cart_products
+        .filter((p: any) => p.id === props.product.id && (p.variationId ?? null) === (selectedVariationId.value ?? null))
+        .reduce((s: number, p: any) => s + Number(p.orderQuantity ?? 0), 0)
+
+    let message = `Na zalihi je ${stock} kom.`
+
+    if (existing > 0) {
+        message += `\nU košarici već imaš ${existing}.`
     }
 
-    if (props.product.personalization_number && /[^\d]/.test(numberInput.value)) {
-        alert('Molimo vas da u polje za broj unesite samo broj - bez slova!')
-        return
+    message += `\nNe možeš dodati više.`
+
+    alert(message)
+    return
     }
 
-    if (!selectedVariationId.value) {
-        alert('Molimo odaberite veličinu prije dodavanja u košaricu.')
-        return
-    }
+  textInput.value = ''
+  numberInput.value = ''
+  show.value = false
 
-    const totalPrice = textInputPrice.value + numberInputPrice.value + logoPrice.value
-
-    const structureData = {
-        ...props.product,
-        textInput: textInput.value,
-        numberInput: numberInput.value,
-        personalizationPrice: totalPrice,
-        textInputAddonPrice: textInputPrice.value,
-        numberInputAddonPrice: numberInputPrice.value,
-        logoSelected: logoSelected.value,
-        logoAddonPrice: logoPrice.value,
-    }
-
-    cartStore.addCartProduct(structureData, selectedVariationId.value, true, user.value?.role ?? 'guest')
-
-    textInput.value = ''
-    numberInput.value = ''
-    show.value = false
-
-    toast.add({
-        icon: 'solar:check-circle-broken',
-        title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
-        description: `Kliknite ovdje za pregled košarice`,
-        color: 'green',
-        click: () => {
-            router.push('/initiate-checkout/')
-        },
-    })
+  toast.add({
+    icon: 'solar:check-circle-broken',
+    title: `Proizvod "${props.product.title}" je uspješno dodan u vašu košaricu.`,
+    description: `Kliknite ovdje za pregled košarice`,
+    color: 'green',
+    click: () => router.push('/initiate-checkout/'),
+  })
 }
 </script>
