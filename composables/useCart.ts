@@ -12,6 +12,7 @@ interface CartProduct extends IProduct {
     numberInputAddonPrice?: number
     discountPrice?: number
     totalPrice?: number
+    hasPersonalization?: boolean
 }
 
 export const useCartStore = defineStore('cart_product', () => {
@@ -103,6 +104,8 @@ export const useCartStore = defineStore('cart_product', () => {
                 i.numberInput === payload.numberInput
         )
 
+        const hasPers = !!isPersonalization || !!payload.personalizationPrice ||!!payload.textInput?.trim() || !!payload.numberInput?.trim() || !!payload.textInputAddonPrice || !!payload.numberInputAddonPrice
+
         if (!isExist) {
             const newItem = {
                 ...payload,
@@ -111,6 +114,7 @@ export const useCartStore = defineStore('cart_product', () => {
                 variationId: variationId,
                 variationName: variationName,
                 orderQuantity: orderQuantity.value != 1 ? orderQuantity.value : 1,
+                hasPersonalization: hasPers,
             }
             cart_products.value.push(newItem)
         } else {
@@ -127,6 +131,7 @@ export const useCartStore = defineStore('cart_product', () => {
                                 ? orderQuantity.value + item.orderQuantity
                                 : item.orderQuantity + 1
                     }
+                    item.hasPersonalization = item.hasPersonalization || hasPers
                 }
                 return { ...item }
             })
@@ -134,6 +139,17 @@ export const useCartStore = defineStore('cart_product', () => {
 
         localStorage.setItem('cart_products', JSON.stringify(cart_products.value))
     }
+
+    const cartHasPersonalization = computed(() =>
+      cart_products.value.some(i =>
+        i.hasPersonalization ||
+        !!i.personalizationPrice ||
+        !!i.textInput?.trim() ||
+        !!i.numberInput?.trim() ||
+        !!i.textInputAddonPrice ||
+        !!i.numberInputAddonPrice
+      )
+    )
 
     const setInitialOrderQuantity = (min: number = 1) => {
         orderQuantity.value = min
@@ -370,5 +386,6 @@ export const useCartStore = defineStore('cart_product', () => {
     changeDelivery,
     totalPriceWithDelivery,
     selectedDeliveryOption,
+    cartHasPersonalization
   }
 })
