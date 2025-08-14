@@ -109,7 +109,7 @@
 
                 <div class="flex flex-row justify-between">
                     <!-- količina -->
-                    <div v-if="selectedVariation && selectedVariation.quantity === 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
+                    <div v-if="selectedVariation && selectedVariation.quantity <= 0" class="bg-red-500 text-label1 font-saira font-semibold text-white rounded-lg py-3 px-5 w-fit">
                         RASPRODANO
                     </div>
                     <template v-else>
