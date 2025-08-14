@@ -114,6 +114,34 @@ const state = reactive({
     anotherStreetAddress: undefined,
 })
 
+// helper: detektiraj Hrvatsku i slične zapise
+const isCroatia = computed(() => {
+    const c = (state.country || '').toLowerCase().trim()
+    if (!c) return false
+    // podržane varijante unosa
+    if (c.includes('hr')) return true
+    return ['hr'].includes(c)
+})
+
+const paymentOptions = computed(() => {
+    // sakrij COD ako nije HR ili ako košarica sadrži personalizaciju
+    return !isCroatia.value || cartStore.cartHasPersonalization
+        ? paymentMethods.filter((m) => m.value === 'card')
+        : paymentMethods
+})
+
+watch(
+    [() => state.country, () => cartStore.cartHasPersonalization],
+    (val) => {
+        if (!isCroatia.value || cartStore.cartHasPersonalization) {
+            selectedPaymentMethod.value = 'card'
+        }
+
+        cartStore.setDestinationCountry(val[0] || 'HR')
+    },
+    { immediate: true }
+)
+
 const submitForm = () => formRef.value?.submit()
 
 const config = useRuntimeConfig()
@@ -131,7 +159,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
         user: user.value != null ? user.value : null,
         data: event.data,
         delivery: cartStore.selectedDeliveryOption,
-        priceOfDelivery: cartStore.paket24,
+        priceOfDelivery: cartStore.deliveryPrice,
         items: cartStore.cart_products,
         total: cartStore.totalPriceQuantity.total.toFixed(2),
         totalWithDelivery: cartStore.totalPriceWithDelivery.toFixed(2),
@@ -207,7 +235,7 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                             <URadioGroup
                                 color="blue"
                                 v-model="selectedPaymentMethod"
-                                :options="paymentMethods"
+                                :options="paymentOptions"
                                 :ui="{ fieldset: 'w-full flex flex-col' }"
                                 :uiRadio="{
                                     label: 'cursor-pointer py-3',
@@ -220,11 +248,14 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
                                 <template #label="{ option }">
                                     <div class="flex items-center justify-between w-full">
                                         <p class="text-[#6B7280]">{{ option.label }}</p>
-
                                         <UIcon :name="option.icon" class="w-6 h-6 text-[#6B7280]" />
                                     </div>
                                 </template>
                             </URadioGroup>
+
+                            <p v-if="!isCroatia" class="text-sm text-gray-500 mt-2">
+                                Plaćanje pouzećem dostupno je samo za narudžbe u Hrvatskoj.
+                            </p>
                         </div>
                     </div>
                 </div>
