@@ -184,10 +184,9 @@ async function handleOnSubmit(event: FormSubmitEvent<Schema>) {
 
             loadingForm.value = false
         })
-
         .catch((err) => {
             toast.add({
-                title: 'greška, javite se korisničkoj podršci.',
+                title: err.response.data.message,
                 color: 'red',
                 timeout: 3000,
             })
