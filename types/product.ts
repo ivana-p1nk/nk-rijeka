@@ -6,6 +6,7 @@ export interface IProduct {
     member_price: number
     minimum_quantity: number
     quantity: number
+    quantity_sum: number
     description: string
     gallery: string[]
     sku?: string

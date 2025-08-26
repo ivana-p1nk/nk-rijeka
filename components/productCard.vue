@@ -75,7 +75,12 @@ const addToCart = () => {
             </div>
 
             <div class="flex flex-row justify-center gap-2 pt-6">
-                <p  :class="['font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal', product.price_discount ? 'line-through' : '']">
+                <p
+                    :class="[
+                        'font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal',
+                        product.price_discount ? 'line-through' : '',
+                    ]"
+                >
                     {{ product.price.toFixed(2).replace('.', ',') }} €
                 </p>
                 <span class="font-bold text-blue-900 font-saira text-[15px] sm:text-h6-normal">|</span>
@@ -137,14 +142,14 @@ const addToCart = () => {
                 </NuxtLink>
 
                 <div
-                    v-if="product.quantity == 0"
+                    v-if="product.quantity_sum <= 0"
                     class="bg-red-500 font-saira font-semibold text-white rounded-md py-2 sm:text-[15px] text-[10px]"
                 >
                     RASPRODANO
                 </div>
 
                 <UButton
-                    v-if="product.variations?.length < 1 && product.quantity > 0"
+                    v-if="product.variations?.length < 1 && product.quantity_sum > 0"
                     @click="addToCart"
                     size="lg"
                     variant="solid"
