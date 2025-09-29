@@ -159,6 +159,7 @@
                 <img class="pr-3" src="~/assets/images/logos/maestro.png" alt="Maestro Logo" />
                 <img class="pr-3" src="~/assets/images/logos/discover.png" alt="Discover Network Logo" />
                 <img class="pr-3" src="~/assets/images/logos/dina.png" alt="DinaCard Logo" />
+                <img class="pr-3" src="~/assets/images/logos/keks.png" alt="KeksPay Logo" />
                 <img class="pr-3" src="~/assets/images/logos/wspay.png" alt="WS Pay Logo" />
             </div>
         </div>
