@@ -15,6 +15,7 @@ export interface IProduct {
     personalization_name?: boolean
     personalization_number?: boolean
     personalization_logo?: boolean
+    status: string
     category: {
         id: number
         title: string
